@@ -1,0 +1,33 @@
+IVI DRIVER EXPORT
+=================
+
+Prefix: tkafg3k
+Version: 2.1.2 
+Perforce location: //InstrumentDriver/Drivers/IVI/Certified/FGen/tkafg3k/export/2.1.2/...
+
+TRUNK
+-----
+
+Perforce location: //InstrumentDriver/Drivers/IVI/Certified/FGen/tkafg3k/trunk/...@1202850511 (2008/02/12 15:08:31)
+
+Build Machine: IDIVITEST1.amer.corp.natinst.com
+User Name: Juanita Palomar(jpalomar@amer.corp.natinst.com)
+
+CHANGELISTS
+-----------
+
+The following changes were made to the trunk since the last export:
+
+Change 2214357 on 2008/02/12 15:08:31 by jpalomar@jpalomar'adding to new structure
+'
+
+ADEs
+----
+
+The following ADEs were used to build this export:
+
+LabWindows/CVI 8.5.0
+LabVIEW 7.1.0
+LabVIEW 8.0.1
+LabVIEW 8.2.1
+LabVIEW 8.5.1

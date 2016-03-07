@@ -1,0 +1,1470 @@
+FPAttributeValueFile
+
+n  SubType="IVI" 
+
+n  SubVersion="1" 
+
+v attrAMInternalWaveformRangeTable DataType="i" 
+ TKAFG1K_VAL_AM_INTERNAL_SINE (1)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a sinusoid waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_SQUARE (2)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a square waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_TRIANGLE (3)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a triangle waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_RAMP_UP (4)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a positive ramp waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_RAMP_DOWN (5)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a negative ramp waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_PRN (1001)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a noise waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER1 (1002)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER2 (1003)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user2 waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER3 (1004)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user3 waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER4 (1005)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user4 waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_EMEM (1006)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a EMEMory waveform."
+
+
+v attrAMSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_AM_INTERNAL (0)
+  "Configures the function generator to modulate the carrier waveform with "
+  "its internal AM Modulating Source."
+
+ TKAFG1K_VAL_AM_EXTERNAL (1)
+  "Configures the function generator to modulate the carrier waveform with "
+  "its external AM Modulating Source."
+
+
+v attrActiveOneMemoryRangeTable DataType="i" 
+ TKAFG1K_VAL_OUTPUT_EMEM (0)
+  "Specifies the Edit Memory of the function generator."
+
+
+v attrArbWaveformHandleRangeTable DataType="i" 
+ TKAFG1K_VAL_WFM_USER1 (10000)
+  "Configures the function generator to produce a user1 waveform."
+
+ TKAFG1K_VAL_WFM_USER2 (10001)
+  "Configures the function generator to produce a user2 waveform."
+
+ TKAFG1K_VAL_WFM_USER3 (10002)
+  "Configures the function generator to produce a user3 waveform."
+
+ TKAFG1K_VAL_WFM_USER4 (10003)
+  "Configures the function generator to produce a user4 waveform."
+
+ TKAFG1K_VAL_WFM_EMEM (10011)
+  "Configures the function generator to produce a Edit Memory waveform."
+
+
+v attrBurstModeRangeTable DataType="i" 
+ TKAFG1K_VAL_BURST_TRIGGER (1)
+  "Triggered mode is selected for burst mode."
+
+ TKAFG1K_VAL_BURST_GATE (2)
+  "Gated mode is selected for burst mode."
+
+
+v attrFMInternalWaveformRangeTable DataType="i" 
+ TKAFG1K_VAL_FM_INTERNAL_SINE (1)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a sinusoid waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_SQUARE (2)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a square waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_TRIANGLE (3)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a triangle waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_RAMP_UP (4)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a positive ramp waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_RAMP_DOWN (5)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a negative ramp waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_PRN (1001)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a noise waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_USER1 (1002)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a user1 waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_USER2 (1003)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a user2 waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_USER3 (1004)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a user3 waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_USER4 (1005)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a user4 waveform."
+
+ TKAFG1K_VAL_FM_INTERNAL_EMEM (1006)
+  "Configures the function generator to modulate the carrier signal's "
+  "frequency with a Edit Memory waveform."
+
+
+v attrFMSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_FM_INTERNAL (0)
+  "Configures the function generator to modulate the carrier waveform with "
+  "its internal FM Modulating Source."
+
+ TKAFG1K_VAL_FM_EXTERNAL (1)
+  "Configures the function generator to modulate the carrier waveform with "
+  "its external FM Modulating Source."
+
+
+v attrFSKSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_FSK_INTERNAL (0)
+  "The carrier waveform is modulated with an internal source."
+
+ TKAFG1K_VAL_FSK_EXTERNAL (1)
+  "The carrier waveform is modulated with an external source."
+
+
+v attrFuncWaveformRangeTable DataType="i" 
+ TKAFG1K_VAL_WFM_SINE (1)
+  "Configures the function generator to produce a sinusoid waveform."
+
+ TKAFG1K_VAL_WFM_SQUARE (2)
+  "Configures the function generator to produce a square waveform."
+
+ TKAFG1K_VAL_WFM_DC (6)
+  "Configures the function generator to produce a constant voltage."
+
+ TKAFG1K_VAL_WFM_RAMP (1001)
+  "Configures the function generator to produce a ramp waveform."
+
+ TKAFG1K_VAL_WFM_PULS (1002)
+  "Configures the function generator to produce a pulse waveform."
+
+ TKAFG1K_VAL_WFM_PRN (1003)
+  "Configures the function generator to produce a prnoise waveform."
+
+ TKAFG1K_VAL_WFM_SINC (1004)
+  "Configures the function generator to produce a sinc waveform."
+
+ TKAFG1K_VAL_WFM_GAUS (1005)
+  "Configures the function generator to produce a gaussian waveform."
+
+ TKAFG1K_VAL_WFM_LOR (1006)
+  "Configures the function generator to produce a lorentz waveform."
+
+ TKAFG1K_VAL_WFM_ERIS (1007)
+  "Configures the function generator to produce a erise waveform."
+
+ TKAFG1K_VAL_WFM_EDEC (1008)
+  "Configures the function generator to produce a edecay waveform."
+
+ TKAFG1K_VAL_WFM_HAV (1009)
+  "Configures the function generator to produce a haversine waveform."
+
+
+v attrModelRangeTable DataType="i" 
+ TKAFG1K_VAL_MODEL_AFG1022 (0)
+  "Specifies the function generator AFG1022."
+
+ TKAFG1K_VAL_MODEL_AFG1062 (1)
+  "Specifies the function generator AFG1062."
+
+
+v attrOperationModeRangeTable DataType="i" 
+ TKAFG1K_VAL_OPERATE_CONTINUOUS (0)
+  "Configures the function generator to produce waveforms continuously."
+
+ TKAFG1K_VAL_OPERATE_MODULATION (1001)
+  "the function generator use a certain method to modulate output signal. "
+  "Current instrument driver support the following modulation types:\n"
+  "- AM ( Amplitude Modulation )\n"
+  "- FM ( Frequency Modulation )\n"
+  "- PM ( Phase Modulation )\n"
+  "- FSK ( Frequency Shift Key Modulation )\n"
+  "- PWM ( Pulse Width Modulation )"
+
+ TKAFG1K_VAL_OPERATE_SWEEP (1002)
+  "Sets the instrument to sweep mode. You could use the following function "
+  "to configure sweep mode parameters.\n"
+  "\n"
+  "- tkafg1k_ConfigureSweep \n"
+  "- tkafg1k_ConfigureSweepEx\n"
+  "\n"
+  "In place of using this function, you can set the following attributes:    "
+  "                            \n"
+  "TKAFG1K_ATTR_SWEEP_START_FREQUENCY                     \n"
+  "TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY                      \n"
+  "TKAFG1K_ATTR_SWEEP_TIME\n"
+  "TKAFG1K_ATTR_SWEEP_HOLD_TIME                            \n"
+  "TKAFG1K_ATTR_SWEEP_RETURN_TIME\n"
+  "TKAFG1K_ATTR_SWEEP_TYPE"
+
+ TKAFG1K_VAL_OPERATE_BURST (1)
+  "Configures the function generator to produce a discrete number of "
+  "waveform cycles when a trigger occurs."
+
+
+v attrOriginalModulationRangeTable DataType="i" 
+ TKAFG1K_VAL_MODULATION_AM (0)
+  "Configures the function generator to AM modulation type."
+
+ TKAFG1K_VAL_MODULATION_FM (1)
+  "Configures the function generator to FM modulation type."
+
+ TKAFG1K_VAL_MODULATION_PM (2)
+  "Configures the function generator to PM modulation type."
+
+ TKAFG1K_VAL_MODULATION_FSK (3)
+  "Configures the function generator to FSK modulation type."
+
+ TKAFG1K_VAL_MODULATION_PWM (4)
+  "Configures the function generator to PWM modulation type."
+
+
+v attrOutputModeRangeTable DataType="i" 
+ TKAFG1K_VAL_OUTPUT_FUNC (0)
+  "Configures the function generator to produce standard waveforms."
+
+ TKAFG1K_VAL_OUTPUT_ARB (1)
+  "Configures the function generator to produce arbitrary waveforms."
+
+
+v attrPMInternalWaveformRangeTable DataType="i" 
+ TKAFG1K_VAL_PM_INTERNAL_SINE (1)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a sinusoid waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_SQUARE (2)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a square waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_TRIANGLE (3)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a triangle waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_RAMP_UP (4)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a ramp up waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_RAMP_DOWN (5)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a ramp down waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_PRN (100)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a noise waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER1 (200)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a user1 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER2 (201)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a user2 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER3 (202)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a user3 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER4 (203)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a user4 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_EMEM (204)
+  "Configures the function generator to modulate the carrier signal's phase "
+  "with a edit memory waveform."
+
+
+v attrPMSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_PM_INTERNAL (0)
+  "The carrier waveform is modulated with an internal source."
+
+ TKAFG1K_VAL_PM_EXTERNAL (1)
+  "The carrier waveform is modulated with an external source."
+
+
+v attrPWMInternalWaveformRangeTable DataType="i" 
+ TKAFG1K_VAL_PWM_INTERNAL_SINE (1)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a sinusoid waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_SQUARE (2)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a square waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_TRIANGLE (3)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a triangle waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_RAMP_UP (4)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a ramp up waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_RAMP_DOWN (5)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a ramp down waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_PRN (100)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a noise waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER1 (200)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a user1 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER2 (201)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a user2 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER3 (202)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a user3 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER4 (203)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a user4 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_EMEM (204)
+  "Configures the function generator to modulate the carrier signal's "
+  "pulse-width with a edit memory waveform."
+
+
+v attrPWMSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_PWM_INTERNAL (0)
+  "The carrier waveform is modulated with the internal source."
+
+ TKAFG1K_VAL_PWM_EXTERNAL (1)
+  "The carrier waveform is modulated with the internal source."
+
+
+v attrRefClockSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_REF_CLOCK_INTERNAL (0)
+  "The function generator produces the reference clock internally."
+
+ TKAFG1K_VAL_REF_CLOCK_EXTERNAL (1)
+  "The function generator receives the reference clock signal from an "
+  "external source."
+
+
+v attrWaveformRangeTable DataType="i" 
+ TKAFG1K_VAL_WFM_SINE (1)
+  "Configures the function generator with a sinusoid waveform."
+
+ TKAFG1K_VAL_WFM_SQUARE (2)
+  "Configures the function generator with a square waveform."
+
+ TKAFG1K_VAL_WFM_DC (6)
+  "Configures the function generator with a constant waveform."
+
+ TKAFG1K_VAL_WFM_RAMP (1001)
+  "Configures the function generator with a ramp waveform."
+
+ TKAFG1K_VAL_WFM_PULS (1002)
+  "Configures the function generator with a pulse waveform."
+
+ TKAFG1K_VAL_WFM_PRN (1003)
+  "Configures the function generator with a noise waveform."
+
+ TKAFG1K_VAL_WFM_SINC (1004)
+  "Configures the function generator with a sinc waveform."
+
+ TKAFG1K_VAL_WFM_GAUS (1005)
+  "Configures the function generator with a gaussian waveform."
+
+ TKAFG1K_VAL_WFM_LOR (1006)
+  "Configures the function generator with a lorentz waveform."
+
+ TKAFG1K_VAL_WFM_ERIS (1007)
+  "Configures the function generator with a exponential rise waveform."
+
+ TKAFG1K_VAL_WFM_EDEC (1008)
+  "Configures the function generator with a exponential decay waveform."
+
+ TKAFG1K_VAL_WFM_HAV (1009)
+  "Configures the function generator with a haversine waveform."
+
+ TKAFG1K_VAL_WFM_USER1 (10000)
+  "Configures the function generator with a user1 waveform."
+
+ TKAFG1K_VAL_WFM_USER2 (10001)
+  "Configures the function generator with a user2 waveform."
+
+ TKAFG1K_VAL_WFM_USER3 (10002)
+  "Configures the function generator with a user3 waveform."
+
+ TKAFG1K_VAL_WFM_USER4 (10003)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_EMEM (10011)
+  "Configures the function generator with a Edit Memory waveform."
+
+
+v Boolean_values DataType="i" 
+ VI_TRUE (1)
+  "True"
+
+ VI_FALSE (0)
+  "False"
+
+
+0 tkafg1k_SetAttributeViInt32 3 4 false s DataType="ViInt32" 
+0 tkafg1k_GetAttributeViInt32 3 4 false g DataType="ViInt32" 
+0 tkafg1k_CheckAttributeViInt32 3 4 false s DataType="ViInt32" 
+0 tkafg1k_SetAttributeViReal64 3 4 false s DataType="ViReal64" 
+0 tkafg1k_GetAttributeViReal64 3 4 false g DataType="ViReal64" 
+0 tkafg1k_CheckAttributeViReal64 3 4 false s DataType="ViReal64" 
+0 tkafg1k_SetAttributeViSession 3 4 false s DataType="ViSession" 
+0 tkafg1k_GetAttributeViSession 3 4 false g DataType="ViSession" 
+0 tkafg1k_CheckAttributeViSession 3 4 false s DataType="ViSession" 
+0 tkafg1k_SetAttributeViBoolean 3 4 false s DataType="ViBoolean" 
+0 tkafg1k_GetAttributeViBoolean 3 5 false g DataType="ViBoolean" 
+0 tkafg1k_CheckAttributeViBoolean 3 4 false s DataType="ViBoolean" 
+0 tkafg1k_SetAttributeViString 3 4 false s DataType="ViString" 
+0 tkafg1k_GetAttributeViString 3 4 false g DataType="ViString" 
+0 tkafg1k_CheckAttributeViString 3 4 false s DataType="ViString" 
+
+1 all "Inherent IVI Attributes" 
+ "Attributes common to all IVI instrument drivers."
+
+2 all "User Options" 
+ "Attributes you can set to affect the operation of this instrument driver.\n"
+ "    "
+
+3 all "Range Check" TKAFG1K_ATTR_RANGE_CHECK ViBoolean gs Boolean_values 
+ "Specifies whether to validate attribute values and function parameters.  "
+ "If enabled, the instrument driver validates the parameter values that you "
+ "pass to driver functions.  Range checking parameters is very useful for "
+ "debugging.  After you validate your program, you can set this attribute to "
+ "VI_FALSE to disable range checking and maximize performance.\n"
+ "    The default value is VI_TRUE.  Use the tkafg1k_InitWithOptions "
+ "function to override this value.\n"
+ "\n"
+ "Attribute Value: 1050002"
+
+3 all "Query Instrument Status" TKAFG1K_ATTR_QUERY_INSTRUMENT_STATUS ViBoolean gs Boolean_values 
+ "Specifies whether the instrument driver queries the instrument status "
+ "after each operation.  Querying the instrument status is very useful for "
+ "debugging.  After you validate your program, you can set this attribute to "
+ "VI_FALSE to disable status checking and maximize performance\n"
+ "    The instrument driver can choose to ignore status checking for "
+ "particular attributes regardless of the setting of this attribute.\n"
+ "    The default value is VI_FALSE.  Use the tkafg1k_InitWithOptions "
+ "function to override this value.\n"
+ "\n"
+ "Attribute Value: 1050003"
+
+3 all "Cache" TKAFG1K_ATTR_CACHE ViBoolean gs Boolean_values 
+ "Specifies whether to cache the value of attributes.  When caching is "
+ "enabled, the instrument driver keeps track of the current instrument "
+ "settings and avoids sending redundant commands to the instrument.  Thus, "
+ "you can significantly increase execution speed.\n"
+ "    The instrument driver can choose always to cache or never to cache "
+ "particular attributes regardless of the setting of this attribute.\n"
+ "    The default value is VI_TRUE.  Use the tkafg1k_InitWithOptions "
+ "function to override this value.\n"
+ "\n"
+ "Attribute Value: 1050004"
+
+3 all "Simulate" TKAFG1K_ATTR_SIMULATE ViBoolean gs Boolean_values 
+ "Specifies whether or not to simulate instrument driver I/O operations.  If "
+ "simulation is enabled, instrument driver functions perform range checking "
+ "and call Ivi_GetAttribute and Ivi_SetAttribute functions, but they do not "
+ "perform instrument I/O.  For output parameters that represent instrument "
+ "data, the instrument driver functions return calculated values.\n"
+ "    The default value is VI_FALSE.  Use the tkafg1k_InitWithOptions "
+ "function to override this value.\n"
+ "\n"
+ "Attribute Value: 1050005"
+
+3 all "Record Value Coercions" TKAFG1K_ATTR_RECORD_COERCIONS ViBoolean gs Boolean_values 
+ "Specifies whether the IVI engine keeps a list of the value coercions it "
+ "makes for integer and real type attributes.  You call tkafg1k Get Next "
+ "Coercion Record to extract and delete the oldest coercion record from the "
+ "list.\n"
+ "    The default value is VI_FALSE.  Use the tkafg1k_InitWithOptions "
+ "function to override this value.\n"
+ "\n"
+ "Attribute Value: 1050006"
+
+3 all "Interchange Check" TKAFG1K_ATTR_INTERCHANGE_CHECK ViBoolean gs Boolean_values 
+ "Specifies whether to perform interchangeability checking and retrieve "
+ "interchangeability warnings.\n"
+ "\n"
+ "The default value is VI_FALSE.\n"
+ "\n"
+ "Interchangeability warnings indicate that using your application with a "
+ "different instrument might cause different behavior.  You call tkafg1k Get "
+ "Next Interchange Warning to extract interchange warnings.  Call the "
+ "tkafg1k_ClearInterchangeWarnings function to clear the list of "
+ "interchangeability warnings without reading them.\n"
+ "Interchangeability checking logs a warning for each attribute you have not "
+ "set that affects the behavior of the instrument.\n"
+ "\n"
+ "Attribute Value: 1050021"
+
+2 all "Driver Identification" 
+ "Attributes that provide identity and version information about this "
+ "instrument driver.\n"
+ "    "
+
+3 all "Description" TKAFG1K_ATTR_SPECIFIC_DRIVER_DESCRIPTION ViString g 
+ "A string that contains a brief description of the specific driver.\n"
+ "\n"
+ "Attribute Value: 1050514"
+
+3 all "Driver Prefix" TKAFG1K_ATTR_SPECIFIC_DRIVER_PREFIX ViString g 
+ "A string that contains the prefix for the instrument driver.  The name of "
+ "each user-callable function in this driver starts with this prefix.\n"
+ "\n"
+ "Attribute Value: 1050302"
+
+3 all "Driver Vendor" TKAFG1K_ATTR_SPECIFIC_DRIVER_VENDOR ViString g 
+ "A string that contains the name of the vendor that supplies this driver.\n"
+ "\n"
+ "Attribute Value: 1050513"
+
+3 all "Revision" TKAFG1K_ATTR_SPECIFIC_DRIVER_REVISION ViString g 
+ "A string that contains additional version information about this "
+ "instrument driver.\n"
+ "\n"
+ "Attribute Value: 1050551"
+
+3 all "Class Specification Major Version" TKAFG1K_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MAJOR_VERSION ViInt32 g 
+ "The major version number of the class specification with which this driver "
+ "is compliant.\n"
+ "\n"
+ "Attribute Value: 1050515"
+
+3 all "Class Specification Minor Version" TKAFG1K_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MINOR_VERSION ViInt32 g 
+ "The minor version number of the class specification with which this driver "
+ "is compliant.\n"
+ "\n"
+ "Attribute Value: 1050516"
+
+2 all "Driver Capabilities" 
+ "Attributes that provide information about the capabilities of this "
+ "instrument driver.\n"
+ "    "
+
+3 all "Supported Instrument Models" TKAFG1K_ATTR_SUPPORTED_INSTRUMENT_MODELS ViString g 
+ "Contains a model code of the instrument. For drivers that support more "
+ "than one device, this attribute contains a comma-separated list of "
+ "supported instrument models.\n"
+ "\n"
+ "Attribute Value: 1050327"
+
+3 all "Class Group Capabilities" TKAFG1K_ATTR_GROUP_CAPABILITIES ViString g 
+ "A string that contains a comma-separated list of class-extention groups "
+ "that this driver implements.\n"
+ "\n"
+ "Attribute Value: 1050401"
+
+3 all "Number of Channels" TKAFG1K_ATTR_CHANNEL_COUNT ViInt32 g 
+ "Indicates the number of channels that the specific instrument driver "
+ "supports.  \n"
+ "    For each attribute for which the IVI_VAL_MULTI_CHANNEL flag attribute "
+ "is set, the IVI engine maintains a separate cache value for each channel.\n"
+ "\n"
+ "Attribute Value: 1050203"
+
+2 all "Instrument Identification" 
+ "Attributes that provide identity information about the instrument that you "
+ "are using.    "
+
+3 all "Manufacturer" TKAFG1K_ATTR_INSTRUMENT_MANUFACTURER ViString g 
+ "A string that contains the name of the instrument manufacturer you are "
+ "currently using.\n"
+ "\n"
+ "Attribute Value: 1050511"
+
+3 all "Model" TKAFG1K_ATTR_INSTRUMENT_MODEL ViString g 
+ "A string that contains the model number or name of the instrument that you "
+ "are currently using.\n"
+ "\n"
+ "Attribute Value: 1050512"
+
+3 all "Firmware Revision" TKAFG1K_ATTR_INSTRUMENT_FIRMWARE_REVISION ViString g 
+ "A string that contains the firmware revision information for the "
+ "instrument you are currently using.\n"
+ "\n"
+ "Attribute Value: 1050510"
+
+2 all "Advanced Session Information" 
+ "Attributes that contain additional information concerning the instrument "
+ "driver session.      "
+
+3 all "Logical Name" TKAFG1K_ATTR_LOGICAL_NAME ViString g 
+ "A string containing the logical name you specified when opening the "
+ "current IVI session.\n"
+ "     You may pass a logical name to the tkafg1k_init or "
+ "tkafg1k_InitWithOptions functions.  The IVI Configuration utility must "
+ "contain an entry for the logical name.  The logical name entry refers to a "
+ "virtual instrument section in the IVI Configuration file.  The virtual "
+ "instrument section specifies a physical device and initial user options.\n"
+ "\n"
+ "Attribute Value: 1050305"
+
+3 all "I/O Resource Descriptor" TKAFG1K_ATTR_IO_RESOURCE_DESCRIPTOR ViString g 
+ "Indicates the resource descriptor the driver uses to identify the physical "
+ "device.\n"
+ "    If you initialize the driver with a logical name, this attribute "
+ "contains the resource descriptor that corresponds to the entry in the IVI "
+ "Configuration utility.  \n"
+ "    If you initialize the instrument driver with the resource descriptor, "
+ "this attribute contains that value.\n"
+ "\n"
+ "Attribute Value: 1050304"
+
+3 all "Driver Setup" TKAFG1K_ATTR_DRIVER_SETUP ViString g 
+ "Some cases exist where you must specify instrument driver options at "
+ "initialization time.  An example of this is specifying a particular "
+ "instrument model from among a family of instruments that the driver "
+ "supports.  This is useful when using simulation.  You can specify "
+ "driver-specific options through the DriverSetup keyword in the "
+ "optionsString parameter to the tkafg1k_InitWithOptions function.  If you "
+ "open an instrument using a logical name, you can also specify the options "
+ "through the IVI Configuration Utility.\n"
+ "    The default value is an empty string.\n"
+ "\n"
+ "Attribute Value: 1050007"
+
+1 all "Basic Operation" 
+ "Attributes that control the basic features of the function generator."
+
+2 all "Operation Mode" TKAFG1K_ATTR_OPERATION_MODE ViInt32 gs attrOperationModeRangeTable 
+ "This channel-based attribute determines how the function generator "
+ "produces waveforms.\n"
+ "\n"
+ "When you set this parameter to TKAFG1K_VAL_OPERATE_CONTINUOUS, the "
+ "function generator continuously produces an output signal.\n"
+ "\n"
+ "When you set this parameter to TKAFG1K_VAL_OPERATE_MODULATION, the "
+ "function generator use a certain method to modulate output signal. Current "
+ "instrument driver support the following modulation types:\n"
+ "- AM ( Amplitude Modulation )\n"
+ "- FM ( Frequency Modulation )\n"
+ "- PM ( Phase Modulation )\n"
+ "- FSK ( Frequency Shift Key Modulation )\n"
+ "- PWM ( Pulse Width Modulation )\n"
+ "\n"
+ "When you set this parameter to TKAFG1K_VAL_OPERATE_SWEEP, you \n"
+ "set the instrument to sweep mode. You could use the following function to "
+ "configure sweep mode parameters.\n"
+ "\n"
+ "- tkafg1k_ConfigureSweep \n"
+ "- tkafg1k_ConfigureSweepEx\n"
+ "\n"
+ "In place of using this function, you can set the following attributes:     "
+ "                           \n"
+ "TKAFG1K_ATTR_SWEEP_START_FREQUENCY                     \n"
+ "TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY                      \n"
+ "TKAFG1K_ATTR_SWEEP_TIME\n"
+ "TKAFG1K_ATTR_SWEEP_HOLD_TIME                            \n"
+ "TKAFG1K_ATTR_SWEEP_RETURN_TIME\n"
+ "TKAFG1K_ATTR_SWEEP_TYPE\n"
+ "\n"
+ "When you set this parameter to TKAFG1K_VAL_OPERATE_BURST, you set the "
+ "instrument to burst mode. You could use the following function to "
+ "configure burst mode attributes:\n"
+ "\n"
+ "- tkafg1k_ConfigureBurstCount\n"
+ "- tkafg1k_ConfigureBurstMode\n"
+ "\n"
+ "Attribute Value: 1250005"
+
+2 all "Output Mode" TKAFG1K_ATTR_OUTPUT_MODE ViInt32 gs attrOutputModeRangeTable 
+ "Determines the kind of waveform the function generator produces.  The "
+ "value you specify determines which functions and attributes you use to "
+ "configure the waveform the function generator produces.\n"
+ "    When you set this parameter to TKAFG1K_VAL_OUTPUT_FUNC, you use the "
+ "following function to configure the waveform:\n"
+ "\n"
+ "- tkafg1k_ConfigureStandardWaveform\n"
+ "- tkafg1k_ConfigureRampSymmetry\n"
+ "- tkafg1k_ConfigurePulseWaveform\n"
+ "- tkafg1k_ConfigurePulseDelay\n"
+ "\n"
+ "In place of using this function, you can set the following attributes:\n"
+ "\n"
+ "- TKAFG1K_ATTR_FUNC_WAVEFORM     \n"
+ "- TKAFG1K_ATTR_FUNC_AMPLITUDE \n"
+ "- TKAFG1K_ATTR_FUNC_DC_OFFSET   \n"
+ "- TKAFG1K_ATTR_FUNC_FREQUENCY \n"
+ "- TKAFG1K_ATTR_FUNC_START_PHASE   \n"
+ "- TKAFG1K_ATTR_FUNC_DUTY_CYCLE_HIGH\n"
+ "- TKAFG1K_ATTR_FUNC_RAMP_SYMMETRY                         \n"
+ "- TKAFG1K_ATTR_PULSE_DUTY_CYCLE    \n"
+ "- TKAFG1K_ATTR_PULSE_LEAD_DELAY \n"
+ "- TKAFG1K_ATTR_PULSE_PERIOD                               \n"
+ "- TKAFG1K_ATTR_PULSE_LEADING_TIME                         \n"
+ "- TKAFG1K_ATTR_PULSE_TRAILING_TIME\n"
+ "\n"
+ "When you set this parameter to TKAFG1K_VAL_OUTPUT_ARB, you use the "
+ "following functions to configure the waveform:\n"
+ "\n"
+ "- tkafg1k_QueryArbWfmCapabilities\n"
+ "- tkafg1k_CreateArbWaveform\n"
+ "- tkafg1k_CreateLineInterpolateArbWfm\n"
+ "- tkafg1k_CreateStandardShapeArbWfm  \n"
+ "- tkafg1k_ClearArbWaveform\n"
+ "- tkafg1k_ConfigureSampleRate\n"
+ "- tkafg1k_ConfigureArbWaveform \n"
+ "\n"
+ "In place of using the tkafg1k_ConfigureSampleRate and "
+ "tkafg1k_ConfigureArbWaveform functions, you can set the following "
+ "attributes:\n"
+ "\n"
+ "- TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE  \n"
+ "- TKAFG1K_ATTR_ARB_GAIN\n"
+ "- TKAFG1K_ATTR_ARB_OFFSET  \n"
+ "- TKAFG1K_ATTR_ARB_SAMPLE_RATE\n"
+ "\n"
+ "Attribute Value: 1250001"
+
+2 all "Output Mode By Channel" TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL ViInt32 gs attrOutputModeRangeTable 
+ "This channel-based attribute determines the kind of waveform the function "
+ "generator produces based on channel.  The value you specify determines "
+ "which functions and attributes you use to configure the waveform the "
+ "function generator produces.\n"
+ "    When you set this parameter to TKAFG1K_VAL_OUTPUT_FUNC, you use the "
+ "following function to configure the waveform:\n"
+ "\n"
+ "- tkafg1k_ConfigureStandardWaveform\n"
+ "- tkafg1k_ConfigureRampSymmetry\n"
+ "- tkafg1k_ConfigurePulseWaveform\n"
+ "- tkafg1k_ConfigurePulseDelay\n"
+ "\n"
+ "In place of using this function, you can set the following attributes:\n"
+ "\n"
+ "- TKAFG1K_ATTR_FUNC_WAVEFORM     \n"
+ "- TKAFG1K_ATTR_FUNC_AMPLITUDE \n"
+ "- TKAFG1K_ATTR_FUNC_DC_OFFSET   \n"
+ "- TKAFG1K_ATTR_FUNC_FREQUENCY \n"
+ "- TKAFG1K_ATTR_FUNC_START_PHASE   \n"
+ "- TKAFG1K_ATTR_FUNC_DUTY_CYCLE_HIGH\n"
+ "- TKAFG1K_ATTR_FUNC_RAMP_SYMMETRY                         \n"
+ "- TKAFG1K_ATTR_PULSE_DUTY_CYCLE    \n"
+ "- TKAFG1K_ATTR_PULSE_LEAD_DELAY \n"
+ "- TKAFG1K_ATTR_PULSE_PERIOD                               \n"
+ "- TKAFG1K_ATTR_PULSE_LEADING_TIME                         \n"
+ "- TKAFG1K_ATTR_PULSE_TRAILING_TIME\n"
+ "\n"
+ "When you set this parameter to TKAFG1K_VAL_OUTPUT_ARB, you use the "
+ "following functions to configure the waveform:\n"
+ "\n"
+ "- tkafg1k_QueryArbWfmCapabilities\n"
+ "- tkafg1k_CreateArbWaveform\n"
+ "- tkafg1k_CreateLineInterpolateArbWfm\n"
+ "- tkafg1k_CreateStandardShapeArbWfm  \n"
+ "- tkafg1k_ClearArbWaveform\n"
+ "- tkafg1k_ConfigureSampleRate\n"
+ "- tkafg1k_ConfigureArbWaveform \n"
+ "\n"
+ "In place of using the tkafg1k_ConfigureSampleRate and "
+ "tkafg1k_ConfigureArbWaveform functions, you can set the following "
+ "attributes:\n"
+ "\n"
+ "- TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE  \n"
+ "- TKAFG1K_ATTR_ARB_GAIN\n"
+ "- TKAFG1K_ATTR_ARB_OFFSET  \n"
+ "- TKAFG1K_ATTR_ARB_SAMPLE_RATE\n"
+ "\n"
+ "Attribute Value: 1150002"
+
+2 all "Output Enabled" TKAFG1K_ATTR_OUTPUT_ENABLED ViBoolean gs Boolean_values 
+ "This channel-based attribute specifies whether the signal the function "
+ "generator produces appears at the output connector.\n"
+ "\n"
+ "Attribute Value: 1250003"
+
+2 all "Output Impedance" TKAFG1K_ATTR_OUTPUT_IMPEDANCE ViReal64 gs 
+ "This channel-based attribute specifies the function generator's output "
+ "impedance at the output connector.  A value of 0.0 indicates that the "
+ "function generator is in the impedance of INFINITY, or you can use defined "
+ "macro TKAFG1K_VAL_IMPEDANCE_INFINITY instead.\n"
+ "\n"
+ "Attribute Value: 1250004"
+
+2 all "Continuous Enabled" TKAFG1K_ATTR_CONTINUOUS_ENABLED ViBoolean hidden Boolean_values 
+ "This channel-based attributes determines whether to enable continuous mode "
+ "for operation mode. When you enable continuous mode, the function "
+ "generator produces signal continuously.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program.\n"
+
+1 all "Standard Function Output" 
+ "Attributes for generating standard function waveform output.  You use this "
+ "group of attributes when you set the tkafg1k_ATTR_OUTPUT_MODE attribute to "
+ "tkafg1k_VAL_OUTPUT_FUNC.  You can use the "
+ "tkafg1k_ConfigureStandardWaveform function to set all these attributes "
+ "except tkafg1k_ATTR_FUNC_DUTY_CYCLE_HIGH."
+
+2 all "Waveform" TKAFG1K_ATTR_FUNC_WAVEFORM ViInt32 gs attrFuncWaveformRangeTable 
+ "This channel-based attribute specifies which standard waveform the "
+ "function generator produces.\n"
+ "    You use this attribute only when the TKAFG1K_ATTR_OUTPUT_MODE "
+ "attribute is set to TKAFG1K_VAL_OUTPUT_FUNC.\n"
+ "\n"
+ "Attribute Value: 1250101"
+
+2 all "Amplitude" TKAFG1K_ATTR_FUNC_AMPLITUDE ViReal64 gs 
+ "This channel-based attribute specifies the amplitude of the standard "
+ "waveform the function generator produces.  This value is the amplitude at "
+ "the output terminal.  The units are volts peak-to-peak (Vpp).  For "
+ "example, to produce a waveform ranging from -5.0 to +5.0 volts, you set "
+ "this value to 10.0 volts.\n"
+ "    You use this attribute only when the TKAFG1K_ATTR_OUTPUT_MODE "
+ "attribute is set to TKAFG1K_VAL_OUTPUT_FUNC.  This attribute does not "
+ "affect function generator behavior when you set the "
+ "TKAFG1K_ATTR_FUNC_WAVEFORM attribute to TKAFG1K_VAL_WFM_DC.\n"
+ "\n"
+ "Attribute Value: 1250102"
+
+2 all "DC Offset" TKAFG1K_ATTR_FUNC_DC_OFFSET ViReal64 gs 
+ "This channel-based attribute specifies the DC offset of the standard "
+ "waveform the function generator produces.  This value is the offset at the "
+ "output terminal.  The units are volts (V).  The value is the offset from "
+ "ground to the center of the waveform you specify with the "
+ "TKAFG1K_ATTR_FUNC_WAVEFORM attribute.  For example, a standard waveform "
+ "ranging from +5.0 volts to 0.0 volts has a DC offset of 2.5 volts.\n"
+ "    You use this attribute only when the TKAFG1K_ATTR_OUTPUT_MODE "
+ "attribute is set to TKAFG1K_VAL_OUTPUT_FUNC.\n"
+ "\n"
+ "Attribute Value: 1250103"
+
+2 all "Frequency" TKAFG1K_ATTR_FUNC_FREQUENCY ViReal64 gs 
+ "This channel-based attribute specifies the frequency of the standard "
+ "waveform the function generator produces.  The units are hertz (Hz).  You "
+ "use this attribute only when the TKAFG1K_ATTR_OUTPUT_MODE attribute is set "
+ "to TKAFG1K_VAL_OUTPUT_FUNC.\n"
+ "    This attribute does not affect function generator behavior when you "
+ "set the TKAFG1K_ATTR_FUNC_WAVEFORM attribute to TKAFG1K_VAL_WFM_DC or "
+ "TKAFG1K_VAL_WFM_PRN.\n"
+ "\n"
+ "Attribute Value: 1250104"
+
+2 all "Start Phase" TKAFG1K_ATTR_FUNC_START_PHASE ViReal64 gs 
+ "This channel-based attribute specifies the horizontal offset of the "
+ "standard waveform the function generator produces.  You specify this "
+ "attribute in degrees of one waveform cycle.  For example, a 180 degree "
+ "phase offset means output generation begins half way through the waveform. "
+ " A start phase of 360 degrees offsets the output by an entire waveform "
+ "cycle.  It is therefore identical to a start phase of 0 degrees.\n"
+ "    You use this attribute only when the TKAFG1K_ATTR_OUTPUT_MODE "
+ "attribute is set to TKAFG1K_VAL_OUTPUT_FUNC.  This attribute does not "
+ "affect function generator behavior when you set the "
+ "TKAFG1K_ATTR_FUNC_WAVEFORM attribute to TKAFG1K_VAL_WFM_DC or "
+ "TKAFG1K_VAL_WFM_PRN.\n"
+ "\n"
+ "Attribute Value: 1250105"
+
+2 all "Duty Cycle High" TKAFG1K_ATTR_FUNC_DUTY_CYCLE_HIGH ViReal64 gs 
+ "This channel-based attribute specifies the length of time the output "
+ "voltage level remains high in a square waveform.  You specify this "
+ "attribute as a percentage of one waveform cycle. The units are percentage "
+ "(%).\n"
+ "Because the duty cycle of square waveform is fixed in instrument, so you "
+ "could only set this attribute to 50%.\n"
+ "\n"
+ "Attribute Value: 1250106"
+
+1 all "Pulse Waveform Generation" 
+ "Attributes for configuring pulse waveform."
+
+2 all "Pulse Duty Cycle" TKAFG1K_ATTR_PULSE_DUTY_CYCLE ViReal64 gs 
+ "This channel-based attribute specify the duty cycle of pulse waveform. The "
+ "units are percentage(%). The setting range is 0.001% to 99.999% in "
+ "increments of 0.001.\n"
+ "\n"
+ "Attribute Value: 1150042"
+
+1 all "Arbitrary Waveform Output" 
+ "Attributes for generating arbitrary waveform output.You use this group of "
+ "attributes when you set the tkafg1k_ATTR_OUTPUT_MODE attribute to "
+ "tkafg1k_VAL_OUTPUT_ARB.  You can use the tkafg1k_ConfigureArbWaveform, "
+ "tkafg1k_ConfigureSampleRate, and tkafg1k_QueryArbWfmCapabilities functions "
+ "to configure these attributes.\n"
+
+2 all "Arbitrary Waveform Handle" TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE ViInt32 gs attrArbWaveformHandleRangeTable 
+ "This channel-based attribute identifies which arbitrary waveform the "
+ "function generator produces.  You can create multiple arbitrary waveforms "
+ "using the tkafg1k_CreateArbWaveform function. The "
+ "tkafg1k_CreateArbWaveform function returns a handle that you use to "
+ "identify the particular waveform.  To configure the function generator to "
+ "produce a particular waveform, you set this attribute to the waveform's "
+ "handle.\n"
+ "    You use this attribute only when the TKAFG1K_ATTR_OUTPUT_MODE "
+ "attribute is set to TKAFG1K_VAL_OUTPUT_ARB.\n"
+ "      \n"
+ "SCPI Command:\n"
+ "[SOURce[1|2]]:FUNCtion[:SHAPe] "
+ "{USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}\n"
+ "\n"
+ "Attribute Value: 1250201"
+
+2 all "Arbitrary Waveform Gain" TKAFG1K_ATTR_ARB_GAIN ViReal64 gs 
+ "This channel-based attribute specifies the factor by which the function "
+ "generator scales the arbitrary waveform data.  When you create arbitrary "
+ "waveforms, you must first normalize the data points to the range -1.0 to "
+ "+1.0.  You use this attribute to scale the arbitrary waveform to other "
+ "ranges.  For example, when you set this attribute to 2.0, the output "
+ "signal ranges from -2.0 to +2.0 volts.\n"
+ "    You use this attribute when the TKAFG1K_ATTR_OUTPUT_MODE attribute is "
+ "set to TKAFG1K_VAL_OUTPUT_ARB .\n"
+ "\n"
+ "Attribute Value: 1250202"
+
+2 all "Arbitrary Waveform Offset" TKAFG1K_ATTR_ARB_OFFSET ViReal64 gs 
+ "This channel-based attribute specifies the value the function generator "
+ "adds to the arbitrary waveform data.  When you create arbitrary waveforms, "
+ "you must first normalize the data points to the range -1.0 to +1.0.  You "
+ "use this attribute to shift the arbitrary waveform's range. The units are "
+ "volts (V).  For example, when you set this attribute to 1.0, the output "
+ "signal ranges from 2.0 volts to 0.0 volts.\n"
+ "    You use this attribute when the TKAFG1K_ATTR_OUTPUT_MODE attribute is "
+ "set to TKAFG1K_VAL_OUTPUT_ARB.\n"
+ "\n"
+ "Attribute Value: 1250203"
+
+2 all "Sample Rate" TKAFG1K_ATTR_ARB_SAMPLE_RATE ViReal64 gs 
+ "Specifies the rate at which the function generator outputs the points in "
+ "arbitrary waveforms.  The units are samples per second.\n"
+ "Actualy this attribute is not configurable on the instrument. Whatever "
+ "value you set for this attribute, the value read out is determined by the "
+ "instrument depending on the arbitraty waveform length.\n"
+ "    You use this attribute when the TKAFG1K_ATTR_OUTPUT_MODE attribute is "
+ "set to TKAFG1K_VAL_OUTPUT_ARB.\n"
+ "\n"
+ "Attribute Value: 1250204"
+
+2 all "Arb Frequency" TKAFG1K_ATTR_ARB_FREQUENCY ViReal64 gs 
+ "This channel-based attribute specifies the rate at which the function "
+ "generator produces an entire arbitrary waveform.  The units are waveforms "
+ "per second.\n"
+ "    You use this attribute when the TKAFG1K_ATTR_OUTPUT_MODE attribute is "
+ "set to TKAFG1K_VAL_OUTPUT_ARB.\n"
+ "\n"
+ "Attribute Value: 1250209"
+
+2 all "Max Number of Waveforms" TKAFG1K_ATTR_MAX_NUM_WAVEFORMS ViInt32 g 
+ "Returns the maximum number of arbitrary waveforms that the function "
+ "generator allows.  Typically, this value is constant for the function "
+ "generator.\n"
+ "\n"
+ "Attribute Value: 1250205"
+
+2 all "Waveform Quantum" TKAFG1K_ATTR_WAVEFORM_QUANTUM ViInt32 g 
+ "The size of each arbitrary waveform must be a multiple of a quantum value. "
+ " This attribute returns the quantum value the function generator allows.\n"
+ "For example, when this attribute returns a value of 8, all waveform sizes "
+ "must be a multiple of 8.  Typically, this value is constant for the "
+ "function generator.\n"
+ "\n"
+ "Attribute Value: 1250206"
+
+2 all "Min Waveform Size" TKAFG1K_ATTR_MIN_WAVEFORM_SIZE ViInt32 g 
+ "Returns the minimum number of points the function generator allows in an "
+ "arbitrary waveform.  Typically, this value is constant for the function "
+ "generator.\n"
+ "\n"
+ "Attribute Value: 1250207"
+
+2 all "Max Waveform Size" TKAFG1K_ATTR_MAX_WAVEFORM_SIZE ViInt32 g 
+ "Returns the maximum number of points the function generator allows in an "
+ "arbitrary waveform.  Typically, this value is constant for the function "
+ "generator.\n"
+ "\n"
+ "Attribute Value: 1250208"
+
+2 all "Active Memory" TKAFG1K_ATTR_ACTIVE_MEMORY ViInt32 gs 
+ "This attribute specifies the active edit memory which is being operated.\n"
+ "\n"
+ "Valid Values:\n"
+ "TKAFG1K_VAL_OUTPUT_EMEM : Edit Memory\n"
+ "TKAFG1K_VAL_OUTPUT_EMEM1 : Edit Memory 1 (since AFG 3KC firmware version "
+ "1.0.4)\n"
+ "TKAFG1K_VAL_OUTPUT_EMEM2 : Edit Memory 2 (since AFG 3KC firmware version "
+ "1.0.4)\n"
+ "\n"
+ "Default Value:\n"
+ "TKAFG1K_VAL_OUTPUT_EMEM\n"
+ "\n"
+ "Notes:\n"
+ "(1) Only Edit Memory is available for AFG 3K, AFG 3KB and AFG 3KC( "
+ "firmware version is less than 1.0.4 ).\n"
+ "(2) Edit Memory 2 is supported since AFG 3KC firmware version 1.0.4 and "
+ "only available on dual-channel models.\n"
+ "\n"
+ "Attribute Value: 1150045"
+
+1 all "Bursting" 
+ "Attributes for configuring the burst operation mode."
+
+2 all "Burst Enabled" TKAFG1K_ATTR_BURST_ENABLED ViBoolean hidden Boolean_values 
+ "This channel-based attribute specifies whether whether the function "
+ "generator use burst mode for the output signal."
+
+2 all "Burst Count" TKAFG1K_ATTR_BURST_COUNT ViInt32 gs 
+ "This channel-based attribute specifies the number of cycles that the "
+ "function generator produces when it is in the burst operation mode and "
+ "receives a trigger.\n"
+ "\n"
+ "Attribute Value: 1250350"
+
+2 all "Burst Mode" TKAFG1K_ATTR_BURST_MODE ViInt32 gs attrBurstModeRangeTable 
+ "This channel-based attribute specifies the burst mode.\n"
+ "\n"
+ "When you set this parameter to Triggered Mode, and when burst mode is "
+ "enabled, the function generator produces cycles of waveform according to "
+ "burst count in response to a trigger event.\n"
+ "\n"
+ "When you set this parameter to Gated Mode, and when burst mode is enabled, "
+ "the function generator produces cycles of waveform only when trigger "
+ "signal is in high level.\n"
+ "\n"
+ "Attribute Value: 1150041"
+
+1 all "Modulation" 
+ "Attributes for configuring the modulation operation mode."
+
+2 all "Modulation Enabled" TKAFG1K_ATTR_MODULATION_ENABLED ViBoolean hidden Boolean_values 
+ "This channel-based attributes determines whether to enable modulation mode "
+ "for operation mode. When you enable modulation mode, the function "
+ "generator applies a certain modulation type to the channel you specify.\n"
+ "If the recently used modulation type get from the "
+ "TKAFG1K_ATTR_ORIGINAL_MODULATION attribute is applicable for current "
+ "waveform shape, it is selected as the modulation type. Otherwise, the "
+ "driver selects an applicable one from all modulation types.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program."
+
+2 all "Original Modulation" TKAFG1K_ATTR_ORIGINAL_MODULATION ViInt32 hidden attrOriginalModulationRangeTable 
+ "This attribute records the recently used modulation type. \n"
+ "When you set TKAFG1K_ATTR_MODULATION_ENABLED to VI_TRUE, the driver "
+ "firstly gets the recently used modulation type from this attribute and "
+ "considers whether it is applicable.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program."
+
+1 all "Amplitude Modulation" 
+ "Attributes for applying amplitude modulation to output signals.  Amplitude "
+ "modulation produces an output signal by varying the amplitude of a carrier "
+ "signal according to the amplitude of a modulating signal.  You specify the "
+ "carrier signal with the attributes in either the Standard Function Output "
+ "group or the Arbitrary Waveform Output group.  The modulating signal can "
+ "be an internally generated or an externally generated signal."
+
+2 all "AM Enabled" TKAFG1K_ATTR_AM_ENABLED ViBoolean gs Boolean_values 
+ "This channel-based attribute specifies whether the function generator "
+ "applies amplitude modulation to the output signal.\n"
+ "\n"
+ "Attribute Value: 1250401"
+
+2 all "AM Source" TKAFG1K_ATTR_AM_SOURCE ViInt32 gs attrAMSourceRangeTable 
+ "This channel-based attribute specifies the source of signal that the "
+ "function generator uses to modulate the output signal.\n"
+ "\n"
+ "Attribute Value: 1250402"
+
+2 all "AM Internal Depth" TKAFG1K_ATTR_AM_INTERNAL_DEPTH ViReal64 gs 
+ "Specifies the extent of modulation the function generator applies to the "
+ "carrier signal.  The units are a percentage of full modulation.  At 0% "
+ "depth, the output amplitude equals the carrier signal's amplitude.  At "
+ "100% depth, the output amplitude equals twice the carrier signal's "
+ "amplitude.\n"
+ "    You could use this attribute only when the TKAFG1K_ATTR_AM_SOURCE "
+ "attribute is set to TKAFG1K_VAL_AM_INTERNAL.\n"
+ "\n"
+ "Notes:\n"
+ "(1) This attribute is not based on channel.\n"
+ "\n"
+ "Attribute Value: 1250403"
+
+2 all "AM Internal Waveform" TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM ViInt32 gs attrAMInternalWaveformRangeTable 
+ "Specifies the waveform type that the function generator uses to modulate "
+ "the output signal.\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_AM_SOURCE attribute is set to TKAFG1K_VAL_AM_INTERNAL.\n"
+ "\n"
+ "Notes:\n"
+ "(1) This attribute is not based on channel.\n"
+ "\n"
+ "Attribute Value: 1250404"
+
+2 all "AM Internal Frequency" TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY ViReal64 gs 
+ "Specifies the frequency of the waveform that the function generator uses "
+ "to modulate the output signal.  The units are Hertz (Hz).\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_AM_SOURCE attribute is set to TKAFG1K_VAL_AM_INTERNAL.\n"
+ "\n"
+ "Notes:\n"
+ "(1) This attribute is not based on channel.\n"
+ "\n"
+ "Attribute Value: 1250405"
+
+2 all "AM Depth By Channel" TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL ViReal64 gs 
+ "This channel-based attribute specifies the extent of modulation the "
+ "function generator applies to the carrier signal.  The units are a "
+ "percentage of full modulation.  At 0% depth, the output amplitude equals "
+ "the carrier signal's amplitude.  At 100% depth, the output amplitude "
+ "equals twice the carrier signal's amplitude.\n"
+ "    This attribute is applicable no matter the TKAFG1K_ATTR_AM_SOURCE "
+ "attribute is set to TKAFG1K_VAL_AM_INTERNAL or TKAFG1K_VAL_AM_EXTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150020"
+
+2 all "AM Internal Waveform By Channel" TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL ViInt32 gs attrAMInternalWaveformRangeTable 
+ "This channel-based attribute specifies the waveform type that the function "
+ "generator uses to modulate the output signal.\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_AM_SOURCE attribute is set to TKAFG1K_VAL_AM_INTERNAL.\n"
+ "\n"
+ "\n"
+ "SCPI Command:\n"
+ "[SOURce[1|2]]:AM:INTernal:FUNCtion "
+ "{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEM"
+ "ory|EMEMory1|EMEMory2|EFILe}\n"
+ "\n"
+ "Attribute Value: 1150021"
+
+2 all "AM Internal Frequency By Channel" TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL ViReal64 gs 
+ "This channel-based attribute specifies the frequency of the waveform that "
+ "the function generator uses to modulate the output signal.  The units are "
+ "Hertz (Hz).\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_AM_SOURCE attribute is set to TKAFG1K_VAL_AM_INTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150022"
+
+1 all "Frequency Modulation" 
+ "Attributes for generating frequency modulated signals.Frequency modulation "
+ "produces an output signal by varying the frequency of a carrier signal "
+ "according to the amplitude of a modulating signal.  You specify the "
+ "carrier signal with the attributes in either the Standard Function Output "
+ "group or the Arbitrary Waveform Output group.  The modulating signal can "
+ "be an internally generated or an externally generated signal."
+
+2 all "FM Enabled" TKAFG1K_ATTR_FM_ENABLED ViBoolean gs Boolean_values 
+ "Specifies whether the function generator applies frequency modulation to "
+ "the output signal.\n"
+ "\n"
+ "Attribute Value: 1250501"
+
+2 all "FM Source" TKAFG1K_ATTR_FM_SOURCE ViInt32 gs attrFMSourceRangeTable 
+ "This channel-based attribute specifies the signal the function generator "
+ "uses to modulate the output signal.\n"
+ "\n"
+ "Attribute Value: 1250502"
+
+2 all "FM Internal Deviation" TKAFG1K_ATTR_FM_INTERNAL_DEVIATION ViReal64 gs 
+ "Specifies the maximum frequency deviation the modulating waveform applies "
+ "to the carrier waveform.  This deviation corresponds to the maximum "
+ "amplitude level of the modulating signal.  The units are Hertz (Hz).\n"
+ "    You could use this attribute only when the TKAFG1K_ATTR_FM_SOURCE "
+ "attribute is set to TKAFG1K_VAL_FM_INTERNAL.\n"
+ "\n"
+ "Notes:\n"
+ "(1) This attribute is not based on channel.\n"
+ "\n"
+ "Attribute Value: 1250503"
+
+2 all "FM Internal Waveform" TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM ViInt32 gs attrFMInternalWaveformRangeTable 
+ "Specifies the waveform type that the function generator uses to modulate "
+ "the output signal.\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_FM_SOURCE attribute is set to TKAFG1K_VAL_FM_INTERNAL.\n"
+ "\n"
+ "Notes:\n"
+ "(1) This attribute is not based on channel.\n"
+ "\n"
+ "Attribute Value: 1250504"
+
+2 all "FM Internal Frequency" TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY ViReal64 gs 
+ "Specifies the frequency of the waveform that the function generator uses "
+ "to modulate the output signal.  The units are Hertz (Hz).\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_FM_SOURCE attribute is set to TKAFG1K_VAL_FM_INTERNAL.\n"
+ "\n"
+ "Notes:\n"
+ "(1) This attribute is not based on channel.\n"
+ "\n"
+ "Attribute Value: 1250505"
+
+2 all "FM Deviation By Channel" TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL ViReal64 gs 
+ "This channel-based attribute specifies the maximum frequency deviation the "
+ "modulating waveform applies to the carrier waveform.  This deviation "
+ "corresponds to the maximum amplitude level of the modulating signal.  The "
+ "units are Hertz (Hz).\n"
+ "    You could use this attribute no matter the TKAFG1K_ATTR_FM_SOURCE "
+ "attribute is set to TKAFG1K_VAL_FM_INTERNAL or TKAFG1K_VAL_FM_EXTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150023"
+
+2 all "FM Internal Waveform By Channel" TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL ViInt32 gs attrFMInternalWaveformRangeTable 
+ "This channel-based attribute specifies the waveform type that the function "
+ "generator uses to modulate the output signal.\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_FM_SOURCE attribute is set to TKAFG1K_VAL_FM_INTERNAL.\n"
+ "\n"
+ "SCPI Command:\n"
+ "[SOURce[1|2]]:FM:INTernal:FUNCtion "
+ "{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEM"
+ "ory[1]|EMEMory2|EFILe}\n"
+ "\n"
+ "Attribute Value: 1150024"
+
+2 all "FM Internal Frequency By Channel" TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL ViReal64 gs 
+ "This channel-based attribute specifies the frequency of the waveform that "
+ "the function generator uses to modulate the output signal.  The units are "
+ "Hertz (Hz).\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_FM_SOURCE attribute is set to TKAFG1K_VAL_FM_INTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150025"
+
+1 all "FSK Modulation" 
+ "Attributes for applying frequency shift key modulation to output signals.  "
+ "You specify the carrier signal with the attributes in either the Standard "
+ "Function Output group or the Arbitrary Waveform Output group."
+
+2 all "FSK Enabled" TKAFG1K_ATTR_FSK_ENABLED ViBoolean gs Boolean_values 
+ "Specifies whether the function generator applies FSK modulation to the "
+ "output signal.\n"
+ "\n"
+ "Attribute Value: 1150026"
+
+2 all "FSK Hop Frequency" TKAFG1K_ATTR_FSK_HOP_FREQUENCY ViReal64 gs 
+ "This channel-based attribute specifies the hop frequency of FSK "
+ "modulation.\n"
+ "\n"
+ "Attribute Value: 1150027"
+
+2 all "Internal Rate" TKAFG1K_ATTR_FSK_INTERNAL_RATE ViReal64 gs 
+ "This channel-based attribute specifies the internal modulation rate of FSK "
+ "modulation. \n"
+ "This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_FSK_SOURCE attribute is set to TKAFG1K_VAL_FSK_INTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150028"
+
+2 all "FSK Source" TKAFG1K_ATTR_FSK_SOURCE ViInt32 gs attrFSKSourceRangeTable 
+ "This channel-based attribute specifies the signal the function generator "
+ "uses to modulate the output signal.\n"
+ "\n"
+ "Attribute Value: 1150029"
+
+1 all "Phase Modulation" 
+ "Attributes for generating phase modulated signals. You specify the carrier "
+ "signal with the attributes in either the Standard Function Output group or "
+ "the Arbitrary Waveform Output group.  The modulating signal can be an "
+ "internally generated or an externally generated signal."
+
+2 all "PM Enabled" TKAFG1K_ATTR_PM_ENABLED ViBoolean gs Boolean_values 
+ "Specifies whether the function generator applies phase modulation to the "
+ "output signal.\n"
+ "\n"
+ "Attribute Value: 1150030"
+
+2 all "PM Source" TKAFG1K_ATTR_PM_SOURCE ViInt32 gs attrPMSourceRangeTable 
+ "This channel-based attribute specifies the signal the function generator "
+ "uses to modulate the output signal.\n"
+ "\n"
+ "Attribute Value: 1150031"
+
+2 all "PM Deviation By Channel" TKAFG1K_ATTR_PM_DEVIATION_BY_CHANNEL ViReal64 gs 
+ "This channel-based attribute specifies the maximum phase deviation applies "
+ "to the output signal. The units are degree (DEG). \n"
+ "You could use this attribute no matter the TKAFG1K_ATTR_PM_SOURCE "
+ "attribute is set to TKAFG1K_VAL_PM_INTERNAL or TKAFG1K_VAL_PM_EXTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150032"
+
+2 all "PM Internal Frequency By Channel" TKAFG1K_ATTR_PM_INTERNAL_FREQUENCY_BY_CHANNEL ViReal64 gs 
+ "This channel-based attribute specifies the frequency of the waveform that "
+ "the function generator uses to modulate the output signal.  The units are "
+ "Hertz (Hz).\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_PM_SOURCE attribute is set to TKAFG1K_VAL_PM_INTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150033"
+
+2 all "PM Internal Waveform By Channel" TKAFG1K_ATTR_PM_INTERNAL_WAVEFORM_BY_CHANNEL ViInt32 gs attrPMInternalWaveformRangeTable 
+ "This channel-based attribute specifies the waveform type that the function "
+ "generator uses to modulate the output signal.\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_PM_SOURCE attribute is set to TKAFG1K_VAL_PM_INTERNAL.\n"
+ "\n"
+ "SCPI Command:\n"
+ "[SOURce[1|2]]:PM:INTernal:FUNCtion "
+ "{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEM"
+ "ory|EMEMory1|EMEMory2|EFILe}\n"
+ "\n"
+ "Attribute Value: 1150034"
+
+1 all "Pulse Width Modulation" 
+ "Attributes for applying pulse width modulation to output signals. The "
+ "modulating signal can be an internally generated or an externally "
+ "generated signal."
+
+2 all "PWM Enabled" TKAFG1K_ATTR_PWM_ENABLED ViBoolean gs Boolean_values 
+ "Specifies whether the function generator applies pulse width modulation to "
+ "the output signal.\n"
+ "\n"
+ "Attribute Value: 1150035"
+
+2 all "PWM Source" TKAFG1K_ATTR_PWM_SOURCE ViInt32 gs attrPWMSourceRangeTable 
+ "This channel-based attribute specifies the signal the function generator "
+ "uses to modulate the output signal.\n"
+ "\n"
+ "Attribute Value: 1150036"
+
+2 all "PWM Deviation" TKAFG1K_ATTR_PWM_DEVIATION ViReal64 gs 
+ "This channel-based attribute specifies the duty cycle deviation applies to "
+ "the output signal. The units are percentage (%). \n"
+ "You could use this attribute no matter the TKAFG1K_ATTR_PWM_SOURCE "
+ "attribute is set to TKAFG1K_VAL_PWM_INTERNAL or TKAFG1K_VAL_PWM_EXTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150037"
+
+2 all "PWM Internal Frequency" TKAFG1K_ATTR_PWM_INTERNAL_FREQUENCY ViReal64 gs 
+ "This channel-based attribute specifies the frequency of the waveform that "
+ "the function generator uses to modulate the output signal.  The units are "
+ "Hertz (Hz).\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_PWM_SOURCE attribute is set to TKAFG1K_VAL_PWM_INTERNAL.\n"
+ "\n"
+ "Attribute Value: 1150038"
+
+2 all "PWM Internal Waveform" TKAFG1K_ATTR_PWM_INTERNAL_WAVEFORM ViInt32 gs attrPWMInternalWaveformRangeTable 
+ "This channel-based attribute specifies the waveform type that the function "
+ "generator uses to modulate the output signal.\n"
+ "    This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_PWM_SOURCE attribute is set to TKAFG1K_VAL_PWM_INTERNAL.\n"
+ "\n"
+ "SCPI Command:\n"
+ "[SOURce[1|2]]:PWM:INTernal:FUNCtion "
+ "{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEM"
+ "ory|EMEMory1|EMEMory2|EFILe}\n"
+ "\n"
+ "Attribute Value: 1150039"
+
+1 all "Miscellaneous Attributes" 
+ "Additional Attributes."
+
+2 all "ID Query Response" TKAFG1K_ATTR_ID_QUERY_RESPONSE ViString g 
+ "Returns the ID Query response string.  The instrument driver gets the "
+ "value of this attribute when you pass VI_TRUE for the ID Query parameter "
+ "to the tkafg1k_init or tkafg1k_InitWithOptions function.\n"
+ "\n"
+ "Attribute Value: 1150001"
+
+2 all "Hidden Attributes (not user-viewable)" 
+ "Attributes used internally by other user-viewable attribues. "
+
+3 all "Waveform Record" TKAFG1K_ATTR_WFM_STRUCTURE ViAddr hidden 
+ "This attribute holds the pointer to the waveform data structure that keeps "
+ "the information about all existing arbitrary waveforms.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program.    "
+
+3 all "Amplitude" TKAFG1K_ATTR_AMPLITUDE ViReal64 hidden 
+ "The Function Amplitude and Arbitrary Gain set this attribute internally "
+ "because both the attributes correspond to just one instrument command.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program."
+
+3 all "Frequency" TKAFG1K_ATTR_FREQUENCY ViReal64 hidden 
+ "The Function Frequency and Arbitrary Frequency set this attribute "
+ "internally because both the attributes correspond to just one instrument "
+ "command.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program."
+
+3 all "Offset" TKAFG1K_ATTR_OFFSET ViReal64 hidden 
+ "The Function Offset and Arbitrary Offset set this attribute internally "
+ "because both the attributes correspond to just one instrument command.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program."
+
+3 all "Waveform" TKAFG1K_ATTR_WAVEFORM ViInt32 hidden attrWaveformRangeTable 
+ "The Function Waveform and Arbitrary Waveform Handle set this attribute "
+ "internally because both the attributes correspond to just one instrument "
+ "command.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program."
+
+3 all "Original Waveform" TKAFG1K_ATTR_ORIGINAL_WAVEFORM ViInt32 hidden attrWaveformRangeTable 
+ "This attribute records the waveform shape used for output last time. The "
+ "Output Mode attribute use it to configure output waveform when switching "
+ "output mode from one type to another type.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program.\n"
+ "\n"
+ "SCPI Command:\n"
+ "[SOURce[1|2]]:FUNCtion[:SHAPe] "
+ "{SINusoid|SQUare|PULSe|RAMP|PRNoise|DC|SINC|GAUSsian|LORentz|ERISe|EDECay|H"
+ "AVersine|USER[1]|USER2|USER3|USER4|EMEMory[1]|EMEMory2|EFILe}"
+
+3 all "Voltage Upper Limit Max" TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX ViReal64 hidden 
+ "This attribute gets the voltage upper limit max from instrument. It is a "
+ "read-only attribute.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program."
+
+3 all "Model" TKAFG1K_ATTR_MODEL ViInt32 hidden attrModelRangeTable 
+ "This attribute records the instrument model.\n"
+ "\n"
+ "Notes:\n"
+ "(1) It is a hidden attribute, you should not use it directly in user "
+ "program."
+

@@ -1,0 +1,1458 @@
+explicitActiveChannels: TRUE
+library: tkafg3k_*.*
+
+class: "tkafg3k"
+flags: 0
+sorted: no
+implements: ivi, IviFgen, iviResourceMgr
+
+attribute: "Active Channel" "Active Channel" string writeonly 3 -2
+"Specifics the channel name used to access all subsequent channel-based properties in this property node.  Set the channel before setting channel-based properties.  Pass a name that the instrument driver defines or a virtual channel name configured in MAX."
+
+attribute: "Range Check"
+	"Inherent IVI Properties:User Options:Range Check"
+	bool readwrite 1 100592
+	//const: TKAFG3K_ATTR_RANGE_CHECK
+"Specifies whether to validate property values and VI parameters.  If enabled, the instrument driver validates the parameter values that you pass to driver VIs.  Range checking parameters is very useful for debugging.  After you validate your program, you can set this property to FALSE to disable range checking and maximize performance.
+    The default value is TRUE.  Use the tkafg3k Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Query Instrument Status"
+	"Inherent IVI Properties:User Options:Query Instrument Status"
+	bool readwrite 1 100593
+	//const: TKAFG3K_ATTR_QUERY_INSTRUMENT_STATUS
+"Specifies whether the instrument driver queries the instrument status after each operation.  Querying the instrument status is very useful for debugging.  After you validate your program, you can set this property to FALSE to disable status checking and maximize performance
+    The instrument driver can choose to ignore status checking for particular properties regardless of the setting of this property.
+    The default value is FALSE.  Use the tkafg3k Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Cache"
+	"Inherent IVI Properties:User Options:Cache"
+	bool readwrite 1 100594
+	//const: TKAFG3K_ATTR_CACHE
+"Specifies whether to cache the value of properties.  When caching is enabled, the instrument driver keeps track of the current instrument settings and avoids sending redundant commands to the instrument.  Thus, you can significantly increase execution speed.
+    The instrument driver can choose always to cache or never to cache particular properties regardless of the setting of this property.
+    The default value is TRUE.  Use the tkafg3k Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Simulate"
+	"Inherent IVI Properties:User Options:Simulate"
+	bool readwrite 1 100595
+	//const: TKAFG3K_ATTR_SIMULATE
+"Specifies whether or not to simulate instrument driver I/O operations.  If simulation is enabled, instrument driver VIs perform range checking and call Ivi_GetAttribute and Ivi_SetAttribute VIs, but they do not perform instrument I/O.  For output parameters that represent instrument data, the instrument driver VIs return calculated values.
+    The default value is FALSE.  Use the tkafg3k Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Record Value Coercions"
+	"Inherent IVI Properties:User Options:Record Value Coercions"
+	bool readwrite 1 100596
+	//const: TKAFG3K_ATTR_RECORD_COERCIONS
+"Specifies whether the IVI engine keeps a list of the value coercions it makes for integer and real type properties.  You call tkafg3k Get Next Coercion Record to extract and delete the oldest coercion record from the list.
+    The default value is FALSE.  Use the tkafg3k Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Interchange Check"
+	"Inherent IVI Properties:User Options:Interchange Check"
+	bool readwrite 1 1005A5
+	//const: TKAFG3K_ATTR_INTERCHANGE_CHECK
+"Specifies whether to perform interchangeability checking and retrieve interchangeability warnings.
+
+The default value is FALSE.
+
+Interchangeability warnings indicate that using your application with a different instrument might cause different behavior.  You call tkafg3k Get Next Interchange Warning to extract interchange warnings.  Call the tkafg3k Clear Interchange Warnings.vi to clear the list of interchangeability warnings without reading them.
+Interchangeability checking logs a warning for each property you have not set that affects the behavior of the instrument.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Description"
+	"Inherent IVI Properties:Driver Identification:Description"
+	string readonly 1 100792
+	//const: TKAFG3K_ATTR_SPECIFIC_DRIVER_DESCRIPTION
+"A string that contains a brief description of the specific driver.
+    
+
+"
+attribute: "Driver Prefix"
+	"Inherent IVI Properties:Driver Identification:Driver Prefix"
+	string readonly 1 1006BE
+	//const: TKAFG3K_ATTR_SPECIFIC_DRIVER_PREFIX
+"A string that contains the prefix for the instrument driver.  The name of each user-callable VI in this driver starts with this prefix.
+    
+
+"
+attribute: "Driver Vendor"
+	"Inherent IVI Properties:Driver Identification:Driver Vendor"
+	string readonly 1 100791
+	//const: TKAFG3K_ATTR_SPECIFIC_DRIVER_VENDOR
+"A string that contains the name of the vendor that supplies this driver.
+    
+
+"
+attribute: "Revision"
+	"Inherent IVI Properties:Driver Identification:Revision"
+	string readonly 1 1007B7
+	//const: TKAFG3K_ATTR_SPECIFIC_DRIVER_REVISION
+"A string that contains additional version information about this instrument driver.
+    
+
+"
+attribute: "Class Specification Major Version"
+	"Inherent IVI Properties:Driver Identification:Class Specification Major Version"
+	iL readonly 1 100793
+	//const: TKAFG3K_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MAJOR_VERSION
+"The major version number of the class specification with which this driver is compliant.
+    
+
+"
+attribute: "Class Specification Minor Version"
+	"Inherent IVI Properties:Driver Identification:Class Specification Minor Version"
+	iL readonly 1 100794
+	//const: TKAFG3K_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MINOR_VERSION
+"The minor version number of the class specification with which this driver is compliant.
+    
+
+"
+attribute: "Supported Instrument Models"
+	"Inherent IVI Properties:Driver Capabilities:Supported Instrument Models"
+	string readonly 1 1006D7
+	//const: TKAFG3K_ATTR_SUPPORTED_INSTRUMENT_MODELS
+"Contains a model code of the instrument. For drivers that support more than one device, this property contains a comma-separated list of supported instrument models.
+    
+
+"
+attribute: "Class Group Capabilities"
+	"Inherent IVI Properties:Driver Capabilities:Class Group Capabilities"
+	string readonly 1 100721
+	//const: TKAFG3K_ATTR_GROUP_CAPABILITIES
+"A string that contains a comma-separated list of class-extention groups that this driver implements.
+    
+
+"
+attribute: "Number of Channels"
+	"Inherent IVI Properties:Driver Capabilities:Number of Channels"
+	iL readonly 1 10065B
+	//const: TKAFG3K_ATTR_CHANNEL_COUNT
+"Indicates the number of channels that the specific instrument driver supports.  
+    For each property for which the IVI_VAL_MULTI_CHANNEL (1024)  flag property is set, the IVI engine maintains a separate cache value for each channel.
+    
+
+"
+attribute: "Manufacturer"
+	"Inherent IVI Properties:Instrument Identification:Manufacturer"
+	string readonly 1 10078F
+	//const: TKAFG3K_ATTR_INSTRUMENT_MANUFACTURER
+"A string that contains the name of the instrument manufacturer you are currently using.
+    
+
+"
+attribute: "Model"
+	"Inherent IVI Properties:Instrument Identification:Model"
+	string readonly 1 100790
+	//const: TKAFG3K_ATTR_INSTRUMENT_MODEL
+"A string that contains the model number or name of the instrument that you are currently using.
+    
+
+"
+attribute: "Firmware Revision"
+	"Inherent IVI Properties:Instrument Identification:Firmware Revision"
+	string readonly 1 10078E
+	//const: TKAFG3K_ATTR_INSTRUMENT_FIRMWARE_REVISION
+"A string that contains the firmware revision information for the instrument you are currently using.
+    
+
+"
+attribute: "Logical Name"
+	"Inherent IVI Properties:Advanced Session Information:Logical Name"
+	string readonly 1 1006C1
+	//const: TKAFG3K_ATTR_LOGICAL_NAME
+"A string containing the logical name you specified when opening the current IVI session.
+     You may pass a logical name to the tkafg3k Initialize.vi or tkafg3k Initialize With Options.vi VIs.  The IVI Configuration utility must contain an entry for the logical name.  The logical name entry refers to a virtual instrument section in the IVI Configuration file.  The virtual instrument section specifies a physical device and initial user options.
+    
+
+"
+attribute: "I/O Resource Descriptor"
+	"Inherent IVI Properties:Advanced Session Information:I/O Resource Descriptor"
+	string readonly 1 1006C0
+	//const: TKAFG3K_ATTR_IO_RESOURCE_DESCRIPTOR
+"Indicates the resource descriptor the driver uses to identify the physical device.
+    If you initialize the driver with a logical name, this property contains the resource descriptor that corresponds to the entry in the IVI Configuration utility.  
+    If you initialize the instrument driver with the resource descriptor, this property contains that value.
+    
+
+"
+attribute: "Driver Setup"
+	"Inherent IVI Properties:Advanced Session Information:Driver Setup"
+	string readonly 1 100597
+	//const: TKAFG3K_ATTR_DRIVER_SETUP
+"Some cases exist where you must specify instrument driver options at initialization time.  An example of this is specifying a particular instrument model from among a family of instruments that the driver supports.  This is useful when using simulation.  You can specify driver-specific options through the DriverSetup keyword in the optionsString parameter to the tkafg3k Initialize With Options.vi.  If you open an instrument using a logical name, you can also specify the options through the IVI Configuration Utility.
+    The default value is an empty string.
+    
+
+"
+attribute: "Operation Mode"
+	"Basic Operation:Operation Mode"
+	iL enum { TKAFG3K_VAL_OPERATE_CONTINUOUS=0, TKAFG3K_VAL_OPERATE_MODULATION=1001, TKAFG3K_VAL_OPERATE_SWEEP=1002, TKAFG3K_VAL_OPERATE_BURST=1 } readwrite 1 1312D5
+	//const: TKAFG3K_ATTR_OPERATION_MODE
+"This channel-based property determines how the VI generator produces waveforms.
+
+When you set this parameter to TKAFG3K_VAL_OPERATE_CONTINUOUS (0) , the VI generator continuously produces an output signal.
+
+When you set this parameter to TKAFG3K_VAL_OPERATE_MODULATION (1001) , the VI generator use a certain method to modulate output signal. Current instrument driver support the following modulation types:
+- AM ( Amplitude Modulation )
+- FM ( Frequency Modulation )
+- PM ( Phase Modulation )
+- FSK ( Frequency Shift Key Modulation )
+- PWM ( Pulse Width Modulation )
+
+When you set this parameter to TKAFG3K_VAL_OPERATE_SWEEP (1002) , you 
+set the instrument to sweep mode. You could use the following VI to configure sweep mode parameters.
+
+- tkafg3k Configure Sweep.vi 
+- tkafg3k Configure Sweep Extended.vi
+
+In place of using this VI, you can set the following properties:                                
+Sweep Start Frequency                     
+Sweep Stop Frequency                      
+Sweep Time
+Sweep Hold Time                            
+Sweep Return Time
+Sweep Type
+
+When you set this parameter to TKAFG3K_VAL_OPERATE_BURST (1) , you set the instrument to burst mode. You could use the following VI to configure burst mode properties:
+
+- tkafg3k Configure Burst Count.vi
+- tkafg3k Configure Burst Mode.vi  
+
+
+TKAFG3K_VAL_OPERATE_CONTINUOUS (0)
+Configures the VI generator to produce waveforms continuously.
+
+TKAFG3K_VAL_OPERATE_MODULATION (1001)
+
+
+TKAFG3K_VAL_OPERATE_SWEEP (1002)
+
+
+TKAFG3K_VAL_OPERATE_BURST (1)
+Configures the VI generator to produce a discrete number of waveform cycles when a trigger occurs.
+
+"
+attribute: "Output Mode"
+	"Basic Operation:Output Mode"
+	iL enum { TKAFG3K_VAL_OUTPUT_FUNC=0, TKAFG3K_VAL_OUTPUT_ARB=1 } readwrite 1 1312D1
+	//const: TKAFG3K_ATTR_OUTPUT_MODE
+"Determines the kind of waveform the VI generator produces.  The value you specify determines which VIs and properties you use to configure the waveform the VI generator produces.
+    When you set this parameter to TKAFG3K_VAL_OUTPUT_FUNC (0) , you use the following VI to configure the waveform:
+
+- tkafg3k Configure Standard Waveform.vi
+- tkafg3k Configure Ramp Symmetry.vi
+- tkafg3k Configure Pulse Waveform.vi
+- tkafg3k Configure Pulse Delay.vi
+
+In place of using this VI, you can set the following properties:
+
+- Waveform     
+- Amplitude 
+- DC Offset   
+- Frequency 
+- Start Phase   
+- Duty Cycle High
+- Ramp Symmetry                         
+- Pulse Duty Cycle    
+- Pulse Lead Delay 
+- Pulse Period                               
+- Pulse Leading Time                         
+- Pulse Tailing Time
+
+When you set this parameter to TKAFG3K_VAL_OUTPUT_ARB (1) , you use the following VIs to configure the waveform:
+
+- tkafg3k Query Arb Waveform Capabilities.vi
+- tkafg3k Create Arbitrary Waveform.vi
+- tkafg3k Create Line Interpolate Arb Wfm.vi
+- tkafg3k Create Standard Shape Arb Wfm.vi  
+- tkafg3k Clear Arbitrary Waveform.vi
+- tkafg3k Configure Sample Rate.vi
+- tkafg3k Configure Arbitrary Waveform.vi 
+
+In place of using the tkafg3k Configure Sample Rate.vi and tkafg3k Configure Arbitrary Waveform.vi VIs, you can set the following properties:
+
+- Arbitrary Waveform Handle  
+- Arbitrary Waveform Gain
+- Arbitrary Waveform Offset  
+- Sample Rate 
+
+
+TKAFG3K_VAL_OUTPUT_FUNC (0)
+Configures the VI generator to produce standard waveforms.
+
+TKAFG3K_VAL_OUTPUT_ARB (1)
+Configures the VI generator to produce arbitrary waveforms.
+
+"
+attribute: "Output Mode By Channel"
+	"Basic Operation:Output Mode By Channel"
+	iL enum { TKAFG3K_VAL_OUTPUT_FUNC=0, TKAFG3K_VAL_OUTPUT_ARB=1 } readwrite 1 118C32
+	//const: TKAFG3K_ATTR_OUTPUT_MODE_BY_CHANNEL
+"This channel-based property determines the kind of waveform the VI generator produces based on channel.  The value you specify determines which VIs and properties you use to configure the waveform the VI generator produces.
+    When you set this parameter to TKAFG3K_VAL_OUTPUT_FUNC (0) , you use the following VI to configure the waveform:
+
+- tkafg3k Configure Standard Waveform.vi
+- tkafg3k Configure Ramp Symmetry.vi
+- tkafg3k Configure Pulse Waveform.vi
+- tkafg3k Configure Pulse Delay.vi
+
+In place of using this VI, you can set the following properties:
+
+- Waveform     
+- Amplitude 
+- DC Offset   
+- Frequency 
+- Start Phase   
+- Duty Cycle High
+- Ramp Symmetry                         
+- Pulse Duty Cycle    
+- Pulse Lead Delay 
+- Pulse Period                               
+- Pulse Leading Time                         
+- Pulse Tailing Time
+
+When you set this parameter to TKAFG3K_VAL_OUTPUT_ARB (1) , you use the following VIs to configure the waveform:
+
+- tkafg3k Query Arb Waveform Capabilities.vi
+- tkafg3k Create Arbitrary Waveform.vi
+- tkafg3k Create Line Interpolate Arb Wfm.vi
+- tkafg3k Create Standard Shape Arb Wfm.vi  
+- tkafg3k Clear Arbitrary Waveform.vi
+- tkafg3k Configure Sample Rate.vi
+- tkafg3k Configure Arbitrary Waveform.vi 
+
+In place of using the tkafg3k Configure Sample Rate.vi and tkafg3k Configure Arbitrary Waveform.vi VIs, you can set the following properties:
+
+- Arbitrary Waveform Handle  
+- Arbitrary Waveform Gain
+- Arbitrary Waveform Offset  
+- Sample Rate 
+
+
+TKAFG3K_VAL_OUTPUT_FUNC (0)
+Configures the VI generator to produce standard waveforms.
+
+TKAFG3K_VAL_OUTPUT_ARB (1)
+Configures the VI generator to produce arbitrary waveforms.
+
+"
+attribute: "Reference Clock Source"
+	"Basic Operation:Reference Clock Source"
+	iL enum { TKAFG3K_VAL_REF_CLOCK_INTERNAL=0, TKAFG3K_VAL_REF_CLOCK_EXTERNAL=1 } readwrite 1 1312D2
+	//const: TKAFG3K_ATTR_REF_CLOCK_SOURCE
+"Specifies the reference clock source.  The VI generator derives frequencies and sample rates that it uses to generate waveforms from the source you specify.
+For example, when you set this property to TKAFG3K_VAL_EXTERNAL (1) , the VI generator uses the signal it receives at its external clock terminal as its reference clock.
+      
+
+TKAFG3K_VAL_REF_CLOCK_INTERNAL (0)
+The VI generator produces the reference clock internally.
+
+TKAFG3K_VAL_REF_CLOCK_EXTERNAL (1)
+The VI generator receives the reference clock signal from an external source.
+
+"
+attribute: "Output Enabled"
+	"Basic Operation:Output Enabled"
+	bool readwrite 1 1312D3
+	//const: TKAFG3K_ATTR_OUTPUT_ENABLED
+"This channel-based property specifies whether the signal the VI generator produces appears at the output connector.
+      
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Output Impedance"
+	"Basic Operation:Output Impedance"
+	fD readwrite 1 1312D4
+	//const: TKAFG3K_ATTR_OUTPUT_IMPEDANCE
+"This channel-based property specifies the VI generator's output impedance at the output connector.  A value of 0.0 indicates that the VI generator is in the impedance of INFINITY, or you can use defined macro TKAFG3K_VAL_IMPEDANCE_INFINITY (0)  instead.
+      
+
+"
+attribute: "Waveform"
+	"Standard Function Output:Waveform"
+	iL enum { TKAFG3K_VAL_WFM_SINE=1, TKAFG3K_VAL_WFM_SQUARE=2, TKAFG3K_VAL_WFM_DC=6, TKAFG3K_VAL_WFM_RAMP=1001, TKAFG3K_VAL_WFM_PULS=1002, TKAFG3K_VAL_WFM_PRN=1003, TKAFG3K_VAL_WFM_SINC=1004, TKAFG3K_VAL_WFM_GAUS=1005, TKAFG3K_VAL_WFM_LOR=1006, TKAFG3K_VAL_WFM_ERIS=1007, TKAFG3K_VAL_WFM_EDEC=1008, TKAFG3K_VAL_WFM_HAV=1009 } readwrite 1 131335
+	//const: TKAFG3K_ATTR_FUNC_WAVEFORM
+"This channel-based property specifies which standard waveform the VI generator produces.
+    You use this property only when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_FUNC (0) .
+      
+
+TKAFG3K_VAL_WFM_SINE (1)
+Configures the VI generator to produce a sinusoid waveform.
+
+TKAFG3K_VAL_WFM_SQUARE (2)
+
+
+TKAFG3K_VAL_WFM_DC (6)
+Configures the VI generator to produce a constant voltage.
+
+TKAFG3K_VAL_WFM_RAMP (1001)
+
+
+TKAFG3K_VAL_WFM_PULS (1002)
+
+
+TKAFG3K_VAL_WFM_PRN (1003)
+
+
+TKAFG3K_VAL_WFM_SINC (1004)
+
+
+TKAFG3K_VAL_WFM_GAUS (1005)
+
+
+TKAFG3K_VAL_WFM_LOR (1006)
+
+
+TKAFG3K_VAL_WFM_ERIS (1007)
+
+
+TKAFG3K_VAL_WFM_EDEC (1008)
+
+
+TKAFG3K_VAL_WFM_HAV (1009)
+
+
+"
+attribute: "Amplitude"
+	"Standard Function Output:Amplitude"
+	fD readwrite 1 131336
+	//const: TKAFG3K_ATTR_FUNC_AMPLITUDE
+"This channel-based property specifies the amplitude of the standard waveform the VI generator produces.  This value is the amplitude at the output terminal.  The units are volts peak-to-peak (Vpp).  For example, to produce a waveform ranging from -5.0 to +5.0 volts, you set this value to 10.0 volts.
+    You use this property only when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_FUNC (0) .  This property does not affect VI generator behavior when you set the Waveform property to TKAFG3K_VAL_WFM_DC (6) .
+      
+
+"
+attribute: "DC Offset"
+	"Standard Function Output:DC Offset"
+	fD readwrite 1 131337
+	//const: TKAFG3K_ATTR_FUNC_DC_OFFSET
+"This channel-based property specifies the DC offset of the standard waveform the VI generator produces.  This value is the offset at the output terminal.  The units are volts (V).  The value is the offset from ground to the center of the waveform you specify with the Waveform property.  For example, a standard waveform ranging from +5.0 volts to 0.0 volts has a DC offset of 2.5 volts.
+    You use this property only when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_FUNC (0) .
+      
+
+"
+attribute: "Frequency"
+	"Standard Function Output:Frequency"
+	fD readwrite 1 131338
+	//const: TKAFG3K_ATTR_FUNC_FREQUENCY
+"This channel-based property specifies the frequency of the standard waveform the VI generator produces.  The units are hertz (Hz).  You use this property only when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_FUNC (0) .
+    This property does not affect VI generator behavior when you set the Waveform property to TKAFG3K_VAL_WFM_DC (6)  or TKAFG3K_VAL_WFM_PRN (1003) .
+     
+
+"
+attribute: "Start Phase"
+	"Standard Function Output:Start Phase"
+	fD readwrite 1 131339
+	//const: TKAFG3K_ATTR_FUNC_START_PHASE
+"This channel-based property specifies the horizontal offset of the standard waveform the VI generator produces.  You specify this property in degrees of one waveform cycle.  For example, a 180 degree phase offset means output generation begins half way through the waveform.  A start phase of 360 degrees offsets the output by an entire waveform cycle.  It is therefore identical to a start phase of 0 degrees.
+    You use this property only when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_FUNC (0) .  This property does not affect VI generator behavior when you set the Waveform property to TKAFG3K_VAL_WFM_DC (6)  or TKAFG3K_VAL_WFM_PRN (1003) .
+      
+
+"
+attribute: "Ramp Symmetry"
+	"Standard Function Output:Ramp Symmetry"
+	fD readwrite 1 118C33
+	//const: TKAFG3K_ATTR_FUNC_RAMP_SYMMETRY
+"This channel-based property specifies the symmetry of ramp waveform. The units are percentage(%). With different ramp symmetry, the ramp waveform changes. When you specify ramp symmetry to 0%, the waveform appears as ramp down. And it appears as triangle when ramp symmetry is 50%, ramp up when ramp symmetry is 100%.
+
+
+"
+attribute: "Duty Cycle High"
+	"Standard Function Output:Duty Cycle High"
+	fD readwrite 1 13133A
+	//const: TKAFG3K_ATTR_FUNC_DUTY_CYCLE_HIGH
+"This channel-based property specifies the length of time the output voltage level remains high in a square waveform.  You specify this property as a percentage of one waveform cycle. The units are percentage (%).
+Because the duty cycle of square waveform is fixed in instrument, so you could only set this property to 50%.
+
+      
+
+"
+attribute: "Pulse Lead Delay"
+	"Pulse Waveform Generation:Pulse Lead Delay"
+	fD readwrite 1 118C34
+	//const: TKAFG3K_ATTR_PULSE_LEAD_DELAY
+"This channel-based property specify the lead delay of pulse waveform.
+
+"
+attribute: "Pulse Duty Cycle"
+	"Pulse Waveform Generation:Pulse Duty Cycle"
+	fD readwrite 1 118C5A
+	//const: TKAFG3K_ATTR_PULSE_DUTY_CYCLE
+"This channel-based property specify the duty cycle of pulse waveform. The units are percentage(%). The setting range is 0.001% to 99.999% in increments of 0.001.
+
+"
+attribute: "Pulse Period"
+	"Pulse Waveform Generation:Pulse Period"
+	fD readwrite 1 118C35
+	//const: TKAFG3K_ATTR_PULSE_PERIOD
+"This channel-based property specify the period for pulse waveform.
+
+"
+attribute: "Pulse Leading Time"
+	"Pulse Waveform Generation:Pulse Leading Time"
+	fD readwrite 1 118C36
+	//const: TKAFG3K_ATTR_PULSE_LEADING_TIME
+"This channel-based property specifies the leading edge time of pulse waveform.
+
+"
+attribute: "Pulse Tailing Time"
+	"Pulse Waveform Generation:Pulse Tailing Time"
+	fD readwrite 1 118C37
+	//const: TKAFG3K_ATTR_PULSE_TRAILING_TIME
+"This channel-based property specifies the trailing edge time of pulse waveform.
+
+"
+attribute: "Arbitrary Waveform Handle"
+	"Arbitrary Waveform Output:Arbitrary Waveform Handle"
+	iL enum { TKAFG3K_VAL_WFM_USER1=10000, TKAFG3K_VAL_WFM_USER2=10001, TKAFG3K_VAL_WFM_USER3=10002, TKAFG3K_VAL_WFM_USER4=10003, TKAFG3K_VAL_WFM_EDIT=10011, TKAFG3K_VAL_WFM_EDIT2=10012 } readwrite 1 131399
+	//const: TKAFG3K_ATTR_ARB_WAVEFORM_HANDLE
+"This channel-based property identifies which arbitrary waveform the VI generator produces.  You can create multiple arbitrary waveforms using the tkafg3k Create Arbitrary Waveform.vi.  The tkafg3k Create Arbitrary Waveform.vi returns a handle that you use to identify the particular waveform.  To configure the VI generator to produce a particular waveform, you set this property to the waveform's handle.
+    You use this property only when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_ARB (1) .
+      
+
+TKAFG3K_VAL_WFM_USER1 (10000)
+
+
+TKAFG3K_VAL_WFM_USER2 (10001)
+
+
+TKAFG3K_VAL_WFM_USER3 (10002)
+
+
+TKAFG3K_VAL_WFM_USER4 (10003)
+
+
+TKAFG3K_VAL_WFM_EDIT (10011)
+
+
+TKAFG3K_VAL_WFM_EDIT2 (10012)
+
+
+"
+attribute: "Arbitrary Waveform Gain"
+	"Arbitrary Waveform Output:Arbitrary Waveform Gain"
+	fD readwrite 1 13139A
+	//const: TKAFG3K_ATTR_ARB_GAIN
+"This channel-based property specifies the factor by which the VI generator scales the arbitrary waveform data.  When you create arbitrary waveforms, you must first normalize the data points to the range -1.0 to +1.0.  You use this property to scale the arbitrary waveform to other ranges.  For example, when you set this property to 2.0, the output signal ranges from -2.0 to +2.0 volts.
+    You use this property when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_ARB (1)  .
+      
+
+"
+attribute: "Arbitrary Waveform Offset"
+	"Arbitrary Waveform Output:Arbitrary Waveform Offset"
+	fD readwrite 1 13139B
+	//const: TKAFG3K_ATTR_ARB_OFFSET
+"This channel-based property specifies the value the VI generator adds to the arbitrary waveform data.  When you create arbitrary waveforms, you must first normalize the data points to the range -1.0 to +1.0.  You use this property to shift the arbitrary waveform's range. The units are volts (V).  For example, when you set this property to 1.0, the output signal ranges from 2.0 volts to 0.0 volts.
+    You use this property when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_ARB (1) .
+      
+
+"
+attribute: "Sample Rate"
+	"Arbitrary Waveform Output:Sample Rate"
+	fD readwrite 1 13139C
+	//const: TKAFG3K_ATTR_ARB_SAMPLE_RATE
+"Specifies the rate at which the VI generator outputs the points in arbitrary waveforms.  The units are samples per second.
+Actualy this property is not configurable on the instrument. Whatever value you set for this property, the value read out is determined by the instrument depending on the arbitraty waveform length.
+    You use this property when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_ARB (1) .
+
+      
+
+"
+attribute: "Arb Frequency"
+	"Arbitrary Waveform Output:Arb Frequency"
+	fD readwrite 1 1313A1
+	//const: TKAFG3K_ATTR_ARB_FREQUENCY
+"This channel-based property specifies the rate at which the VI generator produces an entire arbitrary waveform.  The units are waveforms per second.
+    You use this property when the Output Mode property is set to TKAFG3K_VAL_OUTPUT_ARB (1) .
+      
+
+"
+attribute: "Max Number of Waveforms"
+	"Arbitrary Waveform Output:Max Number of Waveforms"
+	iL readonly 1 13139D
+	//const: TKAFG3K_ATTR_MAX_NUM_WAVEFORMS
+"Returns the maximum number of arbitrary waveforms that the VI generator allows.  Typically, this value is constant for the VI generator.
+      
+
+"
+attribute: "Waveform Quantum"
+	"Arbitrary Waveform Output:Waveform Quantum"
+	iL readonly 1 13139E
+	//const: TKAFG3K_ATTR_WAVEFORM_QUANTUM
+"The size of each arbitrary waveform must be a multiple of a quantum value.  This property returns the quantum value the VI generator allows.
+For example, when this property returns a value of 8, all waveform sizes must be a multiple of 8.  Typically, this value is constant for the VI generator.
+      
+
+"
+attribute: "Min Waveform Size"
+	"Arbitrary Waveform Output:Min Waveform Size"
+	iL readonly 1 13139F
+	//const: TKAFG3K_ATTR_MIN_WAVEFORM_SIZE
+"Returns the minimum number of points the VI generator allows in an arbitrary waveform.  Typically, this value is constant for the VI generator.
+      
+
+"
+attribute: "Max Waveform Size"
+	"Arbitrary Waveform Output:Max Waveform Size"
+	iL readonly 1 1313A0
+	//const: TKAFG3K_ATTR_MAX_WAVEFORM_SIZE
+"Returns the maximum number of points the VI generator allows in an arbitrary waveform.  Typically, this value is constant for the VI generator.
+      
+"
+attribute: "Active Memory"
+	"Arbitrary Waveform Output:Active Memory"
+	iL enum { TKAFG3K_VAL_OUTPUT_EMEM1=0, TKAFG3K_VAL_OUTPUT_EMEM2=1 } readwrite 1 118C5D
+	//const: TKAFG3K_ATTR_ACTIVE_MEMORY
+"This property specifies the active edit memory which is being operated.
+
+TKAFG3K_VAL_OUTPUT_EMEM1 (0)
+Edit Memory 1
+
+TKAFG3K_VAL_OUTPUT_EMEM2 (1)
+Edit Memory 2
+
+"
+attribute: "Trigger Output Mode"
+	"Triggering:Trigger Output Mode"
+	iL enum { TKAFG3K_VAL_TRIGGER_TRIGGER=1, TKAFG3K_VAL_TRIGGER_SYNC=2 } readwrite 1 118C38
+	//const: TKAFG3K_ATTR_TRIGGER_MODE
+"This property specifies the mode for trigger output signal.
+
+When the burst count is set to INFINITY, Trigger Output Mode indicates that the infinite number of cycles of waveform will be output.
+
+When the burst count is set to INFINITY, Sync Output Mode indicates that one pulse waveform is output.
+
+When the burst count is specified other than INFINITY, Trigger Output Mode and Sync Output Mode have the same effect.
+
+TKAFG3K_VAL_TRIGGER_TRIGGER (1)
+
+
+TKAFG3K_VAL_TRIGGER_SYNC (2)
+
+
+"
+attribute: "Trigger Source"
+	"Triggering:Trigger Source"
+	iL enum { TKAFG3K_VAL_INTERNAL_TRIGGER=3, TKAFG3K_VAL_EXTERNAL=1 } readwrite 1 1313FE
+	//const: TKAFG3K_ATTR_TRIGGER_SOURCE
+"This channel-based property specifies the trigger source.  After the VI generator receives the trigger, it produces a signal based on the value of the Operation Mode property.
+
+Note:
+  Although you have to specify a channel for this property, the value you set to this property will affect all channels of the instrument.
+    
+
+TKAFG3K_VAL_INTERNAL_TRIGGER (3)
+The VI generator wait for a trigger from its internal trigger source.
+
+TKAFG3K_VAL_EXTERNAL (1)
+The VI generator waits for a trigger on the external trigger input.
+
+"
+attribute: "Trigger Slope"
+	"Triggering:Trigger Slope"
+	iL enum { TKAFG3K_VAL_TRIGGER_POSITIVE=1, TKAFG3K_VAL_TRIGGER_NEGATIVE=2 } readwrite 1 118C39
+	//const: TKAFG3K_ATTR_TRIGGER_SLOPE
+"This property specifies the slope of trigger signal when you specify an external trigger source. 
+When you select positive slope, it indicates that the event occurs on the rising edge of the external trigger signal.
+When you select negative slope, it indicates that the event occurs on the failing edge of the external trigger signal. 
+
+TKAFG3K_VAL_TRIGGER_POSITIVE (1)
+
+
+TKAFG3K_VAL_TRIGGER_NEGATIVE (2)
+
+
+"
+attribute: "Internal Trigger Rate"
+	"Triggering:Internal Trigger Rate"
+	fD readwrite 1 131406
+	//const: TKAFG3K_ATTR_INTERNAL_TRIGGER_RATE
+"This property specifies the rate at which the VI generator's internal trigger source generates trigger signals.  The units are triggers-per-second.
+    
+
+"
+attribute: "Burst Delay"
+	"Bursting:Burst Delay"
+	fD readwrite 1 118C5C
+	//const: TKAFG3K_ATTR_BURST_DELAY
+"Delay time in the burst mode for the specified
+channel. It specifies a time delay between the trigger and the signal output. This property is available only in the Triggered burst mode.
+
+"
+attribute: "Burst Count"
+	"Bursting:Burst Count"
+	iL readwrite 1 13142E
+	//const: TKAFG3K_ATTR_BURST_COUNT
+"This channel-based property specifies the number of cycles that the VI generator produces when it is in the burst operation mode and receives a trigger.
+
+      
+
+"
+attribute: "Burst Mode"
+	"Bursting:Burst Mode"
+	iL enum { TKAFG3K_VAL_BURST_TRIGGER=1, TKAFG3K_VAL_BURST_GATE=2 } readwrite 1 118C59
+	//const: TKAFG3K_ATTR_BURST_MODE
+"This channel-based property specifies the burst mode.
+
+When you set this parameter to Triggered Mode, and when burst mode is enabled, the VI generator produces cycles of waveform according to burst count in response to a trigger event.
+
+When you set this parameter to Gated Mode, and when burst mode is enabled, the VI generator produces cycles of waveform only when trigger signal is in high level.
+
+TKAFG3K_VAL_BURST_TRIGGER (1)
+
+
+TKAFG3K_VAL_BURST_GATE (2)
+
+
+"
+attribute: "Sweep Type"
+	"Sweeping:Sweep Type"
+	iL enum { TKAFG3K_VAL_SWEEP_LINEAR=1, TKAFG3K_VAL_SWEEP_LOGARITHMIC=2 } readwrite 1 118C3B
+	//const: TKAFG3K_ATTR_SWEEP_TYPE
+"This channel-based property specifies the sweep type for the sweep spacing. 
+
+If you select Linear Spacing, the VI generator produce linear spacing sweeped waveform when sweep mode is enabled.
+
+If you select Logarithmic Spacing, the VI generator produce logarithmic spacing sweeped waveform when sweep mode is enabled.
+
+TKAFG3K_VAL_SWEEP_LINEAR (1)
+
+
+TKAFG3K_VAL_SWEEP_LOGARITHMIC (2)
+
+
+"
+attribute: "Sweep Time"
+	"Sweeping:Sweep Time"
+	fD readwrite 1 118C3C
+	//const: TKAFG3K_ATTR_SWEEP_TIME
+"This channel-based property specifies the sweep time that you want the VI generator to produce. The sweep time does not include hold time and return time.
+
+When you set this property, remember that it could change the value of sweep hold time and sweep return time.
+
+"
+attribute: "Sweep Mode"
+	"Sweeping:Sweep Mode"
+	iL enum { TKAFG3K_VAL_SWEEP_AUTO=1, TKAFG3K_VAL_SWEEP_MANUAL=2 } readwrite 1 118C5B
+	//const: TKAFG3K_ATTR_SWEEP_MODE
+"This channel-based property specifies the sweep mode.
+
+When you set this parameter to Auto, and when sweep mode is enabled, the VI generator outputs a continuous sweep at a rate specified by Sweep Time, Hold Time, and Return Time.
+
+When you set this parameter to Manual, and when sweep mode is enabled, the VI generator outputs one sweep when a trigger input is received.
+
+TKAFG3K_VAL_SWEEP_AUTO (1)
+
+
+TKAFG3K_VAL_SWEEP_MANUAL (2)
+
+
+"
+attribute: "Sweep Start Frequency"
+	"Sweeping:Sweep Start Frequency"
+	fD readwrite 1 118C3D
+	//const: TKAFG3K_ATTR_SWEEP_START_FREQUENCY
+"This property specifies the start frequency of sweep that you want the VI generator to produce. 
+
+Notes:
+
+(1) The valid range of start frequency is decided by instrument model and waveform shape. 
+
+"
+attribute: "Sweep Stop Frequency"
+	"Sweeping:Sweep Stop Frequency"
+	fD readwrite 1 118C3E
+	//const: TKAFG3K_ATTR_SWEEP_STOP_FREQUENCY
+"This property specifies the stop frequency of sweep that you want the VI generator to produce. 
+
+Notes:
+
+(1) The valid range of stop frequency is decided by instrument model and waveform shape. 
+
+"
+attribute: "Sweep Hold Time"
+	"Sweeping:Sweep Hold Time"
+	fD readwrite 1 118C3F
+	//const: TKAFG3K_ATTR_SWEEP_HOLD_TIME
+"This channel-based property specifies the sweep hold time. Hold time represents the amount of time that the frequency must remain stable after reaching the stop frequency.
+
+When you set this property, remember that it could change the value of sweep time and sweep return time.
+
+"
+attribute: "Sweep Return Time"
+	"Sweeping:Sweep Return Time"
+	fD readwrite 1 118C40
+	//const: TKAFG3K_ATTR_SWEEP_RETURN_TIME
+"This channel-based property specifies the sweep return time. Return time represents the amount of time from stop frequency through start frequency. 
+
+"
+attribute: "Append Noise Enabled"
+	"Waveform Appendant:Append Noise Enabled"
+	bool readwrite 1 118C41
+	//const: TKAFG3K_ATTR_APPEND_NOISE_ENABLED
+"This channel-based property specifies whether to add internal noise to an output signal.
+You could add internal noise simultaneously with external signal when adding external signal is applicable by setting both this property and Append External Enabled to TRUE.
+
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Append Noise Level"
+	"Waveform Appendant:Append Noise Level"
+	fD readwrite 1 118C42
+	//const: TKAFG3K_ATTR_APPEND_NOISE_LEVEL
+"This channel-based property specifies noise level. The noise level represents the percent against current amplitude level.
+
+Notes:
+(1) You could set this property only when operation mode is set to Continuous, Burst or Sweep mode.
+
+"
+attribute: "Append External Enabled"
+	"Waveform Appendant:Append External Enabled"
+	bool readwrite 1 118C43
+	//const: TKAFG3K_ATTR_APPEND_EXTERNAL_ENABLED
+"This channel-based property specifies  whether to add external signal to an output signal. 
+
+This property is only supported by AFG3100 and AFG3200 series VI generators. 
+Model            Supported
+--------------------------------
+AFG3021          NO
+AFG3022          NO
+AFG3011          YES
+AFG3012          YES
+AFG3251          YES
+AFG3252          YES
+AFG2021          NO
+AFG3051          NO
+AFG3052          NO
+
+This property is only applicable to CH1. You could add an external signal to the CH1 output signal of the AFG3100 and AFG3200 series VI generator. 
+Model            Channel               Applicable
+------------------------------------------------------
+AFG3101          CH1                   YES
+
+AFG3102          CH1                   YES
+AFG3102          CH2                   NO
+
+AFG3251          CH1                   YES
+
+AFG3252          CH1                   YES
+AFG3252          CH2                   NO
+
+You could add external signal simultaneously with internal noise when this property is applicable by setting Append Noise Enabled and this property to TRUE.
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "AM Enabled"
+	"Amplitude Modulation:AM Enabled"
+	bool readwrite 1 131461
+	//const: TKAFG3K_ATTR_AM_ENABLED
+"This channel-based property specifies whether the VI generator applies amplitude modulation to the output signal.
+      
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "AM Source"
+	"Amplitude Modulation:AM Source"
+	iL enum { TKAFG3K_VAL_AM_INTERNAL=0, TKAFG3K_VAL_AM_EXTERNAL=1 } readwrite 1 131462
+	//const: TKAFG3K_ATTR_AM_SOURCE
+"This channel-based property specifies the source of signal that the VI generator uses to modulate the output signal.
+      
+
+TKAFG3K_VAL_AM_INTERNAL (0)
+Configures the VI generator to modulate the carrier waveform with its internal AM Modulating Source.
+
+TKAFG3K_VAL_AM_EXTERNAL (1)
+Configures the VI generator to modulate the carrier waveform with its external AM Modulating Source.
+
+"
+attribute: "AM Internal Depth"
+	"Amplitude Modulation:AM Internal Depth"
+	fD readwrite 1 131463
+	//const: TKAFG3K_ATTR_AM_INTERNAL_DEPTH
+"Specifies the extent of modulation the VI generator applies to the carrier signal.  The units are a percentage of full modulation.  At 0% depth, the output amplitude equals the carrier signal's amplitude.  At 100% depth, the output amplitude equals twice the carrier signal's amplitude.
+    You could use this property only when the AM Source property is set to TKAFG3K_VAL_AM_INTERNAL (0) .
+
+Notes:
+(1) This property is not based on channel.
+
+
+      
+
+"
+attribute: "AM Internal Waveform"
+	"Amplitude Modulation:AM Internal Waveform"
+	iL enum { TKAFG3K_VAL_AM_INTERNAL_SINE=1, TKAFG3K_VAL_AM_INTERNAL_SQUARE=2, TKAFG3K_VAL_AM_INTERNAL_TRIANGLE=3, TKAFG3K_VAL_AM_INTERNAL_RAMP_UP=4, TKAFG3K_VAL_AM_INTERNAL_RAMP_DOWN=5, TKAFG3K_VAL_AM_INTERNAL_PRN=1001, TKAFG3K_VAL_AM_INTERNAL_USER1=1002, TKAFG3K_VAL_AM_INTERNAL_USER2=1003, TKAFG3K_VAL_AM_INTERNAL_USER3=1004, TKAFG3K_VAL_AM_INTERNAL_USER4=1005, TKAFG3K_VAL_AM_INTERNAL_EMEM1=1006, TKAFG3K_VAL_AM_INTERNAL_EMEM2=1007 } readwrite 1 131464
+	//const: TKAFG3K_ATTR_AM_INTERNAL_WAVEFORM
+"Specifies the waveform type that the VI generator uses to modulate the output signal.
+    This property affects VI generator behavior only when the AM Source property is set to TKAFG3K_VAL_AM_INTERNAL (0) .
+
+Notes:
+(1) This property is not based on channel.      
+
+TKAFG3K_VAL_AM_INTERNAL_SINE (1)
+Configures the VI generator to modulate the carrier signal's amplitude with a sinusoid waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_SQUARE (2)
+Configures the VI generator to modulate the carrier signal's amplitude with a square waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_TRIANGLE (3)
+Configures the VI generator to modulate the carrier signal's amplitude with a triangle waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_RAMP_UP (4)
+Configures the VI generator to modulate the carrier signal's amplitude with a positive ramp waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_RAMP_DOWN (5)
+Configures the VI generator to modulate the carrier signal's amplitude with a negative ramp waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_PRN (1001)
+Configures the VI generator to modulate the carrier signal's amplitude with a noise waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_USER1 (1002)
+Configures the VI generator to modulate the carrier signal's amplitude with a user waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_USER2 (1003)
+Configures the VI generator to modulate the carrier signal's amplitude with a user2 waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_USER3 (1004)
+Configures the VI generator to modulate the carrier signal's amplitude with a user3 waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_USER4 (1005)
+Configures the VI generator to modulate the carrier signal's amplitude with a user4 waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_EMEM1 (1006)
+
+
+TKAFG3K_VAL_AM_INTERNAL_EMEM2 (1007)
+
+
+"
+attribute: "AM Internal Frequency"
+	"Amplitude Modulation:AM Internal Frequency"
+	fD readwrite 1 131465
+	//const: TKAFG3K_ATTR_AM_INTERNAL_FREQUENCY
+"Specifies the frequency of the waveform that the VI generator uses to modulate the output signal.  The units are Hertz (Hz).
+    This property affects VI generator behavior only when the AM Source property is set to TKAFG3K_VAL_AM_INTERNAL (0) .
+
+Notes:
+(1) This property is not based on channel.       
+
+"
+attribute: "AM Depth By Channel"
+	"Amplitude Modulation:AM Depth By Channel"
+	fD readwrite 1 118C44
+	//const: TKAFG3K_ATTR_AM_DEPTH_BY_CHANNEL
+"This channel-based property specifies the extent of modulation the VI generator applies to the carrier signal.  The units are a percentage of full modulation.  At 0% depth, the output amplitude equals the carrier signal's amplitude.  At 100% depth, the output amplitude equals twice the carrier signal's amplitude.
+    This property is applicable no matter the AM Source property is set to TKAFG3K_VAL_AM_INTERNAL (0)  or TKAFG3K_VAL_AM_EXTERNAL (1) .
+
+
+"
+attribute: "AM Internal Waveform By Channel"
+	"Amplitude Modulation:AM Internal Waveform By Channel"
+	iL enum { TKAFG3K_VAL_AM_INTERNAL_SINE=1, TKAFG3K_VAL_AM_INTERNAL_SQUARE=2, TKAFG3K_VAL_AM_INTERNAL_TRIANGLE=3, TKAFG3K_VAL_AM_INTERNAL_RAMP_UP=4, TKAFG3K_VAL_AM_INTERNAL_RAMP_DOWN=5, TKAFG3K_VAL_AM_INTERNAL_PRN=1001, TKAFG3K_VAL_AM_INTERNAL_USER1=1002, TKAFG3K_VAL_AM_INTERNAL_USER2=1003, TKAFG3K_VAL_AM_INTERNAL_USER3=1004, TKAFG3K_VAL_AM_INTERNAL_USER4=1005, TKAFG3K_VAL_AM_INTERNAL_EMEM1=1006, TKAFG3K_VAL_AM_INTERNAL_EMEM2=1007 } readwrite 1 118C45
+	//const: TKAFG3K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL
+"This channel-based property specifies the waveform type that the VI generator uses to modulate the output signal.
+    This property affects VI generator behavior only when the AM Source property is set to TKAFG3K_VAL_AM_INTERNAL (0) .
+
+TKAFG3K_VAL_AM_INTERNAL_SINE (1)
+Configures the VI generator to modulate the carrier signal's amplitude with a sinusoid waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_SQUARE (2)
+Configures the VI generator to modulate the carrier signal's amplitude with a square waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_TRIANGLE (3)
+Configures the VI generator to modulate the carrier signal's amplitude with a triangle waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_RAMP_UP (4)
+Configures the VI generator to modulate the carrier signal's amplitude with a positive ramp waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_RAMP_DOWN (5)
+Configures the VI generator to modulate the carrier signal's amplitude with a negative ramp waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_PRN (1001)
+Configures the VI generator to modulate the carrier signal's amplitude with a noise waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_USER1 (1002)
+Configures the VI generator to modulate the carrier signal's amplitude with a user waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_USER2 (1003)
+Configures the VI generator to modulate the carrier signal's amplitude with a user2 waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_USER3 (1004)
+Configures the VI generator to modulate the carrier signal's amplitude with a user3 waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_USER4 (1005)
+Configures the VI generator to modulate the carrier signal's amplitude with a user4 waveform.
+
+TKAFG3K_VAL_AM_INTERNAL_EMEM1 (1006)
+
+
+TKAFG3K_VAL_AM_INTERNAL_EMEM2 (1007)
+
+
+"
+attribute: "AM Internal Frequency By Channel"
+	"Amplitude Modulation:AM Internal Frequency By Channel"
+	fD readwrite 1 118C46
+	//const: TKAFG3K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL
+"This channel-based property specifies the frequency of the waveform that the VI generator uses to modulate the output signal.  The units are Hertz (Hz).
+    This property affects VI generator behavior only when the AM Source property is set to TKAFG3K_VAL_AM_INTERNAL (0) .
+
+"
+attribute: "FM Enabled"
+	"Frequency Modulation:FM Enabled"
+	bool readwrite 1 1314C5
+	//const: TKAFG3K_ATTR_FM_ENABLED
+"Specifies whether the VI generator applies frequency modulation to the output signal.
+      
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "FM Source"
+	"Frequency Modulation:FM Source"
+	iL enum { TKAFG3K_VAL_FM_INTERNAL=0, TKAFG3K_VAL_FM_EXTERNAL=1 } readwrite 1 1314C6
+	//const: TKAFG3K_ATTR_FM_SOURCE
+"This channel-based property specifies the signal the VI generator uses to modulate the output signal.
+      
+
+TKAFG3K_VAL_FM_INTERNAL (0)
+Configures the VI generator to modulate the carrier waveform with its internal FM Modulating Source.
+
+TKAFG3K_VAL_FM_EXTERNAL (1)
+Configures the VI generator to modulate the carrier waveform with its external FM Modulating Source.
+
+"
+attribute: "FM Internal Deviation"
+	"Frequency Modulation:FM Internal Deviation"
+	fD readwrite 1 1314C7
+	//const: TKAFG3K_ATTR_FM_INTERNAL_DEVIATION
+"Specifies the maximum frequency deviation the modulating waveform applies to the carrier waveform.  This deviation corresponds to the maximum amplitude level of the modulating signal.  The units are Hertz (Hz).
+    You could use this property only when the FM Source property is set to TKAFG3K_VAL_FM_INTERNAL (0) .
+
+Notes:
+(1) This property is not based on channel.
+
+"
+attribute: "FM Internal Waveform"
+	"Frequency Modulation:FM Internal Waveform"
+	iL enum { TKAFG3K_VAL_FM_INTERNAL_SINE=1, TKAFG3K_VAL_FM_INTERNAL_SQUARE=2, TKAFG3K_VAL_FM_INTERNAL_TRIANGLE=3, TKAFG3K_VAL_FM_INTERNAL_RAMP_UP=4, TKAFG3K_VAL_FM_INTERNAL_RAMP_DOWN=5, TKAFG3K_VAL_FM_INTERNAL_PRN=1001, TKAFG3K_VAL_FM_INTERNAL_USER1=1002, TKAFG3K_VAL_FM_INTERNAL_USER2=1003, TKAFG3K_VAL_FM_INTERNAL_USER3=1004, TKAFG3K_VAL_FM_INTERNAL_USER4=1005, TKAFG3K_VAL_FM_INTERNAL_EMEM1=1006, TKAFG3K_VAL_FM_INTERNAL_EMEM2=1007 } readwrite 1 1314C8
+	//const: TKAFG3K_ATTR_FM_INTERNAL_WAVEFORM
+"Specifies the waveform type that the VI generator uses to modulate the output signal.
+    This property affects VI generator behavior only when the FM Source property is set to TKAFG3K_VAL_FM_INTERNAL (0) .
+
+Notes:
+(1) This property is not based on channel.      
+
+TKAFG3K_VAL_FM_INTERNAL_SINE (1)
+Configures the VI generator to modulate the carrier signal's frequency with a sinusoid waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_SQUARE (2)
+Configures the VI generator to modulate the carrier signal's frequency with a square waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_TRIANGLE (3)
+Configures the VI generator to modulate the carrier signal's frequency with a triangle waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_RAMP_UP (4)
+Configures the VI generator to modulate the carrier signal's frequency with a positive ramp waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_RAMP_DOWN (5)
+Configures the VI generator to modulate the carrier signal's frequency with a negative ramp waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_PRN (1001)
+
+
+TKAFG3K_VAL_FM_INTERNAL_USER1 (1002)
+
+
+TKAFG3K_VAL_FM_INTERNAL_USER2 (1003)
+
+
+TKAFG3K_VAL_FM_INTERNAL_USER3 (1004)
+
+
+TKAFG3K_VAL_FM_INTERNAL_USER4 (1005)
+
+
+TKAFG3K_VAL_FM_INTERNAL_EMEM1 (1006)
+
+
+TKAFG3K_VAL_FM_INTERNAL_EMEM2 (1007)
+
+
+"
+attribute: "FM Internal Frequency"
+	"Frequency Modulation:FM Internal Frequency"
+	fD readwrite 1 1314C9
+	//const: TKAFG3K_ATTR_FM_INTERNAL_FREQUENCY
+"Specifies the frequency of the waveform that the VI generator uses to modulate the output signal.  The units are Hertz (Hz).
+    This property affects VI generator behavior only when the FM Source property is set to TKAFG3K_VAL_FM_INTERNAL (0) .
+
+Notes:
+(1) This property is not based on channel.      
+
+"
+attribute: "FM Deviation By Channel"
+	"Frequency Modulation:FM Deviation By Channel"
+	fD readwrite 1 118C47
+	//const: TKAFG3K_ATTR_FM_DEVIATION_BY_CHANNEL
+"This channel-based property specifies the maximum frequency deviation the modulating waveform applies to the carrier waveform.  This deviation corresponds to the maximum amplitude level of the modulating signal.  The units are Hertz (Hz).
+    You could use this property no matter the FM Source property is set to TKAFG3K_VAL_FM_INTERNAL (0)  or TKAFG3K_VAL_FM_EXTERNAL (1) .
+
+"
+attribute: "FM Internal Waveform By Channel"
+	"Frequency Modulation:FM Internal Waveform By Channel"
+	iL enum { TKAFG3K_VAL_FM_INTERNAL_SINE=1, TKAFG3K_VAL_FM_INTERNAL_SQUARE=2, TKAFG3K_VAL_FM_INTERNAL_TRIANGLE=3, TKAFG3K_VAL_FM_INTERNAL_RAMP_UP=4, TKAFG3K_VAL_FM_INTERNAL_RAMP_DOWN=5, TKAFG3K_VAL_FM_INTERNAL_PRN=1001, TKAFG3K_VAL_FM_INTERNAL_USER1=1002, TKAFG3K_VAL_FM_INTERNAL_USER2=1003, TKAFG3K_VAL_FM_INTERNAL_USER3=1004, TKAFG3K_VAL_FM_INTERNAL_USER4=1005, TKAFG3K_VAL_FM_INTERNAL_EMEM1=1006, TKAFG3K_VAL_FM_INTERNAL_EMEM2=1007 } readwrite 1 118C48
+	//const: TKAFG3K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL
+"This channel-based property specifies the waveform type that the VI generator uses to modulate the output signal.
+    This property affects VI generator behavior only when the FM Source property is set to TKAFG3K_VAL_FM_INTERNAL (0) .
+
+TKAFG3K_VAL_FM_INTERNAL_SINE (1)
+Configures the VI generator to modulate the carrier signal's frequency with a sinusoid waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_SQUARE (2)
+Configures the VI generator to modulate the carrier signal's frequency with a square waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_TRIANGLE (3)
+Configures the VI generator to modulate the carrier signal's frequency with a triangle waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_RAMP_UP (4)
+Configures the VI generator to modulate the carrier signal's frequency with a positive ramp waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_RAMP_DOWN (5)
+Configures the VI generator to modulate the carrier signal's frequency with a negative ramp waveform.
+
+TKAFG3K_VAL_FM_INTERNAL_PRN (1001)
+
+
+TKAFG3K_VAL_FM_INTERNAL_USER1 (1002)
+
+
+TKAFG3K_VAL_FM_INTERNAL_USER2 (1003)
+
+
+TKAFG3K_VAL_FM_INTERNAL_USER3 (1004)
+
+
+TKAFG3K_VAL_FM_INTERNAL_USER4 (1005)
+
+
+TKAFG3K_VAL_FM_INTERNAL_EMEM1 (1006)
+
+
+TKAFG3K_VAL_FM_INTERNAL_EMEM2 (1007)
+
+
+"
+attribute: "FM Internal Frequency By Channel"
+	"Frequency Modulation:FM Internal Frequency By Channel"
+	fD readwrite 1 118C49
+	//const: TKAFG3K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL
+"This channel-based property specifies the frequency of the waveform that the VI generator uses to modulate the output signal.  The units are Hertz (Hz).
+    This property affects VI generator behavior only when the FM Source property is set to TKAFG3K_VAL_FM_INTERNAL (0) .
+
+"
+attribute: "FSK Enabled"
+	"FSK Modulation:FSK Enabled"
+	bool readwrite 1 118C4A
+	//const: TKAFG3K_ATTR_FSK_ENABLED
+"Specifies whether the VI generator applies FSK modulation to the output signal.
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "FSK Hop Frequency"
+	"FSK Modulation:FSK Hop Frequency"
+	fD readwrite 1 118C4B
+	//const: TKAFG3K_ATTR_FSK_HOP_FREQUENCY
+"This channel-based property specifies the hop frequency of FSK modulation.
+
+"
+attribute: "Internal Rate"
+	"FSK Modulation:Internal Rate"
+	fD readwrite 1 118C4C
+	//const: TKAFG3K_ATTR_FSK_INTERNAL_RATE
+"This channel-based property specifies the internal modulation rate of FSK modulation. 
+This property affects VI generator behavior only when the FSK Source property is set to TKAFG3K_VAL_FSK_INTERNAL (0) .
+
+"
+attribute: "FSK Source"
+	"FSK Modulation:FSK Source"
+	iL enum { TKAFG3K_VAL_FSK_INTERNAL=0, TKAFG3K_VAL_FSK_EXTERNAL=1 } readwrite 1 118C4D
+	//const: TKAFG3K_ATTR_FSK_SOURCE
+"This channel-based property specifies the signal the VI generator uses to modulate the output signal.
+
+TKAFG3K_VAL_FSK_INTERNAL (0)
+
+
+TKAFG3K_VAL_FSK_EXTERNAL (1)
+
+
+"
+attribute: "PM Enabled"
+	"Phase Modulation:PM Enabled"
+	bool readwrite 1 118C4E
+	//const: TKAFG3K_ATTR_PM_ENABLED
+"Specifies whether the VI generator applies phase modulation to the output signal.
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "PM Source"
+	"Phase Modulation:PM Source"
+	iL enum { TKAFG3K_VAL_PM_INTERNAL=0, TKAFG3K_VAL_PM_EXTERNAL=1 } readwrite 1 118C4F
+	//const: TKAFG3K_ATTR_PM_SOURCE
+"This channel-based property specifies the signal the VI generator uses to modulate the output signal.
+
+TKAFG3K_VAL_PM_INTERNAL (0)
+
+
+TKAFG3K_VAL_PM_EXTERNAL (1)
+
+
+"
+attribute: "PM Deviation By Channel"
+	"Phase Modulation:PM Deviation By Channel"
+	fD readwrite 1 118C50
+	//const: TKAFG3K_ATTR_PM_DEVIATION_BY_CHANNEL
+"This channel-based property specifies the maximum phase deviation applies to the output signal. The units are degree (DEG). 
+You could use this property no matter the PM Source property is set to TKAFG3K_VAL_PM_INTERNAL (0)  or TKAFG3K_VAL_PM_EXTERNAL (1) .
+
+
+"
+attribute: "PM Internal Frequency By Channel"
+	"Phase Modulation:PM Internal Frequency By Channel"
+	fD readwrite 1 118C51
+	//const: TKAFG3K_ATTR_PM_INTERNAL_FREQUENCY_BY_CHANNEL
+"This channel-based property specifies the frequency of the waveform that the VI generator uses to modulate the output signal.  The units are Hertz (Hz).
+    This property affects VI generator behavior only when the PM Source property is set to TKAFG3K_VAL_PM_INTERNAL (0) .
+
+"
+attribute: "PM Internal Waveform By Channel"
+	"Phase Modulation:PM Internal Waveform By Channel"
+	iL enum { TKAFG3K_VAL_PM_INTERNAL_SINE=1, TKAFG3K_VAL_PM_INTERNAL_SQUARE=2, TKAFG3K_VAL_PM_INTERNAL_TRIANGLE=3, TKAFG3K_VAL_PM_INTERNAL_RAMP_UP=4, TKAFG3K_VAL_PM_INTERNAL_RAMP_DOWN=5, TKAFG3K_VAL_PM_INTERNAL_PRN=100, TKAFG3K_VAL_PM_INTERNAL_USER1=200, TKAFG3K_VAL_PM_INTERNAL_USER2=201, TKAFG3K_VAL_PM_INTERNAL_USER3=202, TKAFG3K_VAL_PM_INTERNAL_USER4=203, TKAFG3K_VAL_PM_INTERNAL_EMEM1=204, TKAFG3K_VAL_PM_INTERNAL_EMEM2=205 } readwrite 1 118C52
+	//const: TKAFG3K_ATTR_PM_INTERNAL_WAVEFORM_BY_CHANNEL
+"This channel-based property specifies the waveform type that the VI generator uses to modulate the output signal.
+    This property affects VI generator behavior only when the PM Source property is set to TKAFG3K_VAL_PM_INTERNAL (0) .
+
+TKAFG3K_VAL_PM_INTERNAL_SINE (1)
+
+
+TKAFG3K_VAL_PM_INTERNAL_SQUARE (2)
+
+
+TKAFG3K_VAL_PM_INTERNAL_TRIANGLE (3)
+
+
+TKAFG3K_VAL_PM_INTERNAL_RAMP_UP (4)
+
+
+TKAFG3K_VAL_PM_INTERNAL_RAMP_DOWN (5)
+
+
+TKAFG3K_VAL_PM_INTERNAL_PRN (100)
+
+
+TKAFG3K_VAL_PM_INTERNAL_USER1 (200)
+
+
+TKAFG3K_VAL_PM_INTERNAL_USER2 (201)
+
+
+TKAFG3K_VAL_PM_INTERNAL_USER3 (202)
+
+
+TKAFG3K_VAL_PM_INTERNAL_USER4 (203)
+
+
+TKAFG3K_VAL_PM_INTERNAL_EMEM1 (204)
+
+
+TKAFG3K_VAL_PM_INTERNAL_EMEM2 (205)
+
+
+"
+attribute: "PWM Enabled"
+	"Pulse Width Modulation:PWM Enabled"
+	bool readwrite 1 118C53
+	//const: TKAFG3K_ATTR_PWM_ENABLED
+"Specifies whether the VI generator applies pulse width modulation to the output signal.
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "PWM Source"
+	"Pulse Width Modulation:PWM Source"
+	iL enum { TKAFG3K_VAL_PWM_INTERNAL=0, TKAFG3K_VAL_PWM_EXTERNAL=1 } readwrite 1 118C54
+	//const: TKAFG3K_ATTR_PWM_SOURCE
+"This channel-based property specifies the signal the VI generator uses to modulate the output signal.
+
+TKAFG3K_VAL_PWM_INTERNAL (0)
+
+
+TKAFG3K_VAL_PWM_EXTERNAL (1)
+
+
+"
+attribute: "PWM Deviation"
+	"Pulse Width Modulation:PWM Deviation"
+	fD readwrite 1 118C55
+	//const: TKAFG3K_ATTR_PWM_DEVIATION
+"This channel-based property specifies the duty cycle deviation applies to the output signal. The units are percentage (%). 
+You could use this property no matter the PWM Source property is set to TKAFG3K_VAL_PWM_INTERNAL (0)  or TKAFG3K_VAL_PWM_EXTERNAL (1) .
+
+"
+attribute: "PWM Internal Frequency"
+	"Pulse Width Modulation:PWM Internal Frequency"
+	fD readwrite 1 118C56
+	//const: TKAFG3K_ATTR_PWM_INTERNAL_FREQUENCY
+"This channel-based property specifies the frequency of the waveform that the VI generator uses to modulate the output signal.  The units are Hertz (Hz).
+    This property affects VI generator behavior only when the PWM Source property is set to TKAFG3K_VAL_PWM_INTERNAL (0) .
+
+"
+attribute: "PWM Internal Waveform"
+	"Pulse Width Modulation:PWM Internal Waveform"
+	iL enum { TKAFG3K_VAL_PWM_INTERNAL_SINE=1, TKAFG3K_VAL_PWM_INTERNAL_SQUARE=2, TKAFG3K_VAL_PWM_INTERNAL_TRIANGLE=3, TKAFG3K_VAL_PWM_INTERNAL_RAMP_UP=4, TKAFG3K_VAL_PWM_INTERNAL_RAMP_DOWN=5, TKAFG3K_VAL_PWM_INTERNAL_PRN=100, TKAFG3K_VAL_PWM_INTERNAL_USER1=200, TKAFG3K_VAL_PWM_INTERNAL_USER2=201, TKAFG3K_VAL_PWM_INTERNAL_USER3=202, TKAFG3K_VAL_PWM_INTERNAL_USER4=203, TKAFG3K_VAL_PWM_INTERNAL_EMEM1=204, TKAFG3K_VAL_PWM_INTERNAL_EMEM2=205 } readwrite 1 118C57
+	//const: TKAFG3K_ATTR_PWM_INTERNAL_WAVEFORM
+"This channel-based property specifies the waveform type that the VI generator uses to modulate the output signal.
+    This property affects VI generator behavior only when the PWM Source property is set to TKAFG3K_VAL_PWM_INTERNAL (0) .
+
+TKAFG3K_VAL_PWM_INTERNAL_SINE (1)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_SQUARE (2)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_TRIANGLE (3)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_RAMP_UP (4)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_RAMP_DOWN (5)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_PRN (100)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_USER1 (200)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_USER2 (201)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_USER3 (202)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_USER4 (203)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_EMEM1 (204)
+
+
+TKAFG3K_VAL_PWM_INTERNAL_EMEM2 (205)
+
+
+"
+attribute: "ID Query Response"
+	"Miscellaneous Properties:ID Query Response"
+	string readonly 1 118C31
+	//const: TKAFG3K_ATTR_ID_QUERY_RESPONSE
+"Returns the ID Query response string.  The instrument driver gets the value of this property when you pass TRUE for the ID Query parameter to the tkafg3k Initialize.vi or tkafg3k Initialize With Options.vi.
+    
+
+"
+attribute: "TKAFG3K_ATTR_ACTIVE_MEMORY"
+	"Miscellaneous Properties:Hidden Properties (not user-viewable):TKAFG3K_ATTR_ACTIVE_MEMORY"
+	iL enum { TKAFG3K_VAL_OUTPUT_EMEM1=0, TKAFG3K_VAL_OUTPUT_EMEM2=1 } readwrite 1 118C5D
+	//const: TKAFG3K_ATTR_ACTIVE_MEMORY
+"
+
+TKAFG3K_VAL_OUTPUT_EMEM1 (0)
+
+
+TKAFG3K_VAL_OUTPUT_EMEM2 (1)
+
+
+"

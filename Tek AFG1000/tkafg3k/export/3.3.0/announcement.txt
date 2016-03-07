@@ -1,0 +1,40 @@
+IVI DRIVER EXPORT
+=================
+
+Prefix: tkafg3k
+Version: 3.3.0 
+Perforce location: //InstrumentDriver/Drivers/IVI/Certified/FGen/tkafg3k/export/3.3.0/...
+
+TRUNK
+-----
+
+Perforce location: //InstrumentDriver/Drivers/IVI/Certified/FGen/tkafg3k/trunk/...@1347030284 (2012/09/07 10:04:44)
+
+Build Machine: IVI-IDB-MACHINE.amer.corp.natinst.com
+User Name: Juanita Palomar(jpalomar@amer.corp.natinst.com)
+
+CHANGELISTS
+-----------
+
+The following changes were made to the trunk since the last export:
+
+Change 6519858 on 2012/09/07 10:04:44 by jpalomar@jpalomar'integrating updates to trunk
+'
+Change 6462370 on 2012/08/21 11:57:34 by jpalomar@jpalomar_xp2'
+CARs 33483 and 255961 results
+'
+
+Build Tools
+-----------
+
+The following Tools & ADEs were used to build this export:
+
+IVI Driver Builder 2.2.0.0
+LabWindows/CVI 10.0.0
+LabVIEW 8.6.1
+LabVIEW 2009
+LabVIEW 2009 (64-bit)
+LabVIEW 2010
+LabVIEW 2010 (64-bit)
+LabVIEW 2011
+LabVIEW 2011 (64-bit)

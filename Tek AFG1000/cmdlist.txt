@@ -1,0 +1,72 @@
+AFGControl:CSCopy (No Query Form)
+*CLS (No Query Form)
+*IDN? (Query Only)
+MMEMory:CATalog? (Query Only)
+MMEMory:CDIRectory
+MMEMory:DELete (No Query Form)
+*OPT? (Query Only)
+OUTPut[1|2][:STATe]
+*RCL (No Query Form)
+*RST (No Query Form)
+*SAV (No Query Form)
+[SOURce[1|2]]:AM[:DEPTh]
+[SOURce[1|2]]:AM:INTernal:FREQuency
+[SOURce[1|2]]:AM:INTernal:FUNCtion
+[SOURce[1|2]]:AM:INTernal:FUNCtion:EFILe
+[SOURce[1|2]]:AM:SOURce
+[SOURce[1|2]]:AM:STATe
+[SOURce[1|2]]:ASKey[:AMPLitude]
+[SOURce[1|2]]:ASKey:INTernal:RATE
+[SOURce[1|2]]:ASKey:SOURce
+[SOURce[1|2]]:ASKey:STATe
+[SOURce[1|2]]:BURSt:MODE
+[SOURce[1|2]]:BURSt:NCYCles
+[SOURce[1|2]]:BURSt:STATe
+[SOURce[1|2]]:FM[:DEViation]
+[SOURce[1|2]]:FM:INTernal:FREQuency
+[SOURce[1|2]]:FM:INTernal:FUNCtion
+[SOURce[1|2]]:FM:INTernal:FUNCtion:EFILe
+[SOURce[1|2]]:FM:SOURce
+[SOURce[1|2]]:FM:STATe
+[SOURce[1|2]]:FREQuency:CENTer
+[SOURce[1|2]]:FREQuency:CONCurrent
+[SOURce[1|2]]:FREQuency[:CW|:FIXed]
+[SOURce[1|2]]:FREQuency:MODE
+[SOURce[1|2]]:FREQuency:SPAN
+[SOURce[1|2]]:FREQuency:STARt
+[SOURce[1|2]]:FREQuency:STOP
+[SOURce[1|2]]:FSKey[:FREQuency]
+[SOURce[1|2]]:FSKey:INTernal:RATE
+[SOURce[1|2]]:FSKey:SOURce
+[SOURce[1|2]]:FSKey:STATe
+[SOURce[1|2]]:FUNCtion:EFILe
+[SOURce[1|2]]:FUNCtion[:SHAPe]
+[SOURce[1|2]]:PHASe[:ADJust]
+[SOURce[1|2]]:PHASe:INITiate (No Query Form)
+[SOURce[1|2]]:PM[:DEViation]
+[SOURce[1|2]]:PM:INTernal:FREQuency
+[SOURce[1|2]]:PM:INTernal:FUNCtion
+[SOURce[1|2]]:PM:INTernal:FUNCtion:EFILe
+[SOURce[1|2]]:PM:SOURce
+[SOURce[1|2]]:PM:STATe
+[SOURce[1|2]]:PSKey[:DEViation]
+[SOURce[1|2]]:PSKey:INTernal:RATE
+[SOURce[1|2]]:PSKey:SOURce
+[SOURce[1|2]]:PSKey:STATe
+[SOURce[1|2]]:PULSe:DCYCle
+[SOURce[1|2]]:PWM:INTernal:FREQuency
+[SOURce[1|2]]:PWM:INTernal:FUNCtion
+[SOURce[1|2]]:PWM:INTernal:FUNCtion:EFILe
+[SOURce[1|2]]:PWM:SOURce
+[SOURce[1|2]]:PWM:STATe
+[SOURce[1|2]]:PWM[:DEViation]:DCYCle
+[SOURce[1|2]]:VOLTage[:LEVel][:IMMediate]:OFFSet
+[SOURce[1|2]]:VOLTage[:LEVel][:IMMediate][:AMPLitude]
+SYSTem:ERRor[:NEXT]? (Query Only)
+TRACe|DATA:CATalog? (Query Only)
+TRACe|DATA:COPY (No Query Form)
+TRACe|DATA[:DATA]
+TRACe|DATA[:DATA]:VALue
+TRACe|DATA:POINts
+*TRG (No Query Form)
+*WAI (No Query Form)
