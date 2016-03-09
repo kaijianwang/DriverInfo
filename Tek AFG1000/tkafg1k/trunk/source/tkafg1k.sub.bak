@@ -66,19 +66,7 @@ v attrActiveOneMemoryRangeTable DataType="i"
 
 
 v attrArbWaveformHandleRangeTable DataType="i" 
- TKAFG1K_VAL_WFM_USER1 (10000)
-  "Configures the function generator to produce a user1 waveform."
-
- TKAFG1K_VAL_WFM_USER2 (10001)
-  "Configures the function generator to produce a user2 waveform."
-
- TKAFG1K_VAL_WFM_USER3 (10002)
-  "Configures the function generator to produce a user3 waveform."
-
- TKAFG1K_VAL_WFM_USER4 (10003)
-  "Configures the function generator to produce a user4 waveform."
-
- TKAFG1K_VAL_WFM_EMEM (10011)
+ TKAFG1K_VAL_WFM_EMEM (10002)
   "Configures the function generator to produce a Edit Memory waveform."
 
 
@@ -161,9 +149,6 @@ v attrFuncWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_SQUARE (2)
   "Configures the function generator to produce a square waveform."
 
- TKAFG1K_VAL_WFM_DC (6)
-  "Configures the function generator to produce a constant voltage."
-
  TKAFG1K_VAL_WFM_RAMP (1001)
   "Configures the function generator to produce a ramp waveform."
 
@@ -172,24 +157,6 @@ v attrFuncWaveformRangeTable DataType="i"
 
  TKAFG1K_VAL_WFM_PRN (1003)
   "Configures the function generator to produce a prnoise waveform."
-
- TKAFG1K_VAL_WFM_SINC (1004)
-  "Configures the function generator to produce a sinc waveform."
-
- TKAFG1K_VAL_WFM_GAUS (1005)
-  "Configures the function generator to produce a gaussian waveform."
-
- TKAFG1K_VAL_WFM_LOR (1006)
-  "Configures the function generator to produce a lorentz waveform."
-
- TKAFG1K_VAL_WFM_ERIS (1007)
-  "Configures the function generator to produce a erise waveform."
-
- TKAFG1K_VAL_WFM_EDEC (1008)
-  "Configures the function generator to produce a edecay waveform."
-
- TKAFG1K_VAL_WFM_HAV (1009)
-  "Configures the function generator to produce a haversine waveform."
 
 
 v attrModelRangeTable DataType="i" 
@@ -383,9 +350,6 @@ v attrWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_SQUARE (2)
   "Configures the function generator with a square waveform."
 
- TKAFG1K_VAL_WFM_DC (6)
-  "Configures the function generator with a constant waveform."
-
  TKAFG1K_VAL_WFM_RAMP (1001)
   "Configures the function generator with a ramp waveform."
 
@@ -395,37 +359,13 @@ v attrWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_PRN (1003)
   "Configures the function generator with a noise waveform."
 
- TKAFG1K_VAL_WFM_SINC (1004)
-  "Configures the function generator with a sinc waveform."
+ TKAFG1K_VAL_WFM_ARB (1004)
+  ""
 
- TKAFG1K_VAL_WFM_GAUS (1005)
-  "Configures the function generator with a gaussian waveform."
+ TKAFG1K_VAL_WFM_USER (10001)
+  ""
 
- TKAFG1K_VAL_WFM_LOR (1006)
-  "Configures the function generator with a lorentz waveform."
-
- TKAFG1K_VAL_WFM_ERIS (1007)
-  "Configures the function generator with a exponential rise waveform."
-
- TKAFG1K_VAL_WFM_EDEC (1008)
-  "Configures the function generator with a exponential decay waveform."
-
- TKAFG1K_VAL_WFM_HAV (1009)
-  "Configures the function generator with a haversine waveform."
-
- TKAFG1K_VAL_WFM_USER1 (10000)
-  "Configures the function generator with a user1 waveform."
-
- TKAFG1K_VAL_WFM_USER2 (10001)
-  "Configures the function generator with a user2 waveform."
-
- TKAFG1K_VAL_WFM_USER3 (10002)
-  "Configures the function generator with a user3 waveform."
-
- TKAFG1K_VAL_WFM_USER4 (10003)
-  "Configures the function generator with a user4 waveform."
-
- TKAFG1K_VAL_WFM_EMEM (10011)
+ TKAFG1K_VAL_WFM_EMEM (10002)
   "Configures the function generator with a Edit Memory waveform."
 
 
@@ -1055,6 +995,35 @@ v Boolean_values DataType="i"
  "signal is in high level.\n"
  "\n"
  "Attribute Value: 1150041"
+
+1 all "Sweeping" 
+ "Attributes for configuring the sweep operation mode."
+
+2 all "Sweep Enabled" TKAFG1K_ATTR_SWEEP_ENABLED ViBoolean hidden Boolean_values 
+ "This channel-based attribute specifies whether the function generator use "
+ "sweep mode for the output signal."
+
+2 all "Sweep Stop Frequency" TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY ViReal64 gs 
+ "This attribute specifies the stop frequency of sweep that you want the "
+ "function generator to produce. \n"
+ "\n"
+ "Notes:\n"
+ "\n"
+ "(1) The valid range of stop frequency is decided by instrument model and "
+ "waveform shape.\n"
+ "\n"
+ "Attribute Value: 1150014"
+
+2 all "Sweep Start Frequency" TKAFG1K_ATTR_SWEEP_START_FREQUENCY ViReal64 gs 
+ "This attribute specifies the start frequency of sweep that you want the "
+ "function generator to produce. \n"
+ "\n"
+ "Notes:\n"
+ "\n"
+ "(1) The valid range of start frequency is decided by instrument model and "
+ "waveform shape.\n"
+ "\n"
+ "Attribute Value: 1150013"
 
 1 all "Modulation" 
  "Attributes for configuring the modulation operation mode."

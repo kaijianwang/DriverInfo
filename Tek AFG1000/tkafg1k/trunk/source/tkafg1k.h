@@ -158,6 +158,8 @@ extern "C" {
 
     /*- Miscellaneous Attributes -------------------------------------------*/
 #define TKAFG1K_ATTR_ID_QUERY_RESPONSE                          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 1L)            /* ViString(Read Only) */
+#define TKAFG1K_ATTR_SWEEP_START_FREQUENCY  (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 46L)
+#define TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY   (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 47L)
 
 
 /****************************************************************************
@@ -193,25 +195,16 @@ extern "C" {
     /*- Defined values for attribute TKAFG1K_ATTR_FUNC_WAVEFORM ---------*/
 #define TKAFG1K_VAL_WFM_SINE                                    IVIFGEN_VAL_WFM_SINE
 #define TKAFG1K_VAL_WFM_SQUARE                                  IVIFGEN_VAL_WFM_SQUARE
-#define TKAFG1K_VAL_WFM_DC                                      IVIFGEN_VAL_WFM_DC
     /*- Extended standard waveform -*/
-#define TKAFG1K_VAL_WFM_RAMP                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 1)
-#define TKAFG1K_VAL_WFM_PULS                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 2)
+#define TKAFG1K_VAL_WFM_PULS                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 1)
+#define TKAFG1K_VAL_WFM_RAMP                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 2)
 #define TKAFG1K_VAL_WFM_PRN                                     (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 3)
-#define TKAFG1K_VAL_WFM_SINC                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 4)
-#define TKAFG1K_VAL_WFM_GAUS                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 5)
-#define TKAFG1K_VAL_WFM_LOR                                     (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 6)
-#define TKAFG1K_VAL_WFM_ERIS                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 7)
-#define TKAFG1K_VAL_WFM_EDEC                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 8)
-#define TKAFG1K_VAL_WFM_HAV                                     (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 9)
+#define TKAFG1K_VAL_WFM_ARB										(IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 4)
 
 #define TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE                       (10000L)
     /*- Extended arbitrary waveform -*/
-#define TKAFG1K_VAL_WFM_USER1                                   (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE)
-#define TKAFG1K_VAL_WFM_USER2                                   (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + 1)
-#define TKAFG1K_VAL_WFM_USER3                                   (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + 2)
-#define TKAFG1K_VAL_WFM_USER4                                   (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + 3)
-#define TKAFG1K_VAL_WFM_EMEM                                    (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + 11)
+#define TKAFG1K_VAL_WFM_USER                                    (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + 1)
+#define TKAFG1K_VAL_WFM_EMEM                                    (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + 2)
 
     /*- Memory slot for the arbitrary waveform -*/
 #define TKAFG1K_VAL_WFM_SLOT1                                   (0L)
