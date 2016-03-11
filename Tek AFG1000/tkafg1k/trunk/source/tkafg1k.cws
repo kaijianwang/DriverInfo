@@ -17,7 +17,7 @@ Drag Bar Left = 348
 Window Top = 30
 Window Left = 2648
 Window Bottom = 1012
-Window Right = 3620
+Window Right = 3472
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -31,7 +31,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 6
+Number of Opened Files = 3
 Window Confinement Region Enabled = True
 MainColumnWidth = 331
 FileDateColumnWidth = 70
@@ -51,7 +51,7 @@ Force Rebuild = False
 [File 0001]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.fp"
 File Type = "Function Panel"
-Disk Date = 3540352098
+Disk Date = 3540448335
 In Projects = "1,"
 Window Top = 92
 Window Left = 42
@@ -62,22 +62,22 @@ Window Z-Order = 3
 [File 0002]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.c"
 File Type = "CSource"
-Disk Date = 3540359867
+Disk Date = 3540506577
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,6190,6195,6195,0,32,32,0,0,180,0,3104,0,0,0,31,31,0,51,61,609,698,1,13,"
+Source Window State = "1,10269,10269,10269,9,32,32,0,0,180,0,3104,0,0,0,31,168,0,135,15,609,698,1,13,"
 
 [File 0003]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.h"
 File Type = "Include"
-Disk Date = 3540349938
+Disk Date = 3540507618
 In Projects = "1,"
-Window Top = 92
-Window Left = 42
+Window Top = 32
+Window Left = 10
 Window Z-Order = 2
-Source Window State = "1,205,205,205,8,28,28,0,3,80,0,0,0,0,0,20,183,0,782,8,494,898,1,0,"
+Source Window State = "1,564,819,564,0,129,0,0,0,80,0,227,0,0,0,20,804,0,819,118,494,898,1,13,"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True

@@ -1,0 +1,45 @@
+StairDown Stair-down waveform
+StairUp Stair-up waveform
+Stair Up&Dwn Stair-up and stair-down waveform
+Trapezoid Trapezoid waveform
+RoundHalf RoundHalf wave
+AbsSine Absolute value of a Sine
+AbsHalfSine Absolute value of half a Sine
+ClippedSine Sine transverse cut
+ChoppedSine Sine vertical cut
+NegRamp Negative ramp
+OscDecay Attenuation oscillation curve
+OscRise Gain oscillation curve
+CodedPulse Coded pulse
+PosPulse Positive pulse
+NegPulse Negative pulse
+ExpRise Exponential rise function
+ExpDecay Exponential fall function
+Sinc Sinc function
+Tan Tangent
+Cotan Cotangent
+SquareRoot Square root
+X^2 Square function
+HaverSine HaverSine function
+Lorentz Lorentz function
+Ln(x) Natural logarithm function
+X^3 Cubic function
+CauchyDistr Cauchy distribution
+BesselJ BesselI function
+BesselY BesselII function
+ErrorFunc Error function
+Airy Airy function
+Rectangle Rectangle window
+Gauss Gauss distribution
+Hamming Hamming window
+Hanning Hanning window
+Bartlett Bartlett window
+Blackman Blackman window
+Laylight Laylight window
+Triangle Triangle window (Fejer window)
+DC DC signal
+Heart Heart signal
+Round Round signal
+Chirp Linear FM pulse
+Rhombus Rhombus signal
+Cardiac Cardiac signal

@@ -66,7 +66,7 @@ v attrActiveOneMemoryRangeTable DataType="i"
 
 
 v attrArbWaveformHandleRangeTable DataType="i" 
- TKAFG1K_VAL_WFM_EMEM (10002)
+ TKAFG1K_VAL_WFM_EMEM (10001)
   "Configures the function generator to produce a Edit Memory waveform."
 
 
@@ -161,10 +161,10 @@ v attrFuncWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_ARB (1004)
   ""
 
- TKAFG1K_VAL_WFM_USER (10001)
+ TKAFG1K_VAL_WFM_USER (10002)
   ""
 
- TKAFG1K_VAL_WFM_EMEM (10002)
+ TKAFG1K_VAL_WFM_EMEM (10001)
   ""
 
 
@@ -368,16 +368,912 @@ v attrWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_PRN (1003)
   "Configures the function generator with a noise waveform."
 
- TKAFG1K_VAL_WFM_ARB (1004)
-  ""
+ TKAFG1K_VAL_WFM_STAIRDOWN (1004)
+  " Stair-down waveform"
 
- TKAFG1K_VAL_WFM_USER (10001)
-  ""
+ TKAFG1K_VAL_WFM_STAIRUP (1005)
+  " Stair-up waveform"
 
- TKAFG1K_VAL_WFM_EMEM (10002)
+ TKAFG1K_VAL_WFM_STAIR (1006)
+  " Up&Dwn Stair-up and stair-down waveform"
+
+ TKAFG1K_VAL_WFM_TRAPEZOID (1007)
+  " Trapezoid waveform"
+
+ TKAFG1K_VAL_WFM_ROUNDHALF (1008)
+  " RoundHalf wave"
+
+ TKAFG1K_VAL_WFM_ABSSINE (1009)
+  " Absolute value of a Sine"
+
+ TKAFG1K_VAL_WFM_ABSHALFSINE (1010)
+  " Absolute value of half a Sine"
+
+ TKAFG1K_VAL_WFM_CLIPPEDSINE (1011)
+  " Sine transverse cut"
+
+ TKAFG1K_VAL_WFM_CHOPPEDSINE (1012)
+  " Sine vertical cut"
+
+ TKAFG1K_VAL_WFM_NEGRAMP (1013)
+  " Negative ramp"
+
+ TKAFG1K_VAL_WFM_OSCDECAY (1014)
+  " Attenuation oscillation curve"
+
+ TKAFG1K_VAL_WFM_OSCRISE (1015)
+  " Gain oscillation curve"
+
+ TKAFG1K_VAL_WFM_CODEDPULSE (1016)
+  " Coded pulse"
+
+ TKAFG1K_VAL_WFM_POSPULSE (1017)
+  " Positive pulse"
+
+ TKAFG1K_VAL_WFM_NEGPULSE (1018)
+  " Negative pulse"
+
+ TKAFG1K_VAL_WFM_EXPRISE (1019)
+  " Exponential rise function"
+
+ TKAFG1K_VAL_WFM_EXPDECAY (1020)
+  " Exponential fall function"
+
+ TKAFG1K_VAL_WFM_SINC (1021)
+  " Sinc function"
+
+ TKAFG1K_VAL_WFM_TAN (1022)
+  " Tangent"
+
+ TKAFG1K_VAL_WFM_COTAN (1023)
+  " Cotangent"
+
+ TKAFG1K_VAL_WFM_SQUAREROOT (1024)
+  " Square root"
+
+ TKAFG1K_VAL_WFM_X_2 (1025)
+  " Square function"
+
+ TKAFG1K_VAL_WFM_HAVERSINE (1026)
+  " HaverSine function"
+
+ TKAFG1K_VAL_WFM_LORENTZ (1027)
+  " Lorentz function"
+
+ TKAFG1K_VAL_WFM_LN_X (1028)
+  " Natural logarithm function"
+
+ TKAFG1K_VAL_WFM_X_3 (1029)
+  " Cubic function"
+
+ TKAFG1K_VAL_WFM_CAUCHYDISTR (1030)
+  " Cauchy distribution"
+
+ TKAFG1K_VAL_WFM_BESSELJ (1031)
+  " BesselI function"
+
+ TKAFG1K_VAL_WFM_BESSELY (1032)
+  " BesselII function"
+
+ TKAFG1K_VAL_WFM_ERRORFUNC (1033)
+  " Error function"
+
+ TKAFG1K_VAL_WFM_AIRY (1034)
+  " Airy function"
+
+ TKAFG1K_VAL_WFM_RECTANGLE (1035)
+  " Rectangle window"
+
+ TKAFG1K_VAL_WFM_GAUSS (1036)
+  " Gauss distribution"
+
+ TKAFG1K_VAL_WFM_HAMMING (1037)
+  " Hamming window"
+
+ TKAFG1K_VAL_WFM_HANNING (1038)
+  " Hanning window"
+
+ TKAFG1K_VAL_WFM_BARTLETT (1039)
+  " Bartlett window"
+
+ TKAFG1K_VAL_WFM_BLACKMAN (1040)
+  " Blackman window"
+
+ TKAFG1K_VAL_WFM_LAYLIGHT (1041)
+  " Laylight window"
+
+ TKAFG1K_VAL_WFM_TRIANGLE (1042)
+  " Triangle window (Fejer window)"
+
+ TKAFG1K_VAL_WFM_DC (1043)
+  " DC signal"
+
+ TKAFG1K_VAL_WFM_HEART (1044)
+  " Heart signal"
+
+ TKAFG1K_VAL_WFM_ROUND (1045)
+  " Round signal"
+
+ TKAFG1K_VAL_WFM_CHIRP (1046)
+  " Linear FM pulse"
+
+ TKAFG1K_VAL_WFM_RHOMBUS (1047)
+  " Rhombus signal"
+
+ TKAFG1K_VAL_WFM_CARDIAC (1048)
+  " Cardiac signal"
+
+ TKAFG1K_VAL_WFM_EMEM (10001)
   "Configures the function generator with a Edit Memory waveform."
+  
+ TKAFG1K_VAL_WFM_USER0 (10002)
+  "Configures the function generator with a user4 waveform."
 
+ TKAFG1K_VAL_WFM_USER1 (10003)
+  "Configures the function generator with a user4 waveform."
 
+ TKAFG1K_VAL_WFM_USER2 (10004)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER3 (10005)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER4 (10006)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER5 (10007)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER6 (10008)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER7 (10009)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER8 (10010)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER9 (10011)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER10 (10012)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER11 (10013)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER12 (10014)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER13 (10015)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER14 (10016)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER15 (10017)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER16 (10018)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER17 (10019)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER18 (10020)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER19 (10021)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER20 (10022)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER21 (10023)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER22 (10024)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER23 (10025)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER24 (10026)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER25 (10027)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER26 (10028)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER27 (10029)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER28 (10030)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER29 (10031)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER30 (10032)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER31 (10033)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER32 (10034)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER33 (10035)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER34 (10036)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER35 (10037)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER36 (10038)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER37 (10039)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER38 (10040)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER39 (10041)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER40 (10042)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER41 (10043)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER42 (10044)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER43 (10045)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER44 (10046)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER45 (10047)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER46 (10048)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER47 (10049)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER48 (10050)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER49 (10051)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER50 (10052)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER51 (10053)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER52 (10054)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER53 (10055)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER54 (10056)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER55 (10057)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER56 (10058)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER57 (10059)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER58 (10060)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER59 (10061)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER60 (10062)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER61 (10063)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER62 (10064)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER63 (10065)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER64 (10066)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER65 (10067)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER66 (10068)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER67 (10069)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER68 (10070)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER69 (10071)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER70 (10072)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER71 (10073)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER72 (10074)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER73 (10075)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER74 (10076)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER75 (10077)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER76 (10078)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER77 (10079)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER78 (10080)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER79 (10081)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER80 (10082)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER81 (10083)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER82 (10084)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER83 (10085)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER84 (10086)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER85 (10087)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER86 (10088)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER87 (10089)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER88 (10090)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER89 (10091)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER90 (10092)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER91 (10093)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER92 (10094)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER93 (10095)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER94 (10096)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER95 (10097)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER96 (10098)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER97 (10099)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER98 (10100)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER99 (10101)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER100 (10102)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER101 (10103)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER102 (10104)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER103 (10105)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER104 (10106)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER105 (10107)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER106 (10108)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER107 (10109)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER108 (10110)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER109 (10111)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER110 (10112)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER111 (10113)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER112 (10114)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER113 (10115)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER114 (10116)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER115 (10117)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER116 (10118)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER117 (10119)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER118 (10120)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER119 (10121)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER120 (10122)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER121 (10123)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER122 (10124)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER123 (10125)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER124 (10126)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER125 (10127)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER126 (10128)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER127 (10129)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER128 (10130)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER129 (10131)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER130 (10132)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER131 (10133)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER132 (10134)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER133 (10135)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER134 (10136)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER135 (10137)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER136 (10138)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER137 (10139)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER138 (10140)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER139 (10141)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER140 (10142)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER141 (10143)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER142 (10144)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER143 (10145)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER144 (10146)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER145 (10147)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER146 (10148)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER147 (10149)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER148 (10150)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER149 (10151)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER150 (10152)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER151 (10153)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER152 (10154)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER153 (10155)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER154 (10156)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER155 (10157)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER156 (10158)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER157 (10159)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER158 (10160)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER159 (10161)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER160 (10162)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER161 (10163)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER162 (10164)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER163 (10165)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER164 (10166)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER165 (10167)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER166 (10168)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER167 (10169)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER168 (10170)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER169 (10171)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER170 (10172)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER171 (10173)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER172 (10174)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER173 (10175)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER174 (10176)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER175 (10177)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER176 (10178)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER177 (10179)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER178 (10180)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER179 (10181)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER180 (10182)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER181 (10183)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER182 (10184)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER183 (10185)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER184 (10186)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER185 (10187)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER186 (10188)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER187 (10189)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER188 (10190)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER189 (10191)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER190 (10192)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER191 (10193)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER192 (10194)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER193 (10195)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER194 (10196)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER195 (10197)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER196 (10198)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER197 (10199)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER198 (10200)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER199 (10201)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER200 (10202)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER201 (10203)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER202 (10204)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER203 (10205)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER204 (10206)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER205 (10207)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER206 (10208)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER207 (10209)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER208 (10210)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER209 (10211)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER210 (10212)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER211 (10213)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER212 (10214)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER213 (10215)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER214 (10216)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER215 (10217)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER216 (10218)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER217 (10219)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER218 (10220)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER219 (10221)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER220 (10222)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER221 (10223)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER222 (10224)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER223 (10225)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER224 (10226)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER225 (10227)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER226 (10228)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER227 (10229)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER228 (10230)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER229 (10231)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER230 (10232)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER231 (10233)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER232 (10234)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER233 (10235)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER234 (10236)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER235 (10237)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER236 (10238)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER237 (10239)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER238 (10240)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER239 (10241)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER240 (10242)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER241 (10243)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER242 (10244)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER243 (10245)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER244 (10246)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER245 (10247)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER246 (10248)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER247 (10249)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER248 (10250)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER249 (10251)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER250 (10252)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER251 (10253)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER252 (10254)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER253 (10255)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER254 (10256)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER255 (10257)
+  "Configures the function generator with a user4 waveform."
+  
 v Boolean_values DataType="i" 
  VI_TRUE (1)
   "True"

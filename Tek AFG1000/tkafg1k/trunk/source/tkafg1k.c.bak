@@ -149,9 +149,9 @@
 
 #define AFG_CHANNEL_LIST                            "1,2"
 
-#define TKAFG1K_VAL_WAVEFORM_TYPE_QUANTUM           3
+#define TKAFG1K_VAL_WAVEFORM_TYPE_QUANTUM           4
 #define TKAFG1K_VAL_RUNMODE_QUANTUM                 4
-#define TKAFG1K_VAL_MODULATION_QUANTUM              5
+#define TKAFG1K_VAL_MODULATION_QUANTUM              9
 
     /*- Signal Modulation Type -*/
 #define TKAFG1K_VAL_MODULATION_AM                   0
@@ -161,9 +161,10 @@
 #define TKAFG1K_VAL_MODULATION_PWM                  4
 
     /*- Waveform Classification -*/
-#define TKAFG1K_VAL_WAVEFORM_TYPE1                  0
-#define TKAFG1K_VAL_WAVEFORM_TYPE2                  1
-#define TKAFG1K_VAL_WAVEFORM_TYPE3                  2
+#define TKAFG1K_VAL_WAVEFORM_TYPE0                  0
+#define TKAFG1K_VAL_WAVEFORM_TYPE1                  1
+#define TKAFG1K_VAL_WAVEFORM_TYPE2                  2
+#define TKAFG1K_VAL_WAVEFORM_TYPE3                  3
 
     /*- Macros for access to enum range table -------------------------------*/
 #define tkafg1k_GetCmdFromIntValue(value, table, cmd) \
@@ -671,20 +672,24 @@ static IviRangeTable attrBurstDelayRangeTable =
         /* AFG3051C & AFG3052C, Arbitrary waveform */
 
 static ViBoolean waveformAndRunModeCombination[TKAFG1K_VAL_RUNMODE_QUANTUM][TKAFG1K_VAL_WAVEFORM_TYPE_QUANTUM] = {
-
-    {   VI_TRUE,    VI_TRUE,    VI_TRUE     },          /* Continuous Mode  */
-    {   VI_TRUE,    VI_TRUE,    VI_FALSE    },          /* Modulation Mode  */
-    {   VI_TRUE,    VI_FALSE,   VI_FALSE    },          /* Sweep Mode       */
-    {   VI_TRUE,    VI_TRUE,    VI_FALSE    },          /* Burst Mode       */
+/*	Sine,Square,Ramp	Pulse	Noise		Arb*/
+    {   VI_TRUE,    VI_TRUE,    VI_TRUE,	VI_TRUE},          /* Continuous Mode  */
+    {   VI_TRUE,    VI_TRUE,    VI_FALSE,	VI_TRUE},          /* Modulation Mode  */
+    {   VI_TRUE,    VI_FALSE,   VI_FALSE,	VI_TRUE},          /* Sweep Mode       */
+    {   VI_TRUE,    VI_TRUE,    VI_FALSE,	VI_TRUE},          /* Burst Mode       */
 };
 
 static ViBoolean waveformAndModulationCombination[TKAFG1K_VAL_MODULATION_QUANTUM][TKAFG1K_VAL_WAVEFORM_TYPE_QUANTUM] = {
-
-    {   VI_TRUE,    VI_FALSE,   VI_FALSE    },          /* AM Modulation    */
-    {   VI_TRUE,    VI_FALSE,   VI_FALSE    },          /* FM Modulation    */
-    {   VI_TRUE,    VI_FALSE,   VI_FALSE    },          /* PM Modulation    */
-    {   VI_TRUE,    VI_FALSE,   VI_FALSE    },          /* FSK Modulation   */
-    {   VI_FALSE,   VI_TRUE,    VI_FALSE    },          /* PWM Modulation   */
+/*	Sine,Square,Ramp	Pulse	Noise		Arb*/
+    {   VI_TRUE,    VI_FALSE,   VI_FALSE,    VI_TRUE},          /* AM Modulation    */
+    {   VI_TRUE,    VI_FALSE,   VI_FALSE,    VI_TRUE},          /* FM Modulation    */
+    {   VI_TRUE,    VI_FALSE,   VI_FALSE,    VI_TRUE},          /* PM Modulation    */
+    {   VI_TRUE,    VI_FALSE,   VI_FALSE,    VI_TRUE},          /* FSK Modulation   */
+    {   VI_FALSE,   VI_TRUE,    VI_FALSE,    VI_FALSE},          /* PWM Modulation   */
+	{   VI_TRUE,    VI_FALSE,   VI_FALSE,    VI_TRUE},          /* ASK Modulation   */         
+	{   VI_TRUE,    VI_FALSE,   VI_FALSE,    VI_TRUE},          /* PSK Modulation   */
+	{   VI_TRUE,    VI_FALSE,   VI_FALSE,    VI_TRUE},          /* Sweep Modulation   */         
+	{   VI_TRUE,    VI_TRUE,    VI_FALSE,    VI_TRUE},          /* Burst Modulation   */
 };
 
     /*- Defined values for attribute TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE----*/
@@ -5236,32 +5241,27 @@ static ViStatus tkafg1k_RunModeAllowable ( ViSession vi, ViInt32 waveform, ViInt
         case TKAFG1K_VAL_WFM_SINE:
         case TKAFG1K_VAL_WFM_SQUARE:
         case TKAFG1K_VAL_WFM_RAMP:
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
         {
-            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE1;
+            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE0;
             break;
         }
         case TKAFG1K_VAL_WFM_PULS:
         {
-            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE2;
+            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE1;
             break;
         }
         case TKAFG1K_VAL_WFM_PRN:
-        case TKAFG1K_VAL_WFM_DC:
         {
-            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE3;
+            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE2;
             break;
         }
+		case TKAFG1K_VAL_WFM_ARB:
+		case TKAFG1K_VAL_WFM_USER:
+        case TKAFG1K_VAL_WFM_EMEM:
+		{
+			wfmType = TKAFG1K_VAL_WAVEFORM_TYPE3;
+			break;
+		}
         default:
         {
             error = IVI_ERROR_INVALID_PARAMETER;
@@ -5290,28 +5290,23 @@ static ViStatus tkafg1k_ModulationTypeAllowable ( ViSession vi, ViInt32 waveform
         case TKAFG1K_VAL_WFM_SINE:
         case TKAFG1K_VAL_WFM_SQUARE:
         case TKAFG1K_VAL_WFM_RAMP:
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
         {
-            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE1;
+            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE0;
             break;
         }
         case TKAFG1K_VAL_WFM_PULS:
         {
-            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE2;
+            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE1;
             break;
         }
         case TKAFG1K_VAL_WFM_PRN:
-        case TKAFG1K_VAL_WFM_DC:
+        {
+            wfmType = TKAFG1K_VAL_WAVEFORM_TYPE2;
+            break;
+        }
+		case TKAFG1K_VAL_WFM_ARB:
+		case TKAFG1K_VAL_WFM_USER:
+		case TKAFG1K_VAL_WFM_EMEM:	
         {
             wfmType = TKAFG1K_VAL_WAVEFORM_TYPE3;
             break;
@@ -5538,6 +5533,10 @@ static ViStatus _VI_FUNC tkafg1kAttrOperationMode_WriteCallback (ViSession vi,
     else if(value == TKAFG1K_VAL_OPERATE_MODULATION)
     {
         checkErr (Ivi_SetAttributeViBoolean (vi, channelName, TKAFG1K_ATTR_MODULATION_ENABLED, 0, VI_TRUE) );
+    }
+	else if(value == TKAFG1K_VAL_OPERATE_SWEEP)
+    {
+        checkErr (Ivi_SetAttributeViBoolean (vi, channelName, TKAFG1K_ATTR_SWEEP_ENABLED, 0, VI_TRUE) );
     }
     else if(value == TKAFG1K_VAL_OPERATE_BURST)
     {
@@ -5874,23 +5873,26 @@ Error:
 /*- TKAFG1K_ATTR_FUNC_WAVEFORM -*/
 
 static IviRangeTableEntry attrFuncWaveformRangeTableEntries[] =
-{
-    {TKAFG1K_VAL_WFM_SINE,   0, 0, "SIN",  0},
-    {TKAFG1K_VAL_WFM_SQUARE, 0, 0, "SQU",  0},
-    {TKAFG1K_VAL_WFM_RAMP,   0, 0, "RAMP", 0},
-    {TKAFG1K_VAL_WFM_PULS,   0, 0, "PULS", 0},
-    {TKAFG1K_VAL_WFM_PRN,    0, 0, "PRN",  0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{TKAFG1K_VAL_WFM_SINE, 0, 0, "SIN", 0},
+		{TKAFG1K_VAL_WFM_SQUARE, 0, 0, "SQU", 0},
+		{TKAFG1K_VAL_WFM_RAMP, 0, 0, "RAMP", 0},
+		{TKAFG1K_VAL_WFM_PULS, 0, 0, "PULS", 0},
+		{TKAFG1K_VAL_WFM_PRN, 0, 0, "PRN", 0},
+		{TKAFG1K_VAL_WFM_ARB, 0, 0, "", 0},
+		{TKAFG1K_VAL_WFM_USER, 0, 0, "", 0},
+		{TKAFG1K_VAL_WFM_EMEM, 0, 0, "EMEM", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 
 static IviRangeTable attrFuncWaveformRangeTable =
-{
-    IVI_VAL_DISCRETE,
-    VI_FALSE,
-    VI_FALSE,
-    VI_NULL,
-    attrFuncWaveformRangeTableEntries,
-};
+	{
+		IVI_VAL_DISCRETE,
+        VI_FALSE,
+        VI_FALSE,
+        VI_NULL,
+        attrFuncWaveformRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrFuncWaveform_WriteCallback (ViSession vi,
                                                                 ViSession io,
@@ -6061,7 +6063,6 @@ static ViStatus _VI_FUNC tkafg1kAttrFuncFrequency_RangeTableCallback (ViSession 
     switch  (waveform)
     {
         case TKAFG1K_VAL_WFM_SINE:
-        case TKAFG1K_VAL_WFM_DC:
         case TKAFG1K_VAL_WFM_PRN:
         {
             /* Sine Waveform Range Table in Burst Mode */
@@ -6930,7 +6931,7 @@ static ViStatus _VI_FUNC tkafg1kAttrModulationEnabled_WriteCallback (ViSession v
                 modulationType =  TKAFG1K_VAL_MODULATION_PWM;
             }
             /*- If waveform is DC or Noise, Modulation is unsupported -*/
-            else if( (waveform == TKAFG1K_VAL_WFM_DC) || (waveform == TKAFG1K_VAL_WFM_PRN) )
+            else if( waveform == TKAFG1K_VAL_WFM_PRN )
             {
                 error = TKAFG1K_ERROR_COMBINATION_UNSUPPORTED;
                 viCheckErr (error);

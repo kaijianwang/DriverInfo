@@ -158,6 +158,15 @@ v attrFuncWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_PRN (1003)
   "Configures the function generator to produce a prnoise waveform."
 
+ TKAFG1K_VAL_WFM_ARB (1004)
+  ""
+
+ TKAFG1K_VAL_WFM_USER (10001)
+  ""
+
+ TKAFG1K_VAL_WFM_EMEM (10002)
+  ""
+
 
 v attrModelRangeTable DataType="i" 
  TKAFG1K_VAL_MODEL_AFG1022 (0)
