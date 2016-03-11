@@ -62,22 +62,22 @@ Window Z-Order = 3
 [File 0002]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.c"
 File Type = "CSource"
-Disk Date = 3540508041
+Disk Date = 3540509301
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,7237,7240,7240,0,55,55,0,0,180,0,3104,0,0,0,31,7269,0,7232,26,609,698,1,13,"
+Source Window State = "1,8572,8575,8575,0,60,60,0,0,180,0,3104,0,0,0,31,6179,0,6206,81,609,698,1,13,"
 
 [File 0003]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.h"
 File Type = "Include"
-Disk Date = 3540508041
+Disk Date = 3540509299
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
 Window Z-Order = 2
-Source Window State = "1,564,819,564,0,129,0,0,0,80,0,227,0,0,0,20,879,0,1335,0,494,898,1,13,"
+Source Window State = "1,835,838,838,0,117,117,0,0,80,0,227,0,0,0,20,816,0,1585,118,494,898,1,13,"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
