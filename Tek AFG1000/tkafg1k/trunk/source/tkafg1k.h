@@ -887,6 +887,8 @@ extern "C" {
 
 #define TKAFG1K_VAL_WFM_USER                                        10002
 
+#define TKAFG1K_VAL_WFM_ARB                                         1004
+
 
 /****************************************************************************
  *------------------------ Error And Completion Codes ----------------------*

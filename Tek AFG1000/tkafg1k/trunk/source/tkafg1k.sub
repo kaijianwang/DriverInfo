@@ -13,39 +13,1039 @@ v attrAMInternalWaveformRangeTable DataType="i"
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a square waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_TRIANGLE (3)
-  "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a triangle waveform."
-
  TKAFG1K_VAL_AM_INTERNAL_RAMP_UP (4)
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a positive ramp waveform."
-
- TKAFG1K_VAL_AM_INTERNAL_RAMP_DOWN (5)
-  "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a negative ramp waveform."
 
  TKAFG1K_VAL_AM_INTERNAL_PRN (1001)
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a noise waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_USER1 (1002)
+ TKAFG1K_VAL_AM_INTERNAL_USER0 (1003)
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a user waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_USER2 (1003)
+ TKAFG1K_VAL_AM_INTERNAL_USER1 (1004)
   "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a user2 waveform."
+  "amplitude with a user waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_USER3 (1004)
+ TKAFG1K_VAL_AM_INTERNAL_USER2 (1005)
   "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a user3 waveform."
+  "amplitude with a user waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_USER4 (1005)
+ TKAFG1K_VAL_AM_INTERNAL_USER3 (1006)
   "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a user4 waveform."
+  "amplitude with a user waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_EMEM (1006)
+ TKAFG1K_VAL_AM_INTERNAL_USER4 (1007)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER5 (1008)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER6 (1009)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER7 (1010)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER8 (1011)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER9 (1012)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER10 (1013)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER11 (1014)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER12 (1015)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER13 (1016)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER14 (1017)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER15 (1018)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER16 (1019)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER17 (1020)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER18 (1021)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER19 (1022)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER20 (1023)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER21 (1024)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER22 (1025)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER23 (1026)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER24 (1027)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER25 (1028)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER26 (1029)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER27 (1030)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER28 (1031)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER29 (1032)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER30 (1033)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER31 (1034)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER32 (1035)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER33 (1036)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER34 (1037)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER35 (1038)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER36 (1039)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER37 (1040)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER38 (1041)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER39 (1042)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER40 (1043)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER41 (1044)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER42 (1045)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER43 (1046)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER44 (1047)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER45 (1048)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER46 (1049)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER47 (1050)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER48 (1051)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER49 (1052)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER50 (1053)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER51 (1054)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER52 (1055)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER53 (1056)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER54 (1057)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER55 (1058)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER56 (1059)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER57 (1060)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER58 (1061)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER59 (1062)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER60 (1063)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER61 (1064)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER62 (1065)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER63 (1066)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER64 (1067)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER65 (1068)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER66 (1069)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER67 (1070)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER68 (1071)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER69 (1072)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER70 (1073)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER71 (1074)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER72 (1075)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER73 (1076)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER74 (1077)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER75 (1078)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER76 (1079)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER77 (1080)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER78 (1081)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER79 (1082)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER80 (1083)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER81 (1084)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER82 (1085)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER83 (1086)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER84 (1087)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER85 (1088)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER86 (1089)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER87 (1090)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER88 (1091)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER89 (1092)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER90 (1093)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER91 (1094)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER92 (1095)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER93 (1096)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER94 (1097)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER95 (1098)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER96 (1099)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER97 (1100)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER98 (1101)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER99 (1102)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER100 (1103)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER101 (1104)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER102 (1105)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER103 (1106)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER104 (1107)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER105 (1108)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER106 (1109)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER107 (1110)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER108 (1111)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER109 (1112)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER110 (1113)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER111 (1114)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER112 (1115)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER113 (1116)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER114 (1117)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER115 (1118)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER116 (1119)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER117 (1120)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER118 (1121)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER119 (1122)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER120 (1123)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER121 (1124)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER122 (1125)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER123 (1126)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER124 (1127)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER125 (1128)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER126 (1129)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER127 (1130)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER128 (1131)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER129 (1132)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER130 (1133)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER131 (1134)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER132 (1135)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER133 (1136)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER134 (1137)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER135 (1138)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER136 (1139)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER137 (1140)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER138 (1141)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER139 (1142)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER140 (1143)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER141 (1144)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER142 (1145)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER143 (1146)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER144 (1147)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER145 (1148)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER146 (1149)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER147 (1150)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER148 (1151)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER149 (1152)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER150 (1153)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER151 (1154)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER152 (1155)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER153 (1156)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER154 (1157)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER155 (1158)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER156 (1159)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER157 (1160)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER158 (1161)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER159 (1162)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER160 (1163)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER161 (1164)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER162 (1165)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER163 (1166)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER164 (1167)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER165 (1168)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER166 (1169)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER167 (1170)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER168 (1171)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER169 (1172)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER170 (1173)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER171 (1174)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER172 (1175)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER173 (1176)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER174 (1177)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER175 (1178)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER176 (1179)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER177 (1180)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER178 (1181)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER179 (1182)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER180 (1183)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER181 (1184)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER182 (1185)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER183 (1186)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER184 (1187)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER185 (1188)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER186 (1189)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER187 (1190)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER188 (1191)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER189 (1192)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER190 (1193)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER191 (1194)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER192 (1195)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER193 (1196)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER194 (1197)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER195 (1198)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER196 (1199)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER197 (1200)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER198 (1201)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER199 (1202)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER200 (1203)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER201 (1204)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER202 (1205)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER203 (1206)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER204 (1207)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER205 (1208)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER206 (1209)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER207 (1210)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER208 (1211)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER209 (1212)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER210 (1213)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER211 (1214)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER212 (1215)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER213 (1216)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER214 (1217)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER215 (1218)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER216 (1219)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER217 (1220)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER218 (1221)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER219 (1222)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER220 (1223)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER221 (1224)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER222 (1225)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER223 (1226)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER224 (1227)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER225 (1228)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER226 (1229)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER227 (1230)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER228 (1231)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER229 (1232)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER230 (1233)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER231 (1234)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER232 (1235)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER233 (1236)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER234 (1237)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER235 (1238)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER236 (1239)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER237 (1240)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER238 (1241)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER239 (1242)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER240 (1243)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER241 (1244)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER242 (1245)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER243 (1246)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER244 (1247)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER245 (1248)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER246 (1249)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER247 (1250)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER248 (1251)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER249 (1252)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER250 (1253)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER251 (1254)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER252 (1255)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER253 (1256)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER254 (1257)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER255 (1258)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_EMEM (1002)
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a EMEMory waveform."
 
@@ -503,9 +1503,6 @@ v attrWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_CARDIAC (1048)
   " Cardiac signal"
 
- TKAFG1K_VAL_WFM_EMEM (10001)
-  "Configures the function generator with a Edit Memory waveform."
-  
  TKAFG1K_VAL_WFM_USER0 (10002)
   "Configures the function generator with a user4 waveform."
 
@@ -1273,7 +2270,11 @@ v attrWaveformRangeTable DataType="i"
 
  TKAFG1K_VAL_WFM_USER255 (10257)
   "Configures the function generator with a user4 waveform."
-  
+
+ TKAFG1K_VAL_WFM_EMEM (10001)
+  "Configures the function generator with a Edit Memory waveform."
+
+
 v Boolean_values DataType="i" 
  VI_TRUE (1)
   "True"

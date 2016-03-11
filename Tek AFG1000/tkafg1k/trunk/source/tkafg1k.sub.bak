@@ -13,39 +13,1039 @@ v attrAMInternalWaveformRangeTable DataType="i"
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a square waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_TRIANGLE (3)
-  "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a triangle waveform."
-
  TKAFG1K_VAL_AM_INTERNAL_RAMP_UP (4)
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a positive ramp waveform."
-
- TKAFG1K_VAL_AM_INTERNAL_RAMP_DOWN (5)
-  "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a negative ramp waveform."
 
  TKAFG1K_VAL_AM_INTERNAL_PRN (1001)
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a noise waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_USER1 (1002)
+ TKAFG1K_VAL_AM_INTERNAL_USER0 (1003)
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a user waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_USER2 (1003)
+ TKAFG1K_VAL_AM_INTERNAL_USER1 (1004)
   "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a user2 waveform."
+  "amplitude with a user waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_USER3 (1004)
+ TKAFG1K_VAL_AM_INTERNAL_USER2 (1005)
   "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a user3 waveform."
+  "amplitude with a user waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_USER4 (1005)
+ TKAFG1K_VAL_AM_INTERNAL_USER3 (1006)
   "Configures the function generator to modulate the carrier signal's "
-  "amplitude with a user4 waveform."
+  "amplitude with a user waveform."
 
- TKAFG1K_VAL_AM_INTERNAL_EMEM (1006)
+ TKAFG1K_VAL_AM_INTERNAL_USER4 (1007)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER5 (1008)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER6 (1009)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER7 (1010)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER8 (1011)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER9 (1012)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER10 (1013)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER11 (1014)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER12 (1015)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER13 (1016)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER14 (1017)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER15 (1018)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER16 (1019)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER17 (1020)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER18 (1021)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER19 (1022)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER20 (1023)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER21 (1024)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER22 (1025)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER23 (1026)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER24 (1027)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER25 (1028)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER26 (1029)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER27 (1030)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER28 (1031)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER29 (1032)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER30 (1033)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER31 (1034)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER32 (1035)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER33 (1036)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER34 (1037)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER35 (1038)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER36 (1039)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER37 (1040)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER38 (1041)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER39 (1042)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER40 (1043)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER41 (1044)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER42 (1045)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER43 (1046)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER44 (1047)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER45 (1048)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER46 (1049)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER47 (1050)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER48 (1051)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER49 (1052)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER50 (1053)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER51 (1054)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER52 (1055)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER53 (1056)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER54 (1057)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER55 (1058)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER56 (1059)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER57 (1060)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER58 (1061)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER59 (1062)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER60 (1063)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER61 (1064)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER62 (1065)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER63 (1066)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER64 (1067)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER65 (1068)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER66 (1069)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER67 (1070)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER68 (1071)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER69 (1072)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER70 (1073)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER71 (1074)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER72 (1075)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER73 (1076)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER74 (1077)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER75 (1078)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER76 (1079)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER77 (1080)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER78 (1081)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER79 (1082)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER80 (1083)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER81 (1084)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER82 (1085)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER83 (1086)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER84 (1087)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER85 (1088)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER86 (1089)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER87 (1090)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER88 (1091)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER89 (1092)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER90 (1093)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER91 (1094)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER92 (1095)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER93 (1096)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER94 (1097)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER95 (1098)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER96 (1099)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER97 (1100)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER98 (1101)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER99 (1102)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER100 (1103)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER101 (1104)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER102 (1105)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER103 (1106)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER104 (1107)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER105 (1108)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER106 (1109)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER107 (1110)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER108 (1111)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER109 (1112)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER110 (1113)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER111 (1114)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER112 (1115)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER113 (1116)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER114 (1117)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER115 (1118)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER116 (1119)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER117 (1120)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER118 (1121)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER119 (1122)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER120 (1123)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER121 (1124)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER122 (1125)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER123 (1126)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER124 (1127)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER125 (1128)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER126 (1129)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER127 (1130)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER128 (1131)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER129 (1132)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER130 (1133)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER131 (1134)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER132 (1135)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER133 (1136)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER134 (1137)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER135 (1138)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER136 (1139)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER137 (1140)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER138 (1141)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER139 (1142)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER140 (1143)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER141 (1144)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER142 (1145)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER143 (1146)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER144 (1147)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER145 (1148)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER146 (1149)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER147 (1150)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER148 (1151)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER149 (1152)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER150 (1153)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER151 (1154)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER152 (1155)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER153 (1156)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER154 (1157)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER155 (1158)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER156 (1159)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER157 (1160)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER158 (1161)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER159 (1162)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER160 (1163)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER161 (1164)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER162 (1165)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER163 (1166)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER164 (1167)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER165 (1168)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER166 (1169)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER167 (1170)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER168 (1171)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER169 (1172)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER170 (1173)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER171 (1174)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER172 (1175)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER173 (1176)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER174 (1177)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER175 (1178)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER176 (1179)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER177 (1180)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER178 (1181)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER179 (1182)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER180 (1183)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER181 (1184)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER182 (1185)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER183 (1186)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER184 (1187)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER185 (1188)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER186 (1189)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER187 (1190)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER188 (1191)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER189 (1192)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER190 (1193)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER191 (1194)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER192 (1195)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER193 (1196)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER194 (1197)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER195 (1198)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER196 (1199)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER197 (1200)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER198 (1201)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER199 (1202)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER200 (1203)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER201 (1204)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER202 (1205)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER203 (1206)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER204 (1207)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER205 (1208)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER206 (1209)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER207 (1210)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER208 (1211)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER209 (1212)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER210 (1213)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER211 (1214)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER212 (1215)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER213 (1216)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER214 (1217)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER215 (1218)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER216 (1219)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER217 (1220)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER218 (1221)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER219 (1222)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER220 (1223)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER221 (1224)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER222 (1225)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER223 (1226)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER224 (1227)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER225 (1228)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER226 (1229)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER227 (1230)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER228 (1231)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER229 (1232)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER230 (1233)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER231 (1234)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER232 (1235)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER233 (1236)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER234 (1237)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER235 (1238)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER236 (1239)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER237 (1240)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER238 (1241)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER239 (1242)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER240 (1243)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER241 (1244)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER242 (1245)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER243 (1246)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER244 (1247)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER245 (1248)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER246 (1249)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER247 (1250)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER248 (1251)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER249 (1252)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER250 (1253)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER251 (1254)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER252 (1255)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER253 (1256)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER254 (1257)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_USER255 (1258)
+  "Configures the function generator to modulate the carrier signal's "
+  "amplitude with a user waveform."
+
+ TKAFG1K_VAL_AM_INTERNAL_EMEM (1002)
   "Configures the function generator to modulate the carrier signal's "
   "amplitude with a EMEMory waveform."
 
@@ -66,7 +1066,7 @@ v attrActiveOneMemoryRangeTable DataType="i"
 
 
 v attrArbWaveformHandleRangeTable DataType="i" 
- TKAFG1K_VAL_WFM_EMEM (10002)
+ TKAFG1K_VAL_WFM_EMEM (10001)
   "Configures the function generator to produce a Edit Memory waveform."
 
 
@@ -161,10 +1161,10 @@ v attrFuncWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_ARB (1004)
   ""
 
- TKAFG1K_VAL_WFM_USER (10001)
+ TKAFG1K_VAL_WFM_USER (10002)
   ""
 
- TKAFG1K_VAL_WFM_EMEM (10002)
+ TKAFG1K_VAL_WFM_EMEM (10001)
   ""
 
 
@@ -368,16 +1368,912 @@ v attrWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_PRN (1003)
   "Configures the function generator with a noise waveform."
 
- TKAFG1K_VAL_WFM_ARB (1004)
-  ""
+ TKAFG1K_VAL_WFM_STAIRDOWN (1004)
+  " Stair-down waveform"
 
- TKAFG1K_VAL_WFM_USER (10001)
-  ""
+ TKAFG1K_VAL_WFM_STAIRUP (1005)
+  " Stair-up waveform"
 
- TKAFG1K_VAL_WFM_EMEM (10002)
+ TKAFG1K_VAL_WFM_STAIR (1006)
+  " Up&Dwn Stair-up and stair-down waveform"
+
+ TKAFG1K_VAL_WFM_TRAPEZOID (1007)
+  " Trapezoid waveform"
+
+ TKAFG1K_VAL_WFM_ROUNDHALF (1008)
+  " RoundHalf wave"
+
+ TKAFG1K_VAL_WFM_ABSSINE (1009)
+  " Absolute value of a Sine"
+
+ TKAFG1K_VAL_WFM_ABSHALFSINE (1010)
+  " Absolute value of half a Sine"
+
+ TKAFG1K_VAL_WFM_CLIPPEDSINE (1011)
+  " Sine transverse cut"
+
+ TKAFG1K_VAL_WFM_CHOPPEDSINE (1012)
+  " Sine vertical cut"
+
+ TKAFG1K_VAL_WFM_NEGRAMP (1013)
+  " Negative ramp"
+
+ TKAFG1K_VAL_WFM_OSCDECAY (1014)
+  " Attenuation oscillation curve"
+
+ TKAFG1K_VAL_WFM_OSCRISE (1015)
+  " Gain oscillation curve"
+
+ TKAFG1K_VAL_WFM_CODEDPULSE (1016)
+  " Coded pulse"
+
+ TKAFG1K_VAL_WFM_POSPULSE (1017)
+  " Positive pulse"
+
+ TKAFG1K_VAL_WFM_NEGPULSE (1018)
+  " Negative pulse"
+
+ TKAFG1K_VAL_WFM_EXPRISE (1019)
+  " Exponential rise function"
+
+ TKAFG1K_VAL_WFM_EXPDECAY (1020)
+  " Exponential fall function"
+
+ TKAFG1K_VAL_WFM_SINC (1021)
+  " Sinc function"
+
+ TKAFG1K_VAL_WFM_TAN (1022)
+  " Tangent"
+
+ TKAFG1K_VAL_WFM_COTAN (1023)
+  " Cotangent"
+
+ TKAFG1K_VAL_WFM_SQUAREROOT (1024)
+  " Square root"
+
+ TKAFG1K_VAL_WFM_X_2 (1025)
+  " Square function"
+
+ TKAFG1K_VAL_WFM_HAVERSINE (1026)
+  " HaverSine function"
+
+ TKAFG1K_VAL_WFM_LORENTZ (1027)
+  " Lorentz function"
+
+ TKAFG1K_VAL_WFM_LN_X (1028)
+  " Natural logarithm function"
+
+ TKAFG1K_VAL_WFM_X_3 (1029)
+  " Cubic function"
+
+ TKAFG1K_VAL_WFM_CAUCHYDISTR (1030)
+  " Cauchy distribution"
+
+ TKAFG1K_VAL_WFM_BESSELJ (1031)
+  " BesselI function"
+
+ TKAFG1K_VAL_WFM_BESSELY (1032)
+  " BesselII function"
+
+ TKAFG1K_VAL_WFM_ERRORFUNC (1033)
+  " Error function"
+
+ TKAFG1K_VAL_WFM_AIRY (1034)
+  " Airy function"
+
+ TKAFG1K_VAL_WFM_RECTANGLE (1035)
+  " Rectangle window"
+
+ TKAFG1K_VAL_WFM_GAUSS (1036)
+  " Gauss distribution"
+
+ TKAFG1K_VAL_WFM_HAMMING (1037)
+  " Hamming window"
+
+ TKAFG1K_VAL_WFM_HANNING (1038)
+  " Hanning window"
+
+ TKAFG1K_VAL_WFM_BARTLETT (1039)
+  " Bartlett window"
+
+ TKAFG1K_VAL_WFM_BLACKMAN (1040)
+  " Blackman window"
+
+ TKAFG1K_VAL_WFM_LAYLIGHT (1041)
+  " Laylight window"
+
+ TKAFG1K_VAL_WFM_TRIANGLE (1042)
+  " Triangle window (Fejer window)"
+
+ TKAFG1K_VAL_WFM_DC (1043)
+  " DC signal"
+
+ TKAFG1K_VAL_WFM_HEART (1044)
+  " Heart signal"
+
+ TKAFG1K_VAL_WFM_ROUND (1045)
+  " Round signal"
+
+ TKAFG1K_VAL_WFM_CHIRP (1046)
+  " Linear FM pulse"
+
+ TKAFG1K_VAL_WFM_RHOMBUS (1047)
+  " Rhombus signal"
+
+ TKAFG1K_VAL_WFM_CARDIAC (1048)
+  " Cardiac signal"
+
+ TKAFG1K_VAL_WFM_EMEM (10001)
   "Configures the function generator with a Edit Memory waveform."
+  
+ TKAFG1K_VAL_WFM_USER0 (10002)
+  "Configures the function generator with a user4 waveform."
 
+ TKAFG1K_VAL_WFM_USER1 (10003)
+  "Configures the function generator with a user4 waveform."
 
+ TKAFG1K_VAL_WFM_USER2 (10004)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER3 (10005)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER4 (10006)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER5 (10007)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER6 (10008)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER7 (10009)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER8 (10010)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER9 (10011)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER10 (10012)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER11 (10013)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER12 (10014)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER13 (10015)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER14 (10016)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER15 (10017)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER16 (10018)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER17 (10019)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER18 (10020)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER19 (10021)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER20 (10022)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER21 (10023)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER22 (10024)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER23 (10025)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER24 (10026)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER25 (10027)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER26 (10028)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER27 (10029)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER28 (10030)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER29 (10031)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER30 (10032)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER31 (10033)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER32 (10034)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER33 (10035)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER34 (10036)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER35 (10037)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER36 (10038)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER37 (10039)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER38 (10040)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER39 (10041)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER40 (10042)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER41 (10043)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER42 (10044)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER43 (10045)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER44 (10046)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER45 (10047)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER46 (10048)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER47 (10049)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER48 (10050)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER49 (10051)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER50 (10052)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER51 (10053)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER52 (10054)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER53 (10055)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER54 (10056)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER55 (10057)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER56 (10058)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER57 (10059)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER58 (10060)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER59 (10061)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER60 (10062)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER61 (10063)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER62 (10064)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER63 (10065)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER64 (10066)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER65 (10067)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER66 (10068)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER67 (10069)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER68 (10070)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER69 (10071)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER70 (10072)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER71 (10073)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER72 (10074)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER73 (10075)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER74 (10076)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER75 (10077)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER76 (10078)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER77 (10079)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER78 (10080)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER79 (10081)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER80 (10082)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER81 (10083)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER82 (10084)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER83 (10085)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER84 (10086)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER85 (10087)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER86 (10088)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER87 (10089)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER88 (10090)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER89 (10091)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER90 (10092)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER91 (10093)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER92 (10094)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER93 (10095)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER94 (10096)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER95 (10097)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER96 (10098)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER97 (10099)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER98 (10100)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER99 (10101)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER100 (10102)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER101 (10103)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER102 (10104)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER103 (10105)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER104 (10106)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER105 (10107)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER106 (10108)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER107 (10109)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER108 (10110)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER109 (10111)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER110 (10112)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER111 (10113)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER112 (10114)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER113 (10115)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER114 (10116)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER115 (10117)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER116 (10118)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER117 (10119)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER118 (10120)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER119 (10121)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER120 (10122)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER121 (10123)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER122 (10124)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER123 (10125)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER124 (10126)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER125 (10127)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER126 (10128)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER127 (10129)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER128 (10130)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER129 (10131)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER130 (10132)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER131 (10133)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER132 (10134)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER133 (10135)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER134 (10136)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER135 (10137)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER136 (10138)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER137 (10139)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER138 (10140)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER139 (10141)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER140 (10142)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER141 (10143)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER142 (10144)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER143 (10145)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER144 (10146)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER145 (10147)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER146 (10148)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER147 (10149)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER148 (10150)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER149 (10151)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER150 (10152)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER151 (10153)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER152 (10154)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER153 (10155)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER154 (10156)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER155 (10157)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER156 (10158)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER157 (10159)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER158 (10160)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER159 (10161)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER160 (10162)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER161 (10163)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER162 (10164)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER163 (10165)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER164 (10166)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER165 (10167)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER166 (10168)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER167 (10169)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER168 (10170)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER169 (10171)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER170 (10172)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER171 (10173)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER172 (10174)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER173 (10175)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER174 (10176)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER175 (10177)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER176 (10178)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER177 (10179)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER178 (10180)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER179 (10181)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER180 (10182)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER181 (10183)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER182 (10184)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER183 (10185)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER184 (10186)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER185 (10187)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER186 (10188)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER187 (10189)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER188 (10190)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER189 (10191)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER190 (10192)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER191 (10193)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER192 (10194)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER193 (10195)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER194 (10196)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER195 (10197)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER196 (10198)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER197 (10199)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER198 (10200)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER199 (10201)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER200 (10202)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER201 (10203)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER202 (10204)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER203 (10205)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER204 (10206)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER205 (10207)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER206 (10208)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER207 (10209)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER208 (10210)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER209 (10211)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER210 (10212)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER211 (10213)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER212 (10214)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER213 (10215)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER214 (10216)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER215 (10217)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER216 (10218)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER217 (10219)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER218 (10220)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER219 (10221)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER220 (10222)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER221 (10223)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER222 (10224)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER223 (10225)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER224 (10226)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER225 (10227)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER226 (10228)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER227 (10229)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER228 (10230)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER229 (10231)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER230 (10232)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER231 (10233)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER232 (10234)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER233 (10235)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER234 (10236)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER235 (10237)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER236 (10238)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER237 (10239)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER238 (10240)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER239 (10241)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER240 (10242)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER241 (10243)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER242 (10244)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER243 (10245)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER244 (10246)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER245 (10247)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER246 (10248)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER247 (10249)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER248 (10250)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER249 (10251)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER250 (10252)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER251 (10253)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER252 (10254)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER253 (10255)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER254 (10256)
+  "Configures the function generator with a user4 waveform."
+
+ TKAFG1K_VAL_WFM_USER255 (10257)
+  "Configures the function generator with a user4 waveform."
+  
 v Boolean_values DataType="i" 
  VI_TRUE (1)
   "True"
