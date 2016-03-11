@@ -35,7 +35,6 @@
 
 
 #define TKAFG1K_ATTR_MODEL                          (IVI_SPECIFIC_PRIVATE_ATTR_BASE + 117L)
-#define TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX        (IVI_SPECIFIC_PRIVATE_ATTR_BASE + 118L)
 #define TKAFG1K_ATTR_SWEEP_ENABLED          (IVI_SPECIFIC_PRIVATE_ATTR_BASE + 119L)
 
 /*****************************************************************************
@@ -91,6 +90,11 @@
 #define AFG1062_VAL_MIN_AMPL_IN_50OHM               (1.0e-3)
 #define AFG1062_VAL_MIN_AMPL_IN_OPEN                (2.0e-3)
 
+    /*- Maximum/Minimum Amplitude Value for model 1062 in high frequency-*/
+#define AFG1062_VAL_MAX_AMPL_IN_50OHM_HIGH_FREQ               (5.0)
+#define AFG1062_VAL_MAX_AMPL_IN_OPEN_HIGH_FREQ                (10.0)
+#define AFG1062_VAL_MIN_AMPL_IN_50OHM_HIGH_FREQ               (1.0e-3)
+#define AFG1062_VAL_MIN_AMPL_IN_OPEN_HIGH_FREQ                (2.0e-3)
 /*- Offset Range ------------------------------------------------------------*/
 #define TKAFG1K_VAL_MAX_OFFSET_IN_50OHM             (10.0)
 #define TKAFG1K_VAL_MAX_OFFSET_IN_OPEN              (20.0)
@@ -102,13 +106,7 @@
 #define AFG1022_VAL_MIN_PUL_WID                     (40e-9)
 #define AFG1062_VAL_MIN_PUL_WID                     (17e-9)
 
-/*- Minimum Pulse Edge Time -------------------------------------------------*/
-#define AFG3011_VAL_MIN_PUL_EDGE_TIME               (50e-9)
-#define AFG302X_VAL_MIN_PUL_EDGE_TIME               (18e-9)//same with AFG2021
-#define AFG310X_VAL_MIN_PUL_EDGE_TIME               (5e-9)
-#define AFG325X_VAL_MIN_PUL_EDGE_TIME               (2.5e-9)
-#define AFG305X_VAL_MIN_PUL_EDGE_TIME               (7e-9)
-#define AFG302XC_VAL_MIN_PUL_EDGE_TIME              (9e-9)
+
 
 
 /*- Maximum Waveform Size ---------------------------------------------------*/
@@ -171,6 +169,36 @@
     	Ivi_GetViInt32EntryFromValue (value, table, VI_NULL, VI_NULL,\
     								  VI_NULL, VI_NULL, cmd, VI_NULL)
 
+static IviRangeTableEntry attrAFG1062ArbWfmSweepFrequencyRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_MIN_FREQ, AFG1062_VAL_MAX_FREQ_ARB, TKAFG1K_VAL_MIN_FREQ, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrAFG1062ArbWfmSweepFrequencyRangeTable =
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrAFG1062ArbWfmSweepFrequencyRangeTableEntries,
+	};
+
+static IviRangeTableEntry attrAFG1022SquareWfmSweepFrequencyRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_MIN_FREQ, AFG1022_VAL_MAX_FREQ_SQUARE, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrAFG1022SquareWfmSweepFrequencyRangeTable =
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrAFG1022SquareWfmSweepFrequencyRangeTableEntries,
+	};
+
 static IviRangeTableEntry attrAFG1022PulseWfmInBurstFuncFrequencyRangeTableEntries[] =
 	{
 		{TKAFG1K_VAL_MIN_FREQ_IN_BURST, AFG1022_VAL_MAX_FREQ_PULSE_IN_BURST, 0, "", 0},
@@ -201,35 +229,9 @@ static IviRangeTable attrAFG1062PulseWfmInBurstFuncFrequencyRangeTable =
         attrAFG1062PulseWfmInBurstFuncFrequencyRangeTableEntries,
 	};
 
-static IviRangeTableEntry attrAFG1022DfltWfmInBurstFuncFrequencyRangeTableEntries[] =
-	{
-		{TKAFG1K_VAL_MIN_FREQ_IN_BURST, AFG1022_VAL_MAX_FREQ_DEFAULT_IN_BURST, 0, "", 0},
-		{IVI_RANGE_TABLE_LAST_ENTRY}
-	};
 
-static IviRangeTable attrAFG1022DfltWfmInBurstFuncFrequencyRangeTable =
-	{
-		IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrAFG1022DfltWfmInBurstFuncFrequencyRangeTableEntries,
-	};
 
-static IviRangeTableEntry attrAFG1062DfltWfmInBurstFuncFrequencyRangeTableEntries[] =
-	{
-		{TKAFG1K_VAL_MIN_FREQ_IN_BURST, AFG1062_VAL_MAX_FREQ_DEFAULT_IN_BURST, 0, "", 0},
-		{IVI_RANGE_TABLE_LAST_ENTRY}
-	};
 
-static IviRangeTable attrAFG1062DfltWfmInBurstFuncFrequencyRangeTable =
-	{
-		IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrAFG1062DfltWfmInBurstFuncFrequencyRangeTableEntries,
-	};
 
 static IviRangeTableEntry attrAFG1022SquareWfmInBurstFuncFrequencyRangeTableEntries[] =
 	{
@@ -350,64 +352,6 @@ static IviRangeTable attrAFG1022ArbFrequencyRangeTable =
         attrAFG1022ArbFrequencyRangeTableEntries,
 	};
 
-static IviRangeTableEntry attrAFG1062DfltWfmFuncFrequencyRangeTableEntries[] =
-	{
-		{TKAFG1K_VAL_MIN_FREQ, AFG1062_VAL_MAX_FREQ_DEFAULT, 0, "", 0},
-		{IVI_RANGE_TABLE_LAST_ENTRY}
-	};
-
-static IviRangeTable attrAFG1062DfltWfmFuncFrequencyRangeTable =
-	{
-		IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrAFG1062DfltWfmFuncFrequencyRangeTableEntries,
-	};
-static IviRangeTableEntry attrAFG1022DfltWfmFuncFrequencyRangeTableEntries[] =
-	{
-		{TKAFG1K_VAL_MIN_FREQ, AFG1022_VAL_MAX_FREQ_DEFAULT, 0, "", 0},
-		{IVI_RANGE_TABLE_LAST_ENTRY}
-	};
-
-static IviRangeTable attrAFG1022DfltWfmFuncFrequencyRangeTable =
-	{
-		IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrAFG1022DfltWfmFuncFrequencyRangeTableEntries,
-	};
-
-static IviRangeTableEntry attrAFG1062DfltWfmSweepFrequencyRangeTableEntries[] =
-	{
-		{TKAFG1K_VAL_MIN_FREQ, AFG1062_VAL_MAX_FREQ_DEFAULT, 0, "", 0},
-		{IVI_RANGE_TABLE_LAST_ENTRY}
-	};
-
-static IviRangeTable attrAFG1062DfltWfmSweepFrequencyRangeTable =
-	{
-		IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrAFG1062DfltWfmSweepFrequencyRangeTableEntries,
-	};
-
-static IviRangeTableEntry attrAFG1022DfltWfmSweepFrequencyRangeTableEntries[] =
-	{
-		{TKAFG1K_VAL_MIN_FREQ, AFG1022_VAL_MAX_FREQ_DEFAULT, 0, "", 0},
-		{IVI_RANGE_TABLE_LAST_ENTRY}
-	};
-
-static IviRangeTable attrAFG1022DfltWfmSweepFrequencyRangeTable =
-	{
-		IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrAFG1022DfltWfmSweepFrequencyRangeTableEntries,
-	};
 
 static IviRangeTableEntry attrAFG1062PulseWfmFuncFrequencyRangeTableEntries[] =
 	{
@@ -790,7 +734,8 @@ static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle);
 
 static ViStatus tkafg1k_GetWfmSize (ViSession vi, ViSession io,
                                     ViInt32 wfmHandle, ViInt32* wfmSize);
-
+static ViStatus tkafg1k_GetSweepFrequencyRangeTable( ViSession vi, ViConstString channelName,
+                                                              IviRangeTablePtr *rangeTablePtr);
 
 static ViStatus tkafg1k_Min (ViSession vi, ViInt32 digitsofPrecision,
                              ViReal64 a, ViReal64 b, ViReal64 *minValue);
@@ -916,30 +861,6 @@ static ViStatus _VI_FUNC tkafg1kAttrContinuousEnabled_WriteCallback (
     ViAttr attributeId,
     ViBoolean value);
 
-static ViStatus _VI_FUNC AFG3XX1AttrOutputMode_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 value);
-static ViStatus _VI_FUNC AFG3XX2AttrOutputMode_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 value);
-static ViStatus _VI_FUNC AFG3XX1AttrOutputMode_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 *value);
-static ViStatus _VI_FUNC AFG3XX2AttrOutputMode_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 *value);
 
 static ViStatus _VI_FUNC tkafg1kAttrOutputModeByChannel_ReadCallback (
     ViSession vi,
@@ -1075,41 +996,6 @@ static ViStatus _VI_FUNC tkafg1kAttrFuncStartPhase_CheckCallback (
 
 
 
-static ViStatus _VI_FUNC AFG3011AttrPulseLeadingTime_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG302XAttrPulseLeadingTime_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG305XAttrPulseLeadingTime_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG302XCAttrPulseLeadingTime_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG310XAttrPulseLeadingTime_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG325XAttrPulseLeadingTime_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-
-
-
-
-
 
 /***---  Arbitrary Waveform Attributes  ---**********************************/
 static ViStatus _VI_FUNC tkafg1kAttrArbWaveformHandle_WriteCallback (
@@ -1163,18 +1049,6 @@ static ViStatus _VI_FUNC tkafg1kAttrArbOffset_CheckCallback (
     ViConstString channelName,
     ViAttr attributeId,
     ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX1AttrArbSampleRate_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
-static ViStatus _VI_FUNC AFG3XX2AttrArbSampleRate_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
 static ViStatus _VI_FUNC tkafg1kAttrArbFrequency_RangeTableCallback (
     ViSession vi,
     ViConstString channelName,
@@ -1291,91 +1165,6 @@ static ViStatus _VI_FUNC tkafg1kAttrAMSource_ReadCallback (
     ViAttr attributeId,
     ViInt32 *value);
 
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalDepth_CheckCallback(
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalDepth_CheckCallback(
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalDepth_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalDepth_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalDepth_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalDepth_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
-
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalWaveform_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 value);
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalWaveform_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 value);
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalWaveform_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32  *value);
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalWaveform_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32  *value);
-
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalFrequency_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalFrequency_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalFrequency_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalFrequency_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
-
 static ViStatus _VI_FUNC tkafg1kAttrAMInternalFrequencyByChannel_ReadCallback (
     ViSession vi,
     ViSession io,
@@ -1454,76 +1243,6 @@ static ViStatus _VI_FUNC tkafg1kAttrFMSource_ReadCallback (
     ViAttr attributeId,
     ViInt32 *value);
 
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalDeviation_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalDeviation_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalDeviation_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalDeviation_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalDeviation_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalDeviation_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
-
-static ViStatus _VI_FUNC AFG3011AttrFMDeviationByChannel_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG302XAttrFMDeviationByChannel_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG302XCAttrFMDeviationByChannel_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG310XAttrFMDeviationByChannel_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG325XAttrFMDeviationByChannel_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG2021AttrFMDeviationByChannel_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG305XAttrFMDeviationByChannel_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
 static ViStatus _VI_FUNC tkafg1kAttrFMDeviationByChannel_ReadCallback (
     ViSession vi,
     ViSession io,
@@ -1537,56 +1256,6 @@ static ViStatus _VI_FUNC tkafg1kAttrFMDeviationByChannel_WriteCallback (
     ViConstString channelName,
     ViAttr attributeId,
     ViReal64 value);
-
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalWaveform_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 value);
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalWaveform_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 value);
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalWaveform_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 *value);
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalWaveform_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViInt32 *value);
-
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalFrequency_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalFrequency_WriteCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalFrequency_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalFrequency_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
 
 static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequencyByChannel_ReadCallback (
     ViSession vi,
@@ -1786,31 +1455,6 @@ static ViStatus _VI_FUNC tkafg1kAttrPWMEnabled_WriteCallback (
     ViAttr attributeId,
     ViBoolean value);
 
-static ViStatus _VI_FUNC AFG3011AttrPWMDeviation_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG302XAttrPWMDeviation_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG305XAttrPWMDeviation_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG310XAttrPWMDeviation_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG325XAttrPWMDeviation_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
 static ViStatus _VI_FUNC tkafg1kAttrPWMDeviation_ReadCallback (
     ViSession vi,
     ViSession io,
@@ -1874,31 +1518,6 @@ static ViStatus _VI_FUNC tkafg1kAttrPWMSource_WriteCallback (
 /***---  Miscellaneous Attributes  ---***************************************/
 
 /***--- Hidden Attributes --*************************************************/
-static ViStatus _VI_FUNC AFG3011AttrAmplitude_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG302XAttrAmplitude_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG310XAttrAmplitude_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG325XAttrAmplitude_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG2021AttrAmplitude_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
 
 static ViStatus _VI_FUNC tkafg1kAttrAmplitude_ReadCallback (
     ViSession vi,
@@ -1924,32 +1543,6 @@ static ViStatus _VI_FUNC tkafg1kAttrFrequency_ReadCallback (
 static ViStatus _VI_FUNC tkafg1kAttrFrequency_WriteCallback (
     ViSession vi,
     ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-
-static ViStatus _VI_FUNC AFG3011AttrOffset_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG302XAttrOffset_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG310XAttrOffset_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG325XAttrOffset_CheckCallback (
-    ViSession vi,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 value);
-static ViStatus _VI_FUNC AFG2021AttrOffset_CheckCallback (
-    ViSession vi,
     ViConstString channelName,
     ViAttr attributeId,
     ViReal64 value);
@@ -2020,12 +1613,6 @@ static ViStatus _VI_FUNC tkafg1kAttrPulseDutyCycle_WriteCallback (
     ViReal64 value);
 
 
-static ViStatus _VI_FUNC tkafg1kAttrVoltageUpperLimitMax_ReadCallback (
-    ViSession vi,
-    ViSession io,
-    ViConstString channelName,
-    ViAttr attributeId,
-    ViReal64 *value);
 
 static ViStatus _VI_FUNC tkafg1kAttrSweepEnabled_CheckCallback (ViSession vi,
                                                                 ViConstString channelName,
@@ -5599,21 +5186,7 @@ Error:
 }
 
 /*- TKAFG1K_ATTR_OUTPUT_MODE -*/
-static ViStatus _VI_FUNC AFG3XX1AttrOutputMode_WriteCallback (ViSession vi,
-                                                               ViSession io,
-                                                               ViConstString channelName,
-                                                               ViAttr attributeId,
-                                                               ViInt32 value)
-{
-    ViStatus error = VI_SUCCESS;
-
-    checkErr( tkafg1k_SetAttributeViInt32(vi, CHAN1, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, value) );
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG3XX2AttrOutputMode_WriteCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrOutputMode_WriteCallback (ViSession vi,
                                                                ViSession io,
                                                                ViConstString channelName,
                                                                ViAttr attributeId,
@@ -5629,16 +5202,7 @@ Error:
     return error;
 }
 
-static ViStatus _VI_FUNC AFG3XX1AttrOutputMode_ReadCallback (ViSession vi,
-                                                              ViSession io,
-                                                              ViConstString channelName,
-                                                              ViAttr attributeId,
-                                                              ViInt32 *value)
-{
-    return ( tkafg1k_GetAttributeViInt32(vi, CHAN1, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, value) );
-}
-
-static ViStatus _VI_FUNC AFG3XX2AttrOutputMode_ReadCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrOutputMode_ReadCallback (ViSession vi,
                                                               ViSession io,
                                                               ViConstString channelName,
                                                               ViAttr attributeId,
@@ -6188,40 +5752,6 @@ static ViStatus _VI_FUNC tkafg1kAttrFuncFrequency_RangeTableCallback (ViSession 
             }
             break;
         }
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            /* Default Waveform Range Table in Burst Mode */
-            if( operationMode == TKAFG1K_VAL_OPERATE_BURST)
-            {
-				if( (model == TKAFG1K_VAL_MODEL_AFG1022))
-                {
-                    tblPtr = &attrAFG1022DfltWfmInBurstFuncFrequencyRangeTable;
-                }
-                else if( (model == TKAFG1K_VAL_MODEL_AFG1062) )
-                {
-                    tblPtr = &attrAFG1062DfltWfmInBurstFuncFrequencyRangeTable;
-                }
-            }
-            /* Default Waveform Range Table in other Modes */
-            else
-            {
-				if( (model == TKAFG1K_VAL_MODEL_AFG1022))
-                {
-                    tblPtr = &attrAFG1022DfltWfmFuncFrequencyRangeTable;
-                }
-                else if( (model == TKAFG1K_VAL_MODEL_AFG1062) )
-                {
-                    tblPtr = &attrAFG1062DfltWfmFuncFrequencyRangeTable;
-                }
-				
-            }
-            break;
-        }
         default:
         {
             tblPtr = VI_NULL;
@@ -6581,7 +6111,8 @@ static ViStatus _VI_FUNC tkafg1kAttrMaxWaveformSize_ReadCallback (ViSession vi,
 	}else if (model == TKAFG1K_VAL_MODEL_AFG1062){
 		*value = AFG1062_VAL_MAX_WFM_SIZE;
 	}else{
-		viCheckErr (TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);		
+		error = TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL;
+		viCheckErr (error);		
 	}
     
 Error:
@@ -7103,28 +6634,8 @@ static IviRangeTable attrAMInternalDepthRangeTable =
         attrAMInternalDepthRangeTableEntries,
 };
 
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalDepth_CheckCallback(ViSession vi,
-                                                                    ViConstString channelName,
-                                                                    ViAttr attributeId,
-                                                                    ViReal64 value)
-{
-    ViStatus error = VI_SUCCESS;
-    ViInt32  source;
 
-    checkErr ( Ivi_GetAttributeViInt32 (vi, CHAN1, TKAFG1K_ATTR_AM_SOURCE, 0, &source) );
-    if(source != TKAFG1K_VAL_AM_INTERNAL)
-    {
-        error = IVI_ERROR_INVALID_CONFIGURATION;
-        viCheckErr (error);
-    }
-
-    checkErr ( Ivi_DefaultCheckCallbackViReal64(vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_DEPTH, value) );
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalDepth_CheckCallback(ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_CheckCallback(ViSession vi,
                                                                     ViConstString channelName,
                                                                     ViAttr attributeId,
                                                                     ViReal64 value)
@@ -7146,16 +6657,8 @@ Error:
     return error;
 }
 
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalDepth_WriteCallback (ViSession vi,
-                                                                    ViSession io,
-                                                                    ViConstString channelName,
-                                                                    ViAttr attributeId,
-                                                                    ViReal64 value)
-{
-    return ( tkafg1k_SetAttributeViReal64 (vi, CHAN1, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value ) );
-}
 
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalDepth_WriteCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_WriteCallback (ViSession vi,
                                                                     ViSession io,
                                                                     ViConstString channelName,
                                                                     ViAttr attributeId,
@@ -7163,49 +6666,22 @@ static ViStatus _VI_FUNC AFG3XX2AttrAMInternalDepth_WriteCallback (ViSession vi,
 {
     ViStatus error = VI_SUCCESS;
 
-    checkErr ( tkafg1k_SetAttributeViReal64 (vi, CHAN1, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value ) );
+    checkErr ( tkafg1k_SetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value ) );
 
-    checkErr ( tkafg1k_SetAttributeViReal64 (vi, CHAN2, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value ) );
 
 Error:
     return error;
 }
 
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalDepth_ReadCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_ReadCallback (ViSession vi,
                                                                    ViSession io,
                                                                    ViConstString channelName,
                                                                    ViAttr attributeId,
                                                                    ViReal64 *value)
 {
-    return ( tkafg1k_GetAttributeViReal64 (vi, CHAN1, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value) );
+    return ( tkafg1k_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value) );
 }
 
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalDepth_ReadCallback (ViSession vi,
-                                                                   ViSession io,
-                                                                   ViConstString channelName,
-                                                                   ViAttr attributeId,
-                                                                   ViReal64 *value)
-{
-    ViStatus error = VI_SUCCESS;
-    ViReal64    chan1Depth, chan2Depth;
-
-    checkErr ( tkafg1k_GetAttributeViReal64 (vi, CHAN1, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, &chan1Depth) );
-
-    checkErr ( tkafg1k_GetAttributeViReal64 (vi, CHAN2, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, &chan2Depth) );
-
-    if( fabs (chan1Depth-chan2Depth) > 1.0e-5 )
-    {
-        error = TKAFG1K_ERROR_CHANNELS_DIFFERENT;
-        viCheckErr (error);
-    }
-    else
-    {
-        *value = chan1Depth;
-    }
-
-Error:
-    return error;
-}
 
 /*- TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL -*/
 static ViStatus _VI_FUNC tkafg1kAttrAMDepthByChannel_ReadCallBack (ViSession vi,
@@ -7501,52 +6977,23 @@ static IviRangeTable attrAMInternalWaveformRangeTable =
         attrAMInternalWaveformRangeTableEntries,
 	};
 
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalWaveform_ReadCallback (ViSession vi,
-                                                                      ViSession io,
-                                                                      ViConstString channelName,
-                                                                      ViAttr attributeId,
-                                                                      ViInt32  *value)
-{
-    return ( tkafg1k_GetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
-}
 
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalWaveform_ReadCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveform_ReadCallback (ViSession vi,
                                                                       ViSession io,
                                                                       ViConstString channelName,
                                                                       ViAttr attributeId,
                                                                       ViInt32  *value)
 {
     ViStatus error = VI_SUCCESS;
-    ViInt32 chan1Waveform, chan2Waveform;
+    ViInt32 chan1Waveform;
 
-    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, &chan1Waveform ) );
-
-    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, CHAN2, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, &chan2Waveform ) );
-
-    if(chan1Waveform != chan2Waveform)
-    {
-        error = TKAFG1K_ERROR_CHANNELS_DIFFERENT;
-        viCheckErr (error);
-    }
-    else
-    {
-        *value = chan1Waveform;
-    }
-
+    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, &chan1Waveform ) );
+    *value = chan1Waveform;
 Error:
     return error;
 }
 
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalWaveform_WriteCallback (ViSession vi,
-                                                                       ViSession io,
-                                                                       ViConstString channelName,
-                                                                       ViAttr attributeId,
-                                                                       ViInt32 value)
-{
-    return ( tkafg1k_SetAttributeViInt32 (  vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
-}
-
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalWaveform_WriteCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveform_WriteCallback (ViSession vi,
                                                                        ViSession io,
                                                                        ViConstString channelName,
                                                                        ViAttr attributeId,
@@ -7554,9 +7001,7 @@ static ViStatus _VI_FUNC AFG3XX2AttrAMInternalWaveform_WriteCallback (ViSession 
 {
     ViStatus error = VI_SUCCESS;
 
-    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
-
-    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN2, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
 
 Error:
     return error;
@@ -7662,65 +7107,23 @@ static IviRangeTable attrAMInternalFrequencyRangeTable =
         attrAMInternalFrequencyRangeTableEntries,
     };
 
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalFrequency_WriteCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrAMInternalFrequency_WriteCallback (ViSession vi,
                                                                         ViSession io,
                                                                         ViConstString channelName,
                                                                         ViAttr attributeId,
                                                                         ViReal64 value)
 {
-    return ( tkafg1k_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+    return ( tkafg1k_SetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
 }
 
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalFrequency_WriteCallback (ViSession vi,
-                                                                        ViSession io,
-                                                                        ViConstString channelName,
-                                                                        ViAttr attributeId,
-                                                                        ViReal64 value)
-{
-    ViStatus error = VI_SUCCESS;
 
-    checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
-
-    checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG3XX1AttrAMInternalFrequency_ReadCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrAMInternalFrequency_ReadCallback (ViSession vi,
                                                                        ViSession io,
                                                                        ViConstString channelName,
                                                                        ViAttr attributeId,
                                                                        ViReal64 *value)
 {
-    return ( tkafg1k_GetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
-}
-
-static ViStatus _VI_FUNC AFG3XX2AttrAMInternalFrequency_ReadCallback (ViSession vi,
-                                                                       ViSession io,
-                                                                       ViConstString channelName,
-                                                                       ViAttr attributeId,
-                                                                       ViReal64 *value)
-{
-    ViStatus error = VI_SUCCESS;
-    ViReal64 chan1Frequency, chan2Frequency;
-
-    checkErr ( tkafg1k_GetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, &chan1Frequency ) );
-
-    checkErr ( tkafg1k_GetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, &chan2Frequency ) );
-
-    if( fabs(chan1Frequency-chan2Frequency) > 1.0e-5 )
-    {
-        error = TKAFG1K_ERROR_CHANNELS_DIFFERENT;
-        viCheckErr (error);
-    }
-    else
-    {
-        *value = chan1Frequency;
-    }
-
-Error:
-    return error;
+    return ( tkafg1k_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
 }
 
 /*- TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL -*/
@@ -7907,7 +7310,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFmDeviationByChannel_CheckCallback (ViSessio
                                                                         ViReal64 value)
 {
 	ViStatus	error = VI_SUCCESS;
-	ViReal64    carrierFreq, totalFreq,upperLimit;
+	ViReal64    carrierFreq, totalFreq,upperLimit=AFG1022_VAL_MAX_FREQ_DEFAULT;
 	ViInt32 	model;
     ViInt32     waveform;
 	checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &carrierFreq ) );
@@ -7945,29 +7348,43 @@ static ViStatus _VI_FUNC tkafg1kAttrFmDeviationByChannel_CheckCallback (ViSessio
 				upperLimit = AFG1062_VAL_MAX_FREQ_RAMP;            
             break;
         }
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            if(totalFreq > (AFG3011_VAL_MAX_FREQ_DEFAULT+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
         case TKAFG1K_VAL_WFM_EMEM:
         {
-            if(totalFreq > (AFG3011_VAL_MAX_FREQ_ARB+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
+            if(model == TKAFG1K_VAL_MODEL_AFG1022)
+				upperLimit = AFG1022_VAL_MAX_FREQ_ARB;
+			else if (model == TKAFG1K_VAL_MODEL_AFG1062)
+				upperLimit = AFG1062_VAL_MAX_FREQ_ARB;
             break;
         }
-		
+		default:
+		{   if(waveform>=TKAFG1K_VAL_WFM_USER0 && waveform<=TKAFG1K_VAL_WFM_USER255){
+				if(model == TKAFG1K_VAL_MODEL_AFG1022)
+					upperLimit = AFG1022_VAL_MAX_FREQ_ARB;
+				else if (model == TKAFG1K_VAL_MODEL_AFG1062){
+					if(waveform >=TKAFG1K_VAL_WFM_USER32){
+						error = IVI_ERROR_INVALID_PARAMETER;
+						viCheckErr (error);						
+					}else
+						upperLimit = AFG1022_VAL_MAX_FREQ_ARB;
+				}else{
+					error = TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL;
+					viCheckErr (error);
+				}
+			}else if(waveform >=TKAFG1K_VAL_WFM_STAIRDOWN && waveform <=TKAFG1K_VAL_WFM_CARDIAC)
+					if(model == TKAFG1K_VAL_MODEL_AFG1022)
+					upperLimit = AFG1022_VAL_MAX_FREQ_ARB;
+				else if (model == TKAFG1K_VAL_MODEL_AFG1062){
+						upperLimit = AFG1022_VAL_MAX_FREQ_ARB;
+				}else{
+					error = TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL;
+					viCheckErr (error);
+				}					
+			else{
+				error = IVI_ERROR_INVALID_PARAMETER;
+				viCheckErr (error);
+			}
+			break;
+		}
 	}
 	if(totalFreq > (upperLimit+1.0e-5) )
     {
@@ -7979,572 +7396,6 @@ Error:
 	return error;
 }
 
-static ViStatus _VI_FUNC AFG3011AttrFMDeviationByChannel_CheckCallback (ViSession vi,
-                                                                        ViConstString channelName,
-                                                                        ViAttr attributeId,
-                                                                        ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    carrierFreq, totalFreq;
-    ViInt32     waveform;
-
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &carrierFreq ) );
-    if((value < 0 ) || (value > carrierFreq))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    checkErr ( Ivi_GetAttributeViInt32 (  vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform ) );
-    totalFreq = carrierFreq + value;
-
-    switch(waveform)
-    {
-        case TKAFG1K_VAL_WFM_SINE:
-        {
-            if(totalFreq > (AFG3011_VAL_MAX_FREQ_SINE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SQUARE:
-        {
-            if(totalFreq > (AFG3011_VAL_MAX_FREQ_SQUARE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_RAMP:
-        {
-            if(totalFreq > (AFG3011_VAL_MAX_FREQ_RAMP+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            if(totalFreq > (AFG3011_VAL_MAX_FREQ_DEFAULT+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
-        {
-            if(totalFreq > (AFG3011_VAL_MAX_FREQ_ARB+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG302XAttrFMDeviationByChannel_CheckCallback (ViSession vi,
-                                                                        ViConstString channelName,
-                                                                        ViAttr attributeId,
-                                                                        ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    carrierFreq, totalFreq;
-    ViInt32     waveform;
-
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &carrierFreq ) );
-    if((value < 0 ) || (value > carrierFreq))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    viCheckErr ( Ivi_GetAttributeViInt32 (  vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform ) );
-    totalFreq = carrierFreq + value;
-
-    switch(waveform)
-    {
-        case TKAFG1K_VAL_WFM_SINE:
-        {
-            if(totalFreq > (AFG302X_VAL_MAX_FREQ_SINE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SQUARE:
-        {
-            if(totalFreq > (AFG302X_VAL_MAX_FREQ_SQUARE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_RAMP:
-        {
-            if(totalFreq > (AFG302X_VAL_MAX_FREQ_RAMP+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            if(totalFreq > (AFG302X_VAL_MAX_FREQ_DEFAULT+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
-        {
-            if(totalFreq > (AFG302X_VAL_MAX_FREQ_ARB+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG302XCAttrFMDeviationByChannel_CheckCallback (ViSession vi,
-                                                                         ViConstString channelName,
-                                                                         ViAttr attributeId,
-                                                                         ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    carrierFreq, totalFreq;
-    ViInt32     waveform;
-
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &carrierFreq ) );
-    if((value < 0 ) || (value > carrierFreq))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    viCheckErr ( Ivi_GetAttributeViInt32 (  vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform ) );
-    totalFreq = carrierFreq + value;
-
-    switch(waveform)
-    {
-        case TKAFG1K_VAL_WFM_SINE:
-        {
-            if(totalFreq > (AFG302XC_VAL_MAX_FREQ_SINE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SQUARE:
-        {
-            if(totalFreq > (AFG302XC_VAL_MAX_FREQ_SQUARE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_RAMP:
-        {
-            if(totalFreq > (AFG302XC_VAL_MAX_FREQ_RAMP+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            if(totalFreq > (AFG302XC_VAL_MAX_FREQ_DEFAULT+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
-        {
-            if(totalFreq > (AFG302XC_VAL_MAX_FREQ_ARB+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG310XAttrFMDeviationByChannel_CheckCallback (ViSession vi,
-                                                                        ViConstString channelName,
-                                                                        ViAttr attributeId,
-                                                                        ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    carrierFreq, totalFreq;
-    ViInt32     waveform;
-
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &carrierFreq ) );
-    if((value < 0 ) || (value > carrierFreq))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    viCheckErr ( Ivi_GetAttributeViInt32 (  vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform ) );
-    totalFreq = carrierFreq + value;
-
-    switch(waveform)
-    {
-        case TKAFG1K_VAL_WFM_SINE:
-        {
-            if(totalFreq > (AFG310X_VAL_MAX_FREQ_SINE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SQUARE:
-        {
-            if(totalFreq > (AFG310X_VAL_MAX_FREQ_SQUARE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_RAMP:
-        {
-            if(totalFreq > (AFG310X_VAL_MAX_FREQ_RAMP+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            if(totalFreq > (AFG310X_VAL_MAX_FREQ_DEFAULT+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
-        {
-            if(totalFreq > (AFG310X_VAL_MAX_FREQ_ARB+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG325XAttrFMDeviationByChannel_CheckCallback (ViSession vi,
-                                                                        ViConstString channelName,
-                                                                        ViAttr attributeId,
-                                                                        ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    carrierFreq, totalFreq;
-    ViInt32     waveform;
-
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &carrierFreq ) );
-    if((value < 0 ) || (value > carrierFreq))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    viCheckErr ( Ivi_GetAttributeViInt32 (  vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform ) );
-    totalFreq = carrierFreq + value;
-
-    switch(waveform)
-    {
-        case TKAFG1K_VAL_WFM_SINE:
-        {
-            if(totalFreq > (AFG325X_VAL_MAX_FREQ_SINE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SQUARE:
-        {
-            if(totalFreq > (AFG325X_VAL_MAX_FREQ_SQUARE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_RAMP:
-        {
-            if(totalFreq > (AFG325X_VAL_MAX_FREQ_RAMP+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            if(totalFreq > (AFG325X_VAL_MAX_FREQ_DEFAULT+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
-        {
-            if(totalFreq > (AFG325X_VAL_MAX_FREQ_ARB+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG2021AttrFMDeviationByChannel_CheckCallback (ViSession vi,
-                                                                        ViConstString channelName,
-                                                                        ViAttr attributeId,
-                                                                        ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    carrierFreq, totalFreq;
-    ViInt32     waveform;
-
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &carrierFreq ) );
-    if((value < 0 ) || (value > carrierFreq))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    viCheckErr ( Ivi_GetAttributeViInt32 (  vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform ) );
-    totalFreq = carrierFreq + value;
-
-    switch(waveform)
-    {
-        case TKAFG1K_VAL_WFM_SINE:
-        {
-            if(totalFreq > (AFG2021_VAL_MAX_FREQ_SINE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SQUARE:
-        {
-            if(totalFreq > (AFG2021_VAL_MAX_FREQ_SQUARE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_RAMP:
-        {
-            if(totalFreq > (AFG2021_VAL_MAX_FREQ_RAMP+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            if(totalFreq > (AFG2021_VAL_MAX_FREQ_DEFAULT+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
-        {
-            if(totalFreq > (AFG2021_VAL_MAX_FREQ_ARB+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG305XAttrFMDeviationByChannel_CheckCallback (ViSession vi,
-                                                                        ViConstString channelName,
-                                                                        ViAttr attributeId,
-                                                                        ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    carrierFreq, totalFreq;
-    ViInt32     waveform;
-
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &carrierFreq ) );
-    if((value < 0 ) || (value > carrierFreq))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    viCheckErr ( Ivi_GetAttributeViInt32 (  vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform ) );
-    totalFreq = carrierFreq + value;
-
-    switch(waveform)
-    {
-        case TKAFG1K_VAL_WFM_SINE:
-        {
-            if(totalFreq > (AFG305X_VAL_MAX_FREQ_SINE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SQUARE:
-        {
-            if(totalFreq > (AFG305X_VAL_MAX_FREQ_SQUARE+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_RAMP:
-        {
-            if(totalFreq > (AFG305X_VAL_MAX_FREQ_RAMP+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_SINC:
-        case TKAFG1K_VAL_WFM_GAUS:
-        case TKAFG1K_VAL_WFM_LOR:
-        case TKAFG1K_VAL_WFM_ERIS:
-        case TKAFG1K_VAL_WFM_EDEC:
-        case TKAFG1K_VAL_WFM_HAV:
-        {
-            if(totalFreq > (AFG305X_VAL_MAX_FREQ_DEFAULT+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-        case TKAFG1K_VAL_WFM_USER1:
-        case TKAFG1K_VAL_WFM_USER2:
-        case TKAFG1K_VAL_WFM_USER3:
-        case TKAFG1K_VAL_WFM_USER4:
-        case TKAFG1K_VAL_WFM_EMEM:
-        {
-            if(totalFreq > (AFG305X_VAL_MAX_FREQ_ARB+1.0e-5) )
-            {
-                error = IVI_ERROR_INVALID_VALUE;
-                viCheckErr (error);
-            }
-            break;
-        }
-    }
-
-Error:
-    return error;
-}
 static ViStatus _VI_FUNC tkafg1kAttrFMDeviationByChannel_ReadCallback (ViSession vi,
                                                                        ViSession io,
                                                                        ViConstString channelName,
@@ -8838,66 +7689,26 @@ static IviRangeTable attrFMInternalWaveformRangeTable =
         attrFMInternalWaveformRangeTableEntries,
 };
 
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalWaveform_WriteCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveform_WriteCallback (ViSession vi,
                                                                        ViSession io,
                                                                        ViConstString channelName,
                                                                        ViAttr attributeId,
                                                                        ViInt32 value)
 {
-    return ( tkafg1k_SetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+    return ( tkafg1k_SetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
 }
 
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalWaveform_WriteCallback (ViSession vi,
-                                                                       ViSession io,
-                                                                       ViConstString channelName,
-                                                                       ViAttr attributeId,
-                                                                       ViInt32 value)
-{
-    ViStatus error = VI_SUCCESS;
 
-    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
 
-    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN2, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalWaveform_ReadCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveform_ReadCallback (ViSession vi,
                                                                       ViSession io,
                                                                       ViConstString channelName,
                                                                       ViAttr attributeId,
                                                                       ViInt32 *value)
 {
-    return ( tkafg1k_GetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+    return ( tkafg1k_GetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
 }
 
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalWaveform_ReadCallback (ViSession vi,
-                                                                      ViSession io,
-                                                                      ViConstString channelName,
-                                                                      ViAttr attributeId,
-                                                                      ViInt32 *value)
-{
-    ViStatus error = VI_SUCCESS;
-    ViInt32 chan1Waveform, chan2Waveform;
-
-    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, &chan1Waveform ) );
-
-    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, CHAN2, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, &chan2Waveform ) );
-
-    if(chan1Waveform != chan2Waveform)
-    {
-        error = TKAFG1K_ERROR_CHANNELS_DIFFERENT;
-        viCheckErr (error);
-    }
-    else
-    {
-        *value = chan1Waveform;
-    }
-
-Error:
-    return error;
-}
 
 /*- TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL -*/
 static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveformByChannel_CheckCallback (ViSession vi,
@@ -8999,78 +7810,24 @@ static IviRangeTable attrFMInternalFrequencyRangeTable =
         attrFMInternalFrequencyRangeTableEntries,
 };
 
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalFrequency_WriteCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequency_WriteCallback (ViSession vi,
                                                                         ViSession io,
                                                                         ViConstString channelName,
                                                                         ViAttr attributeId,
                                                                         ViReal64 value)
 {
-    return ( tkafg1k_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+    return ( tkafg1k_SetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
 }
 
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalFrequency_WriteCallback (ViSession vi,
-                                                                        ViSession io,
-                                                                        ViConstString channelName,
-                                                                        ViAttr attributeId,
-                                                                        ViReal64 value)
-{
-    ViStatus error = VI_SUCCESS;
-
-    checkErr ( tkafg1k_SetAttributeViReal64 (   vi,
-                                                CHAN1,
-                                                TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL,
-                                                value   ) );
-
-    checkErr ( tkafg1k_SetAttributeViReal64 ( vi,
-                                                CHAN2,
-                                                TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL,
-                                                value   ) );
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG3XX1AttrFMInternalFrequency_ReadCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequency_ReadCallback (ViSession vi,
                                                                        ViSession io,
                                                                        ViConstString channelName,
                                                                        ViAttr attributeId,
                                                                        ViReal64 *value)
 {
-    return ( tkafg1k_GetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+    return ( tkafg1k_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
 }
 
-static ViStatus _VI_FUNC AFG3XX2AttrFMInternalFrequency_ReadCallback (ViSession vi,
-                                                                       ViSession io,
-                                                                       ViConstString channelName,
-                                                                       ViAttr attributeId,
-                                                                       ViReal64 *value)
-{
-    ViStatus error = VI_SUCCESS;
-    ViReal64    chan1Frequency, chan2Frequency;
-
-    checkErr ( tkafg1k_GetAttributeViReal64 ( vi,
-                                                CHAN1,
-                                                TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL,
-                                                &chan1Frequency ) );
-
-    checkErr ( tkafg1k_GetAttributeViReal64 ( vi,
-                                                CHAN2,
-                                                TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL,
-                                                &chan2Frequency ) );
-
-    if(chan1Frequency != chan2Frequency)
-    {
-        error = TKAFG1K_ERROR_CHANNELS_DIFFERENT;
-        viCheckErr (error);
-    }
-    else
-    {
-        *value = chan1Frequency;
-    }
-
-Error:
-    return error;
-}
 
 /*- TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL -*/
 static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequencyByChannel_ReadCallback (ViSession vi,
@@ -9809,48 +8566,25 @@ Error:
 }
 
 /*- TKAFG1K_ATTR_PWM_DEVIATION -*/
-static ViStatus _VI_FUNC AFG3011AttrPWMDeviation_CheckCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrPWMDeviation_CheckCallback (ViSession vi,
                                                               ViConstString channelName,
                                                               ViAttr attributeId,
                                                               ViReal64 value)
 {
     ViStatus    error = VI_SUCCESS;
     ViReal64    deviation;
-    ViReal64    pulsePeriod, pulseWidth, leadingTime, trailingTime;
-    ViReal64    minPulseWidth = AFG3011_VAL_MIN_PUL_WID;
+    ViReal64    pulseDutyCycle;
 
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_PERIOD, 0, &pulsePeriod) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_WIDTH, 0, &pulseWidth) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_LEADING_TIME, 0, &leadingTime) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_TRAILING_TIME, 0, &trailingTime) );
+    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_DUTY_CYCLE, 0, &pulseDutyCycle) );
+    deviation = value;
 
-    deviation = value*pulsePeriod/100.0;
-
-    if(value < 0)
+    if(value < 0 || value >50)
     {
         error = IVI_ERROR_INVALID_VALUE;
         viCheckErr (error);
     }
 
-    if(deviation > (pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-0.8*(leadingTime+trailingTime)))
+    if(deviation > (pulseDutyCycle) || deviation >(100-pulseDutyCycle))
     {
         error = IVI_ERROR_INVALID_VALUE;
         viCheckErr (error);
@@ -9860,209 +8594,6 @@ Error:
     return error;
 }
 
-static ViStatus _VI_FUNC AFG302XAttrPWMDeviation_CheckCallback (ViSession vi,
-                                                              ViConstString channelName,
-                                                              ViAttr attributeId,
-                                                              ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    deviation;
-    ViReal64    pulsePeriod, pulseWidth, leadingTime, trailingTime;
-    ViReal64    minPulseWidth = AFG302X_VAL_MIN_PUL_WID;
-
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_PERIOD, 0, &pulsePeriod) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_WIDTH, 0, &pulseWidth) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_LEADING_TIME, 0, &leadingTime) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_TRAILING_TIME, 0, &trailingTime) );
-
-    deviation = value*pulsePeriod/100.0;
-
-    if(value < 0)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG305XAttrPWMDeviation_CheckCallback (ViSession vi,
-                                                              ViConstString channelName,
-                                                              ViAttr attributeId,
-                                                              ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    deviation;
-    ViReal64    pulsePeriod, pulseWidth, leadingTime, trailingTime;
-    ViReal64    minPulseWidth = AFG305X_VAL_MIN_PUL_WID;
-
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_PERIOD, 0, &pulsePeriod) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_WIDTH, 0, &pulseWidth) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_LEADING_TIME, 0, &leadingTime) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_TRAILING_TIME, 0, &trailingTime) );
-
-    deviation = value*pulsePeriod/100.0;
-
-    if(value < 0)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG310XAttrPWMDeviation_CheckCallback (ViSession vi,
-                                                              ViConstString channelName,
-                                                              ViAttr attributeId,
-                                                              ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    deviation;
-    ViReal64    pulsePeriod, pulseWidth, leadingTime, trailingTime;
-    ViReal64    minPulseWidth = AFG310X_VAL_MIN_PUL_WID;
-
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_PERIOD, 0, &pulsePeriod) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_WIDTH, 0, &pulseWidth) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_LEADING_TIME, 0, &leadingTime) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_TRAILING_TIME, 0, &trailingTime) );
-
-    deviation = value*pulsePeriod/100.0;
-
-    if(value < 0)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-Error:
-    return error;
-}
-
-static ViStatus _VI_FUNC AFG325XAttrPWMDeviation_CheckCallback (ViSession vi,
-                                                              ViConstString channelName,
-                                                              ViAttr attributeId,
-                                                              ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    deviation;
-    ViReal64    pulsePeriod, pulseWidth, leadingTime, trailingTime;
-    ViReal64    minPulseWidth = AFG325X_VAL_MIN_PUL_WID;
-
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_PERIOD, 0, &pulsePeriod) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_WIDTH, 0, &pulseWidth) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_LEADING_TIME, 0, &leadingTime) );
-    checkErr ( Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PULSE_TRAILING_TIME, 0, &trailingTime) );
-
-    deviation = value*pulsePeriod/100.0;
-
-    if(value < 0)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-minPulseWidth))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    if(deviation > (pulsePeriod-pulseWidth-0.8*(leadingTime+trailingTime)))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-Error:
-    return error;
-}
 
 static ViStatus _VI_FUNC tkafg1kAttrPWMDeviation_ReadCallback (ViSession vi,
                                                                ViSession io,
@@ -10121,14 +8652,264 @@ static IviRangeTableEntry attrPWMInternalWaveformRangeTableEntries[] =
 	{
 		{TKAFG1K_VAL_PWM_INTERNAL_SINE, 0, 0, "SIN", 0},
 		{TKAFG1K_VAL_PWM_INTERNAL_SQUARE, 0, 0, "SQU", 0},
-		{TKAFG1K_VAL_PWM_INTERNAL_TRIANGLE, 0, 0, "TRI", 0},
 		{TKAFG1K_VAL_PWM_INTERNAL_RAMP_UP, 0, 0, "RAMP", 0},
-		{TKAFG1K_VAL_PWM_INTERNAL_RAMP_DOWN, 0, 0, "NRAM", 0},
 		{TKAFG1K_VAL_PWM_INTERNAL_PRN, 0, 0, "PRN", 0},
-		{TKAFG1K_VAL_PWM_INTERNAL_USER1, 0, 0, "USER", 0},
-		{TKAFG1K_VAL_PWM_INTERNAL_USER2, 0, 0, "USER2", 0},
-		{TKAFG1K_VAL_PWM_INTERNAL_USER3, 0, 0, "USER3", 0},
-		{TKAFG1K_VAL_PWM_INTERNAL_USER4, 0, 0, "USER4", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER0, 0, 0, "USER0", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER1, 0, 0, "USER1", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER2, 0, 0, "USER2", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER3, 0, 0, "USER3", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER4, 0, 0, "USER4", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER5, 0, 0, "USER5", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER6, 0, 0, "USER6", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER7, 0, 0, "USER7", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER8, 0, 0, "USER8", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER9, 0, 0, "USER9", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER10, 0, 0, "USER10", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER11, 0, 0, "USER11", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER12, 0, 0, "USER12", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER13, 0, 0, "USER13", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER14, 0, 0, "USER14", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER15, 0, 0, "USER15", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER16, 0, 0, "USER16", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER17, 0, 0, "USER17", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER18, 0, 0, "USER18", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER19, 0, 0, "USER19", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER20, 0, 0, "USER20", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER21, 0, 0, "USER21", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER22, 0, 0, "USER22", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER23, 0, 0, "USER23", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER24, 0, 0, "USER24", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER25, 0, 0, "USER25", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER26, 0, 0, "USER26", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER27, 0, 0, "USER27", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER28, 0, 0, "USER28", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER29, 0, 0, "USER29", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER30, 0, 0, "USER30", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER31, 0, 0, "USER31", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER32, 0, 0, "USER32", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER33, 0, 0, "USER33", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER34, 0, 0, "USER34", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER35, 0, 0, "USER35", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER36, 0, 0, "USER36", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER37, 0, 0, "USER37", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER38, 0, 0, "USER38", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER39, 0, 0, "USER39", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER40, 0, 0, "USER40", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER41, 0, 0, "USER41", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER42, 0, 0, "USER42", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER43, 0, 0, "USER43", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER44, 0, 0, "USER44", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER45, 0, 0, "USER45", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER46, 0, 0, "USER46", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER47, 0, 0, "USER47", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER48, 0, 0, "USER48", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER49, 0, 0, "USER49", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER50, 0, 0, "USER50", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER51, 0, 0, "USER51", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER52, 0, 0, "USER52", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER53, 0, 0, "USER53", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER54, 0, 0, "USER54", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER55, 0, 0, "USER55", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER56, 0, 0, "USER56", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER57, 0, 0, "USER57", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER58, 0, 0, "USER58", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER59, 0, 0, "USER59", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER60, 0, 0, "USER60", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER61, 0, 0, "USER61", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER62, 0, 0, "USER62", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER63, 0, 0, "USER63", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER64, 0, 0, "USER64", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER65, 0, 0, "USER65", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER66, 0, 0, "USER66", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER67, 0, 0, "USER67", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER68, 0, 0, "USER68", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER69, 0, 0, "USER69", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER70, 0, 0, "USER70", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER71, 0, 0, "USER71", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER72, 0, 0, "USER72", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER73, 0, 0, "USER73", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER74, 0, 0, "USER74", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER75, 0, 0, "USER75", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER76, 0, 0, "USER76", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER77, 0, 0, "USER77", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER78, 0, 0, "USER78", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER79, 0, 0, "USER79", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER80, 0, 0, "USER80", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER81, 0, 0, "USER81", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER82, 0, 0, "USER82", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER83, 0, 0, "USER83", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER84, 0, 0, "USER84", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER85, 0, 0, "USER85", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER86, 0, 0, "USER86", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER87, 0, 0, "USER87", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER88, 0, 0, "USER88", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER89, 0, 0, "USER89", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER90, 0, 0, "USER90", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER91, 0, 0, "USER91", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER92, 0, 0, "USER92", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER93, 0, 0, "USER93", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER94, 0, 0, "USER94", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER95, 0, 0, "USER95", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER96, 0, 0, "USER96", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER97, 0, 0, "USER97", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER98, 0, 0, "USER98", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER99, 0, 0, "USER99", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER100, 0, 0, "USER100", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER101, 0, 0, "USER101", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER102, 0, 0, "USER102", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER103, 0, 0, "USER103", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER104, 0, 0, "USER104", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER105, 0, 0, "USER105", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER106, 0, 0, "USER106", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER107, 0, 0, "USER107", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER108, 0, 0, "USER108", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER109, 0, 0, "USER109", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER110, 0, 0, "USER110", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER111, 0, 0, "USER111", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER112, 0, 0, "USER112", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER113, 0, 0, "USER113", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER114, 0, 0, "USER114", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER115, 0, 0, "USER115", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER116, 0, 0, "USER116", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER117, 0, 0, "USER117", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER118, 0, 0, "USER118", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER119, 0, 0, "USER119", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER120, 0, 0, "USER120", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER121, 0, 0, "USER121", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER122, 0, 0, "USER122", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER123, 0, 0, "USER123", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER124, 0, 0, "USER124", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER125, 0, 0, "USER125", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER126, 0, 0, "USER126", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER127, 0, 0, "USER127", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER128, 0, 0, "USER128", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER129, 0, 0, "USER129", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER130, 0, 0, "USER130", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER131, 0, 0, "USER131", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER132, 0, 0, "USER132", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER133, 0, 0, "USER133", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER134, 0, 0, "USER134", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER135, 0, 0, "USER135", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER136, 0, 0, "USER136", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER137, 0, 0, "USER137", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER138, 0, 0, "USER138", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER139, 0, 0, "USER139", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER140, 0, 0, "USER140", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER141, 0, 0, "USER141", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER142, 0, 0, "USER142", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER143, 0, 0, "USER143", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER144, 0, 0, "USER144", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER145, 0, 0, "USER145", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER146, 0, 0, "USER146", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER147, 0, 0, "USER147", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER148, 0, 0, "USER148", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER149, 0, 0, "USER149", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER150, 0, 0, "USER150", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER151, 0, 0, "USER151", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER152, 0, 0, "USER152", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER153, 0, 0, "USER153", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER154, 0, 0, "USER154", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER155, 0, 0, "USER155", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER156, 0, 0, "USER156", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER157, 0, 0, "USER157", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER158, 0, 0, "USER158", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER159, 0, 0, "USER159", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER160, 0, 0, "USER160", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER161, 0, 0, "USER161", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER162, 0, 0, "USER162", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER163, 0, 0, "USER163", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER164, 0, 0, "USER164", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER165, 0, 0, "USER165", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER166, 0, 0, "USER166", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER167, 0, 0, "USER167", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER168, 0, 0, "USER168", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER169, 0, 0, "USER169", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER170, 0, 0, "USER170", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER171, 0, 0, "USER171", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER172, 0, 0, "USER172", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER173, 0, 0, "USER173", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER174, 0, 0, "USER174", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER175, 0, 0, "USER175", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER176, 0, 0, "USER176", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER177, 0, 0, "USER177", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER178, 0, 0, "USER178", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER179, 0, 0, "USER179", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER180, 0, 0, "USER180", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER181, 0, 0, "USER181", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER182, 0, 0, "USER182", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER183, 0, 0, "USER183", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER184, 0, 0, "USER184", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER185, 0, 0, "USER185", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER186, 0, 0, "USER186", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER187, 0, 0, "USER187", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER188, 0, 0, "USER188", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER189, 0, 0, "USER189", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER190, 0, 0, "USER190", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER191, 0, 0, "USER191", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER192, 0, 0, "USER192", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER193, 0, 0, "USER193", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER194, 0, 0, "USER194", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER195, 0, 0, "USER195", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER196, 0, 0, "USER196", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER197, 0, 0, "USER197", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER198, 0, 0, "USER198", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER199, 0, 0, "USER199", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER200, 0, 0, "USER200", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER201, 0, 0, "USER201", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER202, 0, 0, "USER202", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER203, 0, 0, "USER203", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER204, 0, 0, "USER204", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER205, 0, 0, "USER205", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER206, 0, 0, "USER206", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER207, 0, 0, "USER207", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER208, 0, 0, "USER208", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER209, 0, 0, "USER209", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER210, 0, 0, "USER210", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER211, 0, 0, "USER211", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER212, 0, 0, "USER212", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER213, 0, 0, "USER213", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER214, 0, 0, "USER214", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER215, 0, 0, "USER215", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER216, 0, 0, "USER216", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER217, 0, 0, "USER217", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER218, 0, 0, "USER218", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER219, 0, 0, "USER219", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER220, 0, 0, "USER220", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER221, 0, 0, "USER221", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER222, 0, 0, "USER222", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER223, 0, 0, "USER223", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER224, 0, 0, "USER224", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER225, 0, 0, "USER225", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER226, 0, 0, "USER226", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER227, 0, 0, "USER227", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER228, 0, 0, "USER228", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER229, 0, 0, "USER229", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER230, 0, 0, "USER230", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER231, 0, 0, "USER231", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER232, 0, 0, "USER232", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER233, 0, 0, "USER233", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER234, 0, 0, "USER234", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER235, 0, 0, "USER235", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER236, 0, 0, "USER236", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER237, 0, 0, "USER237", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER238, 0, 0, "USER238", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER239, 0, 0, "USER239", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER240, 0, 0, "USER240", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER241, 0, 0, "USER241", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER242, 0, 0, "USER242", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER243, 0, 0, "USER243", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER244, 0, 0, "USER244", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER245, 0, 0, "USER245", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER246, 0, 0, "USER246", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER247, 0, 0, "USER247", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER248, 0, 0, "USER248", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER249, 0, 0, "USER249", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER250, 0, 0, "USER250", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER251, 0, 0, "USER251", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER252, 0, 0, "USER252", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER253, 0, 0, "USER253", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER254, 0, 0, "USER254", 0}, 
+		{TKAFG1K_VAL_PWM_INTERNAL_USER255, 0, 0, "USER255", 0}, 
 		{TKAFG1K_VAL_PWM_INTERNAL_EMEM, 0, 0, "EMEM", 0},
 		{IVI_RANGE_TABLE_LAST_ENTRY}
 	};
@@ -10260,369 +9041,69 @@ static ViStatus _VI_FUNC tkafg1kAttrPWMSource_WriteCallback (ViSession vi,
 }
 
 /*- TKAFG1K_ATTR_AMPLITUDE -*/
-
-    /* Maximum/Minimum Amplitude Value for model 3011, 3011C -*/
-static ViStatus _VI_FUNC AFG3011AttrAmplitude_CheckCallback (ViSession vi,
+static ViStatus _VI_FUNC tkafg1kAttrAmplitude_CheckCallback (ViSession vi,
                                                              ViConstString channelName,
                                                              ViAttr attributeId,
                                                              ViReal64 value)
 {
     ViStatus    error = VI_SUCCESS;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
     ViReal64    amplitudeUpperLimit, amplitudeLowerLimit;
-    ViReal64    amplitudeUpperLimitMax;
-    ViReal64    offset;
     ViReal64    impedance;
-
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
     checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr (Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX, 0, &amplitudeUpperLimitMax));
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        amplitudeUpperLimit = AFG3011_VAL_MAX_AMPL_IN_OPEN;
-        amplitudeLowerLimit = AFG3011_VAL_MIN_AMPL_IN_OPEN;
-    }
-    /* Limit in impedance of 50 */
-    else if(impedance == 50)
-    {
-        amplitudeUpperLimit = AFG3011_VAL_MAX_AMPL_IN_50OHM;
-        amplitudeLowerLimit = AFG3011_VAL_MIN_AMPL_IN_50OHM;
-    }
-    /* Limit in Load */
-    else
-    {
-        amplitudeUpperLimit = amplitudeUpperLimitMax;
-        amplitudeLowerLimit = amplitudeUpperLimitMax / 100;
-    }
-
-    if((value > amplitudeUpperLimit) || (value < amplitudeLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OFFSET, 0, &offset) );
-    if( ((value/2+offset) > voltageUpperLimit) ||((-value/2+offset) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
+	 
+    
+	if (model == TKAFG1K_VAL_MODEL_AFG1022){
+	    /* Limit in Open Circuit */
+	    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
+	    {
+	        amplitudeUpperLimit = AFG1022_VAL_MAX_AMPL_IN_OPEN;
+	        amplitudeLowerLimit = AFG1022_VAL_MIN_AMPL_IN_OPEN;
+	    }
+	    /* Limit in impedance of 50 */
+	    else if(impedance == 50)
+	    {
+	        amplitudeUpperLimit = AFG1022_VAL_MAX_AMPL_IN_50OHM;
+	        amplitudeLowerLimit = AFG1022_VAL_MIN_AMPL_IN_50OHM;
+	    }
+	}else if (model == TKAFG1K_VAL_MODEL_AFG1062){
+		ViReal64    frequency;
+    	checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &frequency) );
+		if (frequency <=25e6){
+			/* Limit in Open Circuit */
+		    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
+		    {
+		        amplitudeUpperLimit = AFG1062_VAL_MAX_AMPL_IN_OPEN;
+		        amplitudeLowerLimit = AFG1062_VAL_MIN_AMPL_IN_OPEN;
+		    }
+		    /* Limit in impedance of 50 */
+		    else if(impedance == 50)
+		    {
+		        amplitudeUpperLimit = AFG1062_VAL_MAX_AMPL_IN_50OHM;
+		        amplitudeLowerLimit = AFG1062_VAL_MIN_AMPL_IN_50OHM;
+		    }
+		}else{
+			/* Limit in Open Circuit */
+		    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
+		    {
+		        amplitudeUpperLimit = AFG1062_VAL_MAX_AMPL_IN_OPEN_HIGH_FREQ;
+		        amplitudeLowerLimit = AFG1062_VAL_MIN_AMPL_IN_OPEN_HIGH_FREQ;
+		    }
+		    /* Limit in impedance of 50 */
+		    else if(impedance == 50)
+		    {
+		        amplitudeUpperLimit = AFG1062_VAL_MAX_AMPL_IN_50OHM_HIGH_FREQ;
+		        amplitudeLowerLimit = AFG1062_VAL_MIN_AMPL_IN_50OHM_HIGH_FREQ;
+		    }
+		}
+	}
 Error:
     return error;
 }
 
-    /* Maximum/Minimum Amplitude Value for model 3021/3022/3021B/3022B/3021C/3022C -*/
-static ViStatus _VI_FUNC AFG302XAttrAmplitude_CheckCallback (ViSession vi,
-                                                             ViConstString channelName,
-                                                             ViAttr attributeId,
-                                                             ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitudeUpperLimit, amplitudeLowerLimit;
-    ViReal64    amplitudeUpperLimitMax;
-    ViReal64    offset;
-    ViReal64    impedance;
 
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
 
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr (Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX, 0, &amplitudeUpperLimitMax));
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        amplitudeUpperLimit = AFG302X_VAL_MAX_AMPL_IN_OPEN;
-        amplitudeLowerLimit = AFG302X_VAL_MIN_AMPL_IN_OPEN;
-    }
-    /* Limit in impedance of 50 */
-    else if(impedance == 50)
-    {
-        amplitudeUpperLimit = AFG302X_VAL_MAX_AMPL_IN_50OHM;
-        amplitudeLowerLimit = AFG302X_VAL_MIN_AMPL_IN_50OHM;
-    }
-    /* Limit in Load */
-    else
-    {
-        amplitudeUpperLimit = amplitudeUpperLimitMax;
-        amplitudeLowerLimit = amplitudeUpperLimitMax / 100;
-    }
-
-    if((value > amplitudeUpperLimit) || (value < amplitudeLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OFFSET, 0, &offset) );
-    if( ((value/2+offset) > voltageUpperLimit) ||((-value/2+offset) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
-
-    /* Maximum/Minimum Amplitude Value for model 3101/3102/3101C/3102C -*/
-static ViStatus _VI_FUNC AFG310XAttrAmplitude_CheckCallback (ViSession vi,
-                                                             ViConstString channelName,
-                                                             ViAttr attributeId,
-                                                             ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitudeUpperLimit, amplitudeLowerLimit;
-    ViReal64    amplitudeUpperLimitMax;
-    ViReal64    offset;
-    ViReal64    impedance;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr (Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX, 0, &amplitudeUpperLimitMax));
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        amplitudeUpperLimit = AFG310X_VAL_MAX_AMPL_IN_OPEN;
-        amplitudeLowerLimit = AFG310X_VAL_MIN_AMPL_IN_OPEN;
-    }
-    /* Limit in impedance of 50 */
-    else if(impedance == 50)
-    {
-        amplitudeUpperLimit = AFG310X_VAL_MAX_AMPL_IN_50OHM;
-        amplitudeLowerLimit = AFG310X_VAL_MIN_AMPL_IN_50OHM;
-    }
-    /* Limit in impedance of Load */
-    else
-    {
-        amplitudeUpperLimit = amplitudeUpperLimitMax;
-        amplitudeLowerLimit = amplitudeUpperLimitMax / 100;
-    }
-
-    if((value > amplitudeUpperLimit) || (value < amplitudeLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OFFSET, 0, &offset) );
-    if( ((value/2+offset) > voltageUpperLimit) ||((-value/2+offset) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
-
-    /* Maximum Amplitude Value for model 3251/3252/3251C/3252C in high frequency -*/
-static ViStatus _VI_FUNC AFG325XAttrAmplitude_CheckCallback (ViSession vi,
-                                                             ViConstString channelName,
-                                                             ViAttr attributeId,
-                                                             ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitudeUpperLimit, amplitudeLowerLimit;
-    ViReal64    amplitudeUpperLimitMax;
-    ViReal64    offset;
-    ViReal64    impedance;
-    ViReal64    frequency;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_FREQUENCY, 0, &frequency) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr (Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX, 0, &amplitudeUpperLimitMax));
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-    /* Frequency Lower than 200 MHz */
-    if(frequency <= 200e6)
-    {
-        /* Limit in Open Circuit */
-        if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-        {
-            amplitudeUpperLimit = AFG325X_VAL_MAX_AMPL_IN_OPEN;
-            amplitudeLowerLimit = AFG325X_VAL_MIN_AMPL_IN_OPEN;
-        }
-        /* Limit in impedance of 50 */
-        else if(impedance == 50)
-        {
-            amplitudeUpperLimit = AFG325X_VAL_MAX_AMPL_IN_50OHM;
-            amplitudeLowerLimit = AFG325X_VAL_MIN_AMPL_IN_50OHM;
-        }
-        /* Limit in impedance of Load */
-        else
-        {
-            amplitudeUpperLimit = amplitudeUpperLimitMax;
-            amplitudeLowerLimit = amplitudeUpperLimitMax / 100;
-        }
-    }
-    /* Frequency Above 200 MHz */
-    else
-    {
-        /* Limit in Open Circuit */
-        if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-        {
-            amplitudeUpperLimit = AFG325X_VAL_MAX_AMPL_IN_OPEN_HIGH_FREQ;
-            amplitudeLowerLimit = AFG325X_VAL_MIN_AMPL_IN_OPEN_HIGH_FREQ;
-        }
-        /* Limit in impedance of 50 */
-        else if(impedance == 50)
-        {
-            amplitudeUpperLimit = AFG325X_VAL_MAX_AMPL_IN_50OHM_HIGH_FREQ;
-            amplitudeLowerLimit = AFG325X_VAL_MIN_AMPL_IN_50OHM_HIGH_FREQ;
-        }
-        /* Limit in impedance of Load */
-        else
-        {
-            amplitudeUpperLimit = amplitudeUpperLimitMax;
-            amplitudeLowerLimit = amplitudeUpperLimitMax / 100;
-        }
-    }
-
-    if((value > amplitudeUpperLimit) || (value < amplitudeLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OFFSET, 0, &offset) );
-    if( ((value/2+offset) > voltageUpperLimit) ||((-value/2+offset) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
-
- /* Maximum/Minimum Amplitude Value for model 2021 -*/
-static ViStatus _VI_FUNC AFG2021AttrAmplitude_CheckCallback (ViSession vi,
-                                                             ViConstString channelName,
-                                                             ViAttr attributeId,
-                                                             ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitudeUpperLimit, amplitudeLowerLimit;
-    ViReal64    amplitudeUpperLimitMax;
-    ViReal64    offset;
-    ViReal64    impedance;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr (Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX, 0, &amplitudeUpperLimitMax));
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        amplitudeUpperLimit = AFG2021_VAL_MAX_AMPL_IN_OPEN;
-        amplitudeLowerLimit = AFG2021_VAL_MIN_AMPL_IN_OPEN;
-    }
-    /* Limit in impedance of 50 */
-    else if(impedance == 50)
-    {
-        amplitudeUpperLimit = AFG2021_VAL_MAX_AMPL_IN_50OHM;
-        amplitudeLowerLimit = AFG2021_VAL_MIN_AMPL_IN_50OHM;
-    }
-    /* Limit in Load */
-    else
-    {
-        amplitudeUpperLimit = amplitudeUpperLimitMax;
-        amplitudeLowerLimit = amplitudeUpperLimitMax / 100;
-    }
-
-    if((value > amplitudeUpperLimit) || (value < amplitudeLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OFFSET, 0, &offset) );
-    if( ((value/2+offset) > voltageUpperLimit) ||((-value/2+offset) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
-
- /* Maximum/Minimum Amplitude Value for model 3051C & 3052C -*/
-static ViStatus _VI_FUNC AFG305XAttrAmplitude_CheckCallback (ViSession vi,
-                                                             ViConstString channelName,
-                                                             ViAttr attributeId,
-                                                             ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitudeUpperLimit, amplitudeLowerLimit;
-    ViReal64    amplitudeUpperLimitMax;
-    ViReal64    offset;
-    ViReal64    impedance;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr (Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX, 0, &amplitudeUpperLimitMax));
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        amplitudeUpperLimit = AFG305X_VAL_MAX_AMPL_IN_OPEN;
-        amplitudeLowerLimit = AFG305X_VAL_MIN_AMPL_IN_OPEN;
-    }
-    /* Limit in impedance of 50 */
-    else if(impedance == 50)
-    {
-        amplitudeUpperLimit = AFG305X_VAL_MAX_AMPL_IN_50OHM;
-        amplitudeLowerLimit = AFG305X_VAL_MIN_AMPL_IN_50OHM;
-    }
-    /* Limit in Load */
-    else
-    {
-        amplitudeUpperLimit = amplitudeUpperLimitMax;
-        amplitudeLowerLimit = amplitudeUpperLimitMax / 100;
-    }
-
-    if((value > amplitudeUpperLimit) || (value < amplitudeLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OFFSET, 0, &offset) );
-    if( ((value/2+offset) > voltageUpperLimit) ||((-value/2+offset) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
 
 static ViStatus _VI_FUNC tkafg1kAttrAmplitude_ReadCallback (ViSession vi,
                                                             ViSession io,
@@ -10644,8 +9125,6 @@ static ViStatus _VI_FUNC tkafg1kAttrAmplitude_WriteCallback (ViSession vi,
 
     viCheckErr (Ivi_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_OFFSET, 0, &offset));
 
-    viCheckErr (viPrintf (io, "SOUR%s:VOLT:HIGH MAX", channelName));
-
     viCheckErr (viPrintf (io, "SOUR%s:VOLT:OFFS 0", channelName));
 
     viCheckErr (Ivi_InvalidateAttribute (vi, channelName, TKAFG1K_ATTR_OFFSET));
@@ -10658,21 +9137,17 @@ Error:
 }
 
 /*- TKAFG1K_ATTR_OFFSET -*/
-    /*- Maximum/Minimum Offset Value for model 3011,3011C -*/
-static ViStatus _VI_FUNC AFG3011AttrOffset_CheckCallback (ViSession vi,
+    
+static ViStatus _VI_FUNC tkafg1kAttrOffset_CheckCallback (ViSession vi,
                                                           ViConstString channelName,
                                                           ViAttr attributeId,
                                                           ViReal64 value)
 {
     ViStatus    error = VI_SUCCESS;
     ViReal64    offsetUpperLimit, offsetLowerLimit;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
     ViReal64    amplitude;
     ViReal64    impedance;
 
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
 
     checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_AMPLITUDE, 0, &amplitude) );
 
@@ -10681,24 +9156,17 @@ static ViStatus _VI_FUNC AFG3011AttrOffset_CheckCallback (ViSession vi,
     /* Limit in Open Circuit */
     if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
     {
-        offsetUpperLimit = AFG3011_VAL_MAX_OFFSET_IN_OPEN;
-        offsetLowerLimit = AFG3011_VAL_MIN_OFFSET_IN_OPEN;
+        offsetUpperLimit = TKAFG1K_VAL_MAX_OFFSET_IN_OPEN;
+        offsetLowerLimit = TKAFG1K_VAL_MIN_OFFSET_IN_OPEN;
     }
     else
     {
-        offsetUpperLimit = AFG3011_VAL_MAX_OFFSET_IN_50OHM;
-        offsetLowerLimit = AFG3011_VAL_MIN_OFFSET_IN_50OHM;
-    }
-
-    /*- To ensure that set offset is in allowable voltage limit -*/
-    if(value > offsetUpperLimit || value < offsetLowerLimit)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
+        offsetUpperLimit = TKAFG1K_VAL_MAX_OFFSET_IN_50OHM;
+        offsetLowerLimit = TKAFG1K_VAL_MIN_OFFSET_IN_50OHM;
     }
 
     /*- To ensure that set offset plus amplitude does not exceeds voltage high limit and voltage lower limit -*/
-    if( ((value+amplitude/2) > voltageUpperLimit) ||((value-amplitude/2) < voltageLowerLimit) )
+    if( ((value+amplitude/2) > offsetUpperLimit) ||((value-amplitude/2) < offsetLowerLimit) )
     {
         error = IVI_ERROR_INVALID_VALUE;
         viCheckErr(error);
@@ -10708,253 +9176,7 @@ Error:
     return error;
 }
 
-    /*- Maximum/Minimum Offset Value for model 3021/3022/3021B/3022B/3021C/3022C -*/
-static ViStatus _VI_FUNC AFG302XAttrOffset_CheckCallback (ViSession vi,
-                                                          ViConstString channelName,
-                                                          ViAttr attributeId,
-                                                          ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    offsetUpperLimit, offsetLowerLimit;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitude;
-    ViReal64    impedance;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_AMPLITUDE, 0, &amplitude) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        offsetUpperLimit = AFG302X_VAL_MAX_OFFSET_IN_OPEN;
-        offsetLowerLimit = AFG302X_VAL_MIN_OFFSET_IN_OPEN;
-    }
-    else
-    {
-        offsetUpperLimit = AFG302X_VAL_MAX_OFFSET_IN_50OHM;
-        offsetLowerLimit = AFG302X_VAL_MIN_OFFSET_IN_50OHM;
-    }
-
-    /*- To ensure that set offset is in allowable voltage limit -*/
-    if(value > offsetUpperLimit || value < offsetLowerLimit)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-    /*- To ensure that set offset plus amplitude does not exceeds voltage high limit and voltage lower limit -*/
-    if( ((value+amplitude/2) > voltageUpperLimit) ||((value-amplitude/2) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
-
-    /*- Maximum/Minimum Offset Value for model 3101/3102/3101C/3102C -*/
-static ViStatus _VI_FUNC AFG310XAttrOffset_CheckCallback (ViSession vi,
-                                                          ViConstString channelName,
-                                                          ViAttr attributeId,
-                                                          ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    offsetUpperLimit, offsetLowerLimit;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitude;
-    ViReal64    impedance;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_AMPLITUDE, 0, &amplitude) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        offsetUpperLimit = AFG310X_VAL_MAX_OFFSET_IN_OPEN;
-        offsetLowerLimit = AFG310X_VAL_MIN_OFFSET_IN_OPEN;
-    }
-    else
-    {
-        offsetUpperLimit = AFG310X_VAL_MAX_OFFSET_IN_50OHM;
-        offsetLowerLimit = AFG310X_VAL_MIN_OFFSET_IN_50OHM;
-    }
-
-    /*- To ensure that set offset is in allowable voltage limit -*/
-    if(value > offsetUpperLimit || value < offsetLowerLimit)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-    /*- To ensure that set offset plus amplitude does not exceeds voltage high limit and voltage lower limit -*/
-    if( ((value+amplitude/2) > voltageUpperLimit) ||((value-amplitude/2) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
-    /*- Maximum/Minimum Offset Value for model 3251/3252/3251C/3252C -*/
-static ViStatus _VI_FUNC AFG325XAttrOffset_CheckCallback (ViSession vi,
-                                                          ViConstString channelName,
-                                                          ViAttr attributeId,
-                                                          ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    offsetUpperLimit, offsetLowerLimit;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitude;
-    ViReal64    impedance;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_AMPLITUDE, 0, &amplitude) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        offsetUpperLimit = AFG325X_VAL_MAX_OFFSET_IN_OPEN;
-        offsetLowerLimit = AFG325X_VAL_MIN_OFFSET_IN_OPEN;
-    }
-    else
-    {
-        offsetUpperLimit = AFG325X_VAL_MAX_OFFSET_IN_50OHM;
-        offsetLowerLimit = AFG325X_VAL_MIN_OFFSET_IN_50OHM;
-    }
-
-    /*- To ensure that set offset is in allowable voltage limit -*/
-    if(value > offsetUpperLimit || value < offsetLowerLimit)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-    /*- To ensure that set offset plus amplitude does not exceeds voltage high limit and voltage lower limit -*/
-    if( ((value+amplitude/2) > voltageUpperLimit) ||((value-amplitude/2) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
-    /*- Maximum/Minimum Offset Value for model 2021 -*/
-static ViStatus _VI_FUNC AFG2021AttrOffset_CheckCallback (ViSession vi,
-                                                          ViConstString channelName,
-                                                          ViAttr attributeId,
-                                                          ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    offsetUpperLimit, offsetLowerLimit;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitude;
-    ViReal64    impedance;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_AMPLITUDE, 0, &amplitude) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        offsetUpperLimit = AFG2021_VAL_MAX_OFFSET_IN_OPEN;
-        offsetLowerLimit = AFG2021_VAL_MIN_OFFSET_IN_OPEN;
-    }
-    else
-    {
-        offsetUpperLimit = AFG2021_VAL_MAX_OFFSET_IN_50OHM;
-        offsetLowerLimit = AFG2021_VAL_MIN_OFFSET_IN_50OHM;
-    }
-
-    /*- To ensure that set offset is in allowable voltage limit -*/
-    if(value > offsetUpperLimit || value < offsetLowerLimit)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-    /*- To ensure that set offset plus amplitude does not exceeds voltage high limit and voltage lower limit -*/
-    if( ((value+amplitude/2) > voltageUpperLimit) ||((value-amplitude/2) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
-
-    /*- Maximum/Minimum Offset Value for model 3051C & 3052C -*/
-static ViStatus _VI_FUNC AFG305XAttrOffset_CheckCallback (ViSession vi,
-                                                          ViConstString channelName,
-                                                          ViAttr attributeId,
-                                                          ViReal64 value)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViReal64    offsetUpperLimit, offsetLowerLimit;
-    ViReal64    voltageUpperLimit, voltageLowerLimit;
-    ViReal64    amplitude;
-    ViReal64    impedance;
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT, 0, &voltageUpperLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT, 0, &voltageLowerLimit) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_AMPLITUDE, 0, &amplitude) );
-
-    checkErr( Ivi_GetAttributeViReal64(vi, channelName, TKAFG1K_ATTR_OUTPUT_IMPEDANCE, 0, &impedance) );
-
-    /* Limit in Open Circuit */
-    if(impedance == TKAFG1K_VAL_IMPEDANCE_INFINITY)
-    {
-        offsetUpperLimit = AFG305X_VAL_MAX_OFFSET_IN_OPEN;
-        offsetLowerLimit = AFG305X_VAL_MIN_OFFSET_IN_OPEN;
-    }
-    else
-    {
-        offsetUpperLimit = AFG305X_VAL_MAX_OFFSET_IN_50OHM;
-        offsetLowerLimit = AFG305X_VAL_MIN_OFFSET_IN_50OHM;
-    }
-
-    /*- To ensure that set offset is in allowable voltage limit -*/
-    if(value > offsetUpperLimit || value < offsetLowerLimit)
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-    /*- To ensure that set offset plus amplitude does not exceeds voltage high limit and voltage lower limit -*/
-    if( ((value+amplitude/2) > voltageUpperLimit) ||((value-amplitude/2) < voltageLowerLimit) )
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr(error);
-    }
-
-Error:
-    return error;
-}
+   
 
 static ViStatus _VI_FUNC tkafg1kAttrOffset_ReadCallback (ViSession vi,
                                                          ViSession io,
@@ -11332,24 +9554,13 @@ static ViStatus _VI_FUNC tkafg1kAttrWaveform_WriteCallback (ViSession vi,
                                                             ViAttr attributeId,
                                                             ViInt32 value)
 {
-	if value <=TKAFG1K_VAL_WFM_EMEM
-    	return ( tkafg1k_WriteCmd (vi, io, channelName, &attrWaveformRangeTable, "SOUR%s:FUNC:SHAP %s", value) );
-	else
-		
+	return ( tkafg1k_WriteCmd (vi, io, channelName, &attrWaveformRangeTable, "SOUR%s:FUNC:SHAP %s", value) );
 }
 
 /*- TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT -*/
 
 /*- TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT -*/
 
-static ViStatus _VI_FUNC tkafg1kAttrVoltageUpperLimitMax_ReadCallback (ViSession vi,
-                                                                       ViSession io,
-                                                                       ViConstString channelName,
-                                                                       ViAttr attributeId,
-                                                                       ViReal64 *value)
-{
-    return ( tkafg1k_ReadReal64(vi, io, channelName, "SOUR%s:VOLT:LIM:HIGH? MAX", value) );
-}
 /*- TKAFG1K_ATTR_MODEL -*/
 static IviRangeTableEntry attrModelRangeTableEntries[] =
 	{
@@ -11373,11 +9584,14 @@ static ViStatus _VI_FUNC tkafg1kAttrSweepEnabled_CheckCallback (ViSession vi,
                                                                 ViBoolean value)
 {
 	ViStatus	error = VI_SUCCESS;
+	ViInt32     waveform;
+    ViBoolean   allowance;
+
     if(value == VI_TRUE)
     {
-        checkErr( Ivi_GetAttributeViInt32(vi, channelName, TKAFG3K_ATTR_WAVEFORM, 0, &waveform) );
+        checkErr( Ivi_GetAttributeViInt32(vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform) );
 
-        checkErr ( tkafg3k_RunModeAllowable (vi, waveform, TKAFG3K_VAL_OPERATE_SWEEP, &allowance) );
+        checkErr ( tkafg1k_RunModeAllowable (vi, waveform, TKAFG1K_VAL_OPERATE_SWEEP, &allowance) );
         if(!allowance)
         {
             error = IVI_ERROR_INVALID_CONFIGURATION;
@@ -11470,7 +9684,7 @@ static ViStatus _VI_FUNC tkafg1kAttrSweepStopFrequency_WriteCallback (ViSession 
                                                                       ViAttr attributeId,
                                                                       ViReal64 value)
 {
-	return (tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FREQ:STOP %Le", value)
+	return (tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FREQ:STOP %Le", value));
 }
 
 
@@ -11487,226 +9701,89 @@ static ViStatus tkafg1k_GetSweepFrequencyRangeTable( ViSession vi, ViConstString
     ViInt32     waveform;
     ViInt32     model;
 
-    checkErr( Ivi_GetAttributeViInt32 (vi, channelName, TKAFG3K_ATTR_WAVEFORM, 0, &waveform ) );
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG3K_ATTR_MODEL, 0, &model) );
+    checkErr( Ivi_GetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform ) );
+    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model) );
 
     switch  (waveform)
     {
-        case TKAFG3K_VAL_WFM_SINE:
+        case TKAFG1K_VAL_WFM_SINE:
         {
-            if( (model == TKAFG3K_VAL_MODEL_AFG3021) || (model == TKAFG3K_VAL_MODEL_AFG3022) ||
-                (model == TKAFG3K_VAL_MODEL_AFG3021B) || (model == TKAFG3K_VAL_MODEL_AFG3022B))
+            if( model == TKAFG1K_VAL_MODEL_AFG1022)
             {
-                tblPtr = &attrAFG302XSineWfmSweepFrequencyRangeTable;
+                tblPtr = &attrAFG1022SineWfmSweepFrequencyRangeTable;
             }
-            else if((model == TKAFG3K_VAL_MODEL_AFG3021C) || (model == TKAFG3K_VAL_MODEL_AFG3022C))
+            else if(model == TKAFG1K_VAL_MODEL_AFG1062)
             {
-                tblPtr = &attrAFG302XCSineWfmSweepFrequencyRangeTable;
-            }
-            else if((model == TKAFG3K_VAL_MODEL_AFG3101)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3101C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102C) )
-            {
-                tblPtr = &attrAFG310XSineWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3251)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3251C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252C) )
-            {
-                tblPtr = &attrAFG325XSineWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3011 || model == TKAFG3K_VAL_MODEL_AFG3011C)
-            {
-                tblPtr = &attrAFG3011SineWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG2021)
-            {
-                tblPtr = &attrAFG2021SineWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3051C
-                    || model == TKAFG3K_VAL_MODEL_AFG3052C)
-            {
-                tblPtr = &attrAFG305XSineWfmSweepFrequencyRangeTable;
+                tblPtr = &attrAFG1062SineWfmSweepFrequencyRangeTable;
             }
             break;
         }
-        case TKAFG3K_VAL_WFM_SQUARE:
+        case TKAFG1K_VAL_WFM_SQUARE:
         {
-            if( (model == TKAFG3K_VAL_MODEL_AFG3021) || (model == TKAFG3K_VAL_MODEL_AFG3022) ||
-                (model == TKAFG3K_VAL_MODEL_AFG3021B) || (model == TKAFG3K_VAL_MODEL_AFG3022B))
+            if( model == TKAFG1K_VAL_MODEL_AFG1022)
             {
-                tblPtr = &attrAFG302XSquareWfmSweepFrequencyRangeTable;
+                tblPtr = &attrAFG1022SquareWfmSweepFrequencyRangeTable;
             }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3021C) || (model == TKAFG3K_VAL_MODEL_AFG3022C))
+            else if(model == TKAFG1K_VAL_MODEL_AFG1062)
             {
-                tblPtr = &attrAFG302XCSquareWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3101)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3101C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102C) )
-            {
-                tblPtr = &attrAFG310XSquareWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3251)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3251C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252C) )
-            {
-                tblPtr = &attrAFG325XSquareWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3011 || model == TKAFG3K_VAL_MODEL_AFG3011C)
-            {
-                tblPtr = &attrAFG3011SquareWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG2021)
-            {
-                tblPtr = &attrAFG2021SquareWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3051C
-                    || model == TKAFG3K_VAL_MODEL_AFG3052C)
-            {
-                tblPtr = &attrAFG305XSquareWfmSweepFrequencyRangeTable;
+                tblPtr = &attrAFG1062SquareWfmSweepFrequencyRangeTable;
             }
             break;
         }
-        case TKAFG3K_VAL_WFM_RAMP:
+        case TKAFG1K_VAL_WFM_RAMP:
         {
-            if( (model == TKAFG3K_VAL_MODEL_AFG3021) || (model == TKAFG3K_VAL_MODEL_AFG3022) ||
-                (model == TKAFG3K_VAL_MODEL_AFG3021B) || (model == TKAFG3K_VAL_MODEL_AFG3022B))
+            if( model == TKAFG1K_VAL_MODEL_AFG1022)
             {
-                tblPtr = &attrAFG302XRampWfmSweepFrequencyRangeTable;
+                tblPtr = &attrAFG1022RampWfmSweepFrequencyRangeTable;
             }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3021C) || (model == TKAFG3K_VAL_MODEL_AFG3022C))
+            else if(model == TKAFG1K_VAL_MODEL_AFG1062)
             {
-                tblPtr = &attrAFG302XCRampWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3101)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3101C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102C) )
-            {
-                tblPtr = &attrAFG310XRampWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3251)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3251C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252C) )
-            {
-                tblPtr = &attrAFG325XRampWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3011 || model == TKAFG3K_VAL_MODEL_AFG3011C)
-            {
-                tblPtr = &attrAFG3011RampWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG2021)
-            {
-                tblPtr = &attrAFG2021RampWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3051C
-                    || model == TKAFG3K_VAL_MODEL_AFG3052C)
-            {
-                tblPtr = &attrAFG305XRampWfmSweepFrequencyRangeTable;
+                tblPtr = &attrAFG1062RampWfmSweepFrequencyRangeTable;
             }
             break;
         }
-        case TKAFG3K_VAL_WFM_SINC:
-        case TKAFG3K_VAL_WFM_GAUS:
-        case TKAFG3K_VAL_WFM_LOR:
-        case TKAFG3K_VAL_WFM_ERIS:
-        case TKAFG3K_VAL_WFM_EDEC:
-        case TKAFG3K_VAL_WFM_HAV:
+        case TKAFG1K_VAL_WFM_EMEM:
         {
-            if( (model == TKAFG3K_VAL_MODEL_AFG3021) || (model == TKAFG3K_VAL_MODEL_AFG3022) ||
-                (model == TKAFG3K_VAL_MODEL_AFG3021B) || (model == TKAFG3K_VAL_MODEL_AFG3022B))
+            if( model == TKAFG1K_VAL_MODEL_AFG1022)
             {
-                tblPtr = &attrAFG302XDfltWfmSweepFrequencyRangeTable;
+                tblPtr = &attrAFG1022ArbWfmSweepFrequencyRangeTable;
             }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3021C) || (model == TKAFG3K_VAL_MODEL_AFG3022C))
+            else if(model == TKAFG1K_VAL_MODEL_AFG1062)
             {
-                tblPtr = &attrAFG302XCDfltWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3101)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3101C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102C) )
-            {
-                tblPtr = &attrAFG310XDfltWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3251)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3251C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252C) )
-            {
-                tblPtr = &attrAFG325XDfltWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3011 || model == TKAFG3K_VAL_MODEL_AFG3011C)
-            {
-                tblPtr = &attrAFG3011DfltWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG2021)
-            {
-                tblPtr = &attrAFG2021DfltWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3051C
-                    || model == TKAFG3K_VAL_MODEL_AFG3052C)
-            {
-                tblPtr = &attrAFG305XDfltWfmSweepFrequencyRangeTable;
+                tblPtr = &attrAFG1062ArbWfmSweepFrequencyRangeTable;
             }
             break;
         }
-        case TKAFG3K_VAL_WFM_USER1:
-        case TKAFG3K_VAL_WFM_USER2:
-        case TKAFG3K_VAL_WFM_USER3:
-        case TKAFG3K_VAL_WFM_USER4:
-        case TKAFG3K_VAL_WFM_EMEM:
-        {
-            if( (model == TKAFG3K_VAL_MODEL_AFG3021) || (model == TKAFG3K_VAL_MODEL_AFG3022) ||
-                (model == TKAFG3K_VAL_MODEL_AFG3021B) || (model == TKAFG3K_VAL_MODEL_AFG3022B))
-            {
-                tblPtr = &attrAFG302XArbWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3021C) || (model == TKAFG3K_VAL_MODEL_AFG3022C))
-            {
-                tblPtr = &attrAFG302XCArbWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3101)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3101C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3102C) )
-            {
-                tblPtr = &attrAFG310XArbWfmSweepFrequencyRangeTable;
-            }
-            else if( (model == TKAFG3K_VAL_MODEL_AFG3251)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3251C)
-                    || (model == TKAFG3K_VAL_MODEL_AFG3252C) )
-            {
-                tblPtr = &attrAFG325XArbWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3011 || model == TKAFG3K_VAL_MODEL_AFG3011C)
-            {
-                tblPtr = &attrAFG3011ArbWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG2021)
-            {
-                tblPtr = &attrAFG2021ArbWfmSweepFrequencyRangeTable;
-            }
-            else if(model == TKAFG3K_VAL_MODEL_AFG3051C
-                    || model == TKAFG3K_VAL_MODEL_AFG3052C)
-            {
-                tblPtr = &attrAFG305XArbWfmSweepFrequencyRangeTable;
-            }
-            break;
-        }
-        case TKAFG3K_VAL_WFM_DC:
-        case TKAFG3K_VAL_WFM_PRN:
-        case TKAFG3K_VAL_WFM_PULS:
         default:
         {
-            tblPtr = VI_NULL;
+			if(waveform>=TKAFG1K_VAL_WFM_USER0 && waveform<=TKAFG1K_VAL_WFM_USER255){
+				if(model == TKAFG1K_VAL_MODEL_AFG1022)
+					tblPtr = &attrAFG1022ArbWfmSweepFrequencyRangeTable;
+				else if (model == TKAFG1K_VAL_MODEL_AFG1062){
+					if(waveform >=TKAFG1K_VAL_WFM_USER32){
+						error = IVI_ERROR_INVALID_PARAMETER;
+						viCheckErr (error);						
+					}else
+						tblPtr = &attrAFG1062ArbWfmSweepFrequencyRangeTable;
+				}else{
+					error = TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL;
+					viCheckErr (error);
+				}
+			}else if(waveform >=TKAFG1K_VAL_WFM_STAIRDOWN && waveform <=TKAFG1K_VAL_WFM_CARDIAC)
+					if( model == TKAFG1K_VAL_MODEL_AFG1022)
+		            {
+		                tblPtr = &attrAFG1022ArbWfmSweepFrequencyRangeTable;
+		            }
+		            else if(model == TKAFG1K_VAL_MODEL_AFG1062)
+		            {
+		                tblPtr = &attrAFG1062ArbWfmSweepFrequencyRangeTable;
+		            }					
+			else{
+				tblPtr = VI_NULL;
+				error = IVI_ERROR_INVALID_PARAMETER;
+				viCheckErr (error);
+			}
+            break;
         }
     }
 
@@ -11727,9 +9804,6 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 {
     ViStatus    error = VI_SUCCESS;
     ViInt32     flags = 0;
-    ViReal64    minLeadingEdgeTime = AFG302X_VAL_MIN_PUL_EDGE_TIME,
-                minTrailingEdgeTime = AFG302X_VAL_MIN_PUL_EDGE_TIME;
-	IviRangeTablePtr ptrMemoryRangeTable;
 
     /*-- Inherent Instrument Attributes---------------------------------------------------*/
     /*- Specific Driver Revision -*/
@@ -11836,20 +9910,10 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                         &attrOutputImpedanceRangeTable, 0));
 	
 	/*- Active Memory -*/
-	if ((model == TKAFG1K_VAL_MODEL_AFG3052C) || (model == TKAFG1K_VAL_MODEL_AFG3102C) ||
-		(model == TKAFG1K_VAL_MODEL_AFG3252C) || (model == TKAFG1K_VAL_MODEL_AFG3022C))
-	{
-		ptrMemoryRangeTable = &attrActiveTwoMemoryRangeTable;
-	}
-	else
-	{
-		ptrMemoryRangeTable = &attrActiveOneMemoryRangeTable;
-	}
-	
 	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_ACTIVE_MEMORY,
 	                                   "TKAFG1K_ATTR_ACTIVE_MEMORY",
 	                                   TKAFG1K_VAL_OUTPUT_EMEM, IVI_VAL_ALWAYS_CACHE,
-	                                   VI_NULL, VI_NULL, ptrMemoryRangeTable));
+	                                   VI_NULL, VI_NULL, &attrActiveOneMemoryRangeTable));
 
     /*- Output Mode -*/
 	
@@ -11941,54 +10005,6 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                         tkafg1kAttrPulseDutyCycle_ReadCallback,
                                         tkafg1kAttrPulseDutyCycle_WriteCallback,
                                         VI_NULL, 0));
-
-
-    if((model == TKAFG1K_VAL_MODEL_AFG3021) || (model == TKAFG1K_VAL_MODEL_AFG3022) ||
-       (model == TKAFG1K_VAL_MODEL_AFG3021B) || (model == TKAFG1K_VAL_MODEL_AFG3022B))
-    {
-        minLeadingEdgeTime = AFG302X_VAL_MIN_PUL_EDGE_TIME;
-        minTrailingEdgeTime = AFG302X_VAL_MIN_PUL_EDGE_TIME;
-    }
-    else if((model == TKAFG1K_VAL_MODEL_AFG3021C) || (model == TKAFG1K_VAL_MODEL_AFG3022C))
-    {
-        minLeadingEdgeTime = AFG302XC_VAL_MIN_PUL_EDGE_TIME;
-        minTrailingEdgeTime = AFG302XC_VAL_MIN_PUL_EDGE_TIME;
-    }
-    else if((model == TKAFG1K_VAL_MODEL_AFG3101)
-            || (model == TKAFG1K_VAL_MODEL_AFG3102)
-            || (model == TKAFG1K_VAL_MODEL_AFG3101C)
-            || (model == TKAFG1K_VAL_MODEL_AFG3102C))
-    {
-        minLeadingEdgeTime = AFG310X_VAL_MIN_PUL_EDGE_TIME;
-        minTrailingEdgeTime = AFG310X_VAL_MIN_PUL_EDGE_TIME;
-    }
-    else if((model == TKAFG1K_VAL_MODEL_AFG3251)
-            || (model == TKAFG1K_VAL_MODEL_AFG3252)
-            || (model == TKAFG1K_VAL_MODEL_AFG3251C)
-            || (model == TKAFG1K_VAL_MODEL_AFG3252C) )
-    {
-        minLeadingEdgeTime = AFG325X_VAL_MIN_PUL_EDGE_TIME;
-        minTrailingEdgeTime = AFG325X_VAL_MIN_PUL_EDGE_TIME;
-    }
-    else if (model == TKAFG1K_VAL_MODEL_AFG3011|| model == TKAFG1K_VAL_MODEL_AFG3011C)
-    {
-        minLeadingEdgeTime = AFG3011_VAL_MIN_PUL_EDGE_TIME;
-        minTrailingEdgeTime = AFG3011_VAL_MIN_PUL_EDGE_TIME;
-    }
-    else if ((model == TKAFG1K_VAL_MODEL_AFG3051C) || (model == TKAFG1K_VAL_MODEL_AFG3052C))
-    {
-        minLeadingEdgeTime = AFG305X_VAL_MIN_PUL_EDGE_TIME;
-        minTrailingEdgeTime = AFG305X_VAL_MIN_PUL_EDGE_TIME;
-    }
-
-    /*- Pulse Leading Time -*/
-
-    /*- Pulse Trailing Time -*/
-
-    /*- Pulse Lead Delay -*/
-
-    /*- Pulse Width -*/
-
     /*-- Arbitrary Waveform Operation------------------------------------------------------*/
     /*- Arbitrary Waveform Handle -*/
 	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE,
@@ -12095,42 +10111,9 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                        &attrBurstModeRangeTable));
 
     /*- Sweep Configuration ---------------------------------------------------------------*/
-    /*- Sweep Enabled -*/
-
-    /*- Sweep Type -*/
-
-    /*- Sweep Mode -*/
-
-    /*- Sweep Time -*/
-
-    /*- Sweep Start Frequency -*/
-
-    /*- Sweep Stop Frequency -*/
-
-    /*- Sweep Hold Time -*/
-
-    /*- Sweep Return Time -*/
 
     /*-- Waveform Appendant ---------------------------------------------------------------*/
-    /*- Append Noise Enabled -*/
 
-    /*- Append Noise Level -*/
-
-    /*- Append External Enabled -*/
-    if((model == TKAFG1K_VAL_MODEL_AFG3101)
-        || (model == TKAFG1K_VAL_MODEL_AFG3102)
-        || (model == TKAFG1K_VAL_MODEL_AFG3101C)
-        || (model == TKAFG1K_VAL_MODEL_AFG3102C)
-        || (model == TKAFG1K_VAL_MODEL_AFG3251)
-        || (model == TKAFG1K_VAL_MODEL_AFG3252)
-        || (model == TKAFG1K_VAL_MODEL_AFG3251C)
-        || (model == TKAFG1K_VAL_MODEL_AFG3252C)
-        || (model == TKAFG1K_VAL_MODEL_AFG3011)
-        || (model == TKAFG1K_VAL_MODEL_AFG3011C)
-        || (model == TKAFG1K_VAL_MODEL_AFG2021)
-        || (model == TKAFG1K_VAL_MODEL_AFG3051C))
-    {
-    }
 
     /*- Modulation Configuration ----------------------------------------------------------*/
     /*- Modulation Enabled -*/
@@ -12485,11 +10468,6 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
     checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_MODEL, "TKAFG1K_ATTR_MODEL",
                                        model, IVI_VAL_HIDDEN, VI_NULL, VI_NULL,
                                        &attrModelRangeTable));
-    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX,
-                                        "TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX", 10,
-                                        IVI_VAL_MULTI_CHANNEL | IVI_VAL_HIDDEN,
-                                        tkafg1kAttrVoltageUpperLimitMax_ReadCallback,
-                                        VI_NULL, VI_NULL, 0));
 	checkErr (Ivi_AddAttributeViBoolean (vi, TKAFG1K_ATTR_SWEEP_ENABLED,
 	                                     "TKAFG1K_ATTR_SWEEP_ENABLED", VI_FALSE,
 	                                     IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE | IVI_VAL_HIDDEN,
@@ -12568,9 +10546,6 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                             TKAFG1K_ATTR_OFFSET, VI_TRUE));
     checkErr (Ivi_AddAttributeInvalidation (vi, TKAFG1K_ATTR_OFFSET,
                                             TKAFG1K_ATTR_AMPLITUDE, VI_TRUE));
-    checkErr (Ivi_AddAttributeInvalidation (vi, TKAFG1K_ATTR_OUTPUT_IMPEDANCE,
-                                            TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX,
-                                            VI_TRUE));
 
 /***---  Add Callback Functions  ---***********************************************************/
     checkErr (tkafg1k_ConfigureModelDependantCallbacks (vi, model));
@@ -12582,154 +10557,6 @@ Error:
 static ViStatus tkafg1k_ConfigureModelDependantCallbacks (ViSession vi, ViInt32 model)
 {
     ViStatus    error = VI_SUCCESS;
-
-    /*- Output Mode -*/
-    WriteAttrViInt32_CallbackPtr    tkafg1kAttrOutputMode_WriteCallback = VI_NULL;
-    ReadAttrViInt32_CallbackPtr     tkafg1kAttrOutputMode_ReadCallback = VI_NULL;
-
-    /*- Amplitude -*/
-    CheckAttrViReal64_CallbackPtr   tkafg1kAttrAmplitude_CheckCallback = VI_NULL;
-
-    /*- Offset -*/
-    CheckAttrViReal64_CallbackPtr   tkafg1kAttrOffset_CheckCallback = VI_NULL;
-
-   
-    /*- Arbitrary Sample Rate -*/
-    ReadAttrViReal64_CallbackPtr    tkafg1kAttrArbSampleRate_ReadCallback = VI_NULL;
-
-    /*- Max Waveform Size -*/
-    ReadAttrViInt32_CallbackPtr     tkafg1kAttrMaxWaveformSize_ReadCallback = VI_NULL;
-
-    /*- AM Internal Waveform -*/
-    WriteAttrViInt32_CallbackPtr    tkafg1kAttrAMInternalWaveform_WriteCallback = VI_NULL;
-    ReadAttrViInt32_CallbackPtr     tkafg1kAttrAMInternalWaveform_ReadCallback = VI_NULL;
-
-    /*- AM Internal Depth -*/
-    WriteAttrViReal64_CallbackPtr   tkafg1kAttrAMInternalDepth_WriteCallback = VI_NULL;
-    ReadAttrViReal64_CallbackPtr    tkafg1kAttrAMInternalDepth_ReadCallback = VI_NULL;
-    CheckAttrViReal64_CallbackPtr   tkafg1kAttrAMInternalDepth_CheckCallback = VI_NULL;
-
-    /*- AM Internal Frequency -*/
-    WriteAttrViReal64_CallbackPtr   tkafg1kAttrAMInternalFrequency_WriteCallback = VI_NULL;
-    ReadAttrViReal64_CallbackPtr    tkafg1kAttrAMInternalFrequency_ReadCallback = VI_NULL;
-
-    /*- FM Internal Deviation -*/
-    WriteAttrViReal64_CallbackPtr   tkafg1kAttrFMInternalDeviation_WriteCallback = VI_NULL;
-    ReadAttrViReal64_CallbackPtr    tkafg1kAttrFMInternalDeviation_ReadCallback = VI_NULL;
-    CheckAttrViReal64_CallbackPtr   tkafg1kAttrFMInternalDeviation_CheckCallback = VI_NULL;
-
-    /*- FM Internal Waveform -*/
-    WriteAttrViInt32_CallbackPtr    tkafg1kAttrFMInternalWaveform_WriteCallback = VI_NULL;
-    ReadAttrViInt32_CallbackPtr     tkafg1kAttrFMInternalWaveform_ReadCallback = VI_NULL;
-
-    /*- FM Internal Frequency -*/
-    WriteAttrViReal64_CallbackPtr   tkafg1kAttrFMInternalFrequency_WriteCallback = VI_NULL;
-    ReadAttrViReal64_CallbackPtr    tkafg1kAttrFMInternalFrequency_ReadCallback = VI_NULL;
-
-    /*- FM Deviation By Channel -*/
-    CheckAttrViReal64_CallbackPtr   tkafg1kAttrFMDeviationByChannel_CheckCallback = VI_NULL;
-
-    /*- PWM Deviation -*/
-    CheckAttrViReal64_CallbackPtr   tkafg1kAttrPWMDeviation_CheckCallback = VI_NULL;
-	
-	/*- Arbitrary Sample Rate -*/
-    tkafg1kAttrArbSampleRate_ReadCallback = tkafg1kAttrArbSampleRate_ReadCallback;
-
-	/*- FM Internal Deviation -*/
-	tkafg1kAttrFMInternalDeviation_WriteCallback = tkafg1kAttrFMInternalDeviation_WriteCallback;
-	tkafg1kAttrFMInternalDeviation_ReadCallback = tkafg1kAttrFMInternalDeviation_ReadCallback;
-	tkafg1kAttrFMInternalDeviation_CheckCallback = tkafg1kAttrFMInternalDeviation_CheckCallback;	
-
-    if(model == TKAFG1K_VAL_MODEL_AFG1022)
-    {
-        /*- Output Mode -*/
-        tkafg1kAttrOutputMode_WriteCallback = AFG3XX2AttrOutputMode_WriteCallback;
-        tkafg1kAttrOutputMode_ReadCallback = AFG3XX2AttrOutputMode_ReadCallback;
-
-        /*- Amplitude -*/
-        tkafg1kAttrAmplitude_CheckCallback = AFG302XAttrAmplitude_CheckCallback;
-
-        /*- Offset -*/
-        tkafg1kAttrOffset_CheckCallback = AFG302XAttrOffset_CheckCallback;
-
-   
-
-        /*- Max Waveform Size -*/
-        tkafg1kAttrMaxWaveformSize_ReadCallback = AFG3021AttrMaxWaveformSize_ReadCallback;
-
-        /*- AM Internal Waveform -*/
-        tkafg1kAttrAMInternalWaveform_WriteCallback = AFG3XX2AttrAMInternalWaveform_WriteCallback;
-        tkafg1kAttrAMInternalWaveform_ReadCallback = AFG3XX2AttrAMInternalWaveform_ReadCallback;
-
-        /*- AM Internal Depth -*/
-        tkafg1kAttrAMInternalDepth_WriteCallback = AFG3XX2AttrAMInternalDepth_WriteCallback;
-        tkafg1kAttrAMInternalDepth_ReadCallback = AFG3XX2AttrAMInternalDepth_ReadCallback;
-        tkafg1kAttrAMInternalDepth_CheckCallback = AFG3XX2AttrAMInternalDepth_CheckCallback;
-
-        /*- AM Internal Frequency -*/
-        tkafg1kAttrAMInternalFrequency_WriteCallback = AFG3XX2AttrAMInternalFrequency_WriteCallback;
-        tkafg1kAttrAMInternalFrequency_ReadCallback = AFG3XX2AttrAMInternalFrequency_ReadCallback;
-
-
-
-        /*- FM Internal Waveform -*/
-        tkafg1kAttrFMInternalWaveform_WriteCallback = AFG3XX2AttrFMInternalWaveform_WriteCallback;
-        tkafg1kAttrFMInternalWaveform_ReadCallback = AFG3XX2AttrFMInternalWaveform_ReadCallback;
-
-        /*- FM Internal Frequency -*/
-        tkafg1kAttrFMInternalFrequency_WriteCallback = AFG3XX2AttrFMInternalFrequency_WriteCallback;
-        tkafg1kAttrFMInternalFrequency_ReadCallback = AFG3XX2AttrFMInternalFrequency_ReadCallback;
-
-        /*- FM Deviation By Channel -*/
-        tkafg1kAttrFMDeviationByChannel_CheckCallback = AFG302XAttrFMDeviationByChannel_CheckCallback;
-
-        /*- PWM Deviation -*/
-        tkafg1kAttrPWMDeviation_CheckCallback =  AFG302XAttrPWMDeviation_CheckCallback;
-    }
-    else if(model == TKAFG1K_VAL_MODEL_AFG1062)
-    {
-        /*- Output Mode -*/
-        tkafg1kAttrOutputMode_WriteCallback = AFG3XX2AttrOutputMode_WriteCallback;
-        tkafg1kAttrOutputMode_ReadCallback = AFG3XX2AttrOutputMode_ReadCallback;
-
-        /*- Amplitude -*/
-        tkafg1kAttrAmplitude_CheckCallback = AFG302XAttrAmplitude_CheckCallback;
-
-        /*- Offset -*/
-        tkafg1kAttrOffset_CheckCallback = AFG302XAttrOffset_CheckCallback;
-		
-
-        /*- Max Waveform Size -*/
-        tkafg1kAttrMaxWaveformSize_ReadCallback = AFG3021AttrMaxWaveformSize_ReadCallback;
-
-        /*- AM Internal Waveform -*/
-        tkafg1kAttrAMInternalWaveform_WriteCallback = AFG3XX2AttrAMInternalWaveform_WriteCallback;
-        tkafg1kAttrAMInternalWaveform_ReadCallback = AFG3XX2AttrAMInternalWaveform_ReadCallback;
-
-        /*- AM Internal Depth -*/
-        tkafg1kAttrAMInternalDepth_WriteCallback = AFG3XX2AttrAMInternalDepth_WriteCallback;
-        tkafg1kAttrAMInternalDepth_ReadCallback = AFG3XX2AttrAMInternalDepth_ReadCallback;
-        tkafg1kAttrAMInternalDepth_CheckCallback = AFG3XX2AttrAMInternalDepth_CheckCallback;
-
-        /*- AM Internal Frequency -*/
-        tkafg1kAttrAMInternalFrequency_WriteCallback = AFG3XX2AttrAMInternalFrequency_WriteCallback;
-        tkafg1kAttrAMInternalFrequency_ReadCallback = AFG3XX2AttrAMInternalFrequency_ReadCallback;
-
-        /*- FM Internal Waveform -*/
-        tkafg1kAttrFMInternalWaveform_WriteCallback = AFG3XX2AttrFMInternalWaveform_WriteCallback;
-        tkafg1kAttrFMInternalWaveform_ReadCallback = AFG3XX2AttrFMInternalWaveform_ReadCallback;
-
-        /*- FM Internal Frequency -*/
-        tkafg1kAttrFMInternalFrequency_WriteCallback = AFG3XX2AttrFMInternalFrequency_WriteCallback;
-        tkafg1kAttrFMInternalFrequency_ReadCallback = AFG3XX2AttrFMInternalFrequency_ReadCallback;
-
-        /*- FM Deviation By Channel -*/
-        tkafg1kAttrFMDeviationByChannel_CheckCallback = AFG302XCAttrFMDeviationByChannel_CheckCallback;
-
-        /*- PWM Deviation -*/
-        tkafg1kAttrPWMDeviation_CheckCallback =  AFG302XAttrPWMDeviation_CheckCallback;
-    }
-    
     /*- TKAFG1K_ATTR_OUTPUT_MODE -*/
     checkErr( Ivi_SetAttrWriteCallbackViInt32 (vi, TKAFG1K_ATTR_OUTPUT_MODE, tkafg1kAttrOutputMode_WriteCallback) );
     checkErr( Ivi_SetAttrReadCallbackViInt32 (vi, TKAFG1K_ATTR_OUTPUT_MODE, tkafg1kAttrOutputMode_ReadCallback) );
@@ -12791,7 +10618,7 @@ static ViStatus tkafg1k_ConfigureModelDependantCallbacks (ViSession vi, ViInt32 
 
     /*- TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL -*/
     checkErr( Ivi_SetAttrCheckCallbackViReal64 ( vi, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL,
-                                                    tkafg1kAttrFMDeviationByChannel_CheckCallback) );
+                                                    tkafg1kAttrFmDeviationByChannel_CheckCallback) );
 
     /*- TKAFG1K_ATTR_PWM_DEVIATION -*/
     checkErr( Ivi_SetAttrCheckCallbackViReal64 ( vi, TKAFG1K_ATTR_PWM_DEVIATION,

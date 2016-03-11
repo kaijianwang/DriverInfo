@@ -2244,39 +2244,1039 @@ v attrPMInternalWaveformRangeTable DataType="i"
   "Configures the function generator to modulate the carrier signal's phase "
   "with a square waveform."
 
- TKAFG1K_VAL_PM_INTERNAL_TRIANGLE (3)
-  "Configures the function generator to modulate the carrier signal's phase "
-  "with a triangle waveform."
-
  TKAFG1K_VAL_PM_INTERNAL_RAMP_UP (4)
   "Configures the function generator to modulate the carrier signal's phase "
   "with a ramp up waveform."
 
- TKAFG1K_VAL_PM_INTERNAL_RAMP_DOWN (5)
-  "Configures the function generator to modulate the carrier signal's phase "
-  "with a ramp down waveform."
-
- TKAFG1K_VAL_PM_INTERNAL_PRN (100)
+ TKAFG1K_VAL_PM_INTERNAL_PRN (1001)
   "Configures the function generator to modulate the carrier signal's phase "
   "with a noise waveform."
 
- TKAFG1K_VAL_PM_INTERNAL_USER1 (200)
-  "Configures the function generator to modulate the carrier signal's phase "
-  "with a user1 waveform."
+ TKAFG1K_VAL_PM_INTERNAL_USER0 (1003)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user0 waveform."
 
- TKAFG1K_VAL_PM_INTERNAL_USER2 (201)
-  "Configures the function generator to modulate the carrier signal's phase "
-  "with a user2 waveform."
+ TKAFG1K_VAL_PM_INTERNAL_USER1 (1004)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user1 waveform."
 
- TKAFG1K_VAL_PM_INTERNAL_USER3 (202)
-  "Configures the function generator to modulate the carrier signal's phase "
-  "with a user3 waveform."
+ TKAFG1K_VAL_PM_INTERNAL_USER2 (1005)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user2 waveform."
 
- TKAFG1K_VAL_PM_INTERNAL_USER4 (203)
-  "Configures the function generator to modulate the carrier signal's phase "
-  "with a user4 waveform."
+ TKAFG1K_VAL_PM_INTERNAL_USER3 (1006)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user3 waveform."
 
- TKAFG1K_VAL_PM_INTERNAL_EMEM (204)
+ TKAFG1K_VAL_PM_INTERNAL_USER4 (1007)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user4 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER5 (1008)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user5 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER6 (1009)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user6 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER7 (1010)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user7 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER8 (1011)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user8 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER9 (1012)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user9 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER10 (1013)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user10 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER11 (1014)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user11 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER12 (1015)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user12 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER13 (1016)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user13 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER14 (1017)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user14 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER15 (1018)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user15 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER16 (1019)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user16 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER17 (1020)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user17 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER18 (1021)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user18 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER19 (1022)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user19 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER20 (1023)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user20 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER21 (1024)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user21 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER22 (1025)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user22 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER23 (1026)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user23 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER24 (1027)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user24 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER25 (1028)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user25 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER26 (1029)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user26 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER27 (1030)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user27 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER28 (1031)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user28 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER29 (1032)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user29 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER30 (1033)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user30 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER31 (1034)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user31 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER32 (1035)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user32 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER33 (1036)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user33 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER34 (1037)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user34 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER35 (1038)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user35 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER36 (1039)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user36 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER37 (1040)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user37 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER38 (1041)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user38 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER39 (1042)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user39 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER40 (1043)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user40 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER41 (1044)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user41 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER42 (1045)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user42 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER43 (1046)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user43 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER44 (1047)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user44 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER45 (1048)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user45 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER46 (1049)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user46 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER47 (1050)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user47 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER48 (1051)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user48 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER49 (1052)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user49 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER50 (1053)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user50 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER51 (1054)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user51 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER52 (1055)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user52 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER53 (1056)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user53 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER54 (1057)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user54 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER55 (1058)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user55 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER56 (1059)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user56 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER57 (1060)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user57 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER58 (1061)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user58 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER59 (1062)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user59 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER60 (1063)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user60 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER61 (1064)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user61 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER62 (1065)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user62 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER63 (1066)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user63 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER64 (1067)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user64 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER65 (1068)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user65 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER66 (1069)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user66 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER67 (1070)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user67 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER68 (1071)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user68 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER69 (1072)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user69 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER70 (1073)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user70 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER71 (1074)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user71 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER72 (1075)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user72 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER73 (1076)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user73 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER74 (1077)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user74 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER75 (1078)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user75 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER76 (1079)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user76 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER77 (1080)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user77 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER78 (1081)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user78 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER79 (1082)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user79 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER80 (1083)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user80 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER81 (1084)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user81 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER82 (1085)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user82 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER83 (1086)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user83 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER84 (1087)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user84 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER85 (1088)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user85 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER86 (1089)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user86 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER87 (1090)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user87 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER88 (1091)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user88 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER89 (1092)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user89 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER90 (1093)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user90 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER91 (1094)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user91 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER92 (1095)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user92 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER93 (1096)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user93 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER94 (1097)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user94 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER95 (1098)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user95 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER96 (1099)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user96 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER97 (1100)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user97 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER98 (1101)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user98 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER99 (1102)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user99 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER100 (1103)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user100 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER101 (1104)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user101 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER102 (1105)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user102 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER103 (1106)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user103 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER104 (1107)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user104 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER105 (1108)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user105 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER106 (1109)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user106 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER107 (1110)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user107 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER108 (1111)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user108 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER109 (1112)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user109 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER110 (1113)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user110 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER111 (1114)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user111 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER112 (1115)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user112 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER113 (1116)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user113 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER114 (1117)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user114 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER115 (1118)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user115 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER116 (1119)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user116 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER117 (1120)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user117 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER118 (1121)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user118 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER119 (1122)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user119 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER120 (1123)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user120 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER121 (1124)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user121 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER122 (1125)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user122 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER123 (1126)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user123 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER124 (1127)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user124 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER125 (1128)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user125 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER126 (1129)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user126 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER127 (1130)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user127 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER128 (1131)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user128 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER129 (1132)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user129 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER130 (1133)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user130 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER131 (1134)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user131 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER132 (1135)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user132 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER133 (1136)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user133 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER134 (1137)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user134 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER135 (1138)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user135 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER136 (1139)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user136 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER137 (1140)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user137 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER138 (1141)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user138 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER139 (1142)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user139 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER140 (1143)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user140 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER141 (1144)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user141 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER142 (1145)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user142 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER143 (1146)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user143 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER144 (1147)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user144 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER145 (1148)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user145 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER146 (1149)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user146 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER147 (1150)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user147 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER148 (1151)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user148 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER149 (1152)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user149 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER150 (1153)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user150 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER151 (1154)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user151 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER152 (1155)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user152 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER153 (1156)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user153 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER154 (1157)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user154 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER155 (1158)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user155 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER156 (1159)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user156 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER157 (1160)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user157 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER158 (1161)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user158 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER159 (1162)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user159 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER160 (1163)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user160 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER161 (1164)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user161 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER162 (1165)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user162 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER163 (1166)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user163 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER164 (1167)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user164 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER165 (1168)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user165 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER166 (1169)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user166 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER167 (1170)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user167 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER168 (1171)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user168 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER169 (1172)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user169 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER170 (1173)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user170 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER171 (1174)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user171 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER172 (1175)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user172 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER173 (1176)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user173 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER174 (1177)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user174 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER175 (1178)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user175 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER176 (1179)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user176 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER177 (1180)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user177 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER178 (1181)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user178 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER179 (1182)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user179 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER180 (1183)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user180 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER181 (1184)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user181 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER182 (1185)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user182 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER183 (1186)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user183 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER184 (1187)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user184 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER185 (1188)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user185 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER186 (1189)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user186 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER187 (1190)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user187 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER188 (1191)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user188 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER189 (1192)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user189 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER190 (1193)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user190 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER191 (1194)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user191 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER192 (1195)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user192 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER193 (1196)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user193 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER194 (1197)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user194 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER195 (1198)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user195 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER196 (1199)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user196 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER197 (1200)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user197 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER198 (1201)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user198 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER199 (1202)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user199 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER200 (1203)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user200 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER201 (1204)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user201 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER202 (1205)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user202 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER203 (1206)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user203 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER204 (1207)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user204 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER205 (1208)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user205 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER206 (1209)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user206 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER207 (1210)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user207 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER208 (1211)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user208 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER209 (1212)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user209 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER210 (1213)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user210 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER211 (1214)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user211 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER212 (1215)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user212 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER213 (1216)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user213 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER214 (1217)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user214 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER215 (1218)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user215 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER216 (1219)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user216 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER217 (1220)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user217 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER218 (1221)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user218 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER219 (1222)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user219 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER220 (1223)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user220 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER221 (1224)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user221 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER222 (1225)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user222 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER223 (1226)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user223 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER224 (1227)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user224 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER225 (1228)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user225 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER226 (1229)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user226 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER227 (1230)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user227 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER228 (1231)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user228 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER229 (1232)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user229 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER230 (1233)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user230 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER231 (1234)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user231 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER232 (1235)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user232 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER233 (1236)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user233 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER234 (1237)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user234 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER235 (1238)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user235 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER236 (1239)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user236 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER237 (1240)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user237 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER238 (1241)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user238 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER239 (1242)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user239 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER240 (1243)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user240 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER241 (1244)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user241 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER242 (1245)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user242 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER243 (1246)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user243 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER244 (1247)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user244 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER245 (1248)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user245 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER246 (1249)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user246 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER247 (1250)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user247 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER248 (1251)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user248 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER249 (1252)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user249 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER250 (1253)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user250 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER251 (1254)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user251 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER252 (1255)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user252 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER253 (1256)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user253 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER254 (1257)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user254 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_USER255 (1258)
+  "Configures the function generator to modulate the carrier signal's "
+  "phasewith a user255 waveform."
+
+ TKAFG1K_VAL_PM_INTERNAL_EMEM (1002)
   "Configures the function generator to modulate the carrier signal's phase "
   "with a edit memory waveform."
 
@@ -2298,39 +3298,1039 @@ v attrPWMInternalWaveformRangeTable DataType="i"
   "Configures the function generator to modulate the carrier signal's "
   "pulse-width with a square waveform."
 
- TKAFG1K_VAL_PWM_INTERNAL_TRIANGLE (3)
-  "Configures the function generator to modulate the carrier signal's "
-  "pulse-width with a triangle waveform."
-
  TKAFG1K_VAL_PWM_INTERNAL_RAMP_UP (4)
   "Configures the function generator to modulate the carrier signal's "
   "pulse-width with a ramp up waveform."
 
- TKAFG1K_VAL_PWM_INTERNAL_RAMP_DOWN (5)
-  "Configures the function generator to modulate the carrier signal's "
-  "pulse-width with a ramp down waveform."
-
- TKAFG1K_VAL_PWM_INTERNAL_PRN (100)
+ TKAFG1K_VAL_PWM_INTERNAL_PRN (1001)
   "Configures the function generator to modulate the carrier signal's "
   "pulse-width with a noise waveform."
 
- TKAFG1K_VAL_PWM_INTERNAL_USER1 (200)
-  "Configures the function generator to modulate the carrier signal's "
-  "pulse-width with a user1 waveform."
+ TKAFG1K_VAL_PWM_INTERNAL_USER0 (1003)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user0 waveform."
 
- TKAFG1K_VAL_PWM_INTERNAL_USER2 (201)
-  "Configures the function generator to modulate the carrier signal's "
-  "pulse-width with a user2 waveform."
+ TKAFG1K_VAL_PWM_INTERNAL_USER1 (1004)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user1 waveform."
 
- TKAFG1K_VAL_PWM_INTERNAL_USER3 (202)
-  "Configures the function generator to modulate the carrier signal's "
-  "pulse-width with a user3 waveform."
+ TKAFG1K_VAL_PWM_INTERNAL_USER2 (1005)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user2 waveform."
 
- TKAFG1K_VAL_PWM_INTERNAL_USER4 (203)
-  "Configures the function generator to modulate the carrier signal's "
-  "pulse-width with a user4 waveform."
+ TKAFG1K_VAL_PWM_INTERNAL_USER3 (1006)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user3 waveform."
 
- TKAFG1K_VAL_PWM_INTERNAL_EMEM (204)
+ TKAFG1K_VAL_PWM_INTERNAL_USER4 (1007)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user4 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER5 (1008)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user5 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER6 (1009)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user6 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER7 (1010)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user7 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER8 (1011)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user8 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER9 (1012)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user9 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER10 (1013)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user10 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER11 (1014)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user11 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER12 (1015)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user12 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER13 (1016)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user13 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER14 (1017)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user14 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER15 (1018)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user15 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER16 (1019)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user16 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER17 (1020)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user17 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER18 (1021)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user18 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER19 (1022)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user19 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER20 (1023)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user20 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER21 (1024)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user21 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER22 (1025)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user22 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER23 (1026)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user23 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER24 (1027)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user24 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER25 (1028)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user25 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER26 (1029)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user26 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER27 (1030)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user27 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER28 (1031)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user28 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER29 (1032)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user29 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER30 (1033)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user30 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER31 (1034)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user31 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER32 (1035)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user32 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER33 (1036)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user33 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER34 (1037)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user34 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER35 (1038)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user35 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER36 (1039)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user36 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER37 (1040)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user37 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER38 (1041)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user38 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER39 (1042)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user39 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER40 (1043)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user40 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER41 (1044)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user41 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER42 (1045)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user42 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER43 (1046)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user43 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER44 (1047)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user44 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER45 (1048)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user45 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER46 (1049)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user46 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER47 (1050)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user47 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER48 (1051)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user48 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER49 (1052)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user49 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER50 (1053)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user50 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER51 (1054)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user51 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER52 (1055)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user52 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER53 (1056)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user53 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER54 (1057)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user54 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER55 (1058)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user55 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER56 (1059)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user56 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER57 (1060)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user57 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER58 (1061)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user58 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER59 (1062)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user59 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER60 (1063)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user60 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER61 (1064)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user61 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER62 (1065)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user62 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER63 (1066)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user63 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER64 (1067)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user64 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER65 (1068)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user65 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER66 (1069)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user66 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER67 (1070)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user67 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER68 (1071)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user68 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER69 (1072)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user69 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER70 (1073)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user70 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER71 (1074)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user71 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER72 (1075)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user72 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER73 (1076)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user73 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER74 (1077)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user74 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER75 (1078)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user75 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER76 (1079)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user76 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER77 (1080)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user77 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER78 (1081)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user78 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER79 (1082)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user79 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER80 (1083)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user80 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER81 (1084)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user81 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER82 (1085)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user82 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER83 (1086)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user83 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER84 (1087)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user84 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER85 (1088)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user85 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER86 (1089)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user86 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER87 (1090)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user87 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER88 (1091)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user88 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER89 (1092)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user89 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER90 (1093)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user90 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER91 (1094)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user91 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER92 (1095)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user92 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER93 (1096)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user93 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER94 (1097)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user94 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER95 (1098)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user95 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER96 (1099)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user96 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER97 (1100)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user97 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER98 (1101)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user98 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER99 (1102)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user99 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER100 (1103)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user100 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER101 (1104)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user101 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER102 (1105)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user102 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER103 (1106)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user103 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER104 (1107)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user104 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER105 (1108)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user105 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER106 (1109)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user106 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER107 (1110)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user107 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER108 (1111)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user108 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER109 (1112)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user109 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER110 (1113)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user110 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER111 (1114)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user111 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER112 (1115)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user112 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER113 (1116)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user113 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER114 (1117)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user114 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER115 (1118)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user115 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER116 (1119)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user116 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER117 (1120)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user117 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER118 (1121)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user118 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER119 (1122)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user119 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER120 (1123)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user120 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER121 (1124)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user121 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER122 (1125)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user122 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER123 (1126)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user123 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER124 (1127)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user124 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER125 (1128)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user125 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER126 (1129)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user126 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER127 (1130)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user127 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER128 (1131)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user128 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER129 (1132)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user129 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER130 (1133)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user130 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER131 (1134)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user131 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER132 (1135)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user132 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER133 (1136)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user133 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER134 (1137)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user134 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER135 (1138)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user135 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER136 (1139)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user136 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER137 (1140)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user137 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER138 (1141)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user138 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER139 (1142)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user139 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER140 (1143)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user140 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER141 (1144)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user141 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER142 (1145)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user142 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER143 (1146)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user143 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER144 (1147)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user144 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER145 (1148)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user145 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER146 (1149)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user146 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER147 (1150)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user147 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER148 (1151)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user148 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER149 (1152)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user149 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER150 (1153)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user150 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER151 (1154)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user151 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER152 (1155)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user152 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER153 (1156)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user153 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER154 (1157)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user154 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER155 (1158)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user155 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER156 (1159)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user156 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER157 (1160)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user157 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER158 (1161)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user158 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER159 (1162)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user159 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER160 (1163)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user160 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER161 (1164)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user161 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER162 (1165)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user162 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER163 (1166)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user163 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER164 (1167)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user164 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER165 (1168)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user165 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER166 (1169)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user166 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER167 (1170)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user167 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER168 (1171)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user168 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER169 (1172)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user169 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER170 (1173)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user170 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER171 (1174)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user171 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER172 (1175)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user172 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER173 (1176)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user173 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER174 (1177)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user174 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER175 (1178)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user175 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER176 (1179)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user176 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER177 (1180)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user177 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER178 (1181)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user178 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER179 (1182)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user179 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER180 (1183)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user180 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER181 (1184)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user181 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER182 (1185)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user182 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER183 (1186)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user183 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER184 (1187)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user184 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER185 (1188)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user185 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER186 (1189)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user186 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER187 (1190)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user187 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER188 (1191)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user188 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER189 (1192)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user189 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER190 (1193)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user190 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER191 (1194)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user191 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER192 (1195)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user192 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER193 (1196)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user193 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER194 (1197)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user194 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER195 (1198)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user195 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER196 (1199)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user196 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER197 (1200)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user197 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER198 (1201)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user198 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER199 (1202)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user199 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER200 (1203)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user200 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER201 (1204)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user201 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER202 (1205)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user202 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER203 (1206)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user203 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER204 (1207)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user204 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER205 (1208)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user205 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER206 (1209)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user206 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER207 (1210)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user207 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER208 (1211)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user208 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER209 (1212)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user209 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER210 (1213)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user210 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER211 (1214)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user211 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER212 (1215)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user212 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER213 (1216)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user213 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER214 (1217)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user214 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER215 (1218)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user215 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER216 (1219)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user216 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER217 (1220)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user217 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER218 (1221)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user218 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER219 (1222)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user219 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER220 (1223)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user220 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER221 (1224)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user221 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER222 (1225)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user222 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER223 (1226)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user223 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER224 (1227)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user224 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER225 (1228)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user225 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER226 (1229)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user226 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER227 (1230)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user227 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER228 (1231)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user228 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER229 (1232)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user229 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER230 (1233)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user230 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER231 (1234)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user231 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER232 (1235)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user232 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER233 (1236)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user233 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER234 (1237)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user234 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER235 (1238)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user235 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER236 (1239)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user236 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER237 (1240)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user237 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER238 (1241)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user238 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER239 (1242)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user239 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER240 (1243)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user240 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER241 (1244)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user241 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER242 (1245)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user242 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER243 (1246)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user243 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER244 (1247)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user244 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER245 (1248)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user245 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER246 (1249)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user246 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER247 (1250)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user247 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER248 (1251)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user248 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER249 (1252)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user249 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER250 (1253)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user250 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER251 (1254)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user251 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER252 (1255)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user252 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER253 (1256)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user253 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER254 (1257)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user254 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_USER255 (1258)
+  "Configures the function generator to modulate the carrier "
+  "signal'spulse-width with a user255 waveform."
+
+ TKAFG1K_VAL_PWM_INTERNAL_EMEM (1002)
   "Configures the function generator to modulate the carrier signal's "
   "pulse-width with a edit memory waveform."
 
@@ -3854,7 +5854,7 @@ v Boolean_values DataType="i"
  "\n"
  "Attribute Value: 1250208"
 
-2 all "Active Memory" TKAFG1K_ATTR_ACTIVE_MEMORY ViInt32 gs 
+2 all "Active Memory" TKAFG1K_ATTR_ACTIVE_MEMORY ViInt32 gs attrActiveOneMemoryRangeTable 
  "This attribute specifies the active edit memory which is being operated.\n"
  "\n"
  "Valid Values:\n"
@@ -4327,14 +6327,6 @@ v Boolean_values DataType="i"
  "[SOURce[1|2]]:FUNCtion[:SHAPe] "
  "{SINusoid|SQUare|PULSe|RAMP|PRNoise|DC|SINC|GAUSsian|LORentz|ERISe|EDECay|H"
  "AVersine|USER[1]|USER2|USER3|USER4|EMEMory[1]|EMEMory2|EFILe}"
-
-3 all "Voltage Upper Limit Max" TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT_MAX ViReal64 hidden 
- "This attribute gets the voltage upper limit max from instrument. It is a "
- "read-only attribute.\n"
- "\n"
- "Notes:\n"
- "(1) It is a hidden attribute, you should not use it directly in user "
- "program."
 
 3 all "Model" TKAFG1K_ATTR_MODEL ViInt32 hidden attrModelRangeTable 
  "This attribute records the instrument model.\n"
