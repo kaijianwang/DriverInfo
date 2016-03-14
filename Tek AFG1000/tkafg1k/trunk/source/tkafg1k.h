@@ -157,6 +157,14 @@ extern "C" {
 #define TKAFG1K_ATTR_ID_QUERY_RESPONSE                          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 1L)            /* ViString(Read Only) */
 #define TKAFG1K_ATTR_SWEEP_START_FREQUENCY  (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 46L)
 #define TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY   (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 47L)
+#define TKAFG1K_ATTR_ASK_ENABLED            (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 48L)
+#define TKAFG1K_ATTR_PSK_ENABLED            (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 49L)
+#define TKAFG1K_ATTR_ASK_SOURCE             (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 50L)
+#define TKAFG1K_ATTR_PSK_SOURCE             (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 51L)
+#define TKAFG1K_ATTR_ASK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 52L)
+#define TKAFG1K_ATTR_PSK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 53L)
+#define TKAFG1K_ATTR_ASK_AMPLITUDE          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 54L)
+#define TKAFG1K_ATTR_PSK_DEVIATION          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 55L)
 
 
 /****************************************************************************
@@ -1634,6 +1642,8 @@ extern "C" {
 #define TKAFG1K_VAL_MODULATION_PM                               2
 #define TKAFG1K_VAL_MODULATION_FSK                              3
 #define TKAFG1K_VAL_MODULATION_PWM                              4
+#define TKAFG1K_VAL_MODULATION_ASK								5
+#define TKAFG1K_VAL_MODULATION_PSK								6
 	
 
 	/*- Defined values for function tkafg1k_SaveLoadWaveformData -*/
@@ -1643,6 +1653,13 @@ extern "C" {
 #define TKAFG1K_VAL_WFM_USER                                        10002
 
 #define TKAFG1K_VAL_WFM_ARB                                         1004
+
+#define TKAFG1K_VAL_PSK_INTERNAL                                    0
+#define TKAFG1K_VAL_PSK_EXTERNAL                                    1
+
+
+#define TKAFG1K_VAL_ASK_INTERNAL                                    0
+#define TKAFG1K_VAL_ASK_EXTERNAL                                    1
 
 
 /****************************************************************************

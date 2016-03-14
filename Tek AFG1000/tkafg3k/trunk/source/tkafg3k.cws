@@ -15,9 +15,9 @@ Active Project = 1
 Project 0001 = "tkafg3k.prj"
 Drag Bar Left = 348
 Window Top = 30
-Window Left = 8
-Window Bottom = 1012
-Window Right = 980
+Window Left = 1688
+Window Bottom = 1072
+Window Right = 2632
 Maximized = False
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -57,7 +57,7 @@ Window Top = 122
 Window Left = 58
 Window Height = 400
 Window Width = 400
-Window Z-Order = 2
+Window Z-Order = 3
 
 [File 0002]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg3k/trunk/source/tkafg3k.c"
@@ -66,8 +66,9 @@ Disk Date = 3539908484
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 4
-Source Window State = "1,11979,11979,11979,25,71,71,1,0,79,0,0,0,0,0,25,7,0,3322,82,609,898,1,0,"
+Window Z-Order = 1
+Source Window State Line0001 = "1,11517,11517,11517,89,93,93,1,0,83,0,13710,0,0,0,30,4704,18,4719,21,609,898,1,0"
+Source Window State Line0002 = ","
 
 [File 0003]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg3k/trunk/source/tkafg3k.h"
@@ -76,7 +77,7 @@ Disk Date = 3539908484
 In Projects = "1,"
 Window Top = 92
 Window Left = 42
-Window Z-Order = 5
+Window Z-Order = 2
 Source Window State = "1,16,16,16,10,15,10,0,0,80,0,0,0,0,0,25,240,0,253,14,609,898,1,0,"
 
 [File 0004]
@@ -86,7 +87,7 @@ Disk Date = 3515018486
 In Projects = ""
 Window Top = 92
 Window Left = 42
-Window Z-Order = 6
+Window Z-Order = 4
 Source Window State = "1,363,363,363,8,53,53,1,0,60,0,0,0,0,0,18,343,0,368,44,448,698,1,0,"
 
 [File 0005]

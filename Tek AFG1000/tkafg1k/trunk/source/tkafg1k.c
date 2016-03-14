@@ -170,6 +170,98 @@
     	Ivi_GetViInt32EntryFromValue (value, table, VI_NULL, VI_NULL,\
     								  VI_NULL, VI_NULL, cmd, VI_NULL)
 
+static IviRangeTableEntry attrPSKDeviationRangeTableEntries[] =
+	{
+		{0, 2, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrPSKDeviationRangeTable =
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrPSKDeviationRangeTableEntries,
+	};
+
+static IviRangeTableEntry attrASKAmplitudeRangeTableEntries[] =
+	{
+		{0, 1, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrASKAmplitudeRangeTable =
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrASKAmplitudeRangeTableEntries,
+	};
+
+static IviRangeTableEntry attrASKInternalRateRangeTableEntries[] =
+	{
+		{0.002, 100000, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrASKInternalRateRangeTable =
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrASKInternalRateRangeTableEntries,
+	};
+
+static IviRangeTableEntry attrPSKInternalRateRangeTableEntries[] =
+	{
+		{0.002, 100000, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrPSKInternalRateRangeTable =
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrPSKInternalRateRangeTableEntries,
+	};
+
+static IviRangeTableEntry attrPSKSourceRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_PSK_INTERNAL, 0, 0, "INT", 0},
+		{TKAFG1K_VAL_PSK_EXTERNAL, 0, 0, "EXT", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrPSKSourceRangeTable =
+	{
+		IVI_VAL_DISCRETE,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrPSKSourceRangeTableEntries,
+	};
+
+static IviRangeTableEntry attrASKSourceRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_ASK_INTERNAL, 0, 0, "INT", 0},
+		{TKAFG1K_VAL_ASK_EXTERNAL, 0, 0, "EXT", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrASKSourceRangeTable =
+	{
+		IVI_VAL_DISCRETE,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrASKSourceRangeTableEntries,
+	};
+
 static IviRangeTableEntry attrAFG1062ArbWfmSweepFrequencyRangeTableEntries[] =
 	{
 		{TKAFG1K_VAL_MIN_FREQ, AFG1062_VAL_MAX_FREQ_ARB, TKAFG1K_VAL_MIN_FREQ, "", 0},
@@ -1670,6 +1762,117 @@ static ViStatus _VI_FUNC tkafg1kAttrFmDeviationByChannel_CheckCallback (ViSessio
                                                                         ViConstString channelName,
                                                                         ViAttr attributeId,
                                                                         ViReal64 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskEnabled_CheckCallback (ViSession vi,
+                                                              ViConstString channelName,
+                                                              ViAttr attributeId,
+                                                              ViBoolean value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskEnabled_ReadCallback (ViSession vi,
+                                                             ViSession io,
+                                                             ViConstString channelName,
+                                                             ViAttr attributeId,
+                                                             ViBoolean *value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskEnabled_WriteCallback (ViSession vi,
+                                                              ViSession io,
+                                                              ViConstString channelName,
+                                                              ViAttr attributeId,
+                                                              ViBoolean value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskEnabled_CheckCallback (ViSession vi,
+                                                              ViConstString channelName,
+                                                              ViAttr attributeId,
+                                                              ViBoolean value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskEnabled_ReadCallback (ViSession vi,
+                                                             ViSession io,
+                                                             ViConstString channelName,
+                                                             ViAttr attributeId,
+                                                             ViBoolean *value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskEnabled_WriteCallback (ViSession vi,
+                                                              ViSession io,
+                                                              ViConstString channelName,
+                                                              ViAttr attributeId,
+                                                              ViBoolean value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskSource_ReadCallback (ViSession vi,
+                                                            ViSession io,
+                                                            ViConstString channelName,
+                                                            ViAttr attributeId,
+                                                            ViInt32 *value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskSource_WriteCallback (ViSession vi,
+                                                             ViSession io,
+                                                             ViConstString channelName,
+                                                             ViAttr attributeId,
+                                                             ViInt32 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskSource_ReadCallback (ViSession vi,
+                                                            ViSession io,
+                                                            ViConstString channelName,
+                                                            ViAttr attributeId,
+                                                            ViInt32 *value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskSource_WriteCallback (ViSession vi,
+                                                             ViSession io,
+                                                             ViConstString channelName,
+                                                             ViAttr attributeId,
+                                                             ViInt32 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskInternalRate_ReadCallback (ViSession vi,
+                                                                  ViSession io,
+                                                                  ViConstString channelName,
+                                                                  ViAttr attributeId,
+                                                                  ViReal64 *value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskInternalRate_WriteCallback (ViSession vi,
+                                                                   ViSession io,
+                                                                   ViConstString channelName,
+                                                                   ViAttr attributeId,
+                                                                   ViReal64 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskInternalRate_ReadCallback (ViSession vi,
+                                                                  ViSession io,
+                                                                  ViConstString channelName,
+                                                                  ViAttr attributeId,
+                                                                  ViReal64 *value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskInternalRate_WriteCallback (ViSession vi,
+                                                                   ViSession io,
+                                                                   ViConstString channelName,
+                                                                   ViAttr attributeId,
+                                                                   ViReal64 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskAmplitude_ReadCallback (ViSession vi,
+                                                               ViSession io,
+                                                               ViConstString channelName,
+                                                               ViAttr attributeId,
+                                                               ViReal64 *value);
+
+static ViStatus _VI_FUNC tkafg1kAttrAskAmplitude_WriteCallback (ViSession vi,
+                                                                ViSession io,
+                                                                ViConstString channelName,
+                                                                ViAttr attributeId,
+                                                                ViReal64 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_ReadCallback (ViSession vi,
+                                                               ViSession io,
+                                                               ViConstString channelName,
+                                                               ViAttr attributeId,
+                                                               ViReal64 *value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_WriteCallback (ViSession vi,
+                                                                ViSession io,
+                                                                ViConstString channelName,
+                                                                ViAttr attributeId,
+                                                                ViReal64 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_CheckCallback (ViSession vi,
+                                                                ViConstString channelName,
+                                                                ViAttr attributeId,
+                                                                ViReal64 value);
 
 
 
@@ -3394,6 +3597,163 @@ ViStatus _VI_FUNC tkafg1k_ConfigureFSKExternalByChannel (ViSession vi,
 }
 
 
+/*****************************************************************************
+ * Function: tkafg1k_ConfigureASKEnabled
+ * Purpose:  This function configures whether the function generator applies
+ *           ASK modulation to a channel.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigureASKEnabled ( ViSession vi,
+                                                ViConstString channelName,
+                                                ViBoolean enabled)
+{
+    return Ivi_SetAttributeViBoolean (vi, channelName, TKAFG1K_ATTR_ASK_ENABLED,
+                                        IVI_VAL_DIRECT_USER_CALL, enabled);
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigureASKSource
+ * Purpose:  This function specifies the source of the modulating signal the
+ *           function generator uses for the channel when ASK modulation
+ *           is enabled.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigureASKSource (  ViSession vi,
+                                                ViConstString channelName,
+                                                ViInt32 source)
+{
+    return Ivi_SetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_ASK_SOURCE,
+                                        IVI_VAL_DIRECT_USER_CALL, source);
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigureASKInternalByChannel
+ * Purpose:  This function configures the attributes that control the
+ *           function generator's internal ASK modulation source
+ *           to a channel. These attributes are the amplitude and
+ *           internal rate.
+ *
+ *           Notes:
+ *           This function is based on channel.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigureASKInternalByChannel (ViSession vi,
+                                                         ViConstString channelName,
+                                                         ViReal64 amplitude,
+                                                         ViReal64 rate)
+{
+    ViStatus    error = VI_SUCCESS;
+
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+        /* Set attributes */
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, channelName,
+                                          TKAFG1K_ATTR_ASK_AMPLITUDE, 0,
+                                          amplitude), 3, "ASK Amplitude");
+
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, channelName,
+                                          TKAFG1K_ATTR_ASK_INTERNAL_RATE, 0,
+                                          rate), 4, "ASK Internal Rate");
+
+    checkErr( tkafg1k_CheckStatus (vi));
+
+Error:
+    Ivi_UnlockSession (vi, VI_NULL);
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigureASKExternalByChannel
+ * Purpose:  This function configures the attributes that control the
+ *           function generator's external ASK modulation source
+ *           to a channel. The attribute is the amplitude.
+ *
+ *           Notes:
+ *           This function is based on channel.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigureASKExternalByChannel (ViSession vi,
+                                                         ViConstString channelName,
+                                                         ViReal64 amplitude)
+{
+    return Ivi_SetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_ASK_AMPLITUDE,
+                                        IVI_VAL_DIRECT_USER_CALL, amplitude);
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigurePSKEnabled
+ * Purpose:  This function configures whether the function generator applies
+ *           PSK modulation to a channel.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigurePSKEnabled ( ViSession vi,
+                                                ViConstString channelName,
+                                                ViBoolean enabled)
+{
+    return Ivi_SetAttributeViBoolean (vi, channelName, TKAFG1K_ATTR_PSK_ENABLED,
+                                        IVI_VAL_DIRECT_USER_CALL, enabled);
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigurePSKSource
+ * Purpose:  This function specifies the source of the modulating signal the
+ *           function generator uses for the channel when PSK modulation
+ *           is enabled.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigurePSKSource (  ViSession vi,
+                                                ViConstString channelName,
+                                                ViInt32 source)
+{
+    return Ivi_SetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_PSK_SOURCE,
+                                        IVI_VAL_DIRECT_USER_CALL, source);
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigurePSKInternalByChannel
+ * Purpose:  This function configures the attributes that control the
+ *           function generator's internal PSK modulation source
+ *           to a channel. These attributes are the deviation and
+ *           internal rate.
+ *
+ *           Notes:
+ *           This function is based on channel.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigurePSKInternalByChannel (ViSession vi,
+                                                         ViConstString channelName,
+                                                         ViReal64 deviation,
+                                                         ViReal64 rate)
+{
+    ViStatus    error = VI_SUCCESS;
+
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+        /* Set attributes */
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, channelName,
+                                          TKAFG1K_ATTR_PSK_DEVIATION, 0,
+                                          deviation), 3, "PSK Deviation");
+
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, channelName,
+                                          TKAFG1K_ATTR_PSK_INTERNAL_RATE, 0,
+                                          rate), 4, "PSK Internal Rate");
+
+    checkErr( tkafg1k_CheckStatus (vi));
+
+Error:
+    Ivi_UnlockSession (vi, VI_NULL);
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigurePSKExternalByChannel
+ * Purpose:  This function configures the attributes that control the
+ *           function generator's external PSK modulation source
+ *           to a channel. The attribute is the deviation.
+ *
+ *           Notes:
+ *           This function is based on channel.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigurePSKExternalByChannel (ViSession vi,
+                                                         ViConstString channelName,
+                                                         ViReal64 deviation)
+{
+    return Ivi_SetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_PSK_DEVIATION,
+                                        IVI_VAL_DIRECT_USER_CALL, deviation);
+}
 
 /*****************************************************************************
  * Function: tkafg1k_ConfigurePWMEnabled
@@ -6497,22 +6857,24 @@ Error:
 
 /*- TKAFG1K_ATTR_ORIGINAL_MODULATION -*/
 static IviRangeTableEntry attrOriginalModulationRangeTableEntries[] =
-{
-    {TKAFG1K_VAL_MODULATION_AM, 0, 0, "", 0},
-    {TKAFG1K_VAL_MODULATION_FM, 0, 0, "", 0},
-    {TKAFG1K_VAL_MODULATION_PM, 0, 0, "", 0},
-    {TKAFG1K_VAL_MODULATION_FSK, 0, 0, "", 0},
-    {TKAFG1K_VAL_MODULATION_PWM, 0, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{TKAFG1K_VAL_MODULATION_AM, 0, 0, "", 0},
+		{TKAFG1K_VAL_MODULATION_FM, 0, 0, "", 0},
+		{TKAFG1K_VAL_MODULATION_PM, 0, 0, "", 0},
+		{TKAFG1K_VAL_MODULATION_FSK, 0, 0, "", 0},
+		{TKAFG1K_VAL_MODULATION_PWM, 0, 0, "", 0},
+		{TKAFG1K_VAL_MODULATION_ASK, 0, 0, "", 0},
+		{TKAFG1K_VAL_MODULATION_PSK, 0, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrOriginalModulationRangeTable =
-{
-    IVI_VAL_DISCRETE,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrOriginalModulationRangeTableEntries,
-};
+	{
+		IVI_VAL_DISCRETE,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrOriginalModulationRangeTableEntries,
+	};
 
 /*- TKAFG1K_ATTR_AM_ENABLED -*/
 static ViStatus _VI_FUNC tkafg1kAttrAMEnabled_CheckCallback (ViSession vi,
@@ -6604,18 +6966,18 @@ static ViStatus _VI_FUNC tkafg1kAttrAMSource_ReadCallback (ViSession vi,
 
 /*- TKAFG1K_ATTR_AM_INTERNAL_DEPTH -*/
 static IviRangeTableEntry attrAMInternalDepthRangeTableEntries[] =
-{
-        {0.00, 120.00, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.00, 100.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrAMInternalDepthRangeTable =
-{
-        IVI_VAL_RANGED,
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrAMInternalDepthRangeTableEntries,
-};
+	};
 
 
 static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_CheckCallback(ViSession vi,
@@ -9777,6 +10139,231 @@ Error:
 
 
 
+static ViStatus _VI_FUNC tkafg1kAttrAskEnabled_CheckCallback (ViSession vi,
+                                                              ViConstString channelName,
+                                                              ViAttr attributeId,
+                                                              ViBoolean value)
+{
+	ViStatus	error = VI_SUCCESS;
+    ViInt32     waveform;
+    ViBoolean   allowance;
+
+    if(value == VI_TRUE)
+    {
+        checkErr ( Ivi_GetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform) );
+
+        checkErr ( tkafg1k_ModulationTypeAllowable (vi, waveform, TKAFG1K_VAL_MODULATION_ASK, &allowance) );
+        if(!allowance)
+        {
+            error = IVI_ERROR_INVALID_CONFIGURATION;
+            viCheckErr (error);
+        }
+    }
+	
+Error:
+	return error;
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrAskEnabled_ReadCallback (ViSession vi,
+                                                             ViSession io,
+                                                             ViConstString channelName,
+                                                             ViAttr attributeId,
+                                                             ViBoolean *value)
+{
+	return ( tkafg1k_ReadState (vi, io, channelName, "SOUR%s:ASK:STAT?", value) ); 
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrAskEnabled_WriteCallback (ViSession vi,
+                                                              ViSession io,
+                                                              ViConstString channelName,
+                                                              ViAttr attributeId,
+                                                              ViBoolean value)
+{
+	ViStatus    error = VI_SUCCESS;
+
+    checkErr ( tkafg1k_WriteState (vi, io, channelName, "SOUR%s:ASK:STAT %s", value) );
+
+    if(value == VI_TRUE)
+    {
+        checkErr ( Ivi_SetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_ORIGINAL_MODULATION, 0, TKAFG1K_VAL_MODULATION_ASK) );
+    }
+
+Error:
+    return error;
+
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskEnabled_CheckCallback (ViSession vi,
+                                                              ViConstString channelName,
+                                                              ViAttr attributeId,
+                                                              ViBoolean value)
+{
+	ViStatus	error = VI_SUCCESS;
+    ViInt32     waveform;
+    ViBoolean   allowance;
+
+    if(value == VI_TRUE)
+    {
+        checkErr ( Ivi_GetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform) );
+
+        checkErr ( tkafg1k_ModulationTypeAllowable (vi, waveform, TKAFG1K_VAL_MODULATION_PSK, &allowance) );
+        if(!allowance)
+        {
+            error = IVI_ERROR_INVALID_CONFIGURATION;
+            viCheckErr (error);
+        }
+    }
+
+Error:
+	return error;
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskEnabled_ReadCallback (ViSession vi,
+                                                             ViSession io,
+                                                             ViConstString channelName,
+                                                             ViAttr attributeId,
+                                                             ViBoolean *value)
+{
+	return ( tkafg1k_ReadState (vi, io, channelName, "SOUR%s:PSK:STAT?", value) ); 
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskEnabled_WriteCallback (ViSession vi,
+                                                              ViSession io,
+                                                              ViConstString channelName,
+                                                              ViAttr attributeId,
+                                                              ViBoolean value)
+{
+	ViStatus	error = VI_SUCCESS;
+    checkErr ( tkafg1k_WriteState (vi, io, channelName, "SOUR%s:PSK:STAT %s", value) );
+
+    if(value == VI_TRUE)
+    {
+        checkErr ( Ivi_SetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_ORIGINAL_MODULATION, 0, TKAFG1K_VAL_MODULATION_PSK) );
+    }
+	
+Error:
+	return error;
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrAskSource_ReadCallback (ViSession vi,
+                                                            ViSession io,
+                                                            ViConstString channelName,
+                                                            ViAttr attributeId,
+                                                            ViInt32 *value)
+{
+	return ( tkafg1k_ReadCmd (vi, io, channelName, &attrASKSourceRangeTable, "SOUR%s:ASK:SOUR?", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrAskSource_WriteCallback (ViSession vi,
+                                                             ViSession io,
+                                                             ViConstString channelName,
+                                                             ViAttr attributeId,
+                                                             ViInt32 value)
+{
+	return ( tkafg1k_WriteCmd (vi, io, channelName, &attrASKSourceRangeTable, "SOUR%s:ASK:SOUR %s", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskSource_ReadCallback (ViSession vi,
+                                                            ViSession io,
+                                                            ViConstString channelName,
+                                                            ViAttr attributeId,
+                                                            ViInt32 *value)
+{
+	return ( tkafg1k_ReadCmd (vi, io, channelName, &attrPSKSourceRangeTable, "SOUR%s:PSK:SOUR?", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskSource_WriteCallback (ViSession vi,
+                                                             ViSession io,
+                                                             ViConstString channelName,
+                                                             ViAttr attributeId,
+                                                             ViInt32 value)
+{
+	return ( tkafg1k_WriteCmd (vi, io, channelName, &attrPSKSourceRangeTable, "SOUR%s:PSK:SOUR %s", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrAskInternalRate_ReadCallback (ViSession vi,
+                                                                  ViSession io,
+                                                                  ViConstString channelName,
+                                                                  ViAttr attributeId,
+                                                                  ViReal64 *value)
+{
+	return ( tkafg1k_ReadReal64 (vi, io, channelName, "SOUR%s:ASK:INT:RATE?", value) ); 
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrAskInternalRate_WriteCallback (ViSession vi,
+                                                                   ViSession io,
+                                                                   ViConstString channelName,
+                                                                   ViAttr attributeId,
+                                                                   ViReal64 value)
+{
+	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:ASK:INT:RATE %Le", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskInternalRate_ReadCallback (ViSession vi,
+                                                                  ViSession io,
+                                                                  ViConstString channelName,
+                                                                  ViAttr attributeId,
+                                                                  ViReal64 *value)
+{
+	return ( tkafg1k_ReadReal64 (vi, io, channelName, "SOUR%s:PSK:INT:RATE?", value) ); 
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskInternalRate_WriteCallback (ViSession vi,
+                                                                   ViSession io,
+                                                                   ViConstString channelName,
+                                                                   ViAttr attributeId,
+                                                                   ViReal64 value)
+{
+	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PSK:INT:RATE %Le", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrAskAmplitude_ReadCallback (ViSession vi,
+                                                               ViSession io,
+                                                               ViConstString channelName,
+                                                               ViAttr attributeId,
+                                                               ViReal64 *value)
+{
+	return ( tkafg1k_ReadReal64 (vi, io, channelName, "SOUR%s:ASK:AMPL?", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrAskAmplitude_WriteCallback (ViSession vi,
+                                                                ViSession io,
+                                                                ViConstString channelName,
+                                                                ViAttr attributeId,
+                                                                ViReal64 value)
+{
+	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:ASK:AMPL %Le", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_ReadCallback (ViSession vi,
+                                                               ViSession io,
+                                                               ViConstString channelName,
+                                                               ViAttr attributeId,
+                                                               ViReal64 *value)
+{
+	return ( tkafg1k_ReadReal64 (vi, io, channelName, "SOUR%s:PSK:DEV?", value) ); 
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_WriteCallback (ViSession vi,
+                                                                ViSession io,
+                                                                ViConstString channelName,
+                                                                ViAttr attributeId,
+                                                                ViReal64 value)
+{
+	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PSK:DEV %Le", value) );
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_CheckCallback (ViSession vi,
+                                                                ViConstString channelName,
+                                                                ViAttr attributeId,
+                                                                ViReal64 value)
+{
+	ViStatus	error = VI_SUCCESS;
+	checkErr ( Ivi_DefaultCheckCallbackViReal64(vi, channelName, TKAFG1K_ATTR_PSK_DEVIATION, value) );
+Error:
+	return error;
+}
+
 /*****************************************************************************
  * Function: tkafg1k_InitAttributes
  * Purpose:  This function adds attributes to the IVI session, initializes
@@ -10470,6 +11057,60 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 	                                    tkafg1kAttrSweepStopFrequency_ReadCallback,
 	                                    tkafg1kAttrSweepStopFrequency_WriteCallback,
 	                                    VI_NULL, 0));
+	checkErr (Ivi_AddAttributeViBoolean (vi, TKAFG1K_ATTR_ASK_ENABLED,
+	                                     "TKAFG1K_ATTR_ASK_ENABLED", VI_FALSE,
+	                                     IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                     tkafg1kAttrAskEnabled_ReadCallback,
+	                                     tkafg1kAttrAskEnabled_WriteCallback));
+	checkErr (Ivi_AddAttributeViBoolean (vi, TKAFG1K_ATTR_PSK_ENABLED,
+	                                     "TKAFG1K_ATTR_PSK_ENABLED", VI_FALSE,
+	                                     IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                     tkafg1kAttrPskEnabled_ReadCallback,
+	                                     tkafg1kAttrPskEnabled_WriteCallback));
+	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_ASK_SOURCE,
+	                                   "TKAFG1K_ATTR_ASK_SOURCE",
+	                                   TKAFG1K_VAL_ASK_INTERNAL,
+	                                   IVI_VAL_MULTI_CHANNEL,
+	                                   tkafg1kAttrAskSource_ReadCallback,
+	                                   tkafg1kAttrAskSource_WriteCallback,
+	                                   &attrASKSourceRangeTable));
+	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_PSK_SOURCE,
+	                                   "TKAFG1K_ATTR_PSK_SOURCE",
+	                                   TKAFG1K_VAL_PSK_INTERNAL,
+	                                   IVI_VAL_MULTI_CHANNEL,
+	                                   tkafg1kAttrPskSource_ReadCallback,
+	                                   tkafg1kAttrPskSource_WriteCallback,
+	                                   &attrPSKSourceRangeTable));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_ASK_INTERNAL_RATE,
+	                                    "TKAFG1K_ATTR_ASK_INTERNAL_RATE", 50,
+	                                    IVI_VAL_MULTI_CHANNEL,
+	                                    tkafg1kAttrAskInternalRate_ReadCallback,
+	                                    tkafg1kAttrAskInternalRate_WriteCallback,
+	                                    &attrASKInternalRateRangeTable, 0));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_PSK_INTERNAL_RATE,
+	                                    "TKAFG1K_ATTR_PSK_INTERNAL_RATE", 50,
+	                                    IVI_VAL_MULTI_CHANNEL,
+	                                    tkafg1kAttrPskInternalRate_ReadCallback,
+	                                    tkafg1kAttrPskInternalRate_WriteCallback,
+	                                    &attrPSKInternalRateRangeTable, 0));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_ASK_AMPLITUDE,
+	                                    "TKAFG1K_ATTR_ASK_AMPLITUDE", 0.5,
+	                                    IVI_VAL_MULTI_CHANNEL,
+	                                    tkafg1kAttrAskAmplitude_ReadCallback,
+	                                    tkafg1kAttrAskAmplitude_WriteCallback,
+	                                    &attrASKAmplitudeRangeTable, 0));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_PSK_DEVIATION,
+	                                    "TKAFG1K_ATTR_PSK_DEVIATION", 0,
+	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                    tkafg1kAttrPskDeviation_ReadCallback,
+	                                    tkafg1kAttrPskDeviation_WriteCallback,
+	                                    &attrPSKDeviationRangeTable, 0));
+	checkErr (Ivi_SetAttrCheckCallbackViReal64 (vi, TKAFG1K_ATTR_PSK_DEVIATION,
+	                                            tkafg1kAttrPskDeviation_CheckCallback));
+	checkErr (Ivi_SetAttrCheckCallbackViBoolean (vi, TKAFG1K_ATTR_PSK_ENABLED,
+	                                             tkafg1kAttrPskEnabled_CheckCallback));
+	checkErr (Ivi_SetAttrCheckCallbackViBoolean (vi, TKAFG1K_ATTR_ASK_ENABLED,
+	                                             tkafg1kAttrAskEnabled_CheckCallback));
 	checkErr (Ivi_SetAttrRangeTableCallback (vi, TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY,
 	                                         tkafg1kAttrSweepStopFrequency_RangeTableCallback));
 	checkErr (Ivi_SetAttrCheckCallbackViBoolean (vi, TKAFG1K_ATTR_SWEEP_ENABLED,

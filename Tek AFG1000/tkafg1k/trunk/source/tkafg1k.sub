@@ -1060,6 +1060,16 @@ v attrAMSourceRangeTable DataType="i"
   "its external AM Modulating Source."
 
 
+v attrASKSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_ASK_INTERNAL (0)
+  "Configures the function generator to modulate the carrier waveform with "
+  "its internal ASK Modulating Source."
+
+ TKAFG1K_VAL_ASK_EXTERNAL (1)
+  "Configures the function generator to modulate the carrier waveform with "
+  "its external ASK Modulating Source."
+
+
 v attrActiveOneMemoryRangeTable DataType="i" 
  TKAFG1K_VAL_OUTPUT_EMEM (0)
   "Specifies the Edit Memory of the function generator."
@@ -2226,6 +2236,12 @@ v attrOriginalModulationRangeTable DataType="i"
  TKAFG1K_VAL_MODULATION_PWM (4)
   "Configures the function generator to PWM modulation type."
 
+ TKAFG1K_VAL_MODULATION_ASK (5)
+  "Configures the function generator to ASK modulation type."
+
+ TKAFG1K_VAL_MODULATION_PSK (6)
+  "Configures the function generator to PSK modulation type."
+
 
 v attrOutputModeRangeTable DataType="i" 
  TKAFG1K_VAL_OUTPUT_FUNC (0)
@@ -3287,6 +3303,16 @@ v attrPMSourceRangeTable DataType="i"
 
  TKAFG1K_VAL_PM_EXTERNAL (1)
   "The carrier waveform is modulated with an external source."
+
+
+v attrPSKSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_PSK_INTERNAL (0)
+  "Configures the function generator to modulate the carrier waveform with "
+  "its internal PSK Modulating Source."
+
+ TKAFG1K_VAL_PSK_EXTERNAL (1)
+  "Configures the function generator to modulate the carrier waveform with "
+  "its external PSK Modulating Source."
 
 
 v attrPWMInternalWaveformRangeTable DataType="i" 
@@ -6211,6 +6237,61 @@ v Boolean_values DataType="i"
  "ory|EMEMory1|EMEMory2|EFILe}\n"
  "\n"
  "Attribute Value: 1150034"
+
+1 all "ASK Modulation" 
+ "Attributes for generating ASK modulated signals.Amplitude Shift Keying "
+ "modulation is a modulation technique that shifts the output signal "
+ "amplitude between two amplitudes: the carrier amplitude and modulating "
+ "amplitude. You specify the carrier signal with the attributes in either "
+ "the Standard Function Output group or the Arbitrary Waveform Output group. "
+ " The modulating signal can be an internally generated or an externally "
+ "generated signal."
+
+2 all "ASK ENABLED" TKAFG1K_ATTR_ASK_ENABLED ViBoolean gs Boolean_values 
+ "This channel-based attribute specifies whether the function generator "
+ "applies ASK modulation to the output signal."
+
+2 all "internal Rate" TKAFG1K_ATTR_ASK_INTERNAL_RATE ViReal64 gs 
+ "This channel-based attribute specifies the internal modulation rate of ASK "
+ "modulation. \n"
+ "This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_ASK_SOURCE attribute is set to TKAFG1K_VAL_ASK_INTERNAL."
+
+2 all "ASK Amplitude" TKAFG1K_ATTR_ASK_AMPLITUDE ViReal64 gs 
+ "This channel-based attribute specifies the amplitude of FSK modulation."
+
+2 all "ASK Source" TKAFG1K_ATTR_ASK_SOURCE ViInt32 gs attrASKSourceRangeTable 
+ "This channel-based attribute specifies the source of signal that the "
+ "function generator uses to modulate the output signal.\n"
+
+1 all "PSK Modulation" 
+ "Attributes for applying PSK modulation to output signals.  Phase Shift "
+ "Keying modulation is a modulation technique that shifts the output signal "
+ "phase between\n"
+ "two phases: the carrier phase and modulating phase.  You specify the "
+ "carrier signal with the attributes in either the Standard Function Output "
+ "group or the Arbitrary Waveform Output group.  The modulating signal can "
+ "be an internally generated or an externally generated signal."
+
+2 all "PSK Enabled" TKAFG1K_ATTR_PSK_ENABLED ViBoolean gs Boolean_values 
+ "This channel-based attribute specifies whether the function generator "
+ "applies PSK modulation to the output signal."
+
+2 all "Internal Rate" TKAFG1K_ATTR_PSK_INTERNAL_RATE ViReal64 gs 
+ "This channel-based attribute specifies the internal modulation rate of PSK "
+ "modulation. \n"
+ "This attribute affects function generator behavior only when the "
+ "TKAFG1K_ATTR_PSK_SOURCE attribute is set to TKAFG1K_VAL_PSK_INTERNAL."
+
+2 all "PSK Deviation" TKAFG1K_ATTR_PSK_DEVIATION ViReal64 gs 
+ "This channel-based attribute specifies the deviation applies to the output "
+ "signal. The units are radian . \n"
+ "You could use this attribute no matter the TKAFG1K_ATTR_PSK_SOURCE "
+ "attribute is set to TKAFG1K_VAL_PSK_INTERNAL or TKAFG1K_VAL_PSK_EXTERNAL."
+
+2 all "PSK Source" TKAFG1K_ATTR_PSK_SOURCE ViInt32 gs attrPSKSourceRangeTable 
+ "This channel-based attribute specifies the source of signal that the "
+ "function generator uses to modulate the output signal."
 
 1 all "Pulse Width Modulation" 
  "Attributes for applying pulse width modulation to output signals. The "
