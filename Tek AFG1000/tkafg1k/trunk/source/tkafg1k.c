@@ -3393,6 +3393,8 @@ ViStatus _VI_FUNC tkafg1k_ConfigureFSKExternalByChannel (ViSession vi,
                                         IVI_VAL_DIRECT_USER_CALL, hopFrequency);
 }
 
+
+
 /*****************************************************************************
  * Function: tkafg1k_ConfigurePWMEnabled
  * Purpose:  This function configures whether the function generator applies
