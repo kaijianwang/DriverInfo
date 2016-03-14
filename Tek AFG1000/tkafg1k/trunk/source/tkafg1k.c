@@ -11,6 +11,7 @@
  *
 ******************************************************************************/
 
+#include <utility.h>
 #include <string.h>
 #include <stdio.h>
 #include <formatio.h>
@@ -613,7 +614,7 @@ static IviRangeTable attrBurstDelayRangeTable =
     };
 
 
-        /* AFG3051C & AFG3052C, Arbitrary waveform */
+
 
 static ViBoolean waveformAndRunModeCombination[TKAFG1K_VAL_RUNMODE_QUANTUM][TKAFG1K_VAL_WAVEFORM_TYPE_QUANTUM] = {
 /*	Sine,Square,Ramp	Pulse	Noise		Arb*/
@@ -4468,8 +4469,10 @@ static ViStatus tkafg1k_DefaultInstrSetup (ViSession vi)
             viCheckErr( viPrintf (io, "*CLS;"));
 
             /* retrieve all existing arbitrary waveforms */
-            viCheckErr( viQueryf (io, "DATA:CAT?", "%s", catalog) );
-
+			
+			Delay(1);
+            viCheckErr( viQueryf (io, "DATA:CAT?","%s",catalog ));
+			//	viCheckErr( viRead (io, (ViPBuf)catalog, BUFFER_SIZE-1, &scanCnt));
             /* update the driver's waveform record to reflect sizes of existing waveforms */
             scanCnt = 1;
             while(scanCnt)
@@ -4547,9 +4550,6 @@ Error:
  * Function: tkafg1k_SetGetWaveformPointValue
  * Purpose: This function sets or gets waveform point value.
  *
- *          Notes:
- *          This function is only supported by AFG3011C, AFG3021C, AFG3051C,
- *          AFG3052C, AFG3101C, AFG3102C, AFG3251C, AFG3252C, AFG3022C.
  *****************************************************************************/
 ViStatus _VI_FUNC   tkafg1k_SetGetWaveformPointValue (ViSession vi, 
 		                                              ViInt32 pointIndex,
@@ -6121,25 +6121,6 @@ Error:
 
 
 /*- TKAFG1K_ATTR_ARB_FREQUENCY -*/
-    /* AFG302X */
-
-
-    /* AFG302XC */
-
-
-    /* AFG310X */
-
-
-    /* AFG325X */
-
-    /* AFG3011&AFG3011C */
-
-
-    /* AFG2021 */
-
-
-    /* AFG3051C & AFG3052C */
-
 
 static ViStatus _VI_FUNC tkafg1kAttrArbFrequency_RangeTableCallback (ViSession vi,
                                                                      ViConstString channelName,
@@ -10274,7 +10255,7 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 
     checkErr( Ivi_AddAttributeViString (vi, TKAFG1K_ATTR_ID_QUERY_RESPONSE,
                                         "TKAFG1K_ATTR_ID_QUERY_RESPONSE",
-                                        "TEKTRONIX,AFG3102",
+                                        "TEKTRONIX,AFG1022",
                                         IVI_VAL_NOT_USER_WRITABLE,
                                         tkafg1kAttrIdQueryResponse_ReadCallback,
                                         VI_NULL));
