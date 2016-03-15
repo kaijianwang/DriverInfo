@@ -108,13 +108,16 @@
 #define AFG1062_VAL_MIN_PUL_WID                     (17e-9)
 
 
-
-
 /*- Maximum Waveform Size ---------------------------------------------------*/
 #define AFG1022_VAL_MAX_WFM_SIZE                    8192
 #define AFG1062_VAL_MAX_WFM_SIZE                    1048576
 /*- Minimum Waveform Size ---------------------------------------------------*/
 #define TKAFG1K_VAL_MIN_WFM_SIZE                    2
+
+/*- Maximum Burst Count Size-------------------------------------------------*/
+#define AFG1022_VAL_MAX_BURST_COUNT					50000
+#define AFG1062_VAL_MAX_BURST_COUNT					1000000
+
 
 /*****************************************************************************
  *---------------------------- Useful Macros --------------------------------*
@@ -169,6 +172,22 @@
 #define tkafg1k_GetCmdFromIntValue(value, table, cmd) \
     	Ivi_GetViInt32EntryFromValue (value, table, VI_NULL, VI_NULL,\
     								  VI_NULL, VI_NULL, cmd, VI_NULL)
+
+static IviRangeTableEntry attrAFG1062BurstCountRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_BURST_INFINITY, TKAFG1K_VAL_BURST_INFINITY, 0, "", 0},
+		{1, AFG1062_VAL_MAX_BURST_COUNT, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrAFG1062BurstCountRangeTable =
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrAFG1062BurstCountRangeTableEntries,
+	};
 
 static IviRangeTableEntry attrPSKDeviationRangeTableEntries[] =
 	{
@@ -690,20 +709,7 @@ static IviRangeTable attrAFG1022ArbWfmSweepFrequencyRangeTable =
         attrAFG1022ArbWfmSweepFrequencyRangeTableEntries,
 	};
 
-static IviRangeTableEntry attrBurstDelayRangeTableEntries[] =
-    {
-        {0, 85, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-    };
 
-static IviRangeTable attrBurstDelayRangeTable =
-    {
-        IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrBurstDelayRangeTableEntries,
-    };
 
 
 
@@ -1873,6 +1879,11 @@ static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_CheckCallback (ViSession vi,
                                                                 ViConstString channelName,
                                                                 ViAttr attributeId,
                                                                 ViReal64 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrBurstCount_RangeTableCallback (ViSession vi,
+                                                                   ViConstString channelName,
+                                                                   ViAttr attributeId,
+                                                                   IviRangeTablePtr *rangeTablePtr);
 
 
 
@@ -6248,6 +6259,262 @@ static ViStatus _VI_FUNC tkafg1kAttrPulseDutyCycle_WriteCallback (ViSession vi,
 static IviRangeTableEntry attrArbWaveformHandleRangeTableEntries[] =
 	{
 		{TKAFG1K_VAL_WFM_EMEM, 0, 0, "EMEM", 0},
+		{TKAFG1K_VAL_WFM_USER0, 0, 0, "USER0", 0}, 
+		{TKAFG1K_VAL_WFM_USER1, 0, 0, "USER1", 0}, 
+		{TKAFG1K_VAL_WFM_USER2, 0, 0, "USER2", 0}, 
+		{TKAFG1K_VAL_WFM_USER3, 0, 0, "USER3", 0}, 
+		{TKAFG1K_VAL_WFM_USER4, 0, 0, "USER4", 0}, 
+		{TKAFG1K_VAL_WFM_USER5, 0, 0, "USER5", 0}, 
+		{TKAFG1K_VAL_WFM_USER6, 0, 0, "USER6", 0}, 
+		{TKAFG1K_VAL_WFM_USER7, 0, 0, "USER7", 0}, 
+		{TKAFG1K_VAL_WFM_USER8, 0, 0, "USER8", 0}, 
+		{TKAFG1K_VAL_WFM_USER9, 0, 0, "USER9", 0}, 
+		{TKAFG1K_VAL_WFM_USER10, 0, 0, "USER10", 0}, 
+		{TKAFG1K_VAL_WFM_USER11, 0, 0, "USER11", 0}, 
+		{TKAFG1K_VAL_WFM_USER12, 0, 0, "USER12", 0}, 
+		{TKAFG1K_VAL_WFM_USER13, 0, 0, "USER13", 0}, 
+		{TKAFG1K_VAL_WFM_USER14, 0, 0, "USER14", 0}, 
+		{TKAFG1K_VAL_WFM_USER15, 0, 0, "USER15", 0}, 
+		{TKAFG1K_VAL_WFM_USER16, 0, 0, "USER16", 0}, 
+		{TKAFG1K_VAL_WFM_USER17, 0, 0, "USER17", 0}, 
+		{TKAFG1K_VAL_WFM_USER18, 0, 0, "USER18", 0}, 
+		{TKAFG1K_VAL_WFM_USER19, 0, 0, "USER19", 0}, 
+		{TKAFG1K_VAL_WFM_USER20, 0, 0, "USER20", 0}, 
+		{TKAFG1K_VAL_WFM_USER21, 0, 0, "USER21", 0}, 
+		{TKAFG1K_VAL_WFM_USER22, 0, 0, "USER22", 0}, 
+		{TKAFG1K_VAL_WFM_USER23, 0, 0, "USER23", 0}, 
+		{TKAFG1K_VAL_WFM_USER24, 0, 0, "USER24", 0}, 
+		{TKAFG1K_VAL_WFM_USER25, 0, 0, "USER25", 0}, 
+		{TKAFG1K_VAL_WFM_USER26, 0, 0, "USER26", 0}, 
+		{TKAFG1K_VAL_WFM_USER27, 0, 0, "USER27", 0}, 
+		{TKAFG1K_VAL_WFM_USER28, 0, 0, "USER28", 0}, 
+		{TKAFG1K_VAL_WFM_USER29, 0, 0, "USER29", 0}, 
+		{TKAFG1K_VAL_WFM_USER30, 0, 0, "USER30", 0}, 
+		{TKAFG1K_VAL_WFM_USER31, 0, 0, "USER31", 0}, 
+		{TKAFG1K_VAL_WFM_USER32, 0, 0, "USER32", 0}, 
+		{TKAFG1K_VAL_WFM_USER33, 0, 0, "USER33", 0}, 
+		{TKAFG1K_VAL_WFM_USER34, 0, 0, "USER34", 0}, 
+		{TKAFG1K_VAL_WFM_USER35, 0, 0, "USER35", 0}, 
+		{TKAFG1K_VAL_WFM_USER36, 0, 0, "USER36", 0}, 
+		{TKAFG1K_VAL_WFM_USER37, 0, 0, "USER37", 0}, 
+		{TKAFG1K_VAL_WFM_USER38, 0, 0, "USER38", 0}, 
+		{TKAFG1K_VAL_WFM_USER39, 0, 0, "USER39", 0}, 
+		{TKAFG1K_VAL_WFM_USER40, 0, 0, "USER40", 0}, 
+		{TKAFG1K_VAL_WFM_USER41, 0, 0, "USER41", 0}, 
+		{TKAFG1K_VAL_WFM_USER42, 0, 0, "USER42", 0}, 
+		{TKAFG1K_VAL_WFM_USER43, 0, 0, "USER43", 0}, 
+		{TKAFG1K_VAL_WFM_USER44, 0, 0, "USER44", 0}, 
+		{TKAFG1K_VAL_WFM_USER45, 0, 0, "USER45", 0}, 
+		{TKAFG1K_VAL_WFM_USER46, 0, 0, "USER46", 0}, 
+		{TKAFG1K_VAL_WFM_USER47, 0, 0, "USER47", 0}, 
+		{TKAFG1K_VAL_WFM_USER48, 0, 0, "USER48", 0}, 
+		{TKAFG1K_VAL_WFM_USER49, 0, 0, "USER49", 0}, 
+		{TKAFG1K_VAL_WFM_USER50, 0, 0, "USER50", 0}, 
+		{TKAFG1K_VAL_WFM_USER51, 0, 0, "USER51", 0}, 
+		{TKAFG1K_VAL_WFM_USER52, 0, 0, "USER52", 0}, 
+		{TKAFG1K_VAL_WFM_USER53, 0, 0, "USER53", 0}, 
+		{TKAFG1K_VAL_WFM_USER54, 0, 0, "USER54", 0}, 
+		{TKAFG1K_VAL_WFM_USER55, 0, 0, "USER55", 0}, 
+		{TKAFG1K_VAL_WFM_USER56, 0, 0, "USER56", 0}, 
+		{TKAFG1K_VAL_WFM_USER57, 0, 0, "USER57", 0}, 
+		{TKAFG1K_VAL_WFM_USER58, 0, 0, "USER58", 0}, 
+		{TKAFG1K_VAL_WFM_USER59, 0, 0, "USER59", 0}, 
+		{TKAFG1K_VAL_WFM_USER60, 0, 0, "USER60", 0}, 
+		{TKAFG1K_VAL_WFM_USER61, 0, 0, "USER61", 0}, 
+		{TKAFG1K_VAL_WFM_USER62, 0, 0, "USER62", 0}, 
+		{TKAFG1K_VAL_WFM_USER63, 0, 0, "USER63", 0}, 
+		{TKAFG1K_VAL_WFM_USER64, 0, 0, "USER64", 0}, 
+		{TKAFG1K_VAL_WFM_USER65, 0, 0, "USER65", 0}, 
+		{TKAFG1K_VAL_WFM_USER66, 0, 0, "USER66", 0}, 
+		{TKAFG1K_VAL_WFM_USER67, 0, 0, "USER67", 0}, 
+		{TKAFG1K_VAL_WFM_USER68, 0, 0, "USER68", 0}, 
+		{TKAFG1K_VAL_WFM_USER69, 0, 0, "USER69", 0}, 
+		{TKAFG1K_VAL_WFM_USER70, 0, 0, "USER70", 0}, 
+		{TKAFG1K_VAL_WFM_USER71, 0, 0, "USER71", 0}, 
+		{TKAFG1K_VAL_WFM_USER72, 0, 0, "USER72", 0}, 
+		{TKAFG1K_VAL_WFM_USER73, 0, 0, "USER73", 0}, 
+		{TKAFG1K_VAL_WFM_USER74, 0, 0, "USER74", 0}, 
+		{TKAFG1K_VAL_WFM_USER75, 0, 0, "USER75", 0}, 
+		{TKAFG1K_VAL_WFM_USER76, 0, 0, "USER76", 0}, 
+		{TKAFG1K_VAL_WFM_USER77, 0, 0, "USER77", 0}, 
+		{TKAFG1K_VAL_WFM_USER78, 0, 0, "USER78", 0}, 
+		{TKAFG1K_VAL_WFM_USER79, 0, 0, "USER79", 0}, 
+		{TKAFG1K_VAL_WFM_USER80, 0, 0, "USER80", 0}, 
+		{TKAFG1K_VAL_WFM_USER81, 0, 0, "USER81", 0}, 
+		{TKAFG1K_VAL_WFM_USER82, 0, 0, "USER82", 0}, 
+		{TKAFG1K_VAL_WFM_USER83, 0, 0, "USER83", 0}, 
+		{TKAFG1K_VAL_WFM_USER84, 0, 0, "USER84", 0}, 
+		{TKAFG1K_VAL_WFM_USER85, 0, 0, "USER85", 0}, 
+		{TKAFG1K_VAL_WFM_USER86, 0, 0, "USER86", 0}, 
+		{TKAFG1K_VAL_WFM_USER87, 0, 0, "USER87", 0}, 
+		{TKAFG1K_VAL_WFM_USER88, 0, 0, "USER88", 0}, 
+		{TKAFG1K_VAL_WFM_USER89, 0, 0, "USER89", 0}, 
+		{TKAFG1K_VAL_WFM_USER90, 0, 0, "USER90", 0}, 
+		{TKAFG1K_VAL_WFM_USER91, 0, 0, "USER91", 0}, 
+		{TKAFG1K_VAL_WFM_USER92, 0, 0, "USER92", 0}, 
+		{TKAFG1K_VAL_WFM_USER93, 0, 0, "USER93", 0}, 
+		{TKAFG1K_VAL_WFM_USER94, 0, 0, "USER94", 0}, 
+		{TKAFG1K_VAL_WFM_USER95, 0, 0, "USER95", 0}, 
+		{TKAFG1K_VAL_WFM_USER96, 0, 0, "USER96", 0}, 
+		{TKAFG1K_VAL_WFM_USER97, 0, 0, "USER97", 0}, 
+		{TKAFG1K_VAL_WFM_USER98, 0, 0, "USER98", 0}, 
+		{TKAFG1K_VAL_WFM_USER99, 0, 0, "USER99", 0}, 
+		{TKAFG1K_VAL_WFM_USER100, 0, 0, "USER100", 0}, 
+		{TKAFG1K_VAL_WFM_USER101, 0, 0, "USER101", 0}, 
+		{TKAFG1K_VAL_WFM_USER102, 0, 0, "USER102", 0}, 
+		{TKAFG1K_VAL_WFM_USER103, 0, 0, "USER103", 0}, 
+		{TKAFG1K_VAL_WFM_USER104, 0, 0, "USER104", 0}, 
+		{TKAFG1K_VAL_WFM_USER105, 0, 0, "USER105", 0}, 
+		{TKAFG1K_VAL_WFM_USER106, 0, 0, "USER106", 0}, 
+		{TKAFG1K_VAL_WFM_USER107, 0, 0, "USER107", 0}, 
+		{TKAFG1K_VAL_WFM_USER108, 0, 0, "USER108", 0}, 
+		{TKAFG1K_VAL_WFM_USER109, 0, 0, "USER109", 0}, 
+		{TKAFG1K_VAL_WFM_USER110, 0, 0, "USER110", 0}, 
+		{TKAFG1K_VAL_WFM_USER111, 0, 0, "USER111", 0}, 
+		{TKAFG1K_VAL_WFM_USER112, 0, 0, "USER112", 0}, 
+		{TKAFG1K_VAL_WFM_USER113, 0, 0, "USER113", 0}, 
+		{TKAFG1K_VAL_WFM_USER114, 0, 0, "USER114", 0}, 
+		{TKAFG1K_VAL_WFM_USER115, 0, 0, "USER115", 0}, 
+		{TKAFG1K_VAL_WFM_USER116, 0, 0, "USER116", 0}, 
+		{TKAFG1K_VAL_WFM_USER117, 0, 0, "USER117", 0}, 
+		{TKAFG1K_VAL_WFM_USER118, 0, 0, "USER118", 0}, 
+		{TKAFG1K_VAL_WFM_USER119, 0, 0, "USER119", 0}, 
+		{TKAFG1K_VAL_WFM_USER120, 0, 0, "USER120", 0}, 
+		{TKAFG1K_VAL_WFM_USER121, 0, 0, "USER121", 0}, 
+		{TKAFG1K_VAL_WFM_USER122, 0, 0, "USER122", 0}, 
+		{TKAFG1K_VAL_WFM_USER123, 0, 0, "USER123", 0}, 
+		{TKAFG1K_VAL_WFM_USER124, 0, 0, "USER124", 0}, 
+		{TKAFG1K_VAL_WFM_USER125, 0, 0, "USER125", 0}, 
+		{TKAFG1K_VAL_WFM_USER126, 0, 0, "USER126", 0}, 
+		{TKAFG1K_VAL_WFM_USER127, 0, 0, "USER127", 0}, 
+		{TKAFG1K_VAL_WFM_USER128, 0, 0, "USER128", 0}, 
+		{TKAFG1K_VAL_WFM_USER129, 0, 0, "USER129", 0}, 
+		{TKAFG1K_VAL_WFM_USER130, 0, 0, "USER130", 0}, 
+		{TKAFG1K_VAL_WFM_USER131, 0, 0, "USER131", 0}, 
+		{TKAFG1K_VAL_WFM_USER132, 0, 0, "USER132", 0}, 
+		{TKAFG1K_VAL_WFM_USER133, 0, 0, "USER133", 0}, 
+		{TKAFG1K_VAL_WFM_USER134, 0, 0, "USER134", 0}, 
+		{TKAFG1K_VAL_WFM_USER135, 0, 0, "USER135", 0}, 
+		{TKAFG1K_VAL_WFM_USER136, 0, 0, "USER136", 0}, 
+		{TKAFG1K_VAL_WFM_USER137, 0, 0, "USER137", 0}, 
+		{TKAFG1K_VAL_WFM_USER138, 0, 0, "USER138", 0}, 
+		{TKAFG1K_VAL_WFM_USER139, 0, 0, "USER139", 0}, 
+		{TKAFG1K_VAL_WFM_USER140, 0, 0, "USER140", 0}, 
+		{TKAFG1K_VAL_WFM_USER141, 0, 0, "USER141", 0}, 
+		{TKAFG1K_VAL_WFM_USER142, 0, 0, "USER142", 0}, 
+		{TKAFG1K_VAL_WFM_USER143, 0, 0, "USER143", 0}, 
+		{TKAFG1K_VAL_WFM_USER144, 0, 0, "USER144", 0}, 
+		{TKAFG1K_VAL_WFM_USER145, 0, 0, "USER145", 0}, 
+		{TKAFG1K_VAL_WFM_USER146, 0, 0, "USER146", 0}, 
+		{TKAFG1K_VAL_WFM_USER147, 0, 0, "USER147", 0}, 
+		{TKAFG1K_VAL_WFM_USER148, 0, 0, "USER148", 0}, 
+		{TKAFG1K_VAL_WFM_USER149, 0, 0, "USER149", 0}, 
+		{TKAFG1K_VAL_WFM_USER150, 0, 0, "USER150", 0}, 
+		{TKAFG1K_VAL_WFM_USER151, 0, 0, "USER151", 0}, 
+		{TKAFG1K_VAL_WFM_USER152, 0, 0, "USER152", 0}, 
+		{TKAFG1K_VAL_WFM_USER153, 0, 0, "USER153", 0}, 
+		{TKAFG1K_VAL_WFM_USER154, 0, 0, "USER154", 0}, 
+		{TKAFG1K_VAL_WFM_USER155, 0, 0, "USER155", 0}, 
+		{TKAFG1K_VAL_WFM_USER156, 0, 0, "USER156", 0}, 
+		{TKAFG1K_VAL_WFM_USER157, 0, 0, "USER157", 0}, 
+		{TKAFG1K_VAL_WFM_USER158, 0, 0, "USER158", 0}, 
+		{TKAFG1K_VAL_WFM_USER159, 0, 0, "USER159", 0}, 
+		{TKAFG1K_VAL_WFM_USER160, 0, 0, "USER160", 0}, 
+		{TKAFG1K_VAL_WFM_USER161, 0, 0, "USER161", 0}, 
+		{TKAFG1K_VAL_WFM_USER162, 0, 0, "USER162", 0}, 
+		{TKAFG1K_VAL_WFM_USER163, 0, 0, "USER163", 0}, 
+		{TKAFG1K_VAL_WFM_USER164, 0, 0, "USER164", 0}, 
+		{TKAFG1K_VAL_WFM_USER165, 0, 0, "USER165", 0}, 
+		{TKAFG1K_VAL_WFM_USER166, 0, 0, "USER166", 0}, 
+		{TKAFG1K_VAL_WFM_USER167, 0, 0, "USER167", 0}, 
+		{TKAFG1K_VAL_WFM_USER168, 0, 0, "USER168", 0}, 
+		{TKAFG1K_VAL_WFM_USER169, 0, 0, "USER169", 0}, 
+		{TKAFG1K_VAL_WFM_USER170, 0, 0, "USER170", 0}, 
+		{TKAFG1K_VAL_WFM_USER171, 0, 0, "USER171", 0}, 
+		{TKAFG1K_VAL_WFM_USER172, 0, 0, "USER172", 0}, 
+		{TKAFG1K_VAL_WFM_USER173, 0, 0, "USER173", 0}, 
+		{TKAFG1K_VAL_WFM_USER174, 0, 0, "USER174", 0}, 
+		{TKAFG1K_VAL_WFM_USER175, 0, 0, "USER175", 0}, 
+		{TKAFG1K_VAL_WFM_USER176, 0, 0, "USER176", 0}, 
+		{TKAFG1K_VAL_WFM_USER177, 0, 0, "USER177", 0}, 
+		{TKAFG1K_VAL_WFM_USER178, 0, 0, "USER178", 0}, 
+		{TKAFG1K_VAL_WFM_USER179, 0, 0, "USER179", 0}, 
+		{TKAFG1K_VAL_WFM_USER180, 0, 0, "USER180", 0}, 
+		{TKAFG1K_VAL_WFM_USER181, 0, 0, "USER181", 0}, 
+		{TKAFG1K_VAL_WFM_USER182, 0, 0, "USER182", 0}, 
+		{TKAFG1K_VAL_WFM_USER183, 0, 0, "USER183", 0}, 
+		{TKAFG1K_VAL_WFM_USER184, 0, 0, "USER184", 0}, 
+		{TKAFG1K_VAL_WFM_USER185, 0, 0, "USER185", 0}, 
+		{TKAFG1K_VAL_WFM_USER186, 0, 0, "USER186", 0}, 
+		{TKAFG1K_VAL_WFM_USER187, 0, 0, "USER187", 0}, 
+		{TKAFG1K_VAL_WFM_USER188, 0, 0, "USER188", 0}, 
+		{TKAFG1K_VAL_WFM_USER189, 0, 0, "USER189", 0}, 
+		{TKAFG1K_VAL_WFM_USER190, 0, 0, "USER190", 0}, 
+		{TKAFG1K_VAL_WFM_USER191, 0, 0, "USER191", 0}, 
+		{TKAFG1K_VAL_WFM_USER192, 0, 0, "USER192", 0}, 
+		{TKAFG1K_VAL_WFM_USER193, 0, 0, "USER193", 0}, 
+		{TKAFG1K_VAL_WFM_USER194, 0, 0, "USER194", 0}, 
+		{TKAFG1K_VAL_WFM_USER195, 0, 0, "USER195", 0}, 
+		{TKAFG1K_VAL_WFM_USER196, 0, 0, "USER196", 0}, 
+		{TKAFG1K_VAL_WFM_USER197, 0, 0, "USER197", 0}, 
+		{TKAFG1K_VAL_WFM_USER198, 0, 0, "USER198", 0}, 
+		{TKAFG1K_VAL_WFM_USER199, 0, 0, "USER199", 0}, 
+		{TKAFG1K_VAL_WFM_USER200, 0, 0, "USER200", 0}, 
+		{TKAFG1K_VAL_WFM_USER201, 0, 0, "USER201", 0}, 
+		{TKAFG1K_VAL_WFM_USER202, 0, 0, "USER202", 0}, 
+		{TKAFG1K_VAL_WFM_USER203, 0, 0, "USER203", 0}, 
+		{TKAFG1K_VAL_WFM_USER204, 0, 0, "USER204", 0}, 
+		{TKAFG1K_VAL_WFM_USER205, 0, 0, "USER205", 0}, 
+		{TKAFG1K_VAL_WFM_USER206, 0, 0, "USER206", 0}, 
+		{TKAFG1K_VAL_WFM_USER207, 0, 0, "USER207", 0}, 
+		{TKAFG1K_VAL_WFM_USER208, 0, 0, "USER208", 0}, 
+		{TKAFG1K_VAL_WFM_USER209, 0, 0, "USER209", 0}, 
+		{TKAFG1K_VAL_WFM_USER210, 0, 0, "USER210", 0}, 
+		{TKAFG1K_VAL_WFM_USER211, 0, 0, "USER211", 0}, 
+		{TKAFG1K_VAL_WFM_USER212, 0, 0, "USER212", 0}, 
+		{TKAFG1K_VAL_WFM_USER213, 0, 0, "USER213", 0}, 
+		{TKAFG1K_VAL_WFM_USER214, 0, 0, "USER214", 0}, 
+		{TKAFG1K_VAL_WFM_USER215, 0, 0, "USER215", 0}, 
+		{TKAFG1K_VAL_WFM_USER216, 0, 0, "USER216", 0}, 
+		{TKAFG1K_VAL_WFM_USER217, 0, 0, "USER217", 0}, 
+		{TKAFG1K_VAL_WFM_USER218, 0, 0, "USER218", 0}, 
+		{TKAFG1K_VAL_WFM_USER219, 0, 0, "USER219", 0}, 
+		{TKAFG1K_VAL_WFM_USER220, 0, 0, "USER220", 0}, 
+		{TKAFG1K_VAL_WFM_USER221, 0, 0, "USER221", 0}, 
+		{TKAFG1K_VAL_WFM_USER222, 0, 0, "USER222", 0}, 
+		{TKAFG1K_VAL_WFM_USER223, 0, 0, "USER223", 0}, 
+		{TKAFG1K_VAL_WFM_USER224, 0, 0, "USER224", 0}, 
+		{TKAFG1K_VAL_WFM_USER225, 0, 0, "USER225", 0}, 
+		{TKAFG1K_VAL_WFM_USER226, 0, 0, "USER226", 0}, 
+		{TKAFG1K_VAL_WFM_USER227, 0, 0, "USER227", 0}, 
+		{TKAFG1K_VAL_WFM_USER228, 0, 0, "USER228", 0}, 
+		{TKAFG1K_VAL_WFM_USER229, 0, 0, "USER229", 0}, 
+		{TKAFG1K_VAL_WFM_USER230, 0, 0, "USER230", 0}, 
+		{TKAFG1K_VAL_WFM_USER231, 0, 0, "USER231", 0}, 
+		{TKAFG1K_VAL_WFM_USER232, 0, 0, "USER232", 0}, 
+		{TKAFG1K_VAL_WFM_USER233, 0, 0, "USER233", 0}, 
+		{TKAFG1K_VAL_WFM_USER234, 0, 0, "USER234", 0}, 
+		{TKAFG1K_VAL_WFM_USER235, 0, 0, "USER235", 0}, 
+		{TKAFG1K_VAL_WFM_USER236, 0, 0, "USER236", 0}, 
+		{TKAFG1K_VAL_WFM_USER237, 0, 0, "USER237", 0}, 
+		{TKAFG1K_VAL_WFM_USER238, 0, 0, "USER238", 0}, 
+		{TKAFG1K_VAL_WFM_USER239, 0, 0, "USER239", 0}, 
+		{TKAFG1K_VAL_WFM_USER240, 0, 0, "USER240", 0}, 
+		{TKAFG1K_VAL_WFM_USER241, 0, 0, "USER241", 0}, 
+		{TKAFG1K_VAL_WFM_USER242, 0, 0, "USER242", 0}, 
+		{TKAFG1K_VAL_WFM_USER243, 0, 0, "USER243", 0}, 
+		{TKAFG1K_VAL_WFM_USER244, 0, 0, "USER244", 0}, 
+		{TKAFG1K_VAL_WFM_USER245, 0, 0, "USER245", 0}, 
+		{TKAFG1K_VAL_WFM_USER246, 0, 0, "USER246", 0}, 
+		{TKAFG1K_VAL_WFM_USER247, 0, 0, "USER247", 0}, 
+		{TKAFG1K_VAL_WFM_USER248, 0, 0, "USER248", 0}, 
+		{TKAFG1K_VAL_WFM_USER249, 0, 0, "USER249", 0}, 
+		{TKAFG1K_VAL_WFM_USER250, 0, 0, "USER250", 0}, 
+		{TKAFG1K_VAL_WFM_USER251, 0, 0, "USER251", 0}, 
+		{TKAFG1K_VAL_WFM_USER252, 0, 0, "USER252", 0}, 
+		{TKAFG1K_VAL_WFM_USER253, 0, 0, "USER253", 0}, 
+		{TKAFG1K_VAL_WFM_USER254, 0, 0, "USER254", 0}, 
+		{TKAFG1K_VAL_WFM_USER255, 0, 0, "USER255", 0}, 
 		{IVI_RANGE_TABLE_LAST_ENTRY}
 	};
 static IviRangeTable attrArbWaveformHandleRangeTable =
@@ -6430,31 +6697,16 @@ static ViStatus _VI_FUNC tkafg1kAttrArbSampleRate_ReadCallback (ViSession vi,
                                                                  ViReal64 *value)
 {
     ViStatus error = VI_SUCCESS;
-	
-    ViInt32     chan1WfmHandle, chan2WfmHandle;
-    ViInt32     chan1WfmSize, chan2WfmSize;
-    ViReal64    maxWfmSize;
-	
+	ViInt32  model;
     checkErr( tkafg1k_VerifyOutputMode(vi, TKAFG1K_VAL_OUTPUT_ARB) );     
-	checkErr( tkafg1k_GetAttributeViInt32 (vi, CHAN1, TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE, &chan1WfmHandle) );			
-	checkErr( tkafg1k_GetAttributeViInt32 (vi, CHAN2, TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE, &chan2WfmHandle) );
-	checkErr( tkafg1k_GetWfmSize(vi, io, chan1WfmHandle, &chan1WfmSize) );								   
-	checkErr( tkafg1k_GetWfmSize(vi, io, chan2WfmHandle, &chan2WfmSize) );  
-	maxWfmSize = chan1WfmSize > chan2WfmSize ? chan1WfmSize : chan2WfmSize;		
-	
-	if (maxWfmSize > 16384) {	 
-		*value = 250e6;   
-	} else {		
-		*value = 1e9;	   
-	}
-
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	if (model == TKAFG1K_VAL_MODEL_AFG1022)
+		*value = 125e6;
+	else if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		*value = 300e6;
 Error:
     return error;
 }
-
-/*- TKAFG1K_ATTR_MAX_NUM_WAVEFORMS -*/
-
-/*- TKAFG1K_ATTR_WAVEFORM_QUANTUM -*/
 
 /*- TKAFG1K_ATTR_MAX_WAVEFORM_SIZE -*/
 static ViStatus _VI_FUNC tkafg1kAttrMaxWaveformSize_ReadCallback (ViSession vi,
@@ -6610,20 +6862,20 @@ Error:
 }
 
 /*- TKAFG1K_ATTR_BURST_COUNT -*/
-static IviRangeTableEntry attrBurstCountRangeTableEntries[] =
-{
-        {TKAFG1K_VAL_BURST_INFINITY, TKAFG1K_VAL_BURST_INFINITY, 0, "", 0},
-        {1, 1000000, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-};
-static IviRangeTable attrBurstCountRangeTable =
-{
-        IVI_VAL_RANGED,
+static IviRangeTableEntry attrAFG1022BurstCountRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_BURST_INFINITY, TKAFG1K_VAL_BURST_INFINITY, 0, "", 0},
+		{1, AFG1022_VAL_MAX_BURST_COUNT, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+static IviRangeTable attrAFG1022BurstCountRangeTable =
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
-        attrBurstCountRangeTableEntries,
-};
+        attrAFG1022BurstCountRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrBurstCount_WriteCallback (ViSession vi,
                                                                ViSession io,
@@ -6714,69 +6966,6 @@ static ViStatus _VI_FUNC tkafg1kAttrBurstMode_ReadCallback (ViSession vi,
 {
     return (tkafg1k_ReadCmd (vi, io, channelName, &attrBurstModeRangeTable, "source%s:burst:mode?", value) );
 }
-
-/*- TKAFG1K_ATTR_BURST_DELAY -*/
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_ENABLED -*/
-
-
-/*- TKAFG1K_ATTR_SWEEP_TYPE -*/
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_MODE -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_START_FREQUENCY -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_TIME -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_HOLD_TIME -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_RETURN_TIME -*/
-
-
-
-
-
-/*- TKAFG1K_ATTR_APPEND_NOISE_ENABLED -*/
-
-
-/*- TKAFG1K_ATTR_APPEND_NOISE_LEVEL -*/
-static IviRangeTableEntry attrAppendNoiseLevelRangeTableEntries[] =
-{
-    {0, 50.0, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
-static IviRangeTable attrAppendNoiseLevelRangeTable =
-{
-    IVI_VAL_RANGED,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrAppendNoiseLevelRangeTableEntries,
-};
-
-
-
 
 
 /*- TKAFG1K_ATTR_MODULATION_ENABLED -*/
@@ -7439,18 +7628,18 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveformByChannel_WriteCallback (V
 
 /*- TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY -*/
 static IviRangeTableEntry attrAMInternalFrequencyRangeTableEntries[] =
-    {
-        {0.002, 50000.00, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-    };
+	{
+		{0.002, 20000.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrAMInternalFrequencyRangeTable =
-    {
-        IVI_VAL_RANGED,
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrAMInternalFrequencyRangeTableEntries,
-    };
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrAMInternalFrequency_WriteCallback (ViSession vi,
                                                                         ViSession io,
@@ -8142,18 +8331,18 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveformByChannel_WriteCallback (V
 
 /*- TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY -*/
 static IviRangeTableEntry attrFMInternalFrequencyRangeTableEntries[] =
-{
-    {0.002, 50000.0, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.002, 20000.0, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrFMInternalFrequencyRangeTable =
-{
-        IVI_VAL_RANGED,
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrFMInternalFrequencyRangeTableEntries,
-};
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequency_WriteCallback (ViSession vi,
                                                                         ViSession io,
@@ -8268,18 +8457,18 @@ static ViStatus _VI_FUNC tkafg1kAttrFSKHopFrequency_WriteCallback (ViSession vi,
 
 /*- TKAFG1K_ATTR_FSK_INTERNAL_RATE -*/
 static IviRangeTableEntry attrFSKInternalRateRangeTableEntries[] =
-{
-    {0.002, 1000000, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.002, 100000, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrFSKInternalRateRangeTable =
-{
-    IVI_VAL_RANGED,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrFSKInternalRateRangeTableEntries,
-};
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrFSKInternalRateRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrFSKInternalRate_ReadCallback (ViSession vi,
                                                                   ViSession io,
@@ -8465,19 +8654,19 @@ static ViStatus _VI_FUNC tkafg1kAttrPMDeviationByChannel_WriteCallback (ViSessio
 
 /*- TKAFG1K_ATTR_PM_INTERNAL_FREQUENCY_BY_CHANNEL -*/
 static IviRangeTableEntry attrPMInternalFrequencyRangeTableEntries[] =
-{
-    {0.002, 50000.00, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.002, 20000.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 
 static IviRangeTable attrPMInternalFrequencyRangeTable =
-{
-    IVI_VAL_RANGED,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrPMInternalFrequencyRangeTableEntries,
-};
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrPMInternalFrequencyRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrPMInternalFrequencyByChannel_ReadCallback (ViSession vi,
                                                                                ViSession io,
@@ -8960,19 +9149,19 @@ static ViStatus _VI_FUNC tkafg1kAttrPWMDeviation_WriteCallback (ViSession vi,
 
 /*- TKAFG1K_ATTR_PWM_INTERNAL_FREQUENCY -*/
 static IviRangeTableEntry attrPWMInternalFrequencyRangeTableEntries[] =
-{
-    {0.002, 50000.00, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.002, 20000.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 
 static IviRangeTable attrPWMInternalFrequencyRangeTable =
-{
-    IVI_VAL_RANGED,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrPWMInternalFrequencyRangeTableEntries,
-};
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrPWMInternalFrequencyRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrPWMInternalFrequency_ReadCallback (ViSession vi,
                                                                        ViSession io,
@@ -10364,6 +10553,30 @@ Error:
 	return error;
 }
 
+static ViStatus _VI_FUNC tkafg1kAttrBurstCount_RangeTableCallback (ViSession vi,
+                                                                   ViConstString channelName,
+                                                                   ViAttr attributeId,
+                                                                   IviRangeTablePtr *rangeTablePtr)
+{
+	ViStatus	error = VI_SUCCESS;
+	IviRangeTablePtr	tblPtr = VI_NULL;
+    ViInt32     model;
+    
+    checkErr ( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model) );
+    if( model == TKAFG1K_VAL_MODEL_AFG1022 )
+    {
+		tblPtr = &attrAFG1022BurstCountRangeTable;
+    }
+    else if( model == TKAFG1K_VAL_MODEL_AFG1062 )
+    {
+		tblPtr = &attrAFG1062BurstCountRangeTable;
+	}
+
+Error:
+	*rangeTablePtr = tblPtr;
+	return error;
+}
+
 /*****************************************************************************
  * Function: tkafg1k_InitAttributes
  * Purpose:  This function adds attributes to the IVI session, initializes
@@ -10664,12 +10877,14 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                                  tkafg1kAttrBurstEnabled_CheckCallback));
 
     /*- Burst Count -*/
-    checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_BURST_COUNT,
-                                       "TKAFG1K_ATTR_BURST_COUNT", 5,
-                                       IVI_VAL_MULTI_CHANNEL,
-                                       tkafg1kAttrBurstCount_ReadCallback,
-                                       tkafg1kAttrBurstCount_WriteCallback,
-                                       &attrBurstCountRangeTable));
+	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_BURST_COUNT,
+	                                   "TKAFG1K_ATTR_BURST_COUNT", 5,
+	                                   IVI_VAL_MULTI_CHANNEL,
+	                                   tkafg1kAttrBurstCount_ReadCallback,
+	                                   tkafg1kAttrBurstCount_WriteCallback,
+	                                   &attrAFG1022BurstCountRangeTable));
+	checkErr (Ivi_SetAttrRangeTableCallback (vi, TKAFG1K_ATTR_BURST_COUNT,
+	                                         tkafg1kAttrBurstCount_RangeTableCallback));
 
     /*- Burst Mode -*/
     checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_BURST_MODE,

@@ -13,9 +13,9 @@
         <DefaultValue>TKAFG1K_VAL_OPERATE_CONTINUOUS</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrOperationMode_ReadCallback</Read>
-          <Write>tkafg3kAttrOperationMode_WriteCallback</Write>
-          <Check>tkafg3kAttrOperationMode_CheckCallback</Check>
+          <Read>tkafg1kAttrOperationMode_ReadCallback</Read>
+          <Write>tkafg1kAttrOperationMode_WriteCallback</Write>
+          <Check>tkafg1kAttrOperationMode_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -141,8 +141,8 @@ Attribute@!##!@Value:@!##!@1250001</Description>
         <DefaultValue>TKAFG1K_VAL_OUTPUT_FUNC</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrOutputModeByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrOutputModeByChannel_WriteCallback</Write>
+          <Read>tkafg1kAttrOutputModeByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrOutputModeByChannel_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -211,8 +211,8 @@ Attribute@!##!@Value:@!##!@1150002</Description>
         <DefaultValue>VI_FALSE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrOutputEnabled_ReadCallback</Read>
-          <Write>tkafg3kAttrOutputEnabled_WriteCallback</Write>
+          <Read>tkafg1kAttrOutputEnabled_ReadCallback</Read>
+          <Write>tkafg1kAttrOutputEnabled_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -241,8 +241,8 @@ Attribute@!##!@Value:@!##!@1250003</Description>
         <DefaultValue>50.0</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrOutputImpedance_ReadCallback</Read>
-          <Write>tkafg3kAttrOutputImpedance_WriteCallback</Write>
+          <Read>tkafg1kAttrOutputImpedance_ReadCallback</Read>
+          <Write>tkafg1kAttrOutputImpedance_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -272,8 +272,8 @@ Attribute@!##!@Value:@!##!@1250004</Description>
         <RepeatedCap />
         <Callback>
           <Read />
-          <Write>tkafg3kAttrContinuousEnabled_WriteCallback</Write>
-          <Check>tkafg3kAttrContinuousEnabled_CheckCallback</Check>
+          <Write>tkafg1kAttrContinuousEnabled_WriteCallback</Write>
+          <Check>tkafg1kAttrContinuousEnabled_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -310,9 +310,9 @@ Notes:
         <DefaultValue>TKAFG1K_VAL_WFM_SINE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFuncWaveform_ReadCallback</Read>
-          <Write>tkafg3kAttrFuncWaveform_WriteCallback</Write>
-          <Check>tkafg3kAttrFuncWaveform_CheckCallback</Check>
+          <Read>tkafg1kAttrFuncWaveform_ReadCallback</Read>
+          <Write>tkafg1kAttrFuncWaveform_WriteCallback</Write>
+          <Check>tkafg1kAttrFuncWaveform_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -343,9 +343,9 @@ Attribute@!##!@Value:@!##!@1250101</Description>
         <DefaultValue>1.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFuncAmplitude_ReadCallback</Read>
-          <Write>tkafg3kAttrFuncAmplitude_WriteCallback</Write>
-          <Check>tkafg3kAttrFuncAmplitude_CheckCallback</Check>
+          <Read>tkafg1kAttrFuncAmplitude_ReadCallback</Read>
+          <Write>tkafg1kAttrFuncAmplitude_WriteCallback</Write>
+          <Check>tkafg1kAttrFuncAmplitude_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -376,9 +376,9 @@ Attribute@!##!@Value:@!##!@1250102</Description>
         <DefaultValue>0.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFuncDCOffset_ReadCallback</Read>
-          <Write>tkafg3kAttrFuncDCOffset_WriteCallback</Write>
-          <Check>tkafg3kAttrFuncDCOffset_CheckCallback</Check>
+          <Read>tkafg1kAttrFuncDCOffset_ReadCallback</Read>
+          <Write>tkafg1kAttrFuncDCOffset_WriteCallback</Write>
+          <Check>tkafg1kAttrFuncDCOffset_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -409,12 +409,12 @@ Attribute@!##!@Value:@!##!@1250103</Description>
         <DefaultValue>1000000.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFuncFrequency_ReadCallback</Read>
-          <Write>tkafg3kAttrFuncFrequency_WriteCallback</Write>
-          <Check>tkafg3kAttrFuncFrequency_CheckCallback</Check>
+          <Read>tkafg1kAttrFuncFrequency_ReadCallback</Read>
+          <Write>tkafg1kAttrFuncFrequency_WriteCallback</Write>
+          <Check>tkafg1kAttrFuncFrequency_CheckCallback</Check>
           <Compare />
           <Coerce />
-          <RangeTable>tkafg3kAttrFuncFrequency_RangeTableCallback</RangeTable>
+          <RangeTable>tkafg1kAttrFuncFrequency_RangeTableCallback</RangeTable>
         </Callback>
         <RelatedCmd />
         <WriteCmd />
@@ -442,9 +442,9 @@ Attribute@!##!@Value:@!##!@1250104</Description>
         <DefaultValue>0.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFuncStartPhase_ReadCallback</Read>
-          <Write>tkafg3kAttrFuncStartPhase_WriteCallback</Write>
-          <Check>tkafg3kAttrFuncStartPhase_CheckCallback</Check>
+          <Read>tkafg1kAttrFuncStartPhase_ReadCallback</Read>
+          <Write>tkafg1kAttrFuncStartPhase_WriteCallback</Write>
+          <Check>tkafg1kAttrFuncStartPhase_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -508,9 +508,9 @@ Attribute@!##!@Value:@!##!@1250106</Description>
         <DefaultValue>50</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPulseDutyCycle_ReadCallback</Read>
-          <Write>tkafg3kAttrPulseDutyCycle_WriteCallback</Write>
-          <Check>tkafg3kAttrPulseDutyCycle_CheckCallback</Check>
+          <Read>tkafg1kAttrPulseDutyCycle_ReadCallback</Read>
+          <Write>tkafg1kAttrPulseDutyCycle_WriteCallback</Write>
+          <Check>tkafg1kAttrPulseDutyCycle_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -543,9 +543,9 @@ Attribute@!##!@Value:@!##!@1150042</Description>
         <DefaultValue>TKAFG1K_VAL_WFM_EMEM</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrArbWaveformHandle_ReadCallback</Read>
-          <Write>tkafg3kAttrArbWaveformHandle_WriteCallback</Write>
-          <Check>tkafg3kAttrArbWaveformHandle_CheckCallback</Check>
+          <Read>tkafg1kAttrArbWaveformHandle_ReadCallback</Read>
+          <Write>tkafg1kAttrArbWaveformHandle_WriteCallback</Write>
+          <Check>tkafg1kAttrArbWaveformHandle_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -579,9 +579,9 @@ Attribute@!##!@Value:@!##!@1250201</Description>
         <DefaultValue>0.5</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrArbGain_ReadCallback</Read>
-          <Write>tkafg3kAttrArbGain_WriteCallback</Write>
-          <Check>tkafg3kAttrArbGain_CheckCallback</Check>
+          <Read>tkafg1kAttrArbGain_ReadCallback</Read>
+          <Write>tkafg1kAttrArbGain_WriteCallback</Write>
+          <Check>tkafg1kAttrArbGain_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -612,9 +612,9 @@ Attribute@!##!@Value:@!##!@1250202</Description>
         <DefaultValue>0.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrArbOffset_ReadCallback</Read>
-          <Write>tkafg3kAttrArbOffset_WriteCallback</Write>
-          <Check>tkafg3kAttrArbOffset_CheckCallback</Check>
+          <Read>tkafg1kAttrArbOffset_ReadCallback</Read>
+          <Write>tkafg1kAttrArbOffset_WriteCallback</Write>
+          <Check>tkafg1kAttrArbOffset_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -678,12 +678,12 @@ Attribute@!##!@Value:@!##!@1250204</Description>
         <DefaultValue>1000000.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrArbFrequency_ReadCallback</Read>
-          <Write>tkafg3kAttrArbFrequency_WriteCallback</Write>
-          <Check>tkafg3kAttrArbFrequency_CheckCallback</Check>
+          <Read>tkafg1kAttrArbFrequency_ReadCallback</Read>
+          <Write>tkafg1kAttrArbFrequency_WriteCallback</Write>
+          <Check>tkafg1kAttrArbFrequency_CheckCallback</Check>
           <Compare />
           <Coerce />
-          <RangeTable>tkafg3kAttrArbFrequency_RangeTableCallback</RangeTable>
+          <RangeTable>tkafg1kAttrArbFrequency_RangeTableCallback</RangeTable>
         </Callback>
         <RelatedCmd />
         <WriteCmd />
@@ -880,8 +880,8 @@ Attribute@!##!@Value:@!##!@1150045</Description>
         <RepeatedCap />
         <Callback>
           <Read />
-          <Write>tkafg3kAttrBurstEnabled_WriteCallback</Write>
-          <Check>tkafg3kAttrBurstEnabled_CheckCallback</Check>
+          <Write>tkafg1kAttrBurstEnabled_WriteCallback</Write>
+          <Check>tkafg1kAttrBurstEnabled_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -910,8 +910,8 @@ Attribute@!##!@Value:@!##!@1150045</Description>
         <DefaultValue>5</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrBurstCount_ReadCallback</Read>
-          <Write>tkafg3kAttrBurstCount_WriteCallback</Write>
+          <Read>tkafg1kAttrBurstCount_ReadCallback</Read>
+          <Write>tkafg1kAttrBurstCount_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -940,8 +940,8 @@ Attribute@!##!@Value:@!##!@1250350</Description>
         <DefaultValue>TKAFG1K_VAL_BURST_TRIGGER</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrBurstMode_ReadCallback</Read>
-          <Write>tkafg3kAttrBurstMode_WriteCallback</Write>
+          <Read>tkafg1kAttrBurstMode_ReadCallback</Read>
+          <Write>tkafg1kAttrBurstMode_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -979,8 +979,8 @@ Attribute@!##!@Value:@!##!@1150041</Description>
         <RepeatedCap />
         <Callback>
           <Read />
-          <Write>tkafg3kAttrSweepEnabled_WriteCallback</Write>
-          <Check>tkafg3kAttrSweepEnabled_CheckCallback</Check>
+          <Write>tkafg1kAttrSweepEnabled_WriteCallback</Write>
+          <Check>tkafg1kAttrSweepEnabled_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1009,12 +1009,12 @@ Attribute@!##!@Value:@!##!@1150041</Description>
         <DefaultValue>100000</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrSweepStartFrequency_ReadCallback</Read>
-          <Write>tkafg3kAttrSweepStartFrequency_WriteCallback</Write>
+          <Read>tkafg1kAttrSweepStartFrequency_ReadCallback</Read>
+          <Write>tkafg1kAttrSweepStartFrequency_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
-          <RangeTable>tkafg3kAttrSweepStartFrequency_RangeTableCallback</RangeTable>
+          <RangeTable>tkafg1kAttrSweepStartFrequency_RangeTableCallback</RangeTable>
         </Callback>
         <RelatedCmd />
         <WriteCmd />
@@ -1043,12 +1043,12 @@ Attribute@!##!@Value:@!##!@1150013</Description>
         <DefaultValue>1000000</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrSweepStopFrequency_ReadCallback</Read>
-          <Write>tkafg3kAttrSweepStopFrequency_WriteCallback</Write>
+          <Read>tkafg1kAttrSweepStopFrequency_ReadCallback</Read>
+          <Write>tkafg1kAttrSweepStopFrequency_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
-          <RangeTable>tkafg3kAttrSweepStopFrequency_RangeTableCallback</RangeTable>
+          <RangeTable>tkafg1kAttrSweepStopFrequency_RangeTableCallback</RangeTable>
         </Callback>
         <RelatedCmd />
         <WriteCmd />
@@ -1082,7 +1082,7 @@ Attribute@!##!@Value:@!##!@1150014</Description>
         <RepeatedCap />
         <Callback>
           <Read />
-          <Write>tkafg3kAttrModulationEnabled_WriteCallback</Write>
+          <Write>tkafg1kAttrModulationEnabled_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1154,9 +1154,9 @@ Notes:
         <DefaultValue>VI_FALSE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrAMEnabled_ReadCallback</Read>
-          <Write>tkafg3kAttrAMEnabled_WriteCallback</Write>
-          <Check>tkafg3kAttrAMEnabled_CheckCallback</Check>
+          <Read>tkafg1kAttrAMEnabled_ReadCallback</Read>
+          <Write>tkafg1kAttrAMEnabled_WriteCallback</Write>
+          <Check>tkafg1kAttrAMEnabled_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1185,8 +1185,8 @@ Attribute@!##!@Value:@!##!@1250401</Description>
         <DefaultValue>TKAFG1K_VAL_AM_INTERNAL</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrAMSource_ReadCallback</Read>
-          <Write>tkafg3kAttrAMSource_WriteCallback</Write>
+          <Read>tkafg1kAttrAMSource_ReadCallback</Read>
+          <Write>tkafg1kAttrAMSource_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1317,8 +1317,8 @@ Attribute@!##!@Value:@!##!@1250405</Description>
         <DefaultValue>50.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrAMDepthByChannel_ReadCallBack</Read>
-          <Write>tkafg3kAttrAMDepthByChannel_WriteCallback</Write>
+          <Read>tkafg1kAttrAMDepthByChannel_ReadCallBack</Read>
+          <Write>tkafg1kAttrAMDepthByChannel_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1348,9 +1348,9 @@ Attribute@!##!@Value:@!##!@1150020</Description>
         <DefaultValue>TKAFG1K_VAL_AM_INTERNAL_SINE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrAMInternalWaveformByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrAMInternalWaveformByChannel_WriteCallback</Write>
-          <Check>tkafg3kAttrAMInternalWaveformByChannel_CheckCallback</Check>
+          <Read>tkafg1kAttrAMInternalWaveformByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrAMInternalWaveformByChannel_WriteCallback</Write>
+          <Check>tkafg1kAttrAMInternalWaveformByChannel_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1383,8 +1383,8 @@ Attribute@!##!@Value:@!##!@1150021</Description>
         <DefaultValue>10000.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrAMInternalFrequencyByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrAMInternalFrequencyByChannel_WriteCallback</Write>
+          <Read>tkafg1kAttrAMInternalFrequencyByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrAMInternalFrequencyByChannel_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1418,9 +1418,9 @@ Attribute@!##!@Value:@!##!@1150022</Description>
         <DefaultValue>VI_FALSE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFMEnabled_ReadCallback</Read>
-          <Write>tkafg3kAttrFMEnabled_WriteCallback</Write>
-          <Check>tkafg3kAttrFMEnabled_CheckCallback</Check>
+          <Read>tkafg1kAttrFMEnabled_ReadCallback</Read>
+          <Write>tkafg1kAttrFMEnabled_WriteCallback</Write>
+          <Check>tkafg1kAttrFMEnabled_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1449,8 +1449,8 @@ Attribute@!##!@Value:@!##!@1250501</Description>
         <DefaultValue>TKAFG1K_VAL_FM_INTERNAL</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFMSource_ReadCallback</Read>
-          <Write>tkafg3kAttrFMSource_WriteCallback</Write>
+          <Read>tkafg1kAttrFMSource_ReadCallback</Read>
+          <Write>tkafg1kAttrFMSource_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1581,8 +1581,8 @@ Attribute@!##!@Value:@!##!@1250505</Description>
         <DefaultValue>0</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFMDeviationByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrFMDeviationByChannel_WriteCallback</Write>
+          <Read>tkafg1kAttrFMDeviationByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrFMDeviationByChannel_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1612,9 +1612,9 @@ Attribute@!##!@Value:@!##!@1150023</Description>
         <DefaultValue>TKAFG1K_VAL_FM_INTERNAL_SINE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFMInternalWaveformByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrFMInternalWaveformByChannel_WriteCallback</Write>
-          <Check>tkafg3kAttrFMInternalWaveformByChannel_CheckCallback</Check>
+          <Read>tkafg1kAttrFMInternalWaveformByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrFMInternalWaveformByChannel_WriteCallback</Write>
+          <Check>tkafg1kAttrFMInternalWaveformByChannel_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1646,8 +1646,8 @@ Attribute@!##!@Value:@!##!@1150024</Description>
         <DefaultValue>10000.0</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFMInternalFrequencyByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrFMInternalFrequencyByChannel_WriteCallback</Write>
+          <Read>tkafg1kAttrFMInternalFrequencyByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrFMInternalFrequencyByChannel_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1681,9 +1681,9 @@ Attribute@!##!@Value:@!##!@1150025</Description>
         <DefaultValue>VI_FALSE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFSKEnabled_ReadCallback</Read>
-          <Write>tkafg3kAttrFSKEnabled_WriteCallback</Write>
-          <Check>tkafg3kAttrFSKEnabled_CheckCallback</Check>
+          <Read>tkafg1kAttrFSKEnabled_ReadCallback</Read>
+          <Write>tkafg1kAttrFSKEnabled_WriteCallback</Write>
+          <Check>tkafg1kAttrFSKEnabled_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1712,12 +1712,12 @@ Attribute@!##!@Value:@!##!@1150026</Description>
         <DefaultValue>1000000.0</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFSKHopFrequency_ReadCallback</Read>
-          <Write>tkafg3kAttrFSKHopFrequency_WriteCallback</Write>
+          <Read>tkafg1kAttrFSKHopFrequency_ReadCallback</Read>
+          <Write>tkafg1kAttrFSKHopFrequency_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
-          <RangeTable>tkafg3kAttrFuncFrequency_RangeTableCallback</RangeTable>
+          <RangeTable>tkafg1kAttrFuncFrequency_RangeTableCallback</RangeTable>
         </Callback>
         <RelatedCmd />
         <WriteCmd />
@@ -1742,8 +1742,8 @@ Attribute@!##!@Value:@!##!@1150027</Description>
         <DefaultValue>50</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFSKInternalRate_ReadCallback</Read>
-          <Write>tkafg3kAttrFSKInternalRate_WriteCallback</Write>
+          <Read>tkafg1kAttrFSKInternalRate_ReadCallback</Read>
+          <Write>tkafg1kAttrFSKInternalRate_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1773,8 +1773,8 @@ Attribute@!##!@Value:@!##!@1150028</Description>
         <DefaultValue>TKAFG1K_VAL_FSK_INTERNAL</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrFSKSource_ReadCallback</Read>
-          <Write>tkafg3kAttrFSKSource_WriteCallback</Write>
+          <Read>tkafg1kAttrFSKSource_ReadCallback</Read>
+          <Write>tkafg1kAttrFSKSource_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1807,9 +1807,9 @@ Attribute@!##!@Value:@!##!@1150029</Description>
         <DefaultValue>VI_FALSE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPMEnabled_ReadCallback</Read>
-          <Write>tkafg3kAttrPMEnabled_WriteCallback</Write>
-          <Check>tkafg3kAttrPMEnabled_CheckCallback</Check>
+          <Read>tkafg1kAttrPMEnabled_ReadCallback</Read>
+          <Write>tkafg1kAttrPMEnabled_WriteCallback</Write>
+          <Check>tkafg1kAttrPMEnabled_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1838,8 +1838,8 @@ Attribute@!##!@Value:@!##!@1150030</Description>
         <DefaultValue>TKAFG1K_VAL_PM_INTERNAL</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPMSource_ReadCallback</Read>
-          <Write>tkafg3kAttrPMSource_WriteCallback</Write>
+          <Read>tkafg1kAttrPMSource_ReadCallback</Read>
+          <Write>tkafg1kAttrPMSource_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1868,8 +1868,8 @@ Attribute@!##!@Value:@!##!@1150031</Description>
         <DefaultValue>90</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPMDeviationByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrPMDeviationByChannel_WriteCallback</Write>
+          <Read>tkafg1kAttrPMDeviationByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrPMDeviationByChannel_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1899,8 +1899,8 @@ Attribute@!##!@Value:@!##!@1150032</Description>
         <DefaultValue>10000.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPMInternalFrequencyByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrPMInternalFrequencyByChannel_WriteCallback</Write>
+          <Read>tkafg1kAttrPMInternalFrequencyByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrPMInternalFrequencyByChannel_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -1930,9 +1930,9 @@ Attribute@!##!@Value:@!##!@1150033</Description>
         <DefaultValue>TKAFG1K_VAL_PM_INTERNAL_SINE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPMInternalWaveformByChannel_ReadCallback</Read>
-          <Write>tkafg3kAttrPMInternalWaveformByChannel_WriteCallback</Write>
-          <Check>tkafg3kAttrPMInternalWaveformByChannel_CheckCallback</Check>
+          <Read>tkafg1kAttrPMInternalWaveformByChannel_ReadCallback</Read>
+          <Write>tkafg1kAttrPMInternalWaveformByChannel_WriteCallback</Write>
+          <Check>tkafg1kAttrPMInternalWaveformByChannel_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1968,9 +1968,9 @@ Attribute@!##!@Value:@!##!@1150034</Description>
         <DefaultValue>VI_FALSE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPWMEnabled_ReadCallback</Read>
-          <Write>tkafg3kAttrPWMEnabled_WriteCallback</Write>
-          <Check>tkafg3kAttrPWMEnabled_CheckCallback</Check>
+          <Read>tkafg1kAttrPWMEnabled_ReadCallback</Read>
+          <Write>tkafg1kAttrPWMEnabled_WriteCallback</Write>
+          <Check>tkafg1kAttrPWMEnabled_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -1999,8 +1999,8 @@ Attribute@!##!@Value:@!##!@1150035</Description>
         <DefaultValue>TKAFG1K_VAL_PWM_INTERNAL</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPWMSource_ReadCallback</Read>
-          <Write>tkafg3kAttrPWMSource_WriteCallback</Write>
+          <Read>tkafg1kAttrPWMSource_ReadCallback</Read>
+          <Write>tkafg1kAttrPWMSource_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -2029,8 +2029,8 @@ Attribute@!##!@Value:@!##!@1150036</Description>
         <DefaultValue>5.0</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPWMDeviation_ReadCallback</Read>
-          <Write>tkafg3kAttrPWMDeviation_WriteCallback</Write>
+          <Read>tkafg1kAttrPWMDeviation_ReadCallback</Read>
+          <Write>tkafg1kAttrPWMDeviation_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -2061,8 +2061,8 @@ Attribute@!##!@Value:@!##!@1150037</Description>
         <DefaultValue>10000.00</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPWMInternalFrequency_ReadCallback</Read>
-          <Write>tkafg3kAttrPWMInternalFrequency_WriteCallback</Write>
+          <Read>tkafg1kAttrPWMInternalFrequency_ReadCallback</Read>
+          <Write>tkafg1kAttrPWMInternalFrequency_WriteCallback</Write>
           <Check />
           <Compare />
           <Coerce />
@@ -2092,9 +2092,9 @@ Attribute@!##!@Value:@!##!@1150038</Description>
         <DefaultValue>TKAFG1K_VAL_PWM_INTERNAL_SINE</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrPWMInternalWaveform_ReadCallback</Read>
-          <Write>tkafg3kAttrPWMInternalWaveform_WriteCallback</Write>
-          <Check>tkafg3kAttrPWMInternalWaveform_CheckCallback</Check>
+          <Read>tkafg1kAttrPWMInternalWaveform_ReadCallback</Read>
+          <Write>tkafg1kAttrPWMInternalWaveform_WriteCallback</Write>
+          <Check>tkafg1kAttrPWMInternalWaveform_CheckCallback</Check>
           <Compare />
           <Coerce />
           <RangeTable />
@@ -2130,7 +2130,7 @@ Attribute@!##!@Value:@!##!@1150039</Description>
         <DefaultValue>"TEKTRONIX,AFG3102"</DefaultValue>
         <RepeatedCap />
         <Callback>
-          <Read>tkafg3kAttrIdQueryResponse_ReadCallback</Read>
+          <Read>tkafg1kAttrIdQueryResponse_ReadCallback</Read>
           <Write />
           <Check />
           <Compare />
@@ -4356,7 +4356,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_SINE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_SINE</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"SIN"</CommandString>
@@ -4365,7 +4365,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_SQUARE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_SQUARE</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"SQU"</CommandString>
@@ -4374,7 +4374,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_TRIANGLE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_TRIANGLE</DiscreteValue>
           <Label>3</Label>
           <Custom>True</Custom>
           <CommandString>"TRI"</CommandString>
@@ -4383,7 +4383,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_RAMP_UP</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_RAMP_UP</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
@@ -4392,7 +4392,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_RAMP_DOWN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_RAMP_DOWN</DiscreteValue>
           <Label>5</Label>
           <Custom>False</Custom>
           <CommandString>"NRAM"</CommandString>
@@ -4401,7 +4401,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>4</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_PRN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_PRN</DiscreteValue>
           <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"PRN"</CommandString>
@@ -4410,7 +4410,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_USER1</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER1</DiscreteValue>
           <Label>1002</Label>
           <Custom>True</Custom>
           <CommandString>"USER"</CommandString>
@@ -4419,7 +4419,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_USER2</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER2</DiscreteValue>
           <Label>1003</Label>
           <Custom>True</Custom>
           <CommandString>"USER2"</CommandString>
@@ -4428,7 +4428,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_USER3</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER3</DiscreteValue>
           <Label>1004</Label>
           <Custom>True</Custom>
           <CommandString>"USER3"</CommandString>
@@ -4437,7 +4437,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_USER4</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER4</DiscreteValue>
           <Label>1005</Label>
           <Custom>True</Custom>
           <CommandString>"USER4"</CommandString>
@@ -4446,7 +4446,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>9</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL_EMEM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_EMEM</DiscreteValue>
           <Label>1006</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
@@ -4465,7 +4465,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_INTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>"INT"</CommandString>
@@ -4474,7 +4474,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_AM_EXTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_AM_EXTERNAL</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"EXT"</CommandString>
@@ -4509,7 +4509,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_USER1</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER1</DiscreteValue>
           <Label>10000</Label>
           <Custom>True</Custom>
           <CommandString>"USER"</CommandString>
@@ -4518,7 +4518,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_USER2</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER2</DiscreteValue>
           <Label>10001</Label>
           <Custom>True</Custom>
           <CommandString>"USER2"</CommandString>
@@ -4527,7 +4527,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_USER3</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER3</DiscreteValue>
           <Label>10002</Label>
           <Custom>True</Custom>
           <CommandString>"USER3"</CommandString>
@@ -4536,7 +4536,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_USER4</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER4</DiscreteValue>
           <Label>10003</Label>
           <Custom>True</Custom>
           <CommandString>"USER4"</CommandString>
@@ -4545,7 +4545,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_EMEM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_EMEM</DiscreteValue>
           <Label>10011</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
@@ -4602,7 +4602,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_BURST_TRIGGER</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_BURST_TRIGGER</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"TRIG"</CommandString>
@@ -4611,7 +4611,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_BURST_GATE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_BURST_GATE</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"GAT"</CommandString>
@@ -4646,7 +4646,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_SINE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_SINE</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"SIN"</CommandString>
@@ -4655,7 +4655,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_SQUARE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_SQUARE</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"SQU"</CommandString>
@@ -4664,7 +4664,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_TRIANGLE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_TRIANGLE</DiscreteValue>
           <Label>3</Label>
           <Custom>True</Custom>
           <CommandString>"TRI"</CommandString>
@@ -4673,7 +4673,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_RAMP_UP</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_RAMP_UP</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
@@ -4682,7 +4682,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_RAMP_DOWN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_RAMP_DOWN</DiscreteValue>
           <Label>5</Label>
           <Custom>True</Custom>
           <CommandString>"NRAM"</CommandString>
@@ -4691,7 +4691,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>4</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_PRN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_PRN</DiscreteValue>
           <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"PRN"</CommandString>
@@ -4700,7 +4700,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_USER1</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER1</DiscreteValue>
           <Label>1002</Label>
           <Custom>True</Custom>
           <CommandString>"USER"</CommandString>
@@ -4709,7 +4709,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_USER2</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER2</DiscreteValue>
           <Label>1003</Label>
           <Custom>True</Custom>
           <CommandString>"USER2"</CommandString>
@@ -4718,7 +4718,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_USER3</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER3</DiscreteValue>
           <Label>1004</Label>
           <Custom>True</Custom>
           <CommandString>"USER3"</CommandString>
@@ -4727,7 +4727,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_USER4</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER4</DiscreteValue>
           <Label>1005</Label>
           <Custom>True</Custom>
           <CommandString>"USER4"</CommandString>
@@ -4736,7 +4736,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>9</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL_EMEM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_EMEM</DiscreteValue>
           <Label>1006</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
@@ -4755,7 +4755,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_INTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>"INT"</CommandString>
@@ -4764,7 +4764,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FM_EXTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FM_EXTERNAL</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"EXT"</CommandString>
@@ -4799,7 +4799,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FSK_INTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FSK_INTERNAL</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>"INT"</CommandString>
@@ -4808,7 +4808,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_FSK_EXTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_FSK_EXTERNAL</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"EXT"</CommandString>
@@ -4875,7 +4875,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_SINE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_SINE</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"SIN"</CommandString>
@@ -4884,7 +4884,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_SQUARE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_SQUARE</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"SQU"</CommandString>
@@ -4893,7 +4893,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_DC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_DC</DiscreteValue>
           <Label>6</Label>
           <Custom>True</Custom>
           <CommandString>"DC"</CommandString>
@@ -4902,7 +4902,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_RAMP</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_RAMP</DiscreteValue>
           <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
@@ -4911,7 +4911,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_PULS</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_PULS</DiscreteValue>
           <Label>1002</Label>
           <Custom>True</Custom>
           <CommandString>"PULS"</CommandString>
@@ -4920,7 +4920,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>4</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_PRN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_PRN</DiscreteValue>
           <Label>1003</Label>
           <Custom>True</Custom>
           <CommandString>"PRN"</CommandString>
@@ -4929,7 +4929,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_SINC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_SINC</DiscreteValue>
           <Label>1004</Label>
           <Custom>True</Custom>
           <CommandString>"SINC"</CommandString>
@@ -4938,7 +4938,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_GAUS</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_GAUS</DiscreteValue>
           <Label>1005</Label>
           <Custom>True</Custom>
           <CommandString>"GAUS"</CommandString>
@@ -4947,7 +4947,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_LOR</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_LOR</DiscreteValue>
           <Label>1006</Label>
           <Custom>True</Custom>
           <CommandString>"LOR"</CommandString>
@@ -4956,7 +4956,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_ERIS</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_ERIS</DiscreteValue>
           <Label>1007</Label>
           <Custom>True</Custom>
           <CommandString>"ERIS"</CommandString>
@@ -4965,7 +4965,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>9</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_EDEC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_EDEC</DiscreteValue>
           <Label>1008</Label>
           <Custom>True</Custom>
           <CommandString>"EDEC"</CommandString>
@@ -4974,7 +4974,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>10</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_HAV</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_HAV</DiscreteValue>
           <Label>1009</Label>
           <Custom>True</Custom>
           <CommandString>"HAV"</CommandString>
@@ -5009,7 +5009,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3011</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3011</DiscreteValue>
           <Label>8</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5018,7 +5018,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3011C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3011C</DiscreteValue>
           <Label>10</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5027,7 +5027,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3021</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3021</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5036,7 +5036,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3022</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3022</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5045,7 +5045,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3021B</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3021B</DiscreteValue>
           <Label>6</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5054,7 +5054,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>4</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3022B</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3022B</DiscreteValue>
           <Label>7</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5063,7 +5063,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3021C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3021C</DiscreteValue>
           <Label>11</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5072,7 +5072,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3022C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3022C</DiscreteValue>
           <Label>12</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5081,7 +5081,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3101</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3101</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5090,7 +5090,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3102</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3102</DiscreteValue>
           <Label>3</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5099,7 +5099,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>9</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3101C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3101C</DiscreteValue>
           <Label>13</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5108,7 +5108,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>10</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3102C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3102C</DiscreteValue>
           <Label>14</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5117,7 +5117,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>11</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3251</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3251</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5126,7 +5126,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>12</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3252</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3252</DiscreteValue>
           <Label>5</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5135,7 +5135,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>13</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3251C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3251C</DiscreteValue>
           <Label>15</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5144,7 +5144,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>14</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3252C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3252C</DiscreteValue>
           <Label>16</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5153,7 +5153,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>15</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG2021</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG2021</DiscreteValue>
           <Label>9</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5162,7 +5162,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>16</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3051C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3051C</DiscreteValue>
           <Label>17</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5171,7 +5171,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>17</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODEL_AFG3052C</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3052C</DiscreteValue>
           <Label>18</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5190,7 +5190,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_OPERATE_CONTINUOUS</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_OPERATE_CONTINUOUS</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>"CONTINUOUS"</CommandString>
@@ -5199,7 +5199,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_OPERATE_MODULATION</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_OPERATE_MODULATION</DiscreteValue>
           <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"MODULATION"</CommandString>
@@ -5213,27 +5213,27 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_OPERATE_SWEEP</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_OPERATE_SWEEP</DiscreteValue>
           <Label>1002</Label>
           <Custom>True</Custom>
           <CommandString>"SWEEP"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Sets the instrument to sweep mode. You could use the following function to configure sweep mode parameters.
 
-- tkafg3k_ConfigureSweep 
-- tkafg3k_ConfigureSweepEx
+- tkafg1k_ConfigureSweep 
+- tkafg1k_ConfigureSweepEx
 
 In place of using this function, you can set the following attributes:                                
-TKAFG3K_ATTR_SWEEP_START_FREQUENCY                     
-TKAFG3K_ATTR_SWEEP_STOP_FREQUENCY                      
-TKAFG3K_ATTR_SWEEP_TIME
-TKAFG3K_ATTR_SWEEP_HOLD_TIME                            
-TKAFG3K_ATTR_SWEEP_RETURN_TIME
-TKAFG3K_ATTR_SWEEP_TYPE</Description>
+TKAFG1K_ATTR_SWEEP_START_FREQUENCY                     
+TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY                      
+TKAFG1K_ATTR_SWEEP_TIME
+TKAFG1K_ATTR_SWEEP_HOLD_TIME                            
+TKAFG1K_ATTR_SWEEP_RETURN_TIME
+TKAFG1K_ATTR_SWEEP_TYPE</Description>
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_OPERATE_BURST</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_OPERATE_BURST</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"BURST"</CommandString>
@@ -5252,7 +5252,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODULATION_AM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODULATION_AM</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5261,7 +5261,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODULATION_FM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODULATION_FM</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5270,7 +5270,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODULATION_PM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODULATION_PM</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5279,7 +5279,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODULATION_FSK</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODULATION_FSK</DiscreteValue>
           <Label>3</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5288,7 +5288,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_MODULATION_PWM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODULATION_PWM</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
@@ -5329,7 +5329,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_OUTPUT_FUNC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_OUTPUT_FUNC</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>"FUNC"</CommandString>
@@ -5338,7 +5338,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_OUTPUT_ARB</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_OUTPUT_ARB</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"ARB"</CommandString>
@@ -5389,7 +5389,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_SINE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_SINE</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"SIN"</CommandString>
@@ -5398,7 +5398,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_SQUARE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_SQUARE</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"SQU"</CommandString>
@@ -5407,7 +5407,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_TRIANGLE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_TRIANGLE</DiscreteValue>
           <Label>3</Label>
           <Custom>True</Custom>
           <CommandString>"TRI"</CommandString>
@@ -5416,7 +5416,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_RAMP_UP</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_RAMP_UP</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
@@ -5425,7 +5425,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_RAMP_DOWN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_RAMP_DOWN</DiscreteValue>
           <Label>5</Label>
           <Custom>True</Custom>
           <CommandString>"NRAM"</CommandString>
@@ -5434,7 +5434,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>4</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_PRN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_PRN</DiscreteValue>
           <Label>100</Label>
           <Custom>True</Custom>
           <CommandString>"PRN"</CommandString>
@@ -5443,7 +5443,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_USER1</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER1</DiscreteValue>
           <Label>200</Label>
           <Custom>True</Custom>
           <CommandString>"USER"</CommandString>
@@ -5452,7 +5452,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_USER2</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER2</DiscreteValue>
           <Label>201</Label>
           <Custom>True</Custom>
           <CommandString>"USER2"</CommandString>
@@ -5461,7 +5461,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_USER3</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER3</DiscreteValue>
           <Label>202</Label>
           <Custom>True</Custom>
           <CommandString>"USER3"</CommandString>
@@ -5470,7 +5470,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_USER4</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER4</DiscreteValue>
           <Label>203</Label>
           <Custom>True</Custom>
           <CommandString>"USER4"</CommandString>
@@ -5479,7 +5479,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>9</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL_EMEM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_EMEM</DiscreteValue>
           <Label>204</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
@@ -5498,7 +5498,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_INTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>"INT"</CommandString>
@@ -5507,7 +5507,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PM_EXTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PM_EXTERNAL</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"EXT"</CommandString>
@@ -5558,7 +5558,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_SINE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_SINE</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"SIN"</CommandString>
@@ -5567,7 +5567,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_SQUARE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_SQUARE</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"SQU"</CommandString>
@@ -5576,7 +5576,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_TRIANGLE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_TRIANGLE</DiscreteValue>
           <Label>3</Label>
           <Custom>True</Custom>
           <CommandString>"TRI"</CommandString>
@@ -5585,7 +5585,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_RAMP_UP</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_RAMP_UP</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
@@ -5594,7 +5594,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_RAMP_DOWN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_RAMP_DOWN</DiscreteValue>
           <Label>5</Label>
           <Custom>True</Custom>
           <CommandString>"NRAM"</CommandString>
@@ -5603,7 +5603,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>4</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_PRN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_PRN</DiscreteValue>
           <Label>100</Label>
           <Custom>True</Custom>
           <CommandString>"PRN"</CommandString>
@@ -5612,7 +5612,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_USER1</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_USER1</DiscreteValue>
           <Label>200</Label>
           <Custom>True</Custom>
           <CommandString>"USER"</CommandString>
@@ -5621,7 +5621,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_USER2</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_USER2</DiscreteValue>
           <Label>201</Label>
           <Custom>True</Custom>
           <CommandString>"USER2"</CommandString>
@@ -5630,7 +5630,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_USER3</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_USER3</DiscreteValue>
           <Label>202</Label>
           <Custom>True</Custom>
           <CommandString>"USER3"</CommandString>
@@ -5639,7 +5639,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_USER4</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_USER4</DiscreteValue>
           <Label>203</Label>
           <Custom>True</Custom>
           <CommandString>"USER4"</CommandString>
@@ -5648,7 +5648,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>9</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL_EMEM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_EMEM</DiscreteValue>
           <Label>204</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
@@ -5667,7 +5667,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_INTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>"INT"</CommandString>
@@ -5676,7 +5676,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_PWM_EXTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_PWM_EXTERNAL</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"EXT"</CommandString>
@@ -5695,7 +5695,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_REF_CLOCK_INTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_REF_CLOCK_INTERNAL</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>"INT"</CommandString>
@@ -5704,7 +5704,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_REF_CLOCK_EXTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_REF_CLOCK_EXTERNAL</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"EXT"</CommandString>
@@ -5739,7 +5739,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_SWEEP_AUTO</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_SWEEP_AUTO</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"AUTO"</CommandString>
@@ -5748,7 +5748,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_SWEEP_MANUAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_SWEEP_MANUAL</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"MAN"</CommandString>
@@ -5799,7 +5799,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_SWEEP_LINEAR</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_SWEEP_LINEAR</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"LIN"</CommandString>
@@ -5808,7 +5808,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_SWEEP_LOGARITHMIC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_SWEEP_LOGARITHMIC</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"LOG"</CommandString>
@@ -5827,7 +5827,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_TRIGGER_TRIGGER</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_TRIGGER_TRIGGER</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"TRIG"</CommandString>
@@ -5836,7 +5836,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_TRIGGER_SYNC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_TRIGGER_SYNC</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"SYNC"</CommandString>
@@ -5855,7 +5855,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_TRIGGER_POSITIVE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_TRIGGER_POSITIVE</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"POS"</CommandString>
@@ -5864,7 +5864,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_TRIGGER_NEGATIVE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_TRIGGER_NEGATIVE</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"NEG"</CommandString>
@@ -5883,7 +5883,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_INTERNAL_TRIGGER</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_INTERNAL_TRIGGER</DiscreteValue>
           <Label>3</Label>
           <Custom>True</Custom>
           <CommandString>"TIM"</CommandString>
@@ -5892,7 +5892,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_EXTERNAL</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_EXTERNAL</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"EXT"</CommandString>
@@ -5911,7 +5911,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_SINE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_SINE</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>"SIN"</CommandString>
@@ -5920,7 +5920,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_SQUARE</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_SQUARE</DiscreteValue>
           <Label>2</Label>
           <Custom>True</Custom>
           <CommandString>"SQU"</CommandString>
@@ -5929,7 +5929,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_DC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_DC</DiscreteValue>
           <Label>6</Label>
           <Custom>True</Custom>
           <CommandString>"DC"</CommandString>
@@ -5938,7 +5938,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_RAMP</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_RAMP</DiscreteValue>
           <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
@@ -5947,7 +5947,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>3</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_PULS</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_PULS</DiscreteValue>
           <Label>1002</Label>
           <Custom>True</Custom>
           <CommandString>"PULS"</CommandString>
@@ -5956,7 +5956,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>4</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_PRN</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_PRN</DiscreteValue>
           <Label>1003</Label>
           <Custom>True</Custom>
           <CommandString>"PRN"</CommandString>
@@ -5965,7 +5965,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_SINC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_SINC</DiscreteValue>
           <Label>1004</Label>
           <Custom>True</Custom>
           <CommandString>"SINC"</CommandString>
@@ -5974,7 +5974,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_GAUS</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_GAUS</DiscreteValue>
           <Label>1005</Label>
           <Custom>True</Custom>
           <CommandString>"GAUS"</CommandString>
@@ -5983,7 +5983,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_LOR</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_LOR</DiscreteValue>
           <Label>1006</Label>
           <Custom>True</Custom>
           <CommandString>"LOR"</CommandString>
@@ -5992,7 +5992,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_ERIS</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_ERIS</DiscreteValue>
           <Label>1007</Label>
           <Custom>True</Custom>
           <CommandString>"ERIS"</CommandString>
@@ -6001,7 +6001,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>9</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_EDEC</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_EDEC</DiscreteValue>
           <Label>1008</Label>
           <Custom>True</Custom>
           <CommandString>"EDEC"</CommandString>
@@ -6010,7 +6010,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>10</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_HAV</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_HAV</DiscreteValue>
           <Label>1009</Label>
           <Custom>True</Custom>
           <CommandString>"HAV"</CommandString>
@@ -6019,7 +6019,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>11</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_USER1</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER1</DiscreteValue>
           <Label>10000</Label>
           <Custom>True</Custom>
           <CommandString>"USER"</CommandString>
@@ -6028,7 +6028,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>12</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_USER2</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER2</DiscreteValue>
           <Label>10001</Label>
           <Custom>True</Custom>
           <CommandString>"USER2"</CommandString>
@@ -6037,7 +6037,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>13</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_USER3</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER3</DiscreteValue>
           <Label>10002</Label>
           <Custom>True</Custom>
           <CommandString>"USER3"</CommandString>
@@ -6046,7 +6046,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>14</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_USER4</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER4</DiscreteValue>
           <Label>10003</Label>
           <Custom>True</Custom>
           <CommandString>"USER4"</CommandString>
@@ -6055,7 +6055,7 @@ TKAFG3K_ATTR_SWEEP_TYPE</Description>
           <Index>15</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG3K_VAL_WFM_EMEM</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_EMEM</DiscreteValue>
           <Label>10011</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>

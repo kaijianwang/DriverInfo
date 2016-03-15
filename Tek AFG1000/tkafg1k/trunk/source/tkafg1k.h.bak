@@ -548,6 +548,7 @@ extern "C" {
     /*- Deifined value for attribute TKAFG1K_ATTR_BURST_COUNT -------------------------*/
 #define TKAFG1K_VAL_BURST_INFINITY                              0
 
+
     /*- Defined value for attribute TKAFG1K_ATTR_BURST_MODE ---------------------------*/
 #define TKAFG1K_VAL_BURST_TRIGGER                               1
 #define TKAFG1K_VAL_BURST_GATE                                  2

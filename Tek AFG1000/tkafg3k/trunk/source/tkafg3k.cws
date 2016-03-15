@@ -16,8 +16,8 @@ Project 0001 = "tkafg3k.prj"
 Drag Bar Left = 348
 Window Top = 30
 Window Left = 1688
-Window Bottom = 1072
-Window Right = 2632
+Window Bottom = 1012
+Window Right = 2660
 Maximized = False
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -67,8 +67,7 @@ In Projects = "1,"
 Window Top = 32
 Window Left = 10
 Window Z-Order = 1
-Source Window State Line0001 = "1,11517,11517,11517,89,93,93,1,0,83,0,13710,0,0,0,30,4704,18,4719,21,609,898,1,0"
-Source Window State Line0002 = ","
+Source Window State = "1,10576,10576,10576,4,84,4,1,0,85,0,13710,0,0,0,27,10559,0,10582,51,609,898,1,0,"
 
 [File 0003]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg3k/trunk/source/tkafg3k.h"

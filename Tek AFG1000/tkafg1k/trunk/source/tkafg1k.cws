@@ -51,7 +51,7 @@ Force Rebuild = False
 [File 0001]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.fp"
 File Type = "Function Panel"
-Disk Date = 3540791608
+Disk Date = 3540791997
 In Projects = "1,"
 Window Top = 92
 Window Left = 42
@@ -62,22 +62,22 @@ Window Z-Order = 3
 [File 0002]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.c"
 File Type = "CSource"
-Disk Date = 3540790156
+Disk Date = 3540853790
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,3678,3678,3678,8,9,9,1,0,83,0,439,0,0,0,30,3948,0,3963,75,609,698,1,13,"
+Source Window State = "1,6261,6261,6261,0,13,13,1,0,83,0,439,0,0,0,30,6238,0,6231,0,609,698,1,13,"
 
 [File 0003]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.h"
 File Type = "Include"
-Disk Date = 3540789104
+Disk Date = 3540850831
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 4
-Source Window State = "1,1649,1653,1653,0,8160,76,1,0,80,0,1090,0,0,0,20,151,0,2107,0,494,898,1,13,"
+Window Z-Order = 2
+Source Window State = "1,550,550,550,0,26,26,1,0,80,0,1090,0,0,0,20,536,0,2108,0,494,898,1,13,"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True

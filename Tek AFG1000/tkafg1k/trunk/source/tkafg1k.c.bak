@@ -108,13 +108,16 @@
 #define AFG1062_VAL_MIN_PUL_WID                     (17e-9)
 
 
-
-
 /*- Maximum Waveform Size ---------------------------------------------------*/
 #define AFG1022_VAL_MAX_WFM_SIZE                    8192
 #define AFG1062_VAL_MAX_WFM_SIZE                    1048576
 /*- Minimum Waveform Size ---------------------------------------------------*/
 #define TKAFG1K_VAL_MIN_WFM_SIZE                    2
+
+/*- Maximum Burst Count Size-------------------------------------------------*/
+#define AFG1022_VAL_MAX_BURST_COUNT					50000
+#define AFG1062_VAL_MAX_BURST_COUNT					1000000
+
 
 /*****************************************************************************
  *---------------------------- Useful Macros --------------------------------*
@@ -169,6 +172,22 @@
 #define tkafg1k_GetCmdFromIntValue(value, table, cmd) \
     	Ivi_GetViInt32EntryFromValue (value, table, VI_NULL, VI_NULL,\
     								  VI_NULL, VI_NULL, cmd, VI_NULL)
+
+static IviRangeTableEntry attrAFG1062BurstCountRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_BURST_INFINITY, TKAFG1K_VAL_BURST_INFINITY, 0, "", 0},
+		{1, AFG1062_VAL_MAX_BURST_COUNT, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrAFG1062BurstCountRangeTable =
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrAFG1062BurstCountRangeTableEntries,
+	};
 
 static IviRangeTableEntry attrPSKDeviationRangeTableEntries[] =
 	{
@@ -690,20 +709,7 @@ static IviRangeTable attrAFG1022ArbWfmSweepFrequencyRangeTable =
         attrAFG1022ArbWfmSweepFrequencyRangeTableEntries,
 	};
 
-static IviRangeTableEntry attrBurstDelayRangeTableEntries[] =
-    {
-        {0, 85, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-    };
 
-static IviRangeTable attrBurstDelayRangeTable =
-    {
-        IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrBurstDelayRangeTableEntries,
-    };
 
 
 
@@ -1873,6 +1879,11 @@ static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_CheckCallback (ViSession vi,
                                                                 ViConstString channelName,
                                                                 ViAttr attributeId,
                                                                 ViReal64 value);
+
+static ViStatus _VI_FUNC tkafg1kAttrBurstCount_RangeTableCallback (ViSession vi,
+                                                                   ViConstString channelName,
+                                                                   ViAttr attributeId,
+                                                                   IviRangeTablePtr *rangeTablePtr);
 
 
 
@@ -6430,31 +6441,16 @@ static ViStatus _VI_FUNC tkafg1kAttrArbSampleRate_ReadCallback (ViSession vi,
                                                                  ViReal64 *value)
 {
     ViStatus error = VI_SUCCESS;
-	
-    ViInt32     chan1WfmHandle, chan2WfmHandle;
-    ViInt32     chan1WfmSize, chan2WfmSize;
-    ViReal64    maxWfmSize;
-	
+	ViInt32  model;
     checkErr( tkafg1k_VerifyOutputMode(vi, TKAFG1K_VAL_OUTPUT_ARB) );     
-	checkErr( tkafg1k_GetAttributeViInt32 (vi, CHAN1, TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE, &chan1WfmHandle) );			
-	checkErr( tkafg1k_GetAttributeViInt32 (vi, CHAN2, TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE, &chan2WfmHandle) );
-	checkErr( tkafg1k_GetWfmSize(vi, io, chan1WfmHandle, &chan1WfmSize) );								   
-	checkErr( tkafg1k_GetWfmSize(vi, io, chan2WfmHandle, &chan2WfmSize) );  
-	maxWfmSize = chan1WfmSize > chan2WfmSize ? chan1WfmSize : chan2WfmSize;		
-	
-	if (maxWfmSize > 16384) {	 
-		*value = 250e6;   
-	} else {		
-		*value = 1e9;	   
-	}
-
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	if (model == TKAFG1K_VAL_MODEL_AFG1022)
+		*value = 125e6;
+	else if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		*value = 300e6;
 Error:
     return error;
 }
-
-/*- TKAFG1K_ATTR_MAX_NUM_WAVEFORMS -*/
-
-/*- TKAFG1K_ATTR_WAVEFORM_QUANTUM -*/
 
 /*- TKAFG1K_ATTR_MAX_WAVEFORM_SIZE -*/
 static ViStatus _VI_FUNC tkafg1kAttrMaxWaveformSize_ReadCallback (ViSession vi,
@@ -6610,20 +6606,20 @@ Error:
 }
 
 /*- TKAFG1K_ATTR_BURST_COUNT -*/
-static IviRangeTableEntry attrBurstCountRangeTableEntries[] =
-{
-        {TKAFG1K_VAL_BURST_INFINITY, TKAFG1K_VAL_BURST_INFINITY, 0, "", 0},
-        {1, 1000000, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-};
-static IviRangeTable attrBurstCountRangeTable =
-{
-        IVI_VAL_RANGED,
+static IviRangeTableEntry attrAFG1022BurstCountRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_BURST_INFINITY, TKAFG1K_VAL_BURST_INFINITY, 0, "", 0},
+		{1, AFG1022_VAL_MAX_BURST_COUNT, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+static IviRangeTable attrAFG1022BurstCountRangeTable =
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
-        attrBurstCountRangeTableEntries,
-};
+        attrAFG1022BurstCountRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrBurstCount_WriteCallback (ViSession vi,
                                                                ViSession io,
@@ -6714,69 +6710,6 @@ static ViStatus _VI_FUNC tkafg1kAttrBurstMode_ReadCallback (ViSession vi,
 {
     return (tkafg1k_ReadCmd (vi, io, channelName, &attrBurstModeRangeTable, "source%s:burst:mode?", value) );
 }
-
-/*- TKAFG1K_ATTR_BURST_DELAY -*/
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_ENABLED -*/
-
-
-/*- TKAFG1K_ATTR_SWEEP_TYPE -*/
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_MODE -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_START_FREQUENCY -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_TIME -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_HOLD_TIME -*/
-
-
-
-
-/*- TKAFG1K_ATTR_SWEEP_RETURN_TIME -*/
-
-
-
-
-
-/*- TKAFG1K_ATTR_APPEND_NOISE_ENABLED -*/
-
-
-/*- TKAFG1K_ATTR_APPEND_NOISE_LEVEL -*/
-static IviRangeTableEntry attrAppendNoiseLevelRangeTableEntries[] =
-{
-    {0, 50.0, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
-static IviRangeTable attrAppendNoiseLevelRangeTable =
-{
-    IVI_VAL_RANGED,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrAppendNoiseLevelRangeTableEntries,
-};
-
-
-
 
 
 /*- TKAFG1K_ATTR_MODULATION_ENABLED -*/
@@ -6966,18 +6899,18 @@ static ViStatus _VI_FUNC tkafg1kAttrAMSource_ReadCallback (ViSession vi,
 
 /*- TKAFG1K_ATTR_AM_INTERNAL_DEPTH -*/
 static IviRangeTableEntry attrAMInternalDepthRangeTableEntries[] =
-{
-        {0.00, 120.00, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.00, 100.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrAMInternalDepthRangeTable =
-{
-        IVI_VAL_RANGED,
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrAMInternalDepthRangeTableEntries,
-};
+	};
 
 
 static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_CheckCallback(ViSession vi,
@@ -7439,18 +7372,18 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveformByChannel_WriteCallback (V
 
 /*- TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY -*/
 static IviRangeTableEntry attrAMInternalFrequencyRangeTableEntries[] =
-    {
-        {0.002, 50000.00, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-    };
+	{
+		{0.002, 20000.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrAMInternalFrequencyRangeTable =
-    {
-        IVI_VAL_RANGED,
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrAMInternalFrequencyRangeTableEntries,
-    };
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrAMInternalFrequency_WriteCallback (ViSession vi,
                                                                         ViSession io,
@@ -8142,18 +8075,18 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveformByChannel_WriteCallback (V
 
 /*- TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY -*/
 static IviRangeTableEntry attrFMInternalFrequencyRangeTableEntries[] =
-{
-    {0.002, 50000.0, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.002, 20000.0, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrFMInternalFrequencyRangeTable =
-{
-        IVI_VAL_RANGED,
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrFMInternalFrequencyRangeTableEntries,
-};
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequency_WriteCallback (ViSession vi,
                                                                         ViSession io,
@@ -8268,18 +8201,18 @@ static ViStatus _VI_FUNC tkafg1kAttrFSKHopFrequency_WriteCallback (ViSession vi,
 
 /*- TKAFG1K_ATTR_FSK_INTERNAL_RATE -*/
 static IviRangeTableEntry attrFSKInternalRateRangeTableEntries[] =
-{
-    {0.002, 1000000, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.002, 100000, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrFSKInternalRateRangeTable =
-{
-    IVI_VAL_RANGED,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrFSKInternalRateRangeTableEntries,
-};
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrFSKInternalRateRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrFSKInternalRate_ReadCallback (ViSession vi,
                                                                   ViSession io,
@@ -8465,19 +8398,19 @@ static ViStatus _VI_FUNC tkafg1kAttrPMDeviationByChannel_WriteCallback (ViSessio
 
 /*- TKAFG1K_ATTR_PM_INTERNAL_FREQUENCY_BY_CHANNEL -*/
 static IviRangeTableEntry attrPMInternalFrequencyRangeTableEntries[] =
-{
-    {0.002, 50000.00, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.002, 20000.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 
 static IviRangeTable attrPMInternalFrequencyRangeTable =
-{
-    IVI_VAL_RANGED,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrPMInternalFrequencyRangeTableEntries,
-};
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrPMInternalFrequencyRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrPMInternalFrequencyByChannel_ReadCallback (ViSession vi,
                                                                                ViSession io,
@@ -8960,19 +8893,19 @@ static ViStatus _VI_FUNC tkafg1kAttrPWMDeviation_WriteCallback (ViSession vi,
 
 /*- TKAFG1K_ATTR_PWM_INTERNAL_FREQUENCY -*/
 static IviRangeTableEntry attrPWMInternalFrequencyRangeTableEntries[] =
-{
-    {0.002, 50000.00, 0, "", 0},
-    {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.002, 20000.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 
 static IviRangeTable attrPWMInternalFrequencyRangeTable =
-{
-    IVI_VAL_RANGED,
-    VI_TRUE,
-    VI_TRUE,
-    VI_NULL,
-    attrPWMInternalFrequencyRangeTableEntries,
-};
+	{
+		IVI_VAL_RANGED,
+        VI_TRUE,
+        VI_TRUE,
+        VI_NULL,
+        attrPWMInternalFrequencyRangeTableEntries,
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrPWMInternalFrequency_ReadCallback (ViSession vi,
                                                                        ViSession io,
@@ -10364,6 +10297,30 @@ Error:
 	return error;
 }
 
+static ViStatus _VI_FUNC tkafg1kAttrBurstCount_RangeTableCallback (ViSession vi,
+                                                                   ViConstString channelName,
+                                                                   ViAttr attributeId,
+                                                                   IviRangeTablePtr *rangeTablePtr)
+{
+	ViStatus	error = VI_SUCCESS;
+	IviRangeTablePtr	tblPtr = VI_NULL;
+    ViInt32     model;
+    
+    checkErr ( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model) );
+    if( model == TKAFG1K_VAL_MODEL_AFG1022 )
+    {
+		tblPtr = &attrAFG1022BurstCountRangeTable;
+    }
+    else if( model == TKAFG1K_VAL_MODEL_AFG1062 )
+    {
+		tblPtr = &attrAFG1062BurstCountRangeTable;
+	}
+
+Error:
+	*rangeTablePtr = tblPtr;
+	return error;
+}
+
 /*****************************************************************************
  * Function: tkafg1k_InitAttributes
  * Purpose:  This function adds attributes to the IVI session, initializes
@@ -10664,12 +10621,14 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                                  tkafg1kAttrBurstEnabled_CheckCallback));
 
     /*- Burst Count -*/
-    checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_BURST_COUNT,
-                                       "TKAFG1K_ATTR_BURST_COUNT", 5,
-                                       IVI_VAL_MULTI_CHANNEL,
-                                       tkafg1kAttrBurstCount_ReadCallback,
-                                       tkafg1kAttrBurstCount_WriteCallback,
-                                       &attrBurstCountRangeTable));
+	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_BURST_COUNT,
+	                                   "TKAFG1K_ATTR_BURST_COUNT", 5,
+	                                   IVI_VAL_MULTI_CHANNEL,
+	                                   tkafg1kAttrBurstCount_ReadCallback,
+	                                   tkafg1kAttrBurstCount_WriteCallback,
+	                                   &attrAFG1022BurstCountRangeTable));
+	checkErr (Ivi_SetAttrRangeTableCallback (vi, TKAFG1K_ATTR_BURST_COUNT,
+	                                         tkafg1kAttrBurstCount_RangeTableCallback));
 
     /*- Burst Mode -*/
     checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_BURST_MODE,
