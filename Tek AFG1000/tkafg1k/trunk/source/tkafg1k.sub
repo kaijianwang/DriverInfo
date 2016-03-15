@@ -1078,7 +1078,7 @@ v attrActiveOneMemoryRangeTable DataType="i"
 v attrArbWaveformHandleRangeTable DataType="i" 
  TKAFG1K_VAL_WFM_EMEM (10001)
   "Configures the function generator to produce a Edit Memory waveform."
-  
+
  TKAFG1K_VAL_WFM_USER0 (10002)
   "Configures the function generator to produce a user0 waveform."
 
@@ -1847,7 +1847,6 @@ v attrArbWaveformHandleRangeTable DataType="i"
  TKAFG1K_VAL_WFM_USER255 (10257)
   "Configures the function generator to produce a user255 waveform."
 
-  
 
 v attrBurstModeRangeTable DataType="i" 
  TKAFG1K_VAL_BURST_TRIGGER (1)
@@ -2898,7 +2897,7 @@ v attrFMInternalWaveformRangeTable DataType="i"
   "Configures the function generator to modulate the carrier signal's "
   "frequency with a user255 waveform."
 
- TKAFG1K_VAL_FM_INTERNAL_EMEM (1006)
+ TKAFG1K_VAL_FM_INTERNAL_EMEM (1002)
   "Configures the function generator to modulate the carrier signal's "
   "frequency with a Edit Memory waveform."
 
@@ -2936,15 +2935,6 @@ v attrFuncWaveformRangeTable DataType="i"
 
  TKAFG1K_VAL_WFM_PRN (1003)
   "Configures the function generator to produce a prnoise waveform."
-
- TKAFG1K_VAL_WFM_ARB (1004)
-  ""
-
- TKAFG1K_VAL_WFM_USER (10002)
-  ""
-
- TKAFG1K_VAL_WFM_EMEM (10001)
-  ""
 
 
 v attrModelRangeTable DataType="i" 

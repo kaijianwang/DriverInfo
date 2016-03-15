@@ -23,37 +23,7 @@
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@determines@!##!@how@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@waveforms.
-
-When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OPERATE_CONTINUOUS,@!##!@the@!##!@function@!##!@generator@!##!@continuously@!##!@produces@!##!@an@!##!@output@!##!@signal.
-
-When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OPERATE_MODULATION,@!##!@the@!##!@function@!##!@generator@!##!@use@!##!@a@!##!@certain@!##!@method@!##!@to@!##!@modulate@!##!@output@!##!@signal.@!##!@Current@!##!@instrument@!##!@driver@!##!@support@!##!@the@!##!@following@!##!@modulation@!##!@types:
--@!##!@AM@!##!@(@!##!@Amplitude@!##!@Modulation@!##!@)
--@!##!@FM@!##!@(@!##!@Frequency@!##!@Modulation@!##!@)
--@!##!@PM@!##!@(@!##!@Phase@!##!@Modulation@!##!@)
--@!##!@FSK@!##!@(@!##!@Frequency@!##!@Shift@!##!@Key@!##!@Modulation@!##!@)
--@!##!@PWM@!##!@(@!##!@Pulse@!##!@Width@!##!@Modulation@!##!@)
-
-When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OPERATE_SWEEP,@!##!@you@!##!@
-set@!##!@the@!##!@instrument@!##!@to@!##!@sweep@!##!@mode.@!##!@You@!##!@could@!##!@use@!##!@the@!##!@following@!##!@function@!##!@to@!##!@configure@!##!@sweep@!##!@mode@!##!@parameters.
-
--@!##!@tkafg1k_ConfigureSweep@!##!@
--@!##!@tkafg1k_ConfigureSweepEx
-
-In@!##!@place@!##!@of@!##!@using@!##!@this@!##!@function,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
-TKAFG1K_ATTR_SWEEP_START_FREQUENCY@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
-TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
-TKAFG1K_ATTR_SWEEP_TIME
-TKAFG1K_ATTR_SWEEP_HOLD_TIME@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
-TKAFG1K_ATTR_SWEEP_RETURN_TIME
-TKAFG1K_ATTR_SWEEP_TYPE
-
-When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OPERATE_BURST,@!##!@you@!##!@set@!##!@the@!##!@instrument@!##!@to@!##!@burst@!##!@mode.@!##!@You@!##!@could@!##!@use@!##!@the@!##!@following@!##!@function@!##!@to@!##!@configure@!##!@burst@!##!@mode@!##!@attributes:
-
--@!##!@tkafg1k_ConfigureBurstCount
--@!##!@tkafg1k_ConfigureBurstMode
-
-Attribute@!##!@Value:@!##!@1250005</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@determines@!##!@how@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@waveforms.!@##@!!@##@!When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OPERATE_CONTINUOUS,@!##!@the@!##!@function@!##!@generator@!##!@continuously@!##!@produces@!##!@an@!##!@output@!##!@signal.!@##@!!@##@!When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OPERATE_MODULATION,@!##!@the@!##!@function@!##!@generator@!##!@use@!##!@a@!##!@certain@!##!@method@!##!@to@!##!@modulate@!##!@output@!##!@signal.@!##!@Current@!##!@instrument@!##!@driver@!##!@support@!##!@the@!##!@following@!##!@modulation@!##!@types:!@##@!-@!##!@AM@!##!@(@!##!@Amplitude@!##!@Modulation@!##!@)!@##@!-@!##!@FM@!##!@(@!##!@Frequency@!##!@Modulation@!##!@)!@##@!-@!##!@PM@!##!@(@!##!@Phase@!##!@Modulation@!##!@)!@##@!-@!##!@FSK@!##!@(@!##!@Frequency@!##!@Shift@!##!@Key@!##!@Modulation@!##!@)!@##@!-@!##!@PWM@!##!@(@!##!@Pulse@!##!@Width@!##!@Modulation@!##!@)!@##@!!@##@!When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OPERATE_SWEEP,@!##!@you@!##!@!@##@!set@!##!@the@!##!@instrument@!##!@to@!##!@sweep@!##!@mode.@!##!@You@!##!@could@!##!@use@!##!@the@!##!@following@!##!@function@!##!@to@!##!@configure@!##!@sweep@!##!@mode@!##!@parameters.!@##@!!@##@!-@!##!@tkafg1k_ConfigureSweep@!##!@!@##@!-@!##!@tkafg1k_ConfigureSweepEx!@##@!!@##@!In@!##!@place@!##!@of@!##!@using@!##!@this@!##!@function,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!TKAFG1K_ATTR_SWEEP_START_FREQUENCY@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!TKAFG1K_ATTR_SWEEP_TIME!@##@!TKAFG1K_ATTR_SWEEP_HOLD_TIME@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!TKAFG1K_ATTR_SWEEP_RETURN_TIME!@##@!TKAFG1K_ATTR_SWEEP_TYPE!@##@!!@##@!When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OPERATE_BURST,@!##!@you@!##!@set@!##!@the@!##!@instrument@!##!@to@!##!@burst@!##!@mode.@!##!@You@!##!@could@!##!@use@!##!@the@!##!@following@!##!@function@!##!@to@!##!@configure@!##!@burst@!##!@mode@!##!@attributes:!@##@!!@##@!-@!##!@tkafg1k_ConfigureBurstCount!@##@!-@!##!@tkafg1k_ConfigureBurstMode!@##@!!@##@!Attribute@!##!@Value:@!##!@1250005</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -82,47 +52,7 @@ Attribute@!##!@Value:@!##!@1250005</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Determines@!##!@the@!##!@kind@!##!@of@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@The@!##!@value@!##!@you@!##!@specify@!##!@determines@!##!@which@!##!@functions@!##!@and@!##!@attributes@!##!@you@!##!@use@!##!@to@!##!@configure@!##!@the@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.
-@!##!@@!##!@@!##!@@!##!@When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC,@!##!@you@!##!@use@!##!@the@!##!@following@!##!@function@!##!@to@!##!@configure@!##!@the@!##!@waveform:
-
--@!##!@tkafg1k_ConfigureStandardWaveform
--@!##!@tkafg1k_ConfigureRampSymmetry
--@!##!@tkafg1k_ConfigurePulseWaveform
--@!##!@tkafg1k_ConfigurePulseDelay
-
-In@!##!@place@!##!@of@!##!@using@!##!@this@!##!@function,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:
-
--@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_AMPLITUDE@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_DC_OFFSET@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_FREQUENCY@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_START_PHASE@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_DUTY_CYCLE_HIGH
--@!##!@TKAFG1K_ATTR_FUNC_RAMP_SYMMETRY@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_DUTY_CYCLE@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_LEAD_DELAY@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_PERIOD@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_LEADING_TIME@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_TRAILING_TIME
-
-When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB,@!##!@you@!##!@use@!##!@the@!##!@following@!##!@functions@!##!@to@!##!@configure@!##!@the@!##!@waveform:
-
--@!##!@tkafg1k_QueryArbWfmCapabilities
--@!##!@tkafg1k_CreateArbWaveform
--@!##!@tkafg1k_CreateLineInterpolateArbWfm
--@!##!@tkafg1k_CreateStandardShapeArbWfm@!##!@@!##!@
--@!##!@tkafg1k_ClearArbWaveform
--@!##!@tkafg1k_ConfigureSampleRate
--@!##!@tkafg1k_ConfigureArbWaveform@!##!@
-
-In@!##!@place@!##!@of@!##!@using@!##!@the@!##!@tkafg1k_ConfigureSampleRate@!##!@and@!##!@tkafg1k_ConfigureArbWaveform@!##!@functions,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:
-
--@!##!@TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_ARB_GAIN
--@!##!@TKAFG1K_ATTR_ARB_OFFSET@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_ARB_SAMPLE_RATE
-
-Attribute@!##!@Value:@!##!@1250001</Description>
+        <Description>Determines@!##!@the@!##!@kind@!##!@of@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@The@!##!@value@!##!@you@!##!@specify@!##!@determines@!##!@which@!##!@functions@!##!@and@!##!@attributes@!##!@you@!##!@use@!##!@to@!##!@configure@!##!@the@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.!@##@!@!##!@@!##!@@!##!@@!##!@When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC,@!##!@you@!##!@use@!##!@the@!##!@following@!##!@function@!##!@to@!##!@configure@!##!@the@!##!@waveform:!@##@!!@##@!-@!##!@tkafg1k_ConfigureStandardWaveform!@##@!-@!##!@tkafg1k_ConfigureRampSymmetry!@##@!-@!##!@tkafg1k_ConfigurePulseWaveform!@##@!-@!##!@tkafg1k_ConfigurePulseDelay!@##@!!@##@!In@!##!@place@!##!@of@!##!@using@!##!@this@!##!@function,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:!@##@!!@##@!-@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_AMPLITUDE@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_DC_OFFSET@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_FREQUENCY@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_START_PHASE@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_DUTY_CYCLE_HIGH!@##@!-@!##!@TKAFG1K_ATTR_FUNC_RAMP_SYMMETRY@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_DUTY_CYCLE@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_LEAD_DELAY@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_PERIOD@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_LEADING_TIME@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_TRAILING_TIME!@##@!!@##@!When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB,@!##!@you@!##!@use@!##!@the@!##!@following@!##!@functions@!##!@to@!##!@configure@!##!@the@!##!@waveform:!@##@!!@##@!-@!##!@tkafg1k_QueryArbWfmCapabilities!@##@!-@!##!@tkafg1k_CreateArbWaveform!@##@!-@!##!@tkafg1k_CreateLineInterpolateArbWfm!@##@!-@!##!@tkafg1k_CreateStandardShapeArbWfm@!##!@@!##!@!@##@!-@!##!@tkafg1k_ClearArbWaveform!@##@!-@!##!@tkafg1k_ConfigureSampleRate!@##@!-@!##!@tkafg1k_ConfigureArbWaveform@!##!@!@##@!!@##@!In@!##!@place@!##!@of@!##!@using@!##!@the@!##!@tkafg1k_ConfigureSampleRate@!##!@and@!##!@tkafg1k_ConfigureArbWaveform@!##!@functions,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:!@##@!!@##@!-@!##!@TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_ARB_GAIN!@##@!-@!##!@TKAFG1K_ATTR_ARB_OFFSET@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_ARB_SAMPLE_RATE!@##@!!@##@!Attribute@!##!@Value:@!##!@1250001</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -151,47 +81,7 @@ Attribute@!##!@Value:@!##!@1250001</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@determines@!##!@the@!##!@kind@!##!@of@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@based@!##!@on@!##!@channel.@!##!@@!##!@The@!##!@value@!##!@you@!##!@specify@!##!@determines@!##!@which@!##!@functions@!##!@and@!##!@attributes@!##!@you@!##!@use@!##!@to@!##!@configure@!##!@the@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.
-@!##!@@!##!@@!##!@@!##!@When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC,@!##!@you@!##!@use@!##!@the@!##!@following@!##!@function@!##!@to@!##!@configure@!##!@the@!##!@waveform:
-
--@!##!@tkafg1k_ConfigureStandardWaveform
--@!##!@tkafg1k_ConfigureRampSymmetry
--@!##!@tkafg1k_ConfigurePulseWaveform
--@!##!@tkafg1k_ConfigurePulseDelay
-
-In@!##!@place@!##!@of@!##!@using@!##!@this@!##!@function,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:
-
--@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_AMPLITUDE@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_DC_OFFSET@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_FREQUENCY@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_START_PHASE@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_FUNC_DUTY_CYCLE_HIGH
--@!##!@TKAFG1K_ATTR_FUNC_RAMP_SYMMETRY@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_DUTY_CYCLE@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_LEAD_DELAY@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_PERIOD@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_LEADING_TIME@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_PULSE_TRAILING_TIME
-
-When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB,@!##!@you@!##!@use@!##!@the@!##!@following@!##!@functions@!##!@to@!##!@configure@!##!@the@!##!@waveform:
-
--@!##!@tkafg1k_QueryArbWfmCapabilities
--@!##!@tkafg1k_CreateArbWaveform
--@!##!@tkafg1k_CreateLineInterpolateArbWfm
--@!##!@tkafg1k_CreateStandardShapeArbWfm@!##!@@!##!@
--@!##!@tkafg1k_ClearArbWaveform
--@!##!@tkafg1k_ConfigureSampleRate
--@!##!@tkafg1k_ConfigureArbWaveform@!##!@
-
-In@!##!@place@!##!@of@!##!@using@!##!@the@!##!@tkafg1k_ConfigureSampleRate@!##!@and@!##!@tkafg1k_ConfigureArbWaveform@!##!@functions,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:
-
--@!##!@TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_ARB_GAIN
--@!##!@TKAFG1K_ATTR_ARB_OFFSET@!##!@@!##!@
--@!##!@TKAFG1K_ATTR_ARB_SAMPLE_RATE
-
-Attribute@!##!@Value:@!##!@1150002</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@determines@!##!@the@!##!@kind@!##!@of@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@based@!##!@on@!##!@channel.@!##!@@!##!@The@!##!@value@!##!@you@!##!@specify@!##!@determines@!##!@which@!##!@functions@!##!@and@!##!@attributes@!##!@you@!##!@use@!##!@to@!##!@configure@!##!@the@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.!@##@!@!##!@@!##!@@!##!@@!##!@When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC,@!##!@you@!##!@use@!##!@the@!##!@following@!##!@function@!##!@to@!##!@configure@!##!@the@!##!@waveform:!@##@!!@##@!-@!##!@tkafg1k_ConfigureStandardWaveform!@##@!-@!##!@tkafg1k_ConfigureRampSymmetry!@##@!-@!##!@tkafg1k_ConfigurePulseWaveform!@##@!-@!##!@tkafg1k_ConfigurePulseDelay!@##@!!@##@!In@!##!@place@!##!@of@!##!@using@!##!@this@!##!@function,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:!@##@!!@##@!-@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_AMPLITUDE@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_DC_OFFSET@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_FREQUENCY@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_START_PHASE@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_FUNC_DUTY_CYCLE_HIGH!@##@!-@!##!@TKAFG1K_ATTR_FUNC_RAMP_SYMMETRY@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_DUTY_CYCLE@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_LEAD_DELAY@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_PERIOD@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_LEADING_TIME@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_PULSE_TRAILING_TIME!@##@!!@##@!When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB,@!##!@you@!##!@use@!##!@the@!##!@following@!##!@functions@!##!@to@!##!@configure@!##!@the@!##!@waveform:!@##@!!@##@!-@!##!@tkafg1k_QueryArbWfmCapabilities!@##@!-@!##!@tkafg1k_CreateArbWaveform!@##@!-@!##!@tkafg1k_CreateLineInterpolateArbWfm!@##@!-@!##!@tkafg1k_CreateStandardShapeArbWfm@!##!@@!##!@!@##@!-@!##!@tkafg1k_ClearArbWaveform!@##@!-@!##!@tkafg1k_ConfigureSampleRate!@##@!-@!##!@tkafg1k_ConfigureArbWaveform@!##!@!@##@!!@##@!In@!##!@place@!##!@of@!##!@using@!##!@the@!##!@tkafg1k_ConfigureSampleRate@!##!@and@!##!@tkafg1k_ConfigureArbWaveform@!##!@functions,@!##!@you@!##!@can@!##!@set@!##!@the@!##!@following@!##!@attributes:!@##@!!@##@!-@!##!@TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_ARB_GAIN!@##@!-@!##!@TKAFG1K_ATTR_ARB_OFFSET@!##!@@!##!@!@##@!-@!##!@TKAFG1K_ATTR_ARB_SAMPLE_RATE!@##@!!@##@!Attribute@!##!@Value:@!##!@1150002</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -221,9 +111,7 @@ Attribute@!##!@Value:@!##!@1150002</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@whether@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@appears@!##!@at@!##!@the@!##!@output@!##!@connector.
-
-Attribute@!##!@Value:@!##!@1250003</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@whether@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@appears@!##!@at@!##!@the@!##!@output@!##!@connector.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250003</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -251,9 +139,7 @@ Attribute@!##!@Value:@!##!@1250003</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@function@!##!@generator's@!##!@output@!##!@impedance@!##!@at@!##!@the@!##!@output@!##!@connector.@!##!@@!##!@A@!##!@value@!##!@of@!##!@0.0@!##!@indicates@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@is@!##!@in@!##!@the@!##!@impedance@!##!@of@!##!@INFINITY,@!##!@or@!##!@you@!##!@can@!##!@use@!##!@defined@!##!@macro@!##!@TKAFG1K_VAL_IMPEDANCE_INFINITY@!##!@instead.
-
-Attribute@!##!@Value:@!##!@1250004</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@function@!##!@generator's@!##!@output@!##!@impedance@!##!@at@!##!@the@!##!@output@!##!@connector.@!##!@@!##!@A@!##!@value@!##!@of@!##!@0.0@!##!@indicates@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@is@!##!@in@!##!@the@!##!@impedance@!##!@of@!##!@INFINITY,@!##!@or@!##!@you@!##!@can@!##!@use@!##!@defined@!##!@macro@!##!@TKAFG1K_VAL_IMPEDANCE_INFINITY@!##!@instead.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250004</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -281,11 +167,7 @@ Attribute@!##!@Value:@!##!@1250004</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attributes@!##!@determines@!##!@whether@!##!@to@!##!@enable@!##!@continuous@!##!@mode@!##!@for@!##!@operation@!##!@mode.@!##!@When@!##!@you@!##!@enable@!##!@continuous@!##!@mode,@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@signal@!##!@continuously.
-
-Notes:
-(1)@!##!@It@!##!@is@!##!@a@!##!@hidden@!##!@attribute,@!##!@you@!##!@should@!##!@not@!##!@use@!##!@it@!##!@directly@!##!@in@!##!@user@!##!@program.
-</Description>
+        <Description>This@!##!@channel-based@!##!@attributes@!##!@determines@!##!@whether@!##!@to@!##!@enable@!##!@continuous@!##!@mode@!##!@for@!##!@operation@!##!@mode.@!##!@When@!##!@you@!##!@enable@!##!@continuous@!##!@mode,@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@signal@!##!@continuously.!@##@!!@##@!Notes:!@##@!(1)@!##!@It@!##!@is@!##!@a@!##!@hidden@!##!@attribute,@!##!@you@!##!@should@!##!@not@!##!@use@!##!@it@!##!@directly@!##!@in@!##!@user@!##!@program.!@##@!</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -320,10 +202,7 @@ Notes:
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@which@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.
-
-Attribute@!##!@Value:@!##!@1250101</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@which@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250101</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -353,10 +232,7 @@ Attribute@!##!@Value:@!##!@1250101</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@amplitude@!##!@of@!##!@the@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@This@!##!@value@!##!@is@!##!@the@!##!@amplitude@!##!@at@!##!@the@!##!@output@!##!@terminal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@volts@!##!@peak-to-peak@!##!@(Vpp).@!##!@@!##!@For@!##!@example,@!##!@to@!##!@produce@!##!@a@!##!@waveform@!##!@ranging@!##!@from@!##!@-5.0@!##!@to@!##!@+5.0@!##!@volts,@!##!@you@!##!@set@!##!@this@!##!@value@!##!@to@!##!@10.0@!##!@volts.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.@!##!@@!##!@This@!##!@attribute@!##!@does@!##!@not@!##!@affect@!##!@function@!##!@generator@!##!@behavior@!##!@when@!##!@you@!##!@set@!##!@the@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@attribute@!##!@to@!##!@TKAFG1K_VAL_WFM_DC.
-
-Attribute@!##!@Value:@!##!@1250102</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@amplitude@!##!@of@!##!@the@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@This@!##!@value@!##!@is@!##!@the@!##!@amplitude@!##!@at@!##!@the@!##!@output@!##!@terminal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@volts@!##!@peak-to-peak@!##!@(Vpp).@!##!@@!##!@For@!##!@example,@!##!@to@!##!@produce@!##!@a@!##!@waveform@!##!@ranging@!##!@from@!##!@-5.0@!##!@to@!##!@+5.0@!##!@volts,@!##!@you@!##!@set@!##!@this@!##!@value@!##!@to@!##!@10.0@!##!@volts.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.@!##!@@!##!@This@!##!@attribute@!##!@does@!##!@not@!##!@affect@!##!@function@!##!@generator@!##!@behavior@!##!@when@!##!@you@!##!@set@!##!@the@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@attribute@!##!@to@!##!@TKAFG1K_VAL_WFM_DC.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250102</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -386,10 +262,7 @@ Attribute@!##!@Value:@!##!@1250102</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@DC@!##!@offset@!##!@of@!##!@the@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@This@!##!@value@!##!@is@!##!@the@!##!@offset@!##!@at@!##!@the@!##!@output@!##!@terminal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@volts@!##!@(V).@!##!@@!##!@The@!##!@value@!##!@is@!##!@the@!##!@offset@!##!@from@!##!@ground@!##!@to@!##!@the@!##!@center@!##!@of@!##!@the@!##!@waveform@!##!@you@!##!@specify@!##!@with@!##!@the@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@attribute.@!##!@@!##!@For@!##!@example,@!##!@a@!##!@standard@!##!@waveform@!##!@ranging@!##!@from@!##!@+5.0@!##!@volts@!##!@to@!##!@0.0@!##!@volts@!##!@has@!##!@a@!##!@DC@!##!@offset@!##!@of@!##!@2.5@!##!@volts.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.
-
-Attribute@!##!@Value:@!##!@1250103</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@DC@!##!@offset@!##!@of@!##!@the@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@This@!##!@value@!##!@is@!##!@the@!##!@offset@!##!@at@!##!@the@!##!@output@!##!@terminal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@volts@!##!@(V).@!##!@@!##!@The@!##!@value@!##!@is@!##!@the@!##!@offset@!##!@from@!##!@ground@!##!@to@!##!@the@!##!@center@!##!@of@!##!@the@!##!@waveform@!##!@you@!##!@specify@!##!@with@!##!@the@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@attribute.@!##!@@!##!@For@!##!@example,@!##!@a@!##!@standard@!##!@waveform@!##!@ranging@!##!@from@!##!@+5.0@!##!@volts@!##!@to@!##!@0.0@!##!@volts@!##!@has@!##!@a@!##!@DC@!##!@offset@!##!@of@!##!@2.5@!##!@volts.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250103</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -419,10 +292,7 @@ Attribute@!##!@Value:@!##!@1250103</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@The@!##!@units@!##!@are@!##!@hertz@!##!@(Hz).@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@does@!##!@not@!##!@affect@!##!@function@!##!@generator@!##!@behavior@!##!@when@!##!@you@!##!@set@!##!@the@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@attribute@!##!@to@!##!@TKAFG1K_VAL_WFM_DC@!##!@or@!##!@TKAFG1K_VAL_WFM_PRN.
-
-Attribute@!##!@Value:@!##!@1250104</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@The@!##!@units@!##!@are@!##!@hertz@!##!@(Hz).@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@does@!##!@not@!##!@affect@!##!@function@!##!@generator@!##!@behavior@!##!@when@!##!@you@!##!@set@!##!@the@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@attribute@!##!@to@!##!@TKAFG1K_VAL_WFM_DC@!##!@or@!##!@TKAFG1K_VAL_WFM_PRN.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250104</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -452,10 +322,7 @@ Attribute@!##!@Value:@!##!@1250104</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@horizontal@!##!@offset@!##!@of@!##!@the@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@You@!##!@specify@!##!@this@!##!@attribute@!##!@in@!##!@degrees@!##!@of@!##!@one@!##!@waveform@!##!@cycle.@!##!@@!##!@For@!##!@example,@!##!@a@!##!@180@!##!@degree@!##!@phase@!##!@offset@!##!@means@!##!@output@!##!@generation@!##!@begins@!##!@half@!##!@way@!##!@through@!##!@the@!##!@waveform.@!##!@@!##!@A@!##!@start@!##!@phase@!##!@of@!##!@360@!##!@degrees@!##!@offsets@!##!@the@!##!@output@!##!@by@!##!@an@!##!@entire@!##!@waveform@!##!@cycle.@!##!@@!##!@It@!##!@is@!##!@therefore@!##!@identical@!##!@to@!##!@a@!##!@start@!##!@phase@!##!@of@!##!@0@!##!@degrees.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.@!##!@@!##!@This@!##!@attribute@!##!@does@!##!@not@!##!@affect@!##!@function@!##!@generator@!##!@behavior@!##!@when@!##!@you@!##!@set@!##!@the@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@attribute@!##!@to@!##!@TKAFG1K_VAL_WFM_DC@!##!@or@!##!@TKAFG1K_VAL_WFM_PRN.
-
-Attribute@!##!@Value:@!##!@1250105</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@horizontal@!##!@offset@!##!@of@!##!@the@!##!@standard@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@You@!##!@specify@!##!@this@!##!@attribute@!##!@in@!##!@degrees@!##!@of@!##!@one@!##!@waveform@!##!@cycle.@!##!@@!##!@For@!##!@example,@!##!@a@!##!@180@!##!@degree@!##!@phase@!##!@offset@!##!@means@!##!@output@!##!@generation@!##!@begins@!##!@half@!##!@way@!##!@through@!##!@the@!##!@waveform.@!##!@@!##!@A@!##!@start@!##!@phase@!##!@of@!##!@360@!##!@degrees@!##!@offsets@!##!@the@!##!@output@!##!@by@!##!@an@!##!@entire@!##!@waveform@!##!@cycle.@!##!@@!##!@It@!##!@is@!##!@therefore@!##!@identical@!##!@to@!##!@a@!##!@start@!##!@phase@!##!@of@!##!@0@!##!@degrees.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC.@!##!@@!##!@This@!##!@attribute@!##!@does@!##!@not@!##!@affect@!##!@function@!##!@generator@!##!@behavior@!##!@when@!##!@you@!##!@set@!##!@the@!##!@TKAFG1K_ATTR_FUNC_WAVEFORM@!##!@attribute@!##!@to@!##!@TKAFG1K_VAL_WFM_DC@!##!@or@!##!@TKAFG1K_VAL_WFM_PRN.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250105</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -483,10 +350,7 @@ Attribute@!##!@Value:@!##!@1250105</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@length@!##!@of@!##!@time@!##!@the@!##!@output@!##!@voltage@!##!@level@!##!@remains@!##!@high@!##!@in@!##!@a@!##!@square@!##!@waveform.@!##!@@!##!@You@!##!@specify@!##!@this@!##!@attribute@!##!@as@!##!@a@!##!@percentage@!##!@of@!##!@one@!##!@waveform@!##!@cycle.@!##!@The@!##!@units@!##!@are@!##!@percentage@!##!@(%).
-Because@!##!@the@!##!@duty@!##!@cycle@!##!@of@!##!@square@!##!@waveform@!##!@is@!##!@fixed@!##!@in@!##!@instrument,@!##!@so@!##!@you@!##!@could@!##!@only@!##!@set@!##!@this@!##!@attribute@!##!@to@!##!@50%.
-
-Attribute@!##!@Value:@!##!@1250106</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@length@!##!@of@!##!@time@!##!@the@!##!@output@!##!@voltage@!##!@level@!##!@remains@!##!@high@!##!@in@!##!@a@!##!@square@!##!@waveform.@!##!@@!##!@You@!##!@specify@!##!@this@!##!@attribute@!##!@as@!##!@a@!##!@percentage@!##!@of@!##!@one@!##!@waveform@!##!@cycle.@!##!@The@!##!@units@!##!@are@!##!@percentage@!##!@(%).!@##@!Because@!##!@the@!##!@duty@!##!@cycle@!##!@of@!##!@square@!##!@waveform@!##!@is@!##!@fixed@!##!@in@!##!@instrument,@!##!@so@!##!@you@!##!@could@!##!@only@!##!@set@!##!@this@!##!@attribute@!##!@to@!##!@50%.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250106</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -518,9 +382,7 @@ Attribute@!##!@Value:@!##!@1250106</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specify@!##!@the@!##!@duty@!##!@cycle@!##!@of@!##!@pulse@!##!@waveform.@!##!@The@!##!@units@!##!@are@!##!@percentage(%).@!##!@The@!##!@setting@!##!@range@!##!@is@!##!@0.001%@!##!@to@!##!@99.999%@!##!@in@!##!@increments@!##!@of@!##!@0.001.
-
-Attribute@!##!@Value:@!##!@1150042</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specify@!##!@the@!##!@duty@!##!@cycle@!##!@of@!##!@pulse@!##!@waveform.@!##!@The@!##!@units@!##!@are@!##!@percentage(%).@!##!@The@!##!@setting@!##!@range@!##!@is@!##!@0.001%@!##!@to@!##!@99.999%@!##!@in@!##!@increments@!##!@of@!##!@0.001.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150042</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -553,13 +415,7 @@ Attribute@!##!@Value:@!##!@1150042</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@identifies@!##!@which@!##!@arbitrary@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@You@!##!@can@!##!@create@!##!@multiple@!##!@arbitrary@!##!@waveforms@!##!@using@!##!@the@!##!@tkafg1k_CreateArbWaveform@!##!@function.@!##!@The@!##!@tkafg1k_CreateArbWaveform@!##!@function@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@you@!##!@use@!##!@to@!##!@identify@!##!@the@!##!@particular@!##!@waveform.@!##!@@!##!@To@!##!@configure@!##!@the@!##!@function@!##!@generator@!##!@to@!##!@produce@!##!@a@!##!@particular@!##!@waveform,@!##!@you@!##!@set@!##!@this@!##!@attribute@!##!@to@!##!@the@!##!@waveform's@!##!@handle.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB.
-@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@
-SCPI@!##!@Command:
-[SOURce[1|2]]:FUNCtion[:SHAPe]@!##!@{USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}
-
-Attribute@!##!@Value:@!##!@1250201</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@identifies@!##!@which@!##!@arbitrary@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@You@!##!@can@!##!@create@!##!@multiple@!##!@arbitrary@!##!@waveforms@!##!@using@!##!@the@!##!@tkafg1k_CreateArbWaveform@!##!@function.@!##!@The@!##!@tkafg1k_CreateArbWaveform@!##!@function@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@you@!##!@use@!##!@to@!##!@identify@!##!@the@!##!@particular@!##!@waveform.@!##!@@!##!@To@!##!@configure@!##!@the@!##!@function@!##!@generator@!##!@to@!##!@produce@!##!@a@!##!@particular@!##!@waveform,@!##!@you@!##!@set@!##!@this@!##!@attribute@!##!@to@!##!@the@!##!@waveform's@!##!@handle.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB.!@##@!@!##!@@!##!@@!##!@@!##!@@!##!@@!##!@!@##@!SCPI@!##!@Command:!@##@![SOURce[1|2]]:FUNCtion[:SHAPe]@!##!@{USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}!@##@!!@##@!Attribute@!##!@Value:@!##!@1250201</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -589,10 +445,7 @@ Attribute@!##!@Value:@!##!@1250201</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@factor@!##!@by@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@scales@!##!@the@!##!@arbitrary@!##!@waveform@!##!@data.@!##!@@!##!@When@!##!@you@!##!@create@!##!@arbitrary@!##!@waveforms,@!##!@you@!##!@must@!##!@first@!##!@normalize@!##!@the@!##!@data@!##!@points@!##!@to@!##!@the@!##!@range@!##!@-1.0@!##!@to@!##!@+1.0.@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@to@!##!@scale@!##!@the@!##!@arbitrary@!##!@waveform@!##!@to@!##!@other@!##!@ranges.@!##!@@!##!@For@!##!@example,@!##!@when@!##!@you@!##!@set@!##!@this@!##!@attribute@!##!@to@!##!@2.0,@!##!@the@!##!@output@!##!@signal@!##!@ranges@!##!@from@!##!@-2.0@!##!@to@!##!@+2.0@!##!@volts.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@.
-
-Attribute@!##!@Value:@!##!@1250202</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@factor@!##!@by@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@scales@!##!@the@!##!@arbitrary@!##!@waveform@!##!@data.@!##!@@!##!@When@!##!@you@!##!@create@!##!@arbitrary@!##!@waveforms,@!##!@you@!##!@must@!##!@first@!##!@normalize@!##!@the@!##!@data@!##!@points@!##!@to@!##!@the@!##!@range@!##!@-1.0@!##!@to@!##!@+1.0.@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@to@!##!@scale@!##!@the@!##!@arbitrary@!##!@waveform@!##!@to@!##!@other@!##!@ranges.@!##!@@!##!@For@!##!@example,@!##!@when@!##!@you@!##!@set@!##!@this@!##!@attribute@!##!@to@!##!@2.0,@!##!@the@!##!@output@!##!@signal@!##!@ranges@!##!@from@!##!@-2.0@!##!@to@!##!@+2.0@!##!@volts.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250202</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -622,10 +475,7 @@ Attribute@!##!@Value:@!##!@1250202</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@value@!##!@the@!##!@function@!##!@generator@!##!@adds@!##!@to@!##!@the@!##!@arbitrary@!##!@waveform@!##!@data.@!##!@@!##!@When@!##!@you@!##!@create@!##!@arbitrary@!##!@waveforms,@!##!@you@!##!@must@!##!@first@!##!@normalize@!##!@the@!##!@data@!##!@points@!##!@to@!##!@the@!##!@range@!##!@-1.0@!##!@to@!##!@+1.0.@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@to@!##!@shift@!##!@the@!##!@arbitrary@!##!@waveform's@!##!@range.@!##!@The@!##!@units@!##!@are@!##!@volts@!##!@(V).@!##!@@!##!@For@!##!@example,@!##!@when@!##!@you@!##!@set@!##!@this@!##!@attribute@!##!@to@!##!@1.0,@!##!@the@!##!@output@!##!@signal@!##!@ranges@!##!@from@!##!@2.0@!##!@volts@!##!@to@!##!@0.0@!##!@volts.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB.
-
-Attribute@!##!@Value:@!##!@1250203</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@value@!##!@the@!##!@function@!##!@generator@!##!@adds@!##!@to@!##!@the@!##!@arbitrary@!##!@waveform@!##!@data.@!##!@@!##!@When@!##!@you@!##!@create@!##!@arbitrary@!##!@waveforms,@!##!@you@!##!@must@!##!@first@!##!@normalize@!##!@the@!##!@data@!##!@points@!##!@to@!##!@the@!##!@range@!##!@-1.0@!##!@to@!##!@+1.0.@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@to@!##!@shift@!##!@the@!##!@arbitrary@!##!@waveform's@!##!@range.@!##!@The@!##!@units@!##!@are@!##!@volts@!##!@(V).@!##!@@!##!@For@!##!@example,@!##!@when@!##!@you@!##!@set@!##!@this@!##!@attribute@!##!@to@!##!@1.0,@!##!@the@!##!@output@!##!@signal@!##!@ranges@!##!@from@!##!@2.0@!##!@volts@!##!@to@!##!@0.0@!##!@volts.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250203</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -655,11 +505,7 @@ Attribute@!##!@Value:@!##!@1250203</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@the@!##!@rate@!##!@at@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@outputs@!##!@the@!##!@points@!##!@in@!##!@arbitrary@!##!@waveforms.@!##!@@!##!@The@!##!@units@!##!@are@!##!@samples@!##!@per@!##!@second.
-Actualy@!##!@this@!##!@attribute@!##!@is@!##!@not@!##!@configurable@!##!@on@!##!@the@!##!@instrument.@!##!@Whatever@!##!@value@!##!@you@!##!@set@!##!@for@!##!@this@!##!@attribute,@!##!@the@!##!@value@!##!@read@!##!@out@!##!@is@!##!@determined@!##!@by@!##!@the@!##!@instrument@!##!@depending@!##!@on@!##!@the@!##!@arbitraty@!##!@waveform@!##!@length.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB.
-
-Attribute@!##!@Value:@!##!@1250204</Description>
+        <Description>Specifies@!##!@the@!##!@rate@!##!@at@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@outputs@!##!@the@!##!@points@!##!@in@!##!@arbitrary@!##!@waveforms.@!##!@@!##!@The@!##!@units@!##!@are@!##!@samples@!##!@per@!##!@second.!@##@!Actualy@!##!@this@!##!@attribute@!##!@is@!##!@not@!##!@configurable@!##!@on@!##!@the@!##!@instrument.@!##!@Whatever@!##!@value@!##!@you@!##!@set@!##!@for@!##!@this@!##!@attribute,@!##!@the@!##!@value@!##!@read@!##!@out@!##!@is@!##!@determined@!##!@by@!##!@the@!##!@instrument@!##!@depending@!##!@on@!##!@the@!##!@arbitraty@!##!@waveform@!##!@length.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250204</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -688,10 +534,7 @@ Attribute@!##!@Value:@!##!@1250204</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@rate@!##!@at@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@an@!##!@entire@!##!@arbitrary@!##!@waveform.@!##!@@!##!@The@!##!@units@!##!@are@!##!@waveforms@!##!@per@!##!@second.
-@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB.
-
-Attribute@!##!@Value:@!##!@1250209</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@rate@!##!@at@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@an@!##!@entire@!##!@arbitrary@!##!@waveform.@!##!@@!##!@The@!##!@units@!##!@are@!##!@waveforms@!##!@per@!##!@second.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@use@!##!@this@!##!@attribute@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OUTPUT_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250209</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -721,9 +564,7 @@ Attribute@!##!@Value:@!##!@1250209</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Returns@!##!@the@!##!@maximum@!##!@number@!##!@of@!##!@arbitrary@!##!@waveforms@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@allows.@!##!@@!##!@Typically,@!##!@this@!##!@value@!##!@is@!##!@constant@!##!@for@!##!@the@!##!@function@!##!@generator.
-
-Attribute@!##!@Value:@!##!@1250205</Description>
+        <Description>Returns@!##!@the@!##!@maximum@!##!@number@!##!@of@!##!@arbitrary@!##!@waveforms@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@allows.@!##!@@!##!@Typically,@!##!@this@!##!@value@!##!@is@!##!@constant@!##!@for@!##!@the@!##!@function@!##!@generator.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250205</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -751,10 +592,7 @@ Attribute@!##!@Value:@!##!@1250205</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>The@!##!@size@!##!@of@!##!@each@!##!@arbitrary@!##!@waveform@!##!@must@!##!@be@!##!@a@!##!@multiple@!##!@of@!##!@a@!##!@quantum@!##!@value.@!##!@@!##!@This@!##!@attribute@!##!@returns@!##!@the@!##!@quantum@!##!@value@!##!@the@!##!@function@!##!@generator@!##!@allows.
-For@!##!@example,@!##!@when@!##!@this@!##!@attribute@!##!@returns@!##!@a@!##!@value@!##!@of@!##!@8,@!##!@all@!##!@waveform@!##!@sizes@!##!@must@!##!@be@!##!@a@!##!@multiple@!##!@of@!##!@8.@!##!@@!##!@Typically,@!##!@this@!##!@value@!##!@is@!##!@constant@!##!@for@!##!@the@!##!@function@!##!@generator.
-
-Attribute@!##!@Value:@!##!@1250206</Description>
+        <Description>The@!##!@size@!##!@of@!##!@each@!##!@arbitrary@!##!@waveform@!##!@must@!##!@be@!##!@a@!##!@multiple@!##!@of@!##!@a@!##!@quantum@!##!@value.@!##!@@!##!@This@!##!@attribute@!##!@returns@!##!@the@!##!@quantum@!##!@value@!##!@the@!##!@function@!##!@generator@!##!@allows.!@##@!For@!##!@example,@!##!@when@!##!@this@!##!@attribute@!##!@returns@!##!@a@!##!@value@!##!@of@!##!@8,@!##!@all@!##!@waveform@!##!@sizes@!##!@must@!##!@be@!##!@a@!##!@multiple@!##!@of@!##!@8.@!##!@@!##!@Typically,@!##!@this@!##!@value@!##!@is@!##!@constant@!##!@for@!##!@the@!##!@function@!##!@generator.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250206</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -782,9 +620,7 @@ Attribute@!##!@Value:@!##!@1250206</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Returns@!##!@the@!##!@minimum@!##!@number@!##!@of@!##!@points@!##!@the@!##!@function@!##!@generator@!##!@allows@!##!@in@!##!@an@!##!@arbitrary@!##!@waveform.@!##!@@!##!@Typically,@!##!@this@!##!@value@!##!@is@!##!@constant@!##!@for@!##!@the@!##!@function@!##!@generator.
-
-Attribute@!##!@Value:@!##!@1250207</Description>
+        <Description>Returns@!##!@the@!##!@minimum@!##!@number@!##!@of@!##!@points@!##!@the@!##!@function@!##!@generator@!##!@allows@!##!@in@!##!@an@!##!@arbitrary@!##!@waveform.@!##!@@!##!@Typically,@!##!@this@!##!@value@!##!@is@!##!@constant@!##!@for@!##!@the@!##!@function@!##!@generator.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250207</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -812,9 +648,7 @@ Attribute@!##!@Value:@!##!@1250207</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Returns@!##!@the@!##!@maximum@!##!@number@!##!@of@!##!@points@!##!@the@!##!@function@!##!@generator@!##!@allows@!##!@in@!##!@an@!##!@arbitrary@!##!@waveform.@!##!@@!##!@Typically,@!##!@this@!##!@value@!##!@is@!##!@constant@!##!@for@!##!@the@!##!@function@!##!@generator.
-
-Attribute@!##!@Value:@!##!@1250208</Description>
+        <Description>Returns@!##!@the@!##!@maximum@!##!@number@!##!@of@!##!@points@!##!@the@!##!@function@!##!@generator@!##!@allows@!##!@in@!##!@an@!##!@arbitrary@!##!@waveform.@!##!@@!##!@Typically,@!##!@this@!##!@value@!##!@is@!##!@constant@!##!@for@!##!@the@!##!@function@!##!@generator.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250208</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -829,7 +663,7 @@ Attribute@!##!@Value:@!##!@1250208</Description>
         <Name>Active Memory</Name>
         <Type>ViInt32</Type>
         <ImplementationNumber>0</ImplementationNumber>
-        <RangeTable>ptrMemoryRangeTable</RangeTable>
+        <RangeTable />
         <DefaultValue>TKAFG1K_VAL_OUTPUT_EMEM</DefaultValue>
         <RepeatedCap />
         <Callback>
@@ -843,21 +677,7 @@ Attribute@!##!@Value:@!##!@1250208</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@attribute@!##!@specifies@!##!@the@!##!@active@!##!@edit@!##!@memory@!##!@which@!##!@is@!##!@being@!##!@operated.
-
-Valid@!##!@Values:
-TKAFG1K_VAL_OUTPUT_EMEM@!##!@:@!##!@Edit@!##!@Memory
-TKAFG1K_VAL_OUTPUT_EMEM1@!##!@:@!##!@Edit@!##!@Memory@!##!@1@!##!@(since@!##!@AFG@!##!@3KC@!##!@firmware@!##!@version@!##!@1.0.4)
-TKAFG1K_VAL_OUTPUT_EMEM2@!##!@:@!##!@Edit@!##!@Memory@!##!@2@!##!@(since@!##!@AFG@!##!@3KC@!##!@firmware@!##!@version@!##!@1.0.4)
-
-Default@!##!@Value:
-TKAFG1K_VAL_OUTPUT_EMEM
-
-Notes:
-(1)@!##!@Only@!##!@Edit@!##!@Memory@!##!@is@!##!@available@!##!@for@!##!@AFG@!##!@3K,@!##!@AFG@!##!@3KB@!##!@and@!##!@AFG@!##!@3KC(@!##!@firmware@!##!@version@!##!@is@!##!@less@!##!@than@!##!@1.0.4@!##!@).
-(2)@!##!@Edit@!##!@Memory@!##!@2@!##!@is@!##!@supported@!##!@since@!##!@AFG@!##!@3KC@!##!@firmware@!##!@version@!##!@1.0.4@!##!@and@!##!@only@!##!@available@!##!@on@!##!@dual-channel@!##!@models.
-
-Attribute@!##!@Value:@!##!@1150045</Description>
+        <Description>This@!##!@attribute@!##!@specifies@!##!@the@!##!@active@!##!@edit@!##!@memory@!##!@which@!##!@is@!##!@being@!##!@operated.!@##@!!@##@!Valid@!##!@Values:!@##@!TKAFG1K_VAL_OUTPUT_EMEM@!##!@:@!##!@Edit@!##!@Memory!@##@!TKAFG1K_VAL_OUTPUT_EMEM1@!##!@:@!##!@Edit@!##!@Memory@!##!@1@!##!@(since@!##!@AFG@!##!@3KC@!##!@firmware@!##!@version@!##!@1.0.4)!@##@!TKAFG1K_VAL_OUTPUT_EMEM2@!##!@:@!##!@Edit@!##!@Memory@!##!@2@!##!@(since@!##!@AFG@!##!@3KC@!##!@firmware@!##!@version@!##!@1.0.4)!@##@!!@##@!Default@!##!@Value:!@##@!TKAFG1K_VAL_OUTPUT_EMEM!@##@!!@##@!Notes:!@##@!(1)@!##!@Only@!##!@Edit@!##!@Memory@!##!@is@!##!@available@!##!@for@!##!@AFG@!##!@3K,@!##!@AFG@!##!@3KB@!##!@and@!##!@AFG@!##!@3KC(@!##!@firmware@!##!@version@!##!@is@!##!@less@!##!@than@!##!@1.0.4@!##!@).!@##@!(2)@!##!@Edit@!##!@Memory@!##!@2@!##!@is@!##!@supported@!##!@since@!##!@AFG@!##!@3KC@!##!@firmware@!##!@version@!##!@1.0.4@!##!@and@!##!@only@!##!@available@!##!@on@!##!@dual-channel@!##!@models.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150045</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -906,7 +726,7 @@ Attribute@!##!@Value:@!##!@1150045</Description>
         <Name>Burst Count</Name>
         <Type>ViInt32</Type>
         <ImplementationNumber>1</ImplementationNumber>
-        <RangeTable>attrBurstCountRangeTable</RangeTable>
+        <RangeTable>attrAFG1022BurstCountRangeTable</RangeTable>
         <DefaultValue>5</DefaultValue>
         <RepeatedCap />
         <Callback>
@@ -915,14 +735,12 @@ Attribute@!##!@Value:@!##!@1150045</Description>
           <Check />
           <Compare />
           <Coerce />
-          <RangeTable />
+          <RangeTable>BurstCount_RangeTableCallback</RangeTable>
         </Callback>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@number@!##!@of@!##!@cycles@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@when@!##!@it@!##!@is@!##!@in@!##!@the@!##!@burst@!##!@operation@!##!@mode@!##!@and@!##!@receives@!##!@a@!##!@trigger.
-
-Attribute@!##!@Value:@!##!@1250350</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@number@!##!@of@!##!@cycles@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@when@!##!@it@!##!@is@!##!@in@!##!@the@!##!@burst@!##!@operation@!##!@mode@!##!@and@!##!@receives@!##!@a@!##!@trigger.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250350</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -950,13 +768,7 @@ Attribute@!##!@Value:@!##!@1250350</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@burst@!##!@mode.
-
-When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@Triggered@!##!@Mode,@!##!@and@!##!@when@!##!@burst@!##!@mode@!##!@is@!##!@enabled,@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@cycles@!##!@of@!##!@waveform@!##!@according@!##!@to@!##!@burst@!##!@count@!##!@in@!##!@response@!##!@to@!##!@a@!##!@trigger@!##!@event.
-
-When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@Gated@!##!@Mode,@!##!@and@!##!@when@!##!@burst@!##!@mode@!##!@is@!##!@enabled,@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@cycles@!##!@of@!##!@waveform@!##!@only@!##!@when@!##!@trigger@!##!@signal@!##!@is@!##!@in@!##!@high@!##!@level.
-
-Attribute@!##!@Value:@!##!@1150041</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@burst@!##!@mode.!@##@!!@##@!When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@Triggered@!##!@Mode,@!##!@and@!##!@when@!##!@burst@!##!@mode@!##!@is@!##!@enabled,@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@cycles@!##!@of@!##!@waveform@!##!@according@!##!@to@!##!@burst@!##!@count@!##!@in@!##!@response@!##!@to@!##!@a@!##!@trigger@!##!@event.!@##@!!@##@!When@!##!@you@!##!@set@!##!@this@!##!@parameter@!##!@to@!##!@Gated@!##!@Mode,@!##!@and@!##!@when@!##!@burst@!##!@mode@!##!@is@!##!@enabled,@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@cycles@!##!@of@!##!@waveform@!##!@only@!##!@when@!##!@trigger@!##!@signal@!##!@is@!##!@in@!##!@high@!##!@level.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150041</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1019,13 +831,7 @@ Attribute@!##!@Value:@!##!@1150041</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@attribute@!##!@specifies@!##!@the@!##!@start@!##!@frequency@!##!@of@!##!@sweep@!##!@that@!##!@you@!##!@want@!##!@the@!##!@function@!##!@generator@!##!@to@!##!@produce.@!##!@
-
-Notes:
-
-(1)@!##!@The@!##!@valid@!##!@range@!##!@of@!##!@start@!##!@frequency@!##!@is@!##!@decided@!##!@by@!##!@instrument@!##!@model@!##!@and@!##!@waveform@!##!@shape.
-
-Attribute@!##!@Value:@!##!@1150013</Description>
+        <Description>This@!##!@attribute@!##!@specifies@!##!@the@!##!@start@!##!@frequency@!##!@of@!##!@sweep@!##!@that@!##!@you@!##!@want@!##!@the@!##!@function@!##!@generator@!##!@to@!##!@produce.@!##!@!@##@!!@##@!Notes:!@##@!!@##@!(1)@!##!@The@!##!@valid@!##!@range@!##!@of@!##!@start@!##!@frequency@!##!@is@!##!@decided@!##!@by@!##!@instrument@!##!@model@!##!@and@!##!@waveform@!##!@shape.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150013</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1053,13 +859,7 @@ Attribute@!##!@Value:@!##!@1150013</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@attribute@!##!@specifies@!##!@the@!##!@stop@!##!@frequency@!##!@of@!##!@sweep@!##!@that@!##!@you@!##!@want@!##!@the@!##!@function@!##!@generator@!##!@to@!##!@produce.@!##!@
-
-Notes:
-
-(1)@!##!@The@!##!@valid@!##!@range@!##!@of@!##!@stop@!##!@frequency@!##!@is@!##!@decided@!##!@by@!##!@instrument@!##!@model@!##!@and@!##!@waveform@!##!@shape.
-
-Attribute@!##!@Value:@!##!@1150014</Description>
+        <Description>This@!##!@attribute@!##!@specifies@!##!@the@!##!@stop@!##!@frequency@!##!@of@!##!@sweep@!##!@that@!##!@you@!##!@want@!##!@the@!##!@function@!##!@generator@!##!@to@!##!@produce.@!##!@!@##@!!@##@!Notes:!@##@!!@##@!(1)@!##!@The@!##!@valid@!##!@range@!##!@of@!##!@stop@!##!@frequency@!##!@is@!##!@decided@!##!@by@!##!@instrument@!##!@model@!##!@and@!##!@waveform@!##!@shape.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150014</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1091,11 +891,7 @@ Attribute@!##!@Value:@!##!@1150014</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attributes@!##!@determines@!##!@whether@!##!@to@!##!@enable@!##!@modulation@!##!@mode@!##!@for@!##!@operation@!##!@mode.@!##!@When@!##!@you@!##!@enable@!##!@modulation@!##!@mode,@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@a@!##!@certain@!##!@modulation@!##!@type@!##!@to@!##!@the@!##!@channel@!##!@you@!##!@specify.
-If@!##!@the@!##!@recently@!##!@used@!##!@modulation@!##!@type@!##!@get@!##!@from@!##!@the@!##!@TKAFG1K_ATTR_ORIGINAL_MODULATION@!##!@attribute@!##!@is@!##!@applicable@!##!@for@!##!@current@!##!@waveform@!##!@shape,@!##!@it@!##!@is@!##!@selected@!##!@as@!##!@the@!##!@modulation@!##!@type.@!##!@Otherwise,@!##!@the@!##!@driver@!##!@selects@!##!@an@!##!@applicable@!##!@one@!##!@from@!##!@all@!##!@modulation@!##!@types.
-
-Notes:
-(1)@!##!@It@!##!@is@!##!@a@!##!@hidden@!##!@attribute,@!##!@you@!##!@should@!##!@not@!##!@use@!##!@it@!##!@directly@!##!@in@!##!@user@!##!@program.</Description>
+        <Description>This@!##!@channel-based@!##!@attributes@!##!@determines@!##!@whether@!##!@to@!##!@enable@!##!@modulation@!##!@mode@!##!@for@!##!@operation@!##!@mode.@!##!@When@!##!@you@!##!@enable@!##!@modulation@!##!@mode,@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@a@!##!@certain@!##!@modulation@!##!@type@!##!@to@!##!@the@!##!@channel@!##!@you@!##!@specify.!@##@!If@!##!@the@!##!@recently@!##!@used@!##!@modulation@!##!@type@!##!@get@!##!@from@!##!@the@!##!@TKAFG1K_ATTR_ORIGINAL_MODULATION@!##!@attribute@!##!@is@!##!@applicable@!##!@for@!##!@current@!##!@waveform@!##!@shape,@!##!@it@!##!@is@!##!@selected@!##!@as@!##!@the@!##!@modulation@!##!@type.@!##!@Otherwise,@!##!@the@!##!@driver@!##!@selects@!##!@an@!##!@applicable@!##!@one@!##!@from@!##!@all@!##!@modulation@!##!@types.!@##@!!@##@!Notes:!@##@!(1)@!##!@It@!##!@is@!##!@a@!##!@hidden@!##!@attribute,@!##!@you@!##!@should@!##!@not@!##!@use@!##!@it@!##!@directly@!##!@in@!##!@user@!##!@program.</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1126,11 +922,7 @@ Notes:
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@attribute@!##!@records@!##!@the@!##!@recently@!##!@used@!##!@modulation@!##!@type.@!##!@
-When@!##!@you@!##!@set@!##!@TKAFG1K_ATTR_MODULATION_ENABLED@!##!@to@!##!@VI_TRUE,@!##!@the@!##!@driver@!##!@firstly@!##!@gets@!##!@the@!##!@recently@!##!@used@!##!@modulation@!##!@type@!##!@from@!##!@this@!##!@attribute@!##!@and@!##!@considers@!##!@whether@!##!@it@!##!@is@!##!@applicable.
-
-Notes:
-(1)@!##!@It@!##!@is@!##!@a@!##!@hidden@!##!@attribute,@!##!@you@!##!@should@!##!@not@!##!@use@!##!@it@!##!@directly@!##!@in@!##!@user@!##!@program.</Description>
+        <Description>This@!##!@attribute@!##!@records@!##!@the@!##!@recently@!##!@used@!##!@modulation@!##!@type.@!##!@!@##@!When@!##!@you@!##!@set@!##!@TKAFG1K_ATTR_MODULATION_ENABLED@!##!@to@!##!@VI_TRUE,@!##!@the@!##!@driver@!##!@firstly@!##!@gets@!##!@the@!##!@recently@!##!@used@!##!@modulation@!##!@type@!##!@from@!##!@this@!##!@attribute@!##!@and@!##!@considers@!##!@whether@!##!@it@!##!@is@!##!@applicable.!@##@!!@##@!Notes:!@##@!(1)@!##!@It@!##!@is@!##!@a@!##!@hidden@!##!@attribute,@!##!@you@!##!@should@!##!@not@!##!@use@!##!@it@!##!@directly@!##!@in@!##!@user@!##!@program.</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1164,9 +956,7 @@ Notes:
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@amplitude@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1250401</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@amplitude@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250401</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1195,9 +985,7 @@ Attribute@!##!@Value:@!##!@1250401</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@source@!##!@of@!##!@signal@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1250402</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@source@!##!@of@!##!@signal@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250402</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1225,13 +1013,7 @@ Attribute@!##!@Value:@!##!@1250402</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@the@!##!@extent@!##!@of@!##!@modulation@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@to@!##!@the@!##!@carrier@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@a@!##!@percentage@!##!@of@!##!@full@!##!@modulation.@!##!@@!##!@At@!##!@0%@!##!@depth,@!##!@the@!##!@output@!##!@amplitude@!##!@equals@!##!@the@!##!@carrier@!##!@signal's@!##!@amplitude.@!##!@@!##!@At@!##!@100%@!##!@depth,@!##!@the@!##!@output@!##!@amplitude@!##!@equals@!##!@twice@!##!@the@!##!@carrier@!##!@signal's@!##!@amplitude.
-@!##!@@!##!@@!##!@@!##!@You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.
-
-Notes:
-(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.
-
-Attribute@!##!@Value:@!##!@1250403</Description>
+        <Description>Specifies@!##!@the@!##!@extent@!##!@of@!##!@modulation@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@to@!##!@the@!##!@carrier@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@a@!##!@percentage@!##!@of@!##!@full@!##!@modulation.@!##!@@!##!@At@!##!@0%@!##!@depth,@!##!@the@!##!@output@!##!@amplitude@!##!@equals@!##!@the@!##!@carrier@!##!@signal's@!##!@amplitude.@!##!@@!##!@At@!##!@100%@!##!@depth,@!##!@the@!##!@output@!##!@amplitude@!##!@equals@!##!@twice@!##!@the@!##!@carrier@!##!@signal's@!##!@amplitude.!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.!@##@!!@##@!Notes:!@##@!(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250403</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1259,13 +1041,7 @@ Attribute@!##!@Value:@!##!@1250403</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.
-
-Notes:
-(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.
-
-Attribute@!##!@Value:@!##!@1250404</Description>
+        <Description>Specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.!@##@!!@##@!Notes:!@##@!(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250404</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1293,13 +1069,7 @@ Attribute@!##!@Value:@!##!@1250404</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.
-
-Notes:
-(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.
-
-Attribute@!##!@Value:@!##!@1250405</Description>
+        <Description>Specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.!@##@!!@##@!Notes:!@##@!(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250405</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1327,10 +1097,7 @@ Attribute@!##!@Value:@!##!@1250405</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@extent@!##!@of@!##!@modulation@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@to@!##!@the@!##!@carrier@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@a@!##!@percentage@!##!@of@!##!@full@!##!@modulation.@!##!@@!##!@At@!##!@0%@!##!@depth,@!##!@the@!##!@output@!##!@amplitude@!##!@equals@!##!@the@!##!@carrier@!##!@signal's@!##!@amplitude.@!##!@@!##!@At@!##!@100%@!##!@depth,@!##!@the@!##!@output@!##!@amplitude@!##!@equals@!##!@twice@!##!@the@!##!@carrier@!##!@signal's@!##!@amplitude.
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@is@!##!@applicable@!##!@no@!##!@matter@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL@!##!@or@!##!@TKAFG1K_VAL_AM_EXTERNAL.
-
-Attribute@!##!@Value:@!##!@1150020</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@extent@!##!@of@!##!@modulation@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@to@!##!@the@!##!@carrier@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@a@!##!@percentage@!##!@of@!##!@full@!##!@modulation.@!##!@@!##!@At@!##!@0%@!##!@depth,@!##!@the@!##!@output@!##!@amplitude@!##!@equals@!##!@the@!##!@carrier@!##!@signal's@!##!@amplitude.@!##!@@!##!@At@!##!@100%@!##!@depth,@!##!@the@!##!@output@!##!@amplitude@!##!@equals@!##!@twice@!##!@the@!##!@carrier@!##!@signal's@!##!@amplitude.!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@is@!##!@applicable@!##!@no@!##!@matter@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL@!##!@or@!##!@TKAFG1K_VAL_AM_EXTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150020</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1358,14 +1125,7 @@ Attribute@!##!@Value:@!##!@1150020</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.
-
-
-SCPI@!##!@Command:
-[SOURce[1|2]]:AM:INTernal:FUNCtion@!##!@{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}
-
-Attribute@!##!@Value:@!##!@1150021</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.!@##@!!@##@!!@##@!SCPI@!##!@Command:!@##@![SOURce[1|2]]:AM:INTernal:FUNCtion@!##!@{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}!@##@!!@##@!Attribute@!##!@Value:@!##!@1150021</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1393,10 +1153,7 @@ Attribute@!##!@Value:@!##!@1150021</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.
-
-Attribute@!##!@Value:@!##!@1150022</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150022</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1428,9 +1185,7 @@ Attribute@!##!@Value:@!##!@1150022</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@frequency@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1250501</Description>
+        <Description>Specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@frequency@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250501</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1459,9 +1214,7 @@ Attribute@!##!@Value:@!##!@1250501</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1250502</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250502</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1489,13 +1242,7 @@ Attribute@!##!@Value:@!##!@1250502</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@the@!##!@maximum@!##!@frequency@!##!@deviation@!##!@the@!##!@modulating@!##!@waveform@!##!@applies@!##!@to@!##!@the@!##!@carrier@!##!@waveform.@!##!@@!##!@This@!##!@deviation@!##!@corresponds@!##!@to@!##!@the@!##!@maximum@!##!@amplitude@!##!@level@!##!@of@!##!@the@!##!@modulating@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).
-@!##!@@!##!@@!##!@@!##!@You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.
-
-Notes:
-(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.
-
-Attribute@!##!@Value:@!##!@1250503</Description>
+        <Description>Specifies@!##!@the@!##!@maximum@!##!@frequency@!##!@deviation@!##!@the@!##!@modulating@!##!@waveform@!##!@applies@!##!@to@!##!@the@!##!@carrier@!##!@waveform.@!##!@@!##!@This@!##!@deviation@!##!@corresponds@!##!@to@!##!@the@!##!@maximum@!##!@amplitude@!##!@level@!##!@of@!##!@the@!##!@modulating@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.!@##@!!@##@!Notes:!@##@!(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250503</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1523,13 +1270,7 @@ Attribute@!##!@Value:@!##!@1250503</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.
-
-Notes:
-(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.
-
-Attribute@!##!@Value:@!##!@1250504</Description>
+        <Description>Specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.!@##@!!@##@!Notes:!@##@!(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250504</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1557,13 +1298,7 @@ Attribute@!##!@Value:@!##!@1250504</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.
-
-Notes:
-(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.
-
-Attribute@!##!@Value:@!##!@1250505</Description>
+        <Description>Specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.!@##@!!@##@!Notes:!@##@!(1)@!##!@This@!##!@attribute@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.!@##@!!@##@!Attribute@!##!@Value:@!##!@1250505</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1591,10 +1326,7 @@ Attribute@!##!@Value:@!##!@1250505</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@maximum@!##!@frequency@!##!@deviation@!##!@the@!##!@modulating@!##!@waveform@!##!@applies@!##!@to@!##!@the@!##!@carrier@!##!@waveform.@!##!@@!##!@This@!##!@deviation@!##!@corresponds@!##!@to@!##!@the@!##!@maximum@!##!@amplitude@!##!@level@!##!@of@!##!@the@!##!@modulating@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).
-@!##!@@!##!@@!##!@@!##!@You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@no@!##!@matter@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL@!##!@or@!##!@TKAFG1K_VAL_FM_EXTERNAL.
-
-Attribute@!##!@Value:@!##!@1150023</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@maximum@!##!@frequency@!##!@deviation@!##!@the@!##!@modulating@!##!@waveform@!##!@applies@!##!@to@!##!@the@!##!@carrier@!##!@waveform.@!##!@@!##!@This@!##!@deviation@!##!@corresponds@!##!@to@!##!@the@!##!@maximum@!##!@amplitude@!##!@level@!##!@of@!##!@the@!##!@modulating@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).!@##@!@!##!@@!##!@@!##!@@!##!@You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@no@!##!@matter@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL@!##!@or@!##!@TKAFG1K_VAL_FM_EXTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150023</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1622,13 +1354,7 @@ Attribute@!##!@Value:@!##!@1150023</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.
-
-SCPI@!##!@Command:
-[SOURce[1|2]]:FM:INTernal:FUNCtion@!##!@{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEMory[1]|EMEMory2|EFILe}
-
-Attribute@!##!@Value:@!##!@1150024</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.!@##@!!@##@!SCPI@!##!@Command:!@##@![SOURce[1|2]]:FM:INTernal:FUNCtion@!##!@{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEMory[1]|EMEMory2|EFILe}!@##@!!@##@!Attribute@!##!@Value:@!##!@1150024</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1656,10 +1382,7 @@ Attribute@!##!@Value:@!##!@1150024</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.
-
-Attribute@!##!@Value:@!##!@1150025</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150025</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1691,9 +1414,7 @@ Attribute@!##!@Value:@!##!@1150025</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@FSK@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1150026</Description>
+        <Description>Specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@FSK@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150026</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1722,9 +1443,7 @@ Attribute@!##!@Value:@!##!@1150026</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@hop@!##!@frequency@!##!@of@!##!@FSK@!##!@modulation.
-
-Attribute@!##!@Value:@!##!@1150027</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@hop@!##!@frequency@!##!@of@!##!@FSK@!##!@modulation.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150027</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1752,10 +1471,7 @@ Attribute@!##!@Value:@!##!@1150027</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@internal@!##!@modulation@!##!@rate@!##!@of@!##!@FSK@!##!@modulation.@!##!@
-This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FSK_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FSK_INTERNAL.
-
-Attribute@!##!@Value:@!##!@1150028</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@internal@!##!@modulation@!##!@rate@!##!@of@!##!@FSK@!##!@modulation.@!##!@!@##@!This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FSK_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FSK_INTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150028</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1783,9 +1499,7 @@ Attribute@!##!@Value:@!##!@1150028</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1150029</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150029</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1817,9 +1531,7 @@ Attribute@!##!@Value:@!##!@1150029</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@phase@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1150030</Description>
+        <Description>Specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@phase@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150030</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1848,9 +1560,7 @@ Attribute@!##!@Value:@!##!@1150030</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1150031</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150031</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1878,10 +1588,7 @@ Attribute@!##!@Value:@!##!@1150031</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@maximum@!##!@phase@!##!@deviation@!##!@applies@!##!@to@!##!@the@!##!@output@!##!@signal.@!##!@The@!##!@units@!##!@are@!##!@degree@!##!@(DEG).@!##!@
-You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@no@!##!@matter@!##!@the@!##!@TKAFG1K_ATTR_PM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PM_INTERNAL@!##!@or@!##!@TKAFG1K_VAL_PM_EXTERNAL.
-
-Attribute@!##!@Value:@!##!@1150032</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@maximum@!##!@phase@!##!@deviation@!##!@applies@!##!@to@!##!@the@!##!@output@!##!@signal.@!##!@The@!##!@units@!##!@are@!##!@degree@!##!@(DEG).@!##!@!@##@!You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@no@!##!@matter@!##!@the@!##!@TKAFG1K_ATTR_PM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PM_INTERNAL@!##!@or@!##!@TKAFG1K_VAL_PM_EXTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150032</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1909,10 +1616,7 @@ Attribute@!##!@Value:@!##!@1150032</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_PM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PM_INTERNAL.
-
-Attribute@!##!@Value:@!##!@1150033</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_PM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PM_INTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150033</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1940,13 +1644,7 @@ Attribute@!##!@Value:@!##!@1150033</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_PM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PM_INTERNAL.
-
-SCPI@!##!@Command:
-[SOURce[1|2]]:PM:INTernal:FUNCtion@!##!@{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}
-
-Attribute@!##!@Value:@!##!@1150034</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_PM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PM_INTERNAL.!@##@!!@##@!SCPI@!##!@Command:!@##@![SOURce[1|2]]:PM:INTernal:FUNCtion@!##!@{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}!@##@!!@##@!Attribute@!##!@Value:@!##!@1150034</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -1978,9 +1676,7 @@ Attribute@!##!@Value:@!##!@1150034</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@pulse@!##!@width@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1150035</Description>
+        <Description>Specifies@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@pulse@!##!@width@!##!@modulation@!##!@to@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150035</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -2009,9 +1705,7 @@ Attribute@!##!@Value:@!##!@1150035</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-
-Attribute@!##!@Value:@!##!@1150036</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@signal@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150036</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -2039,10 +1733,7 @@ Attribute@!##!@Value:@!##!@1150036</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@duty@!##!@cycle@!##!@deviation@!##!@applies@!##!@to@!##!@the@!##!@output@!##!@signal.@!##!@The@!##!@units@!##!@are@!##!@percentage@!##!@(%).@!##!@
-You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@no@!##!@matter@!##!@the@!##!@TKAFG1K_ATTR_PWM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PWM_INTERNAL@!##!@or@!##!@TKAFG1K_VAL_PWM_EXTERNAL.
-
-Attribute@!##!@Value:@!##!@1150037</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@duty@!##!@cycle@!##!@deviation@!##!@applies@!##!@to@!##!@the@!##!@output@!##!@signal.@!##!@The@!##!@units@!##!@are@!##!@percentage@!##!@(%).@!##!@!@##@!You@!##!@could@!##!@use@!##!@this@!##!@attribute@!##!@no@!##!@matter@!##!@the@!##!@TKAFG1K_ATTR_PWM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PWM_INTERNAL@!##!@or@!##!@TKAFG1K_VAL_PWM_EXTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150037</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -2071,10 +1762,7 @@ Attribute@!##!@Value:@!##!@1150037</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_PWM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PWM_INTERNAL.
-
-Attribute@!##!@Value:@!##!@1150038</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@frequency@!##!@of@!##!@the@!##!@waveform@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.@!##!@@!##!@The@!##!@units@!##!@are@!##!@Hertz@!##!@(Hz).!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_PWM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PWM_INTERNAL.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150038</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -2102,13 +1790,7 @@ Attribute@!##!@Value:@!##!@1150038</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.
-@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_PWM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PWM_INTERNAL.
-
-SCPI@!##!@Command:
-[SOURce[1|2]]:PWM:INTernal:FUNCtion@!##!@{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}
-
-Attribute@!##!@Value:@!##!@1150039</Description>
+        <Description>This@!##!@channel-based@!##!@attribute@!##!@specifies@!##!@the@!##!@waveform@!##!@type@!##!@that@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@modulate@!##!@the@!##!@output@!##!@signal.!@##@!@!##!@@!##!@@!##!@@!##!@This@!##!@attribute@!##!@affects@!##!@function@!##!@generator@!##!@behavior@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_PWM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_PWM_INTERNAL.!@##@!!@##@!SCPI@!##!@Command:!@##@![SOURce[1|2]]:PWM:INTernal:FUNCtion@!##!@{SINusoid|SQUare|TRIangle|RAMP|NRAMp|PRNoise|USER[1]|USER2|USER3|USER4|EMEMory|EMEMory1|EMEMory2|EFILe}!@##@!!@##@!Attribute@!##!@Value:@!##!@1150039</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -2140,9 +1822,7 @@ Attribute@!##!@Value:@!##!@1150039</Description>
         <RelatedCmd />
         <WriteCmd />
         <ReadCmd />
-        <Description>Returns@!##!@the@!##!@ID@!##!@Query@!##!@response@!##!@string.@!##!@@!##!@The@!##!@instrument@!##!@driver@!##!@gets@!##!@the@!##!@value@!##!@of@!##!@this@!##!@attribute@!##!@when@!##!@you@!##!@pass@!##!@VI_TRUE@!##!@for@!##!@the@!##!@ID@!##!@Query@!##!@parameter@!##!@to@!##!@the@!##!@tkafg1k_init@!##!@or@!##!@tkafg1k_InitWithOptions@!##!@function.
-
-Attribute@!##!@Value:@!##!@1150001</Description>
+        <Description>Returns@!##!@the@!##!@ID@!##!@Query@!##!@response@!##!@string.@!##!@@!##!@The@!##!@instrument@!##!@driver@!##!@gets@!##!@the@!##!@value@!##!@of@!##!@this@!##!@attribute@!##!@when@!##!@you@!##!@pass@!##!@VI_TRUE@!##!@for@!##!@the@!##!@ID@!##!@Query@!##!@parameter@!##!@to@!##!@the@!##!@tkafg1k_init@!##!@or@!##!@tkafg1k_InitWithOptions@!##!@function.!@##@!!@##@!Attribute@!##!@Value:@!##!@1150001</Description>
         <Notes />
         <InvalidateAttr />
         <RelatedHiddenAttr />
@@ -2192,10 +1872,7 @@ Attribute@!##!@Value:@!##!@1150001</Description>
       <Function>
         <ID>ConfigureOutputMode</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@output@!##!@mode@!##!@of@!##!@the@!##!@function@!##!@generator.@!##!@@!##!@The@!##!@output@!##!@mode@!##!@determines@!##!@the@!##!@type@!##!@of@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@For@!##!@example,@!##!@you@!##!@can@!##!@choose@!##!@to@!##!@output@!##!@a@!##!@standard@!##!@waveform,@!##!@an@!##!@arbitrary@!##!@waveform,@!##!@or@!##!@a@!##!@sequence@!##!@of@!##!@arbitrary@!##!@waveforms.@!##!@@!##!@
-
-Notes:
-This@!##!@function@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.@!##!@If@!##!@you@!##!@specify@!##!@an@!##!@instrument@!##!@with@!##!@two@!##!@channels,@!##!@the@!##!@function@!##!@configures@!##!@output@!##!@mode@!##!@for@!##!@both@!##!@channel</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@output@!##!@mode@!##!@of@!##!@the@!##!@function@!##!@generator.@!##!@@!##!@The@!##!@output@!##!@mode@!##!@determines@!##!@the@!##!@type@!##!@of@!##!@waveform@!##!@the@!##!@function@!##!@generator@!##!@produces.@!##!@@!##!@For@!##!@example,@!##!@you@!##!@can@!##!@choose@!##!@to@!##!@output@!##!@a@!##!@standard@!##!@waveform,@!##!@an@!##!@arbitrary@!##!@waveform,@!##!@or@!##!@a@!##!@sequence@!##!@of@!##!@arbitrary@!##!@waveforms.@!##!@@!##!@!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.@!##!@If@!##!@you@!##!@specify@!##!@an@!##!@instrument@!##!@with@!##!@two@!##!@channels,@!##!@the@!##!@function@!##!@configures@!##!@output@!##!@mode@!##!@for@!##!@both@!##!@channel</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2252,8 +1929,7 @@ This@!##!@function@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.@!##!@If@!##
       <Function>
         <ID>ConfigureOutputImpedance</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@output@!##!@impedance@!##!@for@!##!@the@!##!@channel@!##!@you@!##!@specify.
-</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@output@!##!@impedance@!##!@for@!##!@the@!##!@channel@!##!@you@!##!@specify.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2323,12 +1999,7 @@ This@!##!@function@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.@!##!@If@!##
       <Function>
         <ID>ConfigureStandardWaveform</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@of@!##!@the@!##!@function@!##!@generator@!##!@that@!##!@affect@!##!@standard@!##!@waveform@!##!@generation.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@waveform,@!##!@amplitude,@!##!@DC@!##!@offset,@!##!@frequency,@!##!@and@!##!@start@!##!@phase.
-
-Notes:
-(1)@!##!@You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC@!##!@before@!##!@calling@!##!@this@!##!@function.
-
-(2)@!##!@If@!##!@the@!##!@waveform@!##!@parameter@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_WFM_DC,@!##!@this@!##!@function@!##!@ignores@!##!@the@!##!@amplitude,@!##!@frequency,@!##!@and@!##!@start@!##!@phase@!##!@parameters.@!##!@If@!##!@the@!##!@waveform@!##!@parameter@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_WFM_PRN,@!##!@this@!##!@function@!##!@ignores@!##!@the@!##!@frequency@!##!@and@!##!@start@!##!@phase@!##!@paramet</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@of@!##!@the@!##!@function@!##!@generator@!##!@that@!##!@affect@!##!@standard@!##!@waveform@!##!@generation.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@waveform,@!##!@amplitude,@!##!@DC@!##!@offset,@!##!@frequency,@!##!@and@!##!@start@!##!@phase.!@##@!!@##@!Notes:!@##@!(1)@!##!@You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_FUNC@!##!@before@!##!@calling@!##!@this@!##!@function.!@##@!!@##@!(2)@!##!@If@!##!@the@!##!@waveform@!##!@parameter@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_WFM_DC,@!##!@this@!##!@function@!##!@ignores@!##!@the@!##!@amplitude,@!##!@frequency,@!##!@and@!##!@start@!##!@phase@!##!@parameters.@!##!@If@!##!@the@!##!@waveform@!##!@parameter@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_WFM_PRN,@!##!@this@!##!@function@!##!@ignores@!##!@the@!##!@frequency@!##!@and@!##!@start@!##!@phase@!##!@paramet</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2397,10 +2068,7 @@ Notes:
       <Function>
         <ID>ConfigurePulseDelay</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@pulse@!##!@waveform@!##!@lead@!##!@delay.
-
-Notes:
-Because@!##!@the@!##!@attribute@!##!@set@!##!@in@!##!@this@!##!@function@!##!@could@!##!@only@!##!@be@!##!@operated@!##!@correctly@!##!@in@!##!@PULSE@!##!@waveform,@!##!@the@!##!@driver@!##!@limits@!##!@its@!##!@accessibility@!##!@to@!##!@PULSE@!##!@waveform.@!##!@To@!##!@ensure@!##!@this@!##!@function@!##!@works,@!##!@you@!##!@should@!##!@configure@!##!@waveform@!##!@shape@!##!@to@!##!@PULSE@!##!@before@!##!@using@!##!@this@!##!@functio</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@pulse@!##!@waveform@!##!@lead@!##!@delay.!@##@!!@##@!Notes:!@##@!Because@!##!@the@!##!@attribute@!##!@set@!##!@in@!##!@this@!##!@function@!##!@could@!##!@only@!##!@be@!##!@operated@!##!@correctly@!##!@in@!##!@PULSE@!##!@waveform,@!##!@the@!##!@driver@!##!@limits@!##!@its@!##!@accessibility@!##!@to@!##!@PULSE@!##!@waveform.@!##!@To@!##!@ensure@!##!@this@!##!@function@!##!@works,@!##!@you@!##!@should@!##!@configure@!##!@waveform@!##!@shape@!##!@to@!##!@PULSE@!##!@before@!##!@using@!##!@this@!##!@functio</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2437,12 +2105,7 @@ Because@!##!@the@!##!@attribute@!##!@set@!##!@in@!##!@this@!##!@function@!##!@co
       <Function>
         <ID>ConfigureSampleRate</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@sample@!##!@rate@!##!@attribute,@!##!@which@!##!@determines@!##!@the@!##!@rate@!##!@at@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@arbitrary@!##!@waveforms.@!##!@@!##!@
-@!##!@
-Actualy@!##!@this@!##!@attribute@!##!@is@!##!@not@!##!@configurable@!##!@on@!##!@the@!##!@instrument.@!##!@Whatever@!##!@value@!##!@you@!##!@set@!##!@for@!##!@this@!##!@attribute,@!##!@the@!##!@value@!##!@read@!##!@out@!##!@is@!##!@determined@!##!@by@!##!@the@!##!@instrument@!##!@depending@!##!@on@!##!@the@!##!@arbitraty@!##!@waveform@!##!@length.
-
-Notes:
-You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functi</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@sample@!##!@rate@!##!@attribute,@!##!@which@!##!@determines@!##!@the@!##!@rate@!##!@at@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@arbitrary@!##!@waveforms.@!##!@@!##!@!@##@!@!##!@!@##@!Actualy@!##!@this@!##!@attribute@!##!@is@!##!@not@!##!@configurable@!##!@on@!##!@the@!##!@instrument.@!##!@Whatever@!##!@value@!##!@you@!##!@set@!##!@for@!##!@this@!##!@attribute,@!##!@the@!##!@value@!##!@read@!##!@out@!##!@is@!##!@determined@!##!@by@!##!@the@!##!@instrument@!##!@depending@!##!@on@!##!@the@!##!@arbitraty@!##!@waveform@!##!@length.!@##@!!@##@!Notes:!@##@!You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functi</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2470,12 +2133,7 @@ You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_O
       <Function>
         <ID>CreateArbWaveform</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@creates@!##!@an@!##!@arbitrary@!##!@waveform@!##!@and@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@identifies@!##!@that@!##!@waveform.@!##!@@!##!@You@!##!@pass@!##!@this@!##!@handle@!##!@to@!##!@the@!##!@tkafg1k_ConfigureArbWaveform@!##!@function@!##!@to@!##!@produce@!##!@that@!##!@waveform.@!##!@@!##!@
-
-The@!##!@function@!##!@uses@!##!@data@!##!@array@!##!@passed@!##!@to@!##!@initialize@!##!@new@!##!@arbitrary@!##!@waveform.
-
-Notes:
-You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functi</Description>
+        <Description>This@!##!@function@!##!@creates@!##!@an@!##!@arbitrary@!##!@waveform@!##!@and@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@identifies@!##!@that@!##!@waveform.@!##!@@!##!@You@!##!@pass@!##!@this@!##!@handle@!##!@to@!##!@the@!##!@tkafg1k_ConfigureArbWaveform@!##!@function@!##!@to@!##!@produce@!##!@that@!##!@waveform.@!##!@@!##!@!@##@!!@##@!The@!##!@function@!##!@uses@!##!@data@!##!@array@!##!@passed@!##!@to@!##!@initialize@!##!@new@!##!@arbitrary@!##!@waveform.!@##@!!@##@!Notes:!@##@!You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functi</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2517,12 +2175,7 @@ You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_O
       <Function>
         <ID>CreateStandardShapeArbWfm</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@creates@!##!@a@!##!@standard@!##!@shape@!##!@arbitrary@!##!@waveform@!##!@and@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@identifies@!##!@that@!##!@waveform.@!##!@@!##!@You@!##!@pass@!##!@this@!##!@handle@!##!@to@!##!@the@!##!@tkafg1k_ConfigureArbWaveform@!##!@function@!##!@to@!##!@produce@!##!@that@!##!@waveform.@!##!@@!##!@
-
-The@!##!@function@!##!@uses@!##!@the@!##!@specified@!##!@waveform@!##!@type@!##!@to@!##!@initialize@!##!@new@!##!@arbitrary@!##!@waveform.
-
-Notes:
-You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@funct</Description>
+        <Description>This@!##!@function@!##!@creates@!##!@a@!##!@standard@!##!@shape@!##!@arbitrary@!##!@waveform@!##!@and@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@identifies@!##!@that@!##!@waveform.@!##!@@!##!@You@!##!@pass@!##!@this@!##!@handle@!##!@to@!##!@the@!##!@tkafg1k_ConfigureArbWaveform@!##!@function@!##!@to@!##!@produce@!##!@that@!##!@waveform.@!##!@@!##!@!@##@!!@##@!The@!##!@function@!##!@uses@!##!@the@!##!@specified@!##!@waveform@!##!@type@!##!@to@!##!@initialize@!##!@new@!##!@arbitrary@!##!@waveform.!@##@!!@##@!Notes:!@##@!You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@funct</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2564,10 +2217,7 @@ You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_O
       <Function>
         <ID>GetArbitraryWaveformBySlot</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@gets@!##!@the@!##!@waveform@!##!@handle@!##!@from@!##!@a@!##!@specified@!##!@slot.@!##!@@!##!@If@!##!@the@!##!@specified@!##!@slot@!##!@is@!##!@empty,@!##!@the@!##!@function@!##!@returns@!##!@VI_NULL@!##!@as@!##!@the@!##!@waveform@!##!@handle.
-
-Notes:
-You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@function</Description>
+        <Description>This@!##!@function@!##!@gets@!##!@the@!##!@waveform@!##!@handle@!##!@from@!##!@a@!##!@specified@!##!@slot.@!##!@@!##!@If@!##!@the@!##!@specified@!##!@slot@!##!@is@!##!@empty,@!##!@the@!##!@function@!##!@returns@!##!@VI_NULL@!##!@as@!##!@the@!##!@waveform@!##!@handle.!@##@!!@##@!Notes:!@##@!You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@function</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2600,12 +2250,7 @@ You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_O
       <Function>
         <ID>CreateArbWaveformBySlot</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@creates@!##!@an@!##!@arbitrary@!##!@waveform@!##!@on@!##!@a@!##!@specified@!##!@slot@!##!@and@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@identifies@!##!@that@!##!@waveform.@!##!@@!##!@You@!##!@pass@!##!@this@!##!@handle@!##!@to@!##!@the@!##!@tkafg1k_ConfigureArbWaveform@!##!@function@!##!@to@!##!@produce@!##!@that@!##!@waveform.@!##!@@!##!@
-
-The@!##!@function@!##!@uses@!##!@data@!##!@array@!##!@passed@!##!@to@!##!@initialize@!##!@new@!##!@arbitrary@!##!@waveform.
-
-Notes:
-You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functi</Description>
+        <Description>This@!##!@function@!##!@creates@!##!@an@!##!@arbitrary@!##!@waveform@!##!@on@!##!@a@!##!@specified@!##!@slot@!##!@and@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@identifies@!##!@that@!##!@waveform.@!##!@@!##!@You@!##!@pass@!##!@this@!##!@handle@!##!@to@!##!@the@!##!@tkafg1k_ConfigureArbWaveform@!##!@function@!##!@to@!##!@produce@!##!@that@!##!@waveform.@!##!@@!##!@!@##@!!@##@!The@!##!@function@!##!@uses@!##!@data@!##!@array@!##!@passed@!##!@to@!##!@initialize@!##!@new@!##!@arbitrary@!##!@waveform.!@##@!!@##@!Notes:!@##@!You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functi</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2665,12 +2310,7 @@ You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_O
       <Function>
         <ID>CreateStandardShapeArbWfmBySlot</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@creates@!##!@a@!##!@standard@!##!@shape@!##!@arbitrary@!##!@waveform@!##!@on@!##!@a@!##!@specified@!##!@slot@!##!@and@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@identifies@!##!@that@!##!@waveform.@!##!@@!##!@You@!##!@pass@!##!@this@!##!@handle@!##!@to@!##!@the@!##!@tkafg1k_ConfigureArbWaveform@!##!@function@!##!@to@!##!@produce@!##!@that@!##!@waveform.@!##!@@!##!@
-
-The@!##!@function@!##!@uses@!##!@the@!##!@specified@!##!@waveform@!##!@type@!##!@to@!##!@initialize@!##!@new@!##!@arbitrary@!##!@waveform.
-
-Notes:
-You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functi</Description>
+        <Description>This@!##!@function@!##!@creates@!##!@a@!##!@standard@!##!@shape@!##!@arbitrary@!##!@waveform@!##!@on@!##!@a@!##!@specified@!##!@slot@!##!@and@!##!@returns@!##!@a@!##!@handle@!##!@that@!##!@identifies@!##!@that@!##!@waveform.@!##!@@!##!@You@!##!@pass@!##!@this@!##!@handle@!##!@to@!##!@the@!##!@tkafg1k_ConfigureArbWaveform@!##!@function@!##!@to@!##!@produce@!##!@that@!##!@waveform.@!##!@@!##!@!@##@!!@##@!The@!##!@function@!##!@uses@!##!@the@!##!@specified@!##!@waveform@!##!@type@!##!@to@!##!@initialize@!##!@new@!##!@arbitrary@!##!@waveform.!@##@!!@##@!Notes:!@##@!You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functi</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2785,10 +2425,7 @@ You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_O
       <Function>
         <ID>ConfigureArbWaveform</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@of@!##!@the@!##!@function@!##!@generator@!##!@that@!##!@affect@!##!@arbitrary@!##!@waveform@!##!@generation.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@arbitrary@!##!@waveform@!##!@handle,@!##!@gain,@!##!@and@!##!@offset.
-
-Notes:
-You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@function</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@of@!##!@the@!##!@function@!##!@generator@!##!@that@!##!@affect@!##!@arbitrary@!##!@waveform@!##!@generation.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@arbitrary@!##!@waveform@!##!@handle,@!##!@gain,@!##!@and@!##!@offset.!@##@!!@##@!Notes:!@##@!You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@function</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2843,10 +2480,7 @@ You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_O
       <Function>
         <ID>ConfigureArbFrequency</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@arbitrary@!##!@waveform@!##!@frequency.@!##!@@!##!@This@!##!@is@!##!@the@!##!@rate@!##!@at@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@one@!##!@full@!##!@cycle@!##!@of@!##!@an@!##!@arbitrary@!##!@waveform.
-@!##!@@!##!@
-Notes:
-You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functio</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@arbitrary@!##!@waveform@!##!@frequency.@!##!@@!##!@This@!##!@is@!##!@the@!##!@rate@!##!@at@!##!@which@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@one@!##!@full@!##!@cycle@!##!@of@!##!@an@!##!@arbitrary@!##!@waveform.!@##@!@!##!@@!##!@!@##@!Notes:!@##@!You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OUTPUT_ARB@!##!@before@!##!@calling@!##!@this@!##!@functio</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2883,12 +2517,7 @@ You@!##!@must@!##!@set@!##!@the@!##!@output@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_O
       <Function>
         <ID>ConfigureBurstEnabled</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@whether@!##!@to@!##!@enable@!##!@or@!##!@disable@!##!@burst@!##!@mode@!##!@for@!##!@the@!##!@channel@!##!@you@!##!@specify.
-
-Notes:
-(1)@!##!@To@!##!@enable@!##!@burst@!##!@mode,@!##!@except@!##!@for@!##!@this@!##!@function,@!##!@you@!##!@can@!##!@also@!##!@use@!##!@tkafg1k_ConfigureOperationMode@!##!@function@!##!@and@!##!@configure@!##!@operation@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OPERATE_BURST.
-
-(2)@!##!@To@!##!@enhance@!##!@program@!##!@correctness@!##!@make@!##!@sure@!##!@to@!##!@set@!##!@appropriate@!##!@waveform@!##!@shape@!##!@before@!##!@calling@!##!@this@!##!@funct</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@whether@!##!@to@!##!@enable@!##!@or@!##!@disable@!##!@burst@!##!@mode@!##!@for@!##!@the@!##!@channel@!##!@you@!##!@specify.!@##@!!@##@!Notes:!@##@!(1)@!##!@To@!##!@enable@!##!@burst@!##!@mode,@!##!@except@!##!@for@!##!@this@!##!@function,@!##!@you@!##!@can@!##!@also@!##!@use@!##!@tkafg1k_ConfigureOperationMode@!##!@function@!##!@and@!##!@configure@!##!@operation@!##!@mode@!##!@to@!##!@TKAFG1K_VAL_OPERATE_BURST.!@##@!!@##@!(2)@!##!@To@!##!@enhance@!##!@program@!##!@correctness@!##!@make@!##!@sure@!##!@to@!##!@set@!##!@appropriate@!##!@waveform@!##!@shape@!##!@before@!##!@calling@!##!@this@!##!@funct</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2921,8 +2550,7 @@ Notes:
       <Function>
         <ID>ConfigureBurstCount</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@burst@!##!@count.@!##!@@!##!@The@!##!@function@!##!@generator@!##!@produces@!##!@a@!##!@burst@!##!@of@!##!@waveform@!##!@cycles@!##!@when@!##!@it@!##!@receives@!##!@a@!##!@trigger@!##!@event@!##!@and@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OPERATION_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OPERATE_BURST.
-</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@burst@!##!@count.@!##!@@!##!@The@!##!@function@!##!@generator@!##!@produces@!##!@a@!##!@burst@!##!@of@!##!@waveform@!##!@cycles@!##!@when@!##!@it@!##!@receives@!##!@a@!##!@trigger@!##!@event@!##!@and@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_OPERATION_MODE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_OPERATE_BURST.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2955,8 +2583,7 @@ Notes:
       <Function>
         <ID>ConfigureBurstMode</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@burst@!##!@mode.@!##!@@!##!@The@!##!@function@!##!@decides@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@a@!##!@burst@!##!@of@!##!@waveform@!##!@cycles@!##!@when@!##!@it@!##!@receives@!##!@a@!##!@trigger@!##!@or@!##!@produces@!##!@cycles@!##!@of@!##!@waveform@!##!@when@!##!@the@!##!@trigger@!##!@signal@!##!@keeps@!##!@high.
-</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@burst@!##!@mode.@!##!@@!##!@The@!##!@function@!##!@decides@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@produces@!##!@a@!##!@burst@!##!@of@!##!@waveform@!##!@cycles@!##!@when@!##!@it@!##!@receives@!##!@a@!##!@trigger@!##!@or@!##!@produces@!##!@cycles@!##!@of@!##!@waveform@!##!@when@!##!@the@!##!@trigger@!##!@signal@!##!@keeps@!##!@high.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -2993,8 +2620,7 @@ Notes:
       <Function>
         <ID>ConfigureAMEnabled</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@amplitude@!##!@modulation@!##!@to@!##!@a@!##!@channel.
-</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@amplitude@!##!@modulation@!##!@to@!##!@a@!##!@channel.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3027,8 +2653,7 @@ Notes:
       <Function>
         <ID>ConfigureAMSource</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@source@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@apply@!##!@amplitude@!##!@modulation@!##!@to@!##!@the@!##!@channel's@!##!@output@!##!@signal.
-</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@source@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@apply@!##!@amplitude@!##!@modulation@!##!@to@!##!@the@!##!@channel's@!##!@output@!##!@signal.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3061,14 +2686,7 @@ Notes:
       <Function>
         <ID>ConfigureAMInternal</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@amplitude@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@modulation@!##!@depth,@!##!@waveform,@!##!@and@!##!@frequency.
-
-This@!##!@function@!##!@is@!##!@applicable@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.@!##!@
-
-Notes:
-(1)@!##!@This@!##!@function@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.@!##!@
-
-(2)@!##!@You@!##!@should@!##!@configure@!##!@AM@!##!@source@!##!@to@!##!@internal@!##!@before@!##!@calling@!##!@this@!##!@func</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@amplitude@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@modulation@!##!@depth,@!##!@waveform,@!##!@and@!##!@frequency.!@##@!!@##@!This@!##!@function@!##!@is@!##!@applicable@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_AM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_AM_INTERNAL.@!##!@!@##@!!@##@!Notes:!@##@!(1)@!##!@This@!##!@function@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.@!##!@!@##@!!@##@!(2)@!##!@You@!##!@should@!##!@configure@!##!@AM@!##!@source@!##!@to@!##!@internal@!##!@before@!##!@calling@!##!@this@!##!@func</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3110,10 +2728,7 @@ Notes:
       <Function>
         <ID>ConfigureAMInternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@amplitude@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@modulation@!##!@depth,@!##!@waveform,@!##!@and@!##!@frequency.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@amplitude@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@modulation@!##!@depth,@!##!@waveform,@!##!@and@!##!@frequency.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3164,10 +2779,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
       <Function>
         <ID>ConfigureAMExternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attribute@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@amplitude@!##!@modulation@!##!@source.@!##!@@!##!@This@!##!@attribute@!##!@is@!##!@the@!##!@modulation@!##!@depth.
-
-Notes:
-This@!##!@function@!##!@is@!##!@not@!##!@channel-based</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attribute@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@amplitude@!##!@modulation@!##!@source.@!##!@@!##!@This@!##!@attribute@!##!@is@!##!@the@!##!@modulation@!##!@depth.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@not@!##!@channel-based</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3204,8 +2816,7 @@ This@!##!@function@!##!@is@!##!@not@!##!@channel-based</Description>
       <Function>
         <ID>ConfigureFMEnabled</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@frequency@!##!@modulation@!##!@to@!##!@a@!##!@channel.
-</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@whether@!##!@the@!##!@function@!##!@generator@!##!@applies@!##!@frequency@!##!@modulation@!##!@to@!##!@a@!##!@channel.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3238,8 +2849,7 @@ This@!##!@function@!##!@is@!##!@not@!##!@channel-based</Description>
       <Function>
         <ID>ConfigureFMSource</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@source@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@apply@!##!@frequency@!##!@modulation@!##!@to@!##!@the@!##!@channel's@!##!@output@!##!@signal.
-</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@source@!##!@the@!##!@function@!##!@generator@!##!@uses@!##!@to@!##!@apply@!##!@frequency@!##!@modulation@!##!@to@!##!@the@!##!@channel's@!##!@output@!##!@signal.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3272,14 +2882,7 @@ This@!##!@function@!##!@is@!##!@not@!##!@channel-based</Description>
       <Function>
         <ID>ConfigureFMInternal</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@frequency@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviation,@!##!@waveform,@!##!@and@!##!@frequency.
-
-This@!##!@function@!##!@is@!##!@applicable@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.@!##!@
-
-Notes:
-(1)@!##!@This@!##!@function@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.
-
-(2)@!##!@You@!##!@should@!##!@configure@!##!@FM@!##!@source@!##!@to@!##!@internal@!##!@before@!##!@calling@!##!@this@!##!@fun</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@frequency@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviation,@!##!@waveform,@!##!@and@!##!@frequency.!@##@!!@##@!This@!##!@function@!##!@is@!##!@applicable@!##!@only@!##!@when@!##!@the@!##!@TKAFG1K_ATTR_FM_SOURCE@!##!@attribute@!##!@is@!##!@set@!##!@to@!##!@TKAFG1K_VAL_FM_INTERNAL.@!##!@!@##@!!@##@!Notes:!@##@!(1)@!##!@This@!##!@function@!##!@is@!##!@not@!##!@based@!##!@on@!##!@channel.!@##@!!@##@!(2)@!##!@You@!##!@should@!##!@configure@!##!@FM@!##!@source@!##!@to@!##!@internal@!##!@before@!##!@calling@!##!@this@!##!@fun</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3321,10 +2924,7 @@ Notes:
       <Function>
         <ID>ConfigureFMInternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@frequency@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviation,@!##!@waveform,@!##!@and@!##!@frequency.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@frequency@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviation,@!##!@waveform,@!##!@and@!##!@frequency.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3375,10 +2975,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
       <Function>
         <ID>ConfigureFMExternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attribute@!##!@that@!##!@controls@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@frequency@!##!@modulation@!##!@source.@!##!@@!##!@The@!##!@attribute@!##!@is@!##!@the@!##!@peak@!##!@deviation.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attribute@!##!@that@!##!@controls@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@frequency@!##!@modulation@!##!@source.@!##!@@!##!@The@!##!@attribute@!##!@is@!##!@the@!##!@peak@!##!@deviation.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3415,11 +3012,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channel</Description>
       <Function>
         <ID>ConfigurePMEnabled</ID>
         <Custom>True</Custom>
-        <Description>Pass@!##!@whether@!##!@you@!##!@want@!##!@to@!##!@enable@!##!@or@!##!@disable@!##!@phase@!##!@modulation@!##!@for@!##!@the@!##!@channel.@!##!@@!##!@The@!##!@driver@!##!@sets@!##!@the@!##!@TKAFG1K_ATTR_PM_ENABLED@!##!@attribute@!##!@to@!##!@this@!##!@value.@!##!@
-
-Valid@!##!@Values:
-VI_TRUE@!##!@@!##!@-@!##!@Enable@!##!@phase@!##!@modulation@!##!@@!##!@(Default)
-VI_FALSE@!##!@-@!##!@Disable@!##!@phase@!##!@modulat</Description>
+        <Description>Pass@!##!@whether@!##!@you@!##!@want@!##!@to@!##!@enable@!##!@or@!##!@disable@!##!@phase@!##!@modulation@!##!@for@!##!@the@!##!@channel.@!##!@@!##!@The@!##!@driver@!##!@sets@!##!@the@!##!@TKAFG1K_ATTR_PM_ENABLED@!##!@attribute@!##!@to@!##!@this@!##!@value.@!##!@!@##@!!@##@!Valid@!##!@Values:!@##@!VI_TRUE@!##!@@!##!@-@!##!@Enable@!##!@phase@!##!@modulation@!##!@@!##!@(Default)!@##@!VI_FALSE@!##!@-@!##!@Disable@!##!@phase@!##!@modulat</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3485,10 +3078,7 @@ VI_FALSE@!##!@-@!##!@Disable@!##!@phase@!##!@modulat</Description>
       <Function>
         <ID>ConfigurePMInternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@phase@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviation,@!##!@waveform,@!##!@and@!##!@frequency.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@phase@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviation,@!##!@waveform,@!##!@and@!##!@frequency.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3539,10 +3129,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
       <Function>
         <ID>ConfigurePMExternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@phase@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviations.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@phase@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviations.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3645,10 +3232,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
       <Function>
         <ID>ConfigureFSKInternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@FSK@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@hop@!##!@frequency@!##!@and@!##!@internal@!##!@rate.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@FSK@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@hop@!##!@frequency@!##!@and@!##!@internal@!##!@rate.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3690,10 +3274,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
       <Function>
         <ID>ConfigureFSKExternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@FSK@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@hop@!##!@frequency@!##!@and@!##!@internal@!##!@rate.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@FSK@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@hop@!##!@frequency@!##!@and@!##!@internal@!##!@rate.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3796,10 +3377,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
       <Function>
         <ID>ConfigurePWMInternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@pulse@!##!@width@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviation,@!##!@modulation@!##!@waveform@!##!@and@!##!@modulation@!##!@frequency.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attributes@!##!@that@!##!@control@!##!@the@!##!@function@!##!@generator's@!##!@internal@!##!@pulse@!##!@width@!##!@modulation@!##!@source.@!##!@@!##!@These@!##!@attributes@!##!@are@!##!@the@!##!@peak@!##!@deviation,@!##!@modulation@!##!@waveform@!##!@and@!##!@modulation@!##!@frequency.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3850,10 +3428,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
       <Function>
         <ID>ConfigurePWMExternalByChannel</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attribute@!##!@that@!##!@controls@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@pulse@!##!@width@!##!@modulation@!##!@source.@!##!@@!##!@The@!##!@attribute@!##!@is@!##!@the@!##!@peak@!##!@deviation.
-
-Notes:
-This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
+        <Description>This@!##!@function@!##!@configures@!##!@the@!##!@attribute@!##!@that@!##!@controls@!##!@the@!##!@function@!##!@generator's@!##!@external@!##!@pulse@!##!@width@!##!@modulation@!##!@source.@!##!@@!##!@The@!##!@attribute@!##!@is@!##!@the@!##!@peak@!##!@deviation.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3890,8 +3465,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
       <Function>
         <ID>InitiateGeneration</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@performs@!##!@no@!##!@operation@!##!@and@!##!@is@!##!@present@!##!@for@!##!@compliance@!##!@with@!##!@the@!##!@IviFgen@!##!@specification.
-</Description>
+        <Description>This@!##!@function@!##!@performs@!##!@no@!##!@operation@!##!@and@!##!@is@!##!@present@!##!@for@!##!@compliance@!##!@with@!##!@the@!##!@IviFgen@!##!@specification.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3906,8 +3480,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
       <Function>
         <ID>AbortGeneration</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@performs@!##!@no@!##!@operation@!##!@and@!##!@is@!##!@present@!##!@for@!##!@compliance@!##!@with@!##!@the@!##!@IviFgen@!##!@specification.
-</Description>
+        <Description>This@!##!@function@!##!@performs@!##!@no@!##!@operation@!##!@and@!##!@is@!##!@present@!##!@for@!##!@compliance@!##!@with@!##!@the@!##!@IviFgen@!##!@specification.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3926,10 +3499,7 @@ This@!##!@function@!##!@is@!##!@based@!##!@on@!##!@channe</Description>
       <Function>
         <ID>SetGetWaveformPointValue</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@sets@!##!@or@!##!@gets@!##!@waveform@!##!@point@!##!@value.
-
-Notes:
-This@!##!@function@!##!@is@!##!@only@!##!@supported@!##!@by@!##!@AFG3011C,@!##!@AFG3021C,@!##!@AFG3051C,@!##!@AFG3052C,@!##!@AFG3101C,@!##!@AFG3102C,@!##!@AFG3251C,@!##!@AFG3252C,@!##!@AFG3022C.@!##!@@!##!@@!##!@</Description>
+        <Description>This@!##!@function@!##!@sets@!##!@or@!##!@gets@!##!@waveform@!##!@point@!##!@value.!@##@!!@##@!Notes:!@##@!This@!##!@function@!##!@is@!##!@only@!##!@supported@!##!@by@!##!@AFG3011C,@!##!@AFG3021C,@!##!@AFG3051C,@!##!@AFG3052C,@!##!@AFG3101C,@!##!@AFG3102C,@!##!@AFG3251C,@!##!@AFG3252C,@!##!@AFG3022C.@!##!@@!##!@@!##!@</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -3989,8 +3559,7 @@ This@!##!@function@!##!@is@!##!@only@!##!@supported@!##!@by@!##!@AFG3011C,@!##!@
       <Function>
         <ID>reset</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@resets@!##!@the@!##!@instrument@!##!@to@!##!@a@!##!@known@!##!@state@!##!@and@!##!@sends@!##!@initialization@!##!@commands@!##!@to@!##!@the@!##!@instrument.@!##!@@!##!@The@!##!@initialization@!##!@commands@!##!@set@!##!@instrument@!##!@settings@!##!@such@!##!@as@!##!@Headers@!##!@Off,@!##!@Short@!##!@Command@!##!@form,@!##!@and@!##!@Data@!##!@Transfer@!##!@Binary@!##!@to@!##!@the@!##!@state@!##!@necessary@!##!@for@!##!@the@!##!@operation@!##!@of@!##!@the@!##!@instrument@!##!@driver.
-</Description>
+        <Description>This@!##!@function@!##!@resets@!##!@the@!##!@instrument@!##!@to@!##!@a@!##!@known@!##!@state@!##!@and@!##!@sends@!##!@initialization@!##!@commands@!##!@to@!##!@the@!##!@instrument.@!##!@@!##!@The@!##!@initialization@!##!@commands@!##!@set@!##!@instrument@!##!@settings@!##!@such@!##!@as@!##!@Headers@!##!@Off,@!##!@Short@!##!@Command@!##!@form,@!##!@and@!##!@Data@!##!@Transfer@!##!@Binary@!##!@to@!##!@the@!##!@state@!##!@necessary@!##!@for@!##!@the@!##!@operation@!##!@of@!##!@the@!##!@instrument@!##!@driver.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -4035,8 +3604,7 @@ This@!##!@function@!##!@is@!##!@only@!##!@supported@!##!@by@!##!@AFG3011C,@!##!@
       <Function>
         <ID>revision_query</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@returns@!##!@the@!##!@revision@!##!@numbers@!##!@of@!##!@the@!##!@instrument@!##!@driver@!##!@and@!##!@instrument@!##!@firmware.
-</Description>
+        <Description>This@!##!@function@!##!@returns@!##!@the@!##!@revision@!##!@numbers@!##!@of@!##!@the@!##!@instrument@!##!@driver@!##!@and@!##!@instrument@!##!@firmware.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -4069,8 +3637,7 @@ This@!##!@function@!##!@is@!##!@only@!##!@supported@!##!@by@!##!@AFG3011C,@!##!@
       <Function>
         <ID>error_query</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@reads@!##!@an@!##!@error@!##!@code@!##!@and@!##!@a@!##!@message@!##!@from@!##!@the@!##!@instrument's@!##!@error@!##!@queue.
-</Description>
+        <Description>This@!##!@function@!##!@reads@!##!@an@!##!@error@!##!@code@!##!@and@!##!@a@!##!@message@!##!@from@!##!@the@!##!@instrument's@!##!@error@!##!@queue.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -4151,8 +3718,7 @@ This@!##!@function@!##!@is@!##!@only@!##!@supported@!##!@by@!##!@AFG3011C,@!##!@
       <Function>
         <ID>GetChannelName</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@returns@!##!@the@!##!@highest-level@!##!@channel@!##!@name@!##!@that@!##!@corresponds@!##!@to@!##!@the@!##!@specific@!##!@driver@!##!@channel@!##!@string@!##!@that@!##!@is@!##!@in@!##!@the@!##!@channel@!##!@table@!##!@at@!##!@an@!##!@index@!##!@you@!##!@specify.@!##!@@!##!@By@!##!@passing@!##!@0@!##!@for@!##!@the@!##!@buffer@!##!@size,@!##!@the@!##!@caller@!##!@can@!##!@ascertain@!##!@the@!##!@buffer@!##!@size@!##!@required@!##!@to@!##!@get@!##!@the@!##!@entire@!##!@channel@!##!@name@!##!@string@!##!@and@!##!@then@!##!@call@!##!@the@!##!@function@!##!@again@!##!@with@!##!@a@!##!@sufficiently@!##!@large@!##!@buffer.
-</Description>
+        <Description>This@!##!@function@!##!@returns@!##!@the@!##!@highest-level@!##!@channel@!##!@name@!##!@that@!##!@corresponds@!##!@to@!##!@the@!##!@specific@!##!@driver@!##!@channel@!##!@string@!##!@that@!##!@is@!##!@in@!##!@the@!##!@channel@!##!@table@!##!@at@!##!@an@!##!@index@!##!@you@!##!@specify.@!##!@@!##!@By@!##!@passing@!##!@0@!##!@for@!##!@the@!##!@buffer@!##!@size,@!##!@the@!##!@caller@!##!@can@!##!@ascertain@!##!@the@!##!@buffer@!##!@size@!##!@required@!##!@to@!##!@get@!##!@the@!##!@entire@!##!@channel@!##!@name@!##!@string@!##!@and@!##!@then@!##!@call@!##!@the@!##!@function@!##!@again@!##!@with@!##!@a@!##!@sufficiently@!##!@large@!##!@buffer.!@##@!</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -4198,13 +3764,7 @@ This@!##!@function@!##!@is@!##!@only@!##!@supported@!##!@by@!##!@AFG3011C,@!##!@
       <Function>
         <ID>viWrite</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@writes@!##!@a@!##!@command@!##!@string@!##!@directly@!##!@to@!##!@an@!##!@instrument@!##!@using@!##!@VISA@!##!@I/O.@!##!@The@!##!@function@!##!@bypasses@!##!@the@!##!@attribute@!##!@state@!##!@caching@!##!@mechanism@!##!@and@!##!@therefore@!##!@always@!##!@invalidates@!##!@all@!##!@attribute@!##!@cache@!##!@values@!##!@for@!##!@the@!##!@session.
-
-The@!##!@function@!##!@assumes@!##!@that@!##!@the@!##!@IVI_ATTR_SYSTEM_IO_SESSION@!##!@attribute@!##!@for@!##!@the@!##!@IVI@!##!@session@!##!@you@!##!@specify@!##!@holds@!##!@a@!##!@valid@!##!@VISA@!##!@session@!##!@for@!##!@the@!##!@instrument.
-
-The@!##!@function@!##!@calls@!##!@Ivi_SetNeedToCheckStatus@!##!@with@!##!@VI_TRUE.
-
-Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI@!##!@Compliance@!##!@Package@!##!@(ICP)@!##!@4.6.1@!##!@and@!##!@later.@!##!@If@!##!@you@!##!@are@!##!@using@!##!@an@!##!@earlier@!##!@version@!##!@of@!##!@ICP,@!##!@you@!##!@can@!##!@still@!##!@use@!##!@the@!##!@WriteInstrData@!##!@and@!##!@ReadInstrData@!##!@functions@!##!@under@!##!@the@!##!@Obsolete@!##!@fol</Description>
+        <Description>This@!##!@function@!##!@writes@!##!@a@!##!@command@!##!@string@!##!@directly@!##!@to@!##!@an@!##!@instrument@!##!@using@!##!@VISA@!##!@I/O.@!##!@The@!##!@function@!##!@bypasses@!##!@the@!##!@attribute@!##!@state@!##!@caching@!##!@mechanism@!##!@and@!##!@therefore@!##!@always@!##!@invalidates@!##!@all@!##!@attribute@!##!@cache@!##!@values@!##!@for@!##!@the@!##!@session.!@##@!!@##@!The@!##!@function@!##!@assumes@!##!@that@!##!@the@!##!@IVI_ATTR_SYSTEM_IO_SESSION@!##!@attribute@!##!@for@!##!@the@!##!@IVI@!##!@session@!##!@you@!##!@specify@!##!@holds@!##!@a@!##!@valid@!##!@VISA@!##!@session@!##!@for@!##!@the@!##!@instrument.!@##@!!@##@!The@!##!@function@!##!@calls@!##!@Ivi_SetNeedToCheckStatus@!##!@with@!##!@VI_TRUE.!@##@!!@##@!Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI@!##!@Compliance@!##!@Package@!##!@(ICP)@!##!@4.6.1@!##!@and@!##!@later.@!##!@If@!##!@you@!##!@are@!##!@using@!##!@an@!##!@earlier@!##!@version@!##!@of@!##!@ICP,@!##!@you@!##!@can@!##!@still@!##!@use@!##!@the@!##!@WriteInstrData@!##!@and@!##!@ReadInstrData@!##!@functions@!##!@under@!##!@the@!##!@Obsolete@!##!@fol</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -4246,13 +3806,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <Function>
         <ID>viRead</ID>
         <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@reads@!##!@data@!##!@directly@!##!@from@!##!@an@!##!@instrument@!##!@using@!##!@VISA@!##!@I/O.@!##!@The@!##!@function@!##!@bypasses@!##!@the@!##!@attribute@!##!@state@!##!@caching@!##!@mechanism.
-
-The@!##!@function@!##!@assumes@!##!@that@!##!@the@!##!@IVI_ATTR_SYSTEM_IO_SESSION@!##!@attribute@!##!@for@!##!@the@!##!@IVI@!##!@session@!##!@you@!##!@specify@!##!@holds@!##!@a@!##!@valid@!##!@VISA@!##!@session@!##!@for@!##!@the@!##!@instrument.
-
-If@!##!@data@!##!@is@!##!@not@!##!@available@!##!@at@!##!@the@!##!@instrument's@!##!@output@!##!@buffer@!##!@when@!##!@you@!##!@call@!##!@this@!##!@function,@!##!@the@!##!@instrument@!##!@might@!##!@hang@!##!@up.@!##!@In@!##!@that@!##!@case,@!##!@the@!##!@function@!##!@does@!##!@not@!##!@return@!##!@until@!##!@the@!##!@VISA@!##!@I/O@!##!@call@!##!@times@!##!@out.@!##!@If@!##!@you@!##!@have@!##!@disabled@!##!@the@!##!@timeout,@!##!@the@!##!@function@!##!@hangs@!##!@indefinitely.
-
-Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI@!##!@Compliance@!##!@Package@!##!@(ICP)@!##!@4.6.1@!##!@and@!##!@later.@!##!@If@!##!@you@!##!@are@!##!@using@!##!@an@!##!@earlier@!##!@version@!##!@of@!##!@ICP,@!##!@you@!##!@can@!##!@still@!##!@use@!##!@the@!##!@WriteInstrData@!##!@and@!##!@ReadInstrData@!##!@functions@!##!@under@!##!@the@!##!@Obsolete@!##!@fol</Description>
+        <Description>This@!##!@function@!##!@reads@!##!@data@!##!@directly@!##!@from@!##!@an@!##!@instrument@!##!@using@!##!@VISA@!##!@I/O.@!##!@The@!##!@function@!##!@bypasses@!##!@the@!##!@attribute@!##!@state@!##!@caching@!##!@mechanism.!@##@!!@##@!The@!##!@function@!##!@assumes@!##!@that@!##!@the@!##!@IVI_ATTR_SYSTEM_IO_SESSION@!##!@attribute@!##!@for@!##!@the@!##!@IVI@!##!@session@!##!@you@!##!@specify@!##!@holds@!##!@a@!##!@valid@!##!@VISA@!##!@session@!##!@for@!##!@the@!##!@instrument.!@##@!!@##@!If@!##!@data@!##!@is@!##!@not@!##!@available@!##!@at@!##!@the@!##!@instrument's@!##!@output@!##!@buffer@!##!@when@!##!@you@!##!@call@!##!@this@!##!@function,@!##!@the@!##!@instrument@!##!@might@!##!@hang@!##!@up.@!##!@In@!##!@that@!##!@case,@!##!@the@!##!@function@!##!@does@!##!@not@!##!@return@!##!@until@!##!@the@!##!@VISA@!##!@I/O@!##!@call@!##!@times@!##!@out.@!##!@If@!##!@you@!##!@have@!##!@disabled@!##!@the@!##!@timeout,@!##!@the@!##!@function@!##!@hangs@!##!@indefinitely.!@##@!!@##@!Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI@!##!@Compliance@!##!@Package@!##!@(ICP)@!##!@4.6.1@!##!@and@!##!@later.@!##!@If@!##!@you@!##!@are@!##!@using@!##!@an@!##!@earlier@!##!@version@!##!@of@!##!@ICP,@!##!@you@!##!@can@!##!@still@!##!@use@!##!@the@!##!@WriteInstrData@!##!@and@!##!@ReadInstrData@!##!@functions@!##!@under@!##!@the@!##!@Obsolete@!##!@fol</Description>
         <RelatedCommand />
         <Parameter>
           <Name>instrumentHandle</Name>
@@ -4316,6 +3870,50 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       </Discrete>
     </Table>
     <Table>
+      <Name>attrAFG1022BurstCountRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViInt32</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_BURST_INFINITY</Min>
+          <Max>TKAFG1K_VAL_BURST_INFINITY</Max>
+          <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+        </value>
+        <value>
+          <Min>1</Min>
+          <Max>AFG1022_VAL_MAX_BURST_COUNT</Max>
+          <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062BurstCountRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViInt32</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_BURST_INFINITY</Min>
+          <Max>TKAFG1K_VAL_BURST_INFINITY</Max>
+          <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+        </value>
+        <value>
+          <Min>1</Min>
+          <Max>AFG1062_VAL_MAX_BURST_COUNT</Max>
+          <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
       <Name>attrAMInternalDepthRangeTable</Name>
       <Custom>True</Custom>
       <HasMin>VI_TRUE</HasMin>
@@ -4341,7 +3939,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <Ranged>
         <value>
           <Min>0.002</Min>
-          <Max>50000.00</Max>
+          <Max>20000.00</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -4374,31 +3972,13 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_TRIANGLE</DiscreteValue>
-          <Label>3</Label>
-          <Custom>True</Custom>
-          <CommandString>"TRI"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's amplitude with a triangle waveform.</Description>
-          <Index>2</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_RAMP_UP</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's amplitude with a positive ramp waveform.</Description>
-          <Index>3</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_RAMP_DOWN</DiscreteValue>
-          <Label>5</Label>
-          <Custom>False</Custom>
-          <CommandString>"NRAM"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's amplitude with a negative ramp waveform.</Description>
-          <Index>4</Index>
+          <Index>2</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_PRN</DiscreteValue>
@@ -4407,52 +3987,61 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <CommandString>"PRN"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's amplitude with a noise waveform.</Description>
+          <Index>3</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER0</DiscreteValue>
+          <Label>1003</Label>
+          <Custom>True</Custom>
+          <CommandString>"USER0"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator to modulate the carrier signal's amplitude with a user waveform.</Description>
+          <Index>4</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER20</DiscreteValue>
+          <Label>1023</Label>
+          <Custom>True</Custom>
+          <CommandString>"USER20"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator to modulate the carrier signal's amplitude with a user2 waveform.</Description>
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER1</DiscreteValue>
-          <Label>1002</Label>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER55</DiscreteValue>
+          <Label>1058</Label>
           <Custom>True</Custom>
-          <CommandString>"USER"</CommandString>
+          <CommandString>"USER55"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's amplitude with a user waveform.</Description>
+          <Description>Configures the function generator to modulate the carrier signal's amplitude with a user3 waveform.</Description>
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER2</DiscreteValue>
-          <Label>1003</Label>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER120</DiscreteValue>
+          <Label>1123</Label>
           <Custom>True</Custom>
-          <CommandString>"USER2"</CommandString>
+          <CommandString>"USER120"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's amplitude with a user2 waveform.</Description>
+          <Description>Configures the function generator to modulate the carrier signal's amplitude with a user4 waveform.</Description>
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER3</DiscreteValue>
-          <Label>1004</Label>
+          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER220</DiscreteValue>
+          <Label>1223</Label>
           <Custom>True</Custom>
-          <CommandString>"USER3"</CommandString>
+          <CommandString>"USER220"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's amplitude with a user3 waveform.</Description>
+          <Description />
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_USER4</DiscreteValue>
-          <Label>1005</Label>
-          <Custom>True</Custom>
-          <CommandString>"USER4"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's amplitude with a user4 waveform.</Description>
-          <Index>9</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_AM_INTERNAL_EMEM</DiscreteValue>
-          <Label>1006</Label>
+          <Label>1002</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's amplitude with a EMEMory waveform.</Description>
-          <Index>10</Index>
+          <Index>9</Index>
         </value>
       </Discrete>
     </Table>
@@ -4485,22 +4074,6 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       </Discrete>
     </Table>
     <Table>
-      <Name>attrAppendNoiseLevelRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViReal64</DataType>
-      <TableType>Ranged</TableType>
-      <Ranged>
-        <value>
-          <Min>0</Min>
-          <Max>50.0</Max>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-        </value>
-      </Ranged>
-    </Table>
-    <Table>
       <Name>attrArbWaveformHandleRangeTable</Name>
       <Custom>True</Custom>
       <HasMin>VI_TRUE</HasMin>
@@ -4510,75 +4083,62 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <Discrete>
         <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_USER1</DiscreteValue>
-          <Label>10000</Label>
+          <Label>10003</Label>
           <Custom>True</Custom>
-          <CommandString>"USER"</CommandString>
+          <CommandString>"USER1"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a user1 waveform.</Description>
           <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_USER2</DiscreteValue>
-          <Label>10001</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER20</DiscreteValue>
+          <Label>10022</Label>
           <Custom>True</Custom>
-          <CommandString>"USER2"</CommandString>
+          <CommandString>"USER20"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a user2 waveform.</Description>
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_USER3</DiscreteValue>
-          <Label>10002</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER60</DiscreteValue>
+          <Label>10062</Label>
           <Custom>True</Custom>
-          <CommandString>"USER3"</CommandString>
+          <CommandString>"USER60"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a user3 waveform.</Description>
           <Index>2</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_USER4</DiscreteValue>
-          <Label>10003</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER120</DiscreteValue>
+          <Label>10122</Label>
           <Custom>True</Custom>
-          <CommandString>"USER4"</CommandString>
+          <CommandString>"USER120"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a user4 waveform.</Description>
           <Index>3</Index>
         </value>
         <value>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER220</DiscreteValue>
+          <Label>10222</Label>
+          <Custom>True</Custom>
+          <CommandString>"USER220"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator to produce a user4 waveform.</Description>
+          <Index>4</Index>
+        </value>
+        <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_EMEM</DiscreteValue>
-          <Label>10011</Label>
+          <Label>10001</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a Edit Memory waveform.</Description>
-          <Index>4</Index>
+          <Index>5</Index>
         </value>
       </Discrete>
     </Table>
     <Table>
-      <Name>attrBurstCountRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViInt32</DataType>
-      <TableType>Ranged</TableType>
-      <Ranged>
-        <value>
-          <Min>0</Min>
-          <Max>0</Max>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-        </value>
-        <value>
-          <Min>1</Min>
-          <Max>1000000</Max>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-        </value>
-      </Ranged>
-    </Table>
-    <Table>
-      <Name>attrBurstDelayRangeTable</Name>
+      <Name>attrASKAmplitudeRangeTable</Name>
       <Custom>True</Custom>
       <HasMin>VI_TRUE</HasMin>
       <HasMax>VI_TRUE</HasMax>
@@ -4587,11 +4147,55 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <Ranged>
         <value>
           <Min>0</Min>
-          <Max>85</Max>
+          <Max>1</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
       </Ranged>
+    </Table>
+    <Table>
+      <Name>attrASKInternalRateRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>0.002</Min>
+          <Max>100000</Max>
+          <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrASKSourceRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViInt32</DataType>
+      <TableType>Discrete</TableType>
+      <Discrete>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_ASK_INTERNAL</DiscreteValue>
+          <Label>0</Label>
+          <Custom>True</Custom>
+          <CommandString>"INT"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description />
+          <Index>0</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_ASK_EXTERNAL</DiscreteValue>
+          <Label>1</Label>
+          <Custom>True</Custom>
+          <CommandString>"EXT"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description />
+          <Index>1</Index>
+        </value>
+      </Discrete>
     </Table>
     <Table>
       <Name>attrBurstModeRangeTable</Name>
@@ -4631,7 +4235,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <Ranged>
         <value>
           <Min>0.002</Min>
-          <Max>50000.0</Max>
+          <Max>20000.0</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -4664,31 +4268,13 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_TRIANGLE</DiscreteValue>
-          <Label>3</Label>
-          <Custom>True</Custom>
-          <CommandString>"TRI"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's frequency with a triangle waveform.</Description>
-          <Index>2</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_RAMP_UP</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's frequency with a positive ramp waveform.</Description>
-          <Index>3</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_RAMP_DOWN</DiscreteValue>
-          <Label>5</Label>
-          <Custom>True</Custom>
-          <CommandString>"NRAM"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's frequency with a negative ramp waveform.</Description>
-          <Index>4</Index>
+          <Index>2</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_PRN</DiscreteValue>
@@ -4697,52 +4283,52 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <CommandString>"PRN"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's frequency with a noise waveform.</Description>
-          <Index>5</Index>
+          <Index>3</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER1</DiscreteValue>
-          <Label>1002</Label>
+          <Label>1004</Label>
           <Custom>True</Custom>
-          <CommandString>"USER"</CommandString>
+          <CommandString>"USER1"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's frequency with a user1 waveform.</Description>
+          <Index>4</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER40</DiscreteValue>
+          <Label>1043</Label>
+          <Custom>True</Custom>
+          <CommandString>"USER40"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator to modulate the carrier signal's frequency with a user2 waveform.</Description>
+          <Index>5</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER90</DiscreteValue>
+          <Label>1093</Label>
+          <Custom>True</Custom>
+          <CommandString>"USER90"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator to modulate the carrier signal's frequency with a user3 waveform.</Description>
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER2</DiscreteValue>
-          <Label>1003</Label>
+          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER190</DiscreteValue>
+          <Label>1193</Label>
           <Custom>True</Custom>
-          <CommandString>"USER2"</CommandString>
+          <CommandString>"USER190"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's frequency with a user2 waveform.</Description>
+          <Description>Configures the function generator to modulate the carrier signal's frequency with a user4 waveform.</Description>
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER3</DiscreteValue>
-          <Label>1004</Label>
-          <Custom>True</Custom>
-          <CommandString>"USER3"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's frequency with a user3 waveform.</Description>
-          <Index>8</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_USER4</DiscreteValue>
-          <Label>1005</Label>
-          <Custom>True</Custom>
-          <CommandString>"USER4"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's frequency with a user4 waveform.</Description>
-          <Index>9</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_FM_INTERNAL_EMEM</DiscreteValue>
-          <Label>1006</Label>
+          <Label>1002</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's frequency with a Edit Memory waveform.</Description>
-          <Index>10</Index>
+          <Index>8</Index>
         </value>
       </Discrete>
     </Table>
@@ -4784,7 +4370,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
       <Ranged>
         <value>
           <Min>0.002</Min>
-          <Max>1000000</Max>
+          <Max>100000</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -5204,12 +4790,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Custom>True</Custom>
           <CommandString>"MODULATION"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>the function generator use a certain method to modulate output signal. Current instrument driver support the following modulation types:
-- AM ( Amplitude Modulation )
-- FM ( Frequency Modulation )
-- PM ( Phase Modulation )
-- FSK ( Frequency Shift Key Modulation )
-- PWM ( Pulse Width Modulation )</Description>
+          <Description>the function generator use a certain method to modulate output signal. Current instrument driver support the following modulation types:\n- AM ( Amplitude Modulation )\n- FM ( Frequency Modulation )\n- PM ( Phase Modulation )\n- FSK ( Frequency Shift Key Modulation )\n- PWM ( Pulse Width Modulation )</Description>
           <Index>1</Index>
         </value>
         <value>
@@ -5218,18 +4799,7 @@ Note:@!##!@This@!##!@function@!##!@is@!##!@supported@!##!@with@!##!@the@!##!@IVI
           <Custom>True</Custom>
           <CommandString>"SWEEP"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Sets the instrument to sweep mode. You could use the following function to configure sweep mode parameters.
-
-- tkafg1k_ConfigureSweep 
-- tkafg1k_ConfigureSweepEx
-
-In place of using this function, you can set the following attributes:                                
-TKAFG1K_ATTR_SWEEP_START_FREQUENCY                     
-TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY                      
-TKAFG1K_ATTR_SWEEP_TIME
-TKAFG1K_ATTR_SWEEP_HOLD_TIME                            
-TKAFG1K_ATTR_SWEEP_RETURN_TIME
-TKAFG1K_ATTR_SWEEP_TYPE</Description>
+          <Description>Sets the instrument to sweep mode. You could use the following function to configure sweep mode parameters.\n\n- tkafg1k_ConfigureSweep \n- tkafg1k_ConfigureSweepEx\n\nIn place of using this function, you can set the following attributes:                                \nTKAFG1K_ATTR_SWEEP_START_FREQUENCY                     \nTKAFG1K_ATTR_SWEEP_STOP_FREQUENCY                      \nTKAFG1K_ATTR_SWEEP_TIME\nTKAFG1K_ATTR_SWEEP_HOLD_TIME                            \nTKAFG1K_ATTR_SWEEP_RETURN_TIME\nTKAFG1K_ATTR_SWEEP_TYPE</Description>
           <Index>2</Index>
         </value>
         <value>
@@ -5374,7 +4944,7 @@ TKAFG1K_ATTR_SWEEP_TYPE</Description>
       <Ranged>
         <value>
           <Min>0.002</Min>
-          <Max>50000.00</Max>
+          <Max>20000.00</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -5543,7 +5113,7 @@ TKAFG1K_ATTR_SWEEP_TYPE</Description>
       <Ranged>
         <value>
           <Min>0.002</Min>
-          <Max>50000.00</Max>
+          <Max>20000.00</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -5715,194 +5285,6 @@ TKAFG1K_ATTR_SWEEP_TYPE</Description>
       </Discrete>
     </Table>
     <Table>
-      <Name>attrSweepHoldTimeRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViReal64</DataType>
-      <TableType>Ranged</TableType>
-      <Ranged>
-        <value>
-          <Min>0</Min>
-          <Max>300</Max>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-        </value>
-      </Ranged>
-    </Table>
-    <Table>
-      <Name>attrSweepModeRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViInt32</DataType>
-      <TableType>Discrete</TableType>
-      <Discrete>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_SWEEP_AUTO</DiscreteValue>
-          <Label>1</Label>
-          <Custom>True</Custom>
-          <CommandString>"AUTO"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Sets the sweep mode to auto. The instrument outputs a continuous sweep at a rate specified by Sweep Time, Hold Time, and Return Time.</Description>
-          <Index>0</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_SWEEP_MANUAL</DiscreteValue>
-          <Label>2</Label>
-          <Custom>True</Custom>
-          <CommandString>"MAN"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Sets the sweep mode to manual. The instrument outputs one sweep when a trigger input is received.</Description>
-          <Index>1</Index>
-        </value>
-      </Discrete>
-    </Table>
-    <Table>
-      <Name>attrSweepReturnTimeRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViReal64</DataType>
-      <TableType>Ranged</TableType>
-      <Ranged>
-        <value>
-          <Min>0</Min>
-          <Max>300</Max>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-        </value>
-      </Ranged>
-    </Table>
-    <Table>
-      <Name>attrSweepTimeRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViReal64</DataType>
-      <TableType>Ranged</TableType>
-      <Ranged>
-        <value>
-          <Min>0.001</Min>
-          <Max>300</Max>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-        </value>
-      </Ranged>
-    </Table>
-    <Table>
-      <Name>attrSweepTypeRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViInt32</DataType>
-      <TableType>Discrete</TableType>
-      <Discrete>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_SWEEP_LINEAR</DiscreteValue>
-          <Label>1</Label>
-          <Custom>True</Custom>
-          <CommandString>"LIN"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Sets the sweep spacing to linear.</Description>
-          <Index>0</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_SWEEP_LOGARITHMIC</DiscreteValue>
-          <Label>2</Label>
-          <Custom>True</Custom>
-          <CommandString>"LOG"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Sets the sweep spacing to logarithmic.</Description>
-          <Index>1</Index>
-        </value>
-      </Discrete>
-    </Table>
-    <Table>
-      <Name>attrTriggerModeRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViInt32</DataType>
-      <TableType>Discrete</TableType>
-      <Discrete>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_TRIGGER_TRIGGER</DiscreteValue>
-          <Label>1</Label>
-          <Custom>True</Custom>
-          <CommandString>"TRIG"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>TRIGger is selected for Trigger Out.</Description>
-          <Index>0</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_TRIGGER_SYNC</DiscreteValue>
-          <Label>2</Label>
-          <Custom>True</Custom>
-          <CommandString>"SYNC"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>SYNC is selected for Trigger Out.</Description>
-          <Index>1</Index>
-        </value>
-      </Discrete>
-    </Table>
-    <Table>
-      <Name>attrTriggerSlopeRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViInt32</DataType>
-      <TableType>Discrete</TableType>
-      <Discrete>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_TRIGGER_POSITIVE</DiscreteValue>
-          <Label>1</Label>
-          <Custom>True</Custom>
-          <CommandString>"POS"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Indicates that the event occurs on the rising edge of the external trigger signal.</Description>
-          <Index>0</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_TRIGGER_NEGATIVE</DiscreteValue>
-          <Label>2</Label>
-          <Custom>True</Custom>
-          <CommandString>"NEG"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Indicates that the event occurs on the falling edge of the external trigger signal.</Description>
-          <Index>1</Index>
-        </value>
-      </Discrete>
-    </Table>
-    <Table>
-      <Name>attrTriggerSourceRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViInt32</DataType>
-      <TableType>Discrete</TableType>
-      <Discrete>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_INTERNAL_TRIGGER</DiscreteValue>
-          <Label>3</Label>
-          <Custom>True</Custom>
-          <CommandString>"TIM"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>The function generator wait for a trigger from its internal trigger source.</Description>
-          <Index>0</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_EXTERNAL</DiscreteValue>
-          <Label>1</Label>
-          <Custom>True</Custom>
-          <CommandString>"EXT"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>The function generator waits for a trigger on the external trigger input.</Description>
-          <Index>1</Index>
-        </value>
-      </Discrete>
-    </Table>
-    <Table>
       <Name>attrWaveformRangeTable</Name>
       <Custom>True</Custom>
       <HasMin>VI_TRUE</HasMin>
@@ -5929,22 +5311,13 @@ TKAFG1K_ATTR_SWEEP_TYPE</Description>
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_DC</DiscreteValue>
-          <Label>6</Label>
-          <Custom>True</Custom>
-          <CommandString>"DC"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a constant waveform.</Description>
-          <Index>2</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_RAMP</DiscreteValue>
           <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator with a ramp waveform.</Description>
-          <Index>3</Index>
+          <Index>2</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_PULS</DiscreteValue>
@@ -5953,7 +5326,7 @@ TKAFG1K_ATTR_SWEEP_TYPE</Description>
           <CommandString>"PULS"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator with a pulse waveform.</Description>
-          <Index>4</Index>
+          <Index>3</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_PRN</DiscreteValue>
@@ -5962,97 +5335,79 @@ TKAFG1K_ATTR_SWEEP_TYPE</Description>
           <CommandString>"PRN"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator with a noise waveform.</Description>
+          <Index>4</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_WFM_GAUSS</DiscreteValue>
+          <Label>1036</Label>
+          <Custom>True</Custom>
+          <CommandString>"Gauss"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator with a gaussian waveform.</Description>
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_SINC</DiscreteValue>
-          <Label>1004</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_LORENTZ</DiscreteValue>
+          <Label>1027</Label>
           <Custom>True</Custom>
-          <CommandString>"SINC"</CommandString>
+          <CommandString>"Lorentz"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a sinc waveform.</Description>
+          <Description>Configures the function generator with a lorentz waveform.</Description>
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_GAUS</DiscreteValue>
-          <Label>1005</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_HAVERSINE</DiscreteValue>
+          <Label>1026</Label>
           <Custom>True</Custom>
-          <CommandString>"GAUS"</CommandString>
+          <CommandString>"HaverSine"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a gaussian waveform.</Description>
+          <Description>Configures the function generator with a haversine waveform.</Description>
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_LOR</DiscreteValue>
-          <Label>1006</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER1</DiscreteValue>
+          <Label>10003</Label>
           <Custom>True</Custom>
-          <CommandString>"LOR"</CommandString>
+          <CommandString>"USER1"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a lorentz waveform.</Description>
+          <Description>Configures the function generator with a user1 waveform.</Description>
           <Index>8</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_ERIS</DiscreteValue>
-          <Label>1007</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER20</DiscreteValue>
+          <Label>10022</Label>
           <Custom>True</Custom>
-          <CommandString>"ERIS"</CommandString>
+          <CommandString>"USER20"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a exponential rise waveform.</Description>
+          <Description>Configures the function generator with a user2 waveform.</Description>
           <Index>9</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_EDEC</DiscreteValue>
-          <Label>1008</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER40</DiscreteValue>
+          <Label>10042</Label>
           <Custom>True</Custom>
-          <CommandString>"EDEC"</CommandString>
+          <CommandString>"USER40"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a exponential decay waveform.</Description>
+          <Description>Configures the function generator with a user3 waveform.</Description>
           <Index>10</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_HAV</DiscreteValue>
-          <Label>1009</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER70</DiscreteValue>
+          <Label>10072</Label>
           <Custom>True</Custom>
-          <CommandString>"HAV"</CommandString>
+          <CommandString>"USER70"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a haversine waveform.</Description>
+          <Description>Configures the function generator with a user4 waveform.</Description>
           <Index>11</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_USER1</DiscreteValue>
-          <Label>10000</Label>
+          <DiscreteValue>TKAFG1K_VAL_WFM_USER170</DiscreteValue>
+          <Label>10172</Label>
           <Custom>True</Custom>
-          <CommandString>"USER"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a user1 waveform.</Description>
-          <Index>12</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_USER2</DiscreteValue>
-          <Label>10001</Label>
-          <Custom>True</Custom>
-          <CommandString>"USER2"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a user2 waveform.</Description>
-          <Index>13</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_USER3</DiscreteValue>
-          <Label>10002</Label>
-          <Custom>True</Custom>
-          <CommandString>"USER3"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator with a user3 waveform.</Description>
-          <Index>14</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_USER4</DiscreteValue>
-          <Label>10003</Label>
-          <Custom>True</Custom>
-          <CommandString>"USER4"</CommandString>
+          <CommandString>"USER170"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator with a user4 waveform.</Description>
-          <Index>15</Index>
+          <Index>12</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_EMEM</DiscreteValue>
@@ -6061,18 +5416,9 @@ TKAFG1K_ATTR_SWEEP_TYPE</Description>
           <CommandString>"EMEM"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator with a Edit Memory waveform.</Description>
-          <Index>16</Index>
+          <Index>13</Index>
         </value>
       </Discrete>
-    </Table>
-    <Table>
-      <Name>ptrMemoryRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_FALSE</HasMin>
-      <HasMax>VI_FALSE</HasMax>
-      <DataType>ViInt32</DataType>
-      <TableType>Discrete</TableType>
-      <Discrete />
     </Table>
   </RangeTable>
   <DriverType />
