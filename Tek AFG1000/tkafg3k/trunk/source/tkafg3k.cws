@@ -67,8 +67,7 @@ In Projects = "1,"
 Window Top = 32
 Window Left = 10
 Window Z-Order = 1
-Source Window State Line0001 = "1,10579,10579,10579,73,74,74,1,0,85,0,13710,0,0,0,27,15632,0,15645,49,609,898,1,"
-Source Window State Line0002 = "0,"
+Source Window State = "1,6400,6400,6400,16,46,46,1,0,85,0,13710,0,0,0,27,7951,30,7964,13,609,898,1,0,"
 
 [File 0003]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg3k/trunk/source/tkafg3k.h"

@@ -2936,14 +2936,140 @@ v attrFuncWaveformRangeTable DataType="i"
  TKAFG1K_VAL_WFM_PRN (1003)
   "Configures the function generator to produce a prnoise waveform."
 
- TKAFG1K_VAL_WFM_ARB (1004)
-  ""
+ TKAFG1K_VAL_WFM_STAIRDOWN (1004)
+  " Stair-down waveform"
 
- TKAFG1K_VAL_WFM_USER (10002)
-  ""
+ TKAFG1K_VAL_WFM_STAIRUP (1005)
+  " Stair-up waveform"
 
- TKAFG1K_VAL_WFM_EMEM (10001)
-  ""
+ TKAFG1K_VAL_WFM_STAIR (1006)
+  " Up&Dwn Stair-up and stair-down waveform"
+
+ TKAFG1K_VAL_WFM_TRAPEZOID (1007)
+  " Trapezoid waveform"
+
+ TKAFG1K_VAL_WFM_ROUNDHALF (1008)
+  " RoundHalf wave"
+
+ TKAFG1K_VAL_WFM_ABSSINE (1009)
+  " Absolute value of a Sine"
+
+ TKAFG1K_VAL_WFM_ABSHALFSINE (1010)
+  " Absolute value of half a Sine"
+
+ TKAFG1K_VAL_WFM_CLIPPEDSINE (1011)
+  " Sine transverse cut"
+
+ TKAFG1K_VAL_WFM_CHOPPEDSINE (1012)
+  " Sine vertical cut"
+
+ TKAFG1K_VAL_WFM_NEGRAMP (1013)
+  " Negative ramp"
+
+ TKAFG1K_VAL_WFM_OSCDECAY (1014)
+  " Attenuation oscillation curve"
+
+ TKAFG1K_VAL_WFM_OSCRISE (1015)
+  " Gain oscillation curve"
+
+ TKAFG1K_VAL_WFM_CODEDPULSE (1016)
+  " Coded pulse"
+
+ TKAFG1K_VAL_WFM_POSPULSE (1017)
+  " Positive pulse"
+
+ TKAFG1K_VAL_WFM_NEGPULSE (1018)
+  " Negative pulse"
+
+ TKAFG1K_VAL_WFM_EXPRISE (1019)
+  " Exponential rise function"
+
+ TKAFG1K_VAL_WFM_EXPDECAY (1020)
+  " Exponential fall function"
+
+ TKAFG1K_VAL_WFM_SINC (1021)
+  " Sinc function"
+
+ TKAFG1K_VAL_WFM_TAN (1022)
+  " Tangent"
+
+ TKAFG1K_VAL_WFM_COTAN (1023)
+  " Cotangent"
+
+ TKAFG1K_VAL_WFM_SQUAREROOT (1024)
+  " Square root"
+
+ TKAFG1K_VAL_WFM_X_2 (1025)
+  " Square function"
+
+ TKAFG1K_VAL_WFM_HAVERSINE (1026)
+  " HaverSine function"
+
+ TKAFG1K_VAL_WFM_LORENTZ (1027)
+  " Lorentz function"
+
+ TKAFG1K_VAL_WFM_LN_X (1028)
+  " Natural logarithm function"
+
+ TKAFG1K_VAL_WFM_X_3 (1029)
+  " Cubic function"
+
+ TKAFG1K_VAL_WFM_CAUCHYDISTR (1030)
+  " Cauchy distribution"
+
+ TKAFG1K_VAL_WFM_BESSELJ (1031)
+  " BesselI function"
+
+ TKAFG1K_VAL_WFM_BESSELY (1032)
+  " BesselII function"
+
+ TKAFG1K_VAL_WFM_ERRORFUNC (1033)
+  " Error function"
+
+ TKAFG1K_VAL_WFM_AIRY (1034)
+  " Airy function"
+
+ TKAFG1K_VAL_WFM_RECTANGLE (1035)
+  " Rectangle window"
+
+ TKAFG1K_VAL_WFM_GAUSS (1036)
+  " Gauss distribution"
+
+ TKAFG1K_VAL_WFM_HAMMING (1037)
+  " Hamming window"
+
+ TKAFG1K_VAL_WFM_HANNING (1038)
+  " Hanning window"
+
+ TKAFG1K_VAL_WFM_BARTLETT (1039)
+  " Bartlett window"
+
+ TKAFG1K_VAL_WFM_BLACKMAN (1040)
+  " Blackman window"
+
+ TKAFG1K_VAL_WFM_LAYLIGHT (1041)
+  " Laylight window"
+
+ TKAFG1K_VAL_WFM_TRIANGLE (1042)
+  " Triangle window (Fejer window)"
+
+ TKAFG1K_VAL_WFM_DC (1043)
+  " DC signal"
+
+ TKAFG1K_VAL_WFM_HEART (1044)
+  " Heart signal"
+
+ TKAFG1K_VAL_WFM_ROUND (1045)
+  " Round signal"
+
+ TKAFG1K_VAL_WFM_CHIRP (1046)
+  " Linear FM pulse"
+
+ TKAFG1K_VAL_WFM_RHOMBUS (1047)
+  " Rhombus signal"
+
+ TKAFG1K_VAL_WFM_CARDIAC (1048)
+  " Cardiac signal"
 
 
 v attrModelRangeTable DataType="i" 

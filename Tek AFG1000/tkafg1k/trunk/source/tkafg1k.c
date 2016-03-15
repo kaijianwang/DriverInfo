@@ -798,17 +798,6 @@ static ViStatus tkafg1k_VerifyWfmCreatable (ViSession vi, ViInt32 wfmSize,
 static ViStatus tkafg1k_VerifyWfmBySlotCreatable (ViSession vi, ViInt32 wfmSize,
                                                   ViReal64 wfmData[]);
 
-static ViStatus tkafg1k_VerifyInterpolateWfmCreatable (ViSession vi,
-                                                       ViInt32 wfmSize,
-                                                       ViReal64 startPointData,
-                                                       ViReal64 endPointData);
-
-static ViStatus tkafg1k_VerifyInterpolateWfmBySlotCreatable (
-    ViSession vi,
-    ViInt32 wfmSize,
-    ViReal64 startPointData,
-    ViReal64 endPointData);
-
 static ViStatus tkafg1k_VerifyStandardShapeWfmCreatable (ViSession vi,
                                                          ViInt32 wfmSize,
                                                          ViInt32 wfmType);
@@ -817,7 +806,7 @@ static ViStatus tkafg1k_VerifyStandardShapeWfmBySlotCreatable (ViSession vi,
                                                                ViInt32 wfmSize,
                                                                ViInt32 wfmType);
 
-static ViStatus tkafg1k_VerifyWfmHandle (ViSession vi, ViInt32 wfmHandle);
+
 
 static ViStatus tkafg1k_GetNewWfmInfo (ViSession vi, ViInt32 *wfmHandle);
 
@@ -831,13 +820,8 @@ static ViStatus tkafg1k_WfmExists (ViSession vi, ViInt32 wfmHandle,
 
 static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle);
 
-static ViStatus tkafg1k_GetWfmSize (ViSession vi, ViSession io,
-                                    ViInt32 wfmHandle, ViInt32* wfmSize);
 static ViStatus tkafg1k_GetSweepFrequencyRangeTable( ViSession vi, ViConstString channelName,
                                                               IviRangeTablePtr *rangeTablePtr);
-
-static ViStatus tkafg1k_Min (ViSession vi, ViInt32 digitsofPrecision,
-                             ViReal64 a, ViReal64 b, ViReal64 *minValue);
 
     /*- I/O Operation Utility Functions -*/
 
@@ -4413,81 +4397,6 @@ Error:
 }
 
 /*****************************************************************************
- * Function: tkafg1k_VerifyInterpolateWfmCreatable
- * Purpose:  This utility function verifies that a user-specified waveform is
- *           of valid size, that the data in the waveform is valid, and that
- *           there is memory available for the new waveform.
- *****************************************************************************/
-static ViStatus tkafg1k_VerifyInterpolateWfmCreatable (ViSession vi, ViInt32 wfmSize, ViReal64 startPointData,
-                                                       ViReal64 endPointData)
-{
-    ViStatus error = VI_SUCCESS;
-    ViInt32 maxWfms, currentWfms, wfmQuantum, minWfmSize, maxWfmSize, data1Compare, data2Compare;
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS, 0, &maxWfms));
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_WAVEFORM_QUANTUM, 0, &wfmQuantum));
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MIN_WAVEFORM_SIZE, 0, &minWfmSize));
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_WAVEFORM_SIZE, 0, &maxWfmSize));
-
-    checkErr( tkafg1k_GetNumDefinedWaveforms (vi, &currentWfms));
-
-    if (currentWfms >= maxWfms)
-        viCheckErrElab( TKAFG1K_ERROR_NO_WFMS_AVAILABLE,
-                                    "There are no free waveform structure to create new waveform.");
-
-    if ((wfmSize < minWfmSize) || (wfmSize > maxWfmSize) || (wfmSize % wfmQuantum))
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Length");
-
-    viCheckErr( Ivi_CompareWithPrecision(4, fabs(startPointData), 1.0, &data1Compare));
-    viCheckErr( Ivi_CompareWithPrecision(4, fabs(endPointData), 1.0, &data2Compare));
-
-    if((data1Compare > 0) || (data2Compare > 0))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-Error:
-    return error;
-}
-
-/*****************************************************************************
- * Function: tkafg1k_VerifyInterpolateWfmBySlotCreatable
- * Purpose:  This utility function verifies that a user-specified waveform is
- *           of valid size, that the data in the waveform is valid.
- *****************************************************************************/
-static ViStatus tkafg1k_VerifyInterpolateWfmBySlotCreatable (ViSession vi, ViInt32 wfmSize, ViReal64 startPointData,
-                                                       ViReal64 endPointData)
-{
-    ViStatus error = VI_SUCCESS;
-    ViInt32 wfmQuantum, minWfmSize, maxWfmSize, data1Compare, data2Compare;
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_WAVEFORM_QUANTUM, 0, &wfmQuantum));
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MIN_WAVEFORM_SIZE, 0, &minWfmSize));
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_WAVEFORM_SIZE, 0, &maxWfmSize));
-
-    if ((wfmSize < minWfmSize) || (wfmSize > maxWfmSize) || (wfmSize % wfmQuantum))
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Length");
-
-    viCheckErr( Ivi_CompareWithPrecision(4, fabs(startPointData), 1.0, &data1Compare));
-    viCheckErr( Ivi_CompareWithPrecision(4, fabs(endPointData), 1.0, &data2Compare));
-
-    if((data1Compare > 0) || (data2Compare > 0))
-    {
-        error = IVI_ERROR_INVALID_VALUE;
-        viCheckErr (error);
-    }
-
-Error:
-    return error;
-}
-
-/*****************************************************************************
  * Function: tkafg1k_VerifyStandardShapeWfmCreatable
  * Purpose:  This utility function verifies that a user-specified waveform is
  *           of valid size, that the data in the waveform is valid, and that
@@ -4554,36 +4463,6 @@ Error:
     return error;
 }
 
-/*****************************************************************************
- * Function: tkafg1k_VerifyWfmHandle
- * Purpose:  This utility function determines if passed waveform handle is
- *           valid.
- *****************************************************************************/
-static ViStatus tkafg1k_VerifyWfmHandle (ViSession vi, ViInt32 wfmHandle)
-{
-    ViStatus   error = VI_SUCCESS;
-	ViInt32 model;
-	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
-	if (model == TKAFG1K_VAL_MODEL_AFG1022)
-	{
-	    if( (wfmHandle < 0) || (wfmHandle > 255) )
-	    {
-	            error = IVI_ERROR_INVALID_VALUE;
-	            viCheckErr (error);
-	    }
-	}else if (model == TKAFG1K_VAL_MODEL_AFG1022)
-	{
-	    if( (wfmHandle < 0) || (wfmHandle > 255) )
-	    {
-	            error = IVI_ERROR_INVALID_VALUE;
-	            viCheckErr (error);
-	    }
-	}else{
-		checkErr(TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
-	}
-Error:
-    return error;
-}
 
 /*****************************************************************************
  * Function: tkafg1k_GetNewWfmInfo
@@ -4672,58 +4551,6 @@ Error:
     {
         *wfmExists = VI_FALSE;
     }
-    return error;
-}
-
-/*****************************************************************************
- * Function: tkafg1k_GetWfmSize
- * Purpose:  This utilitiy function return the size of a waveform.
- *****************************************************************************/
-static ViStatus tkafg1k_GetWfmSize (ViSession vi, ViSession io, ViInt32 wfmHandle, ViInt32* wfmSize)
-{
-    ViStatus   error = VI_SUCCESS;
-    ViBoolean wfmExists;
-    ViInt32 index;
-    wfmNodePtr wfmRecord = VI_NULL;
-	ViInt32           activeMem;
-	IviRangeTablePtr  table;
-	ViString          memoryName;
-	
-	checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_ACTIVE_MEMORY, 0, &activeMem) );
-	checkErr( Ivi_GetAttrRangeTable (vi, VI_NULL, TKAFG1K_ATTR_ACTIVE_MEMORY, &table) );
-	checkErr( tkafg1k_GetCmdFromIntValue(activeMem, table, &memoryName) );
-
-    checkErr( tkafg1k_WfmExists(vi, wfmHandle, &wfmExists) );
-    if (!wfmExists)
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "The waveform does not exist.");
-
-    if(wfmHandle == TKAFG1K_VAL_WFM_EMEM)
-    {
-        if (!Ivi_Simulating (vi)) {
-            viCheckErr ( viQueryf (io, "DATA:POIN? %s", "%d", memoryName, wfmSize) );
-        } else {
-            ViInt32 model;
-            checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
-            switch (model) {
-                case TKAFG1K_VAL_MODEL_AFG1022:
-                    *wfmSize = AFG1022_VAL_MAX_WFM_SIZE;
-                    break;
-				case TKAFG1K_VAL_MODEL_AFG1062:
-                    *wfmSize = AFG1062_VAL_MAX_WFM_SIZE;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-    else
-    {
-        checkErr( Ivi_GetAttributeViAddr (vi, VI_NULL, TKAFG1K_ATTR_WFM_STRUCTURE, 0, (ViAddr *)&wfmRecord) );
-
-        index =  wfmHandle;
-        *wfmSize = wfmRecord[index].wfmSize;
-    }
-Error:
     return error;
 }
 
@@ -4975,25 +4802,6 @@ Error:
 
 
 
-/*****************************************************************************
- * Function: tkafg1k_Min
- * Purpose: Functions for instrument drivers to get the min value using the
- *          specifies digit precision.
- *****************************************************************************/
-static ViStatus tkafg1k_Min (ViSession vi, ViInt32 digitsofPrecision, ViReal64 a, ViReal64 b, ViReal64 *minValue)
-{
-    ViStatus    error = VI_SUCCESS;
-    ViInt32     compare;
-
-    *minValue = a;
-
-    viCheckErr (Ivi_CompareWithPrecision (digitsofPrecision, a, b, &compare));
-    if (1 == compare)
-        *minValue = b;
-
-Error:
-    return error;
-}
 
     /*- I/O Operation Utility Functions -*/
 /*****************************************************************************
@@ -5037,6 +4845,7 @@ Error:
  * Purpose: Functions for instrument to read/write instrument channel
  *          independent command.
  *****************************************************************************/
+/*
 static ViStatus tkafg1k_WriteChannelIndependentCmd ( ViSession vi, ViSession io, IviRangeTablePtr rt, ViString format,
                                                      ViInt32 value )
 {
@@ -5052,6 +4861,7 @@ Error:
     return error;
 }
 
+
 static ViStatus tkafg1k_ReadChannelIndependentCmd ( ViSession vi, ViSession io, IviRangeTablePtr rt, ViString format,
                                                     ViInt32* value )
 {
@@ -5066,7 +4876,7 @@ static ViStatus tkafg1k_ReadChannelIndependentCmd ( ViSession vi, ViSession io, 
 
 Error:
     return error;
-}
+}*/
 
 /*****************************************************************************
  * Function: ReadState and WriteState Functions
@@ -5129,6 +4939,7 @@ static ViStatus tkafg1k_ReadReal64( ViSession vi, ViSession io,  ViConstString c
  * Purpose: Functions for instrument to read/write channel independent
  *          instrument real value
  *****************************************************************************/
+/*
 static ViStatus tkafg1k_WriteChannelIndependentReal64( ViSession vi, ViSession io, ViString format, ViReal64 value)
 {
     return ( viPrintf(io, format, value) );
@@ -5138,7 +4949,7 @@ static ViStatus tkafg1k_ReadChannelIndependentReal64( ViSession vi, ViSession io
 {
     return ( viQueryf(io, format, "%Le", value) );
 }
-
+ */
 /*****************************************************************************
  * Function: ReadInt32 and WriteInt32 Functions
  * Purpose: Functions for instrument to read/write
@@ -5711,24 +5522,6 @@ Error:
     return error;
 }
 
-/*- TKAFG1K_ATTR_REF_CLOCK_SOURCE -*/
-
-static IviRangeTableEntry attrRefClockSourceRangeTableEntries[] =
-    {
-        {TKAFG1K_VAL_REF_CLOCK_INTERNAL, 0, 0, "INT", 0},
-        {TKAFG1K_VAL_REF_CLOCK_EXTERNAL, 0, 0, "EXT", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-    };
-static IviRangeTable attrRefClockSourceRangeTable =
-    {
-        IVI_VAL_DISCRETE,
-        VI_FALSE,
-        VI_FALSE,
-        VI_NULL,
-        attrRefClockSourceRangeTableEntries,
-    };
-
-
 
 /*- TKAFG1K_ATTR_OUTPUT_ENABLED -*/
 static ViStatus _VI_FUNC tkafg1kAttrOutputEnabled_WriteCallback (ViSession vi,
@@ -6161,7 +5954,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFuncFrequency_RangeTableCallback (ViSession 
                 }
                 else if( (model == TKAFG1K_VAL_MODEL_AFG1062) )
                 {
-                    tblPtr = &attrAFG1022PulseWfmFuncFrequencyRangeTable;
+                    tblPtr = &attrAFG1062PulseWfmFuncFrequencyRangeTable;
                 }
                 
             }
@@ -6251,20 +6044,7 @@ static IviRangeTable attrFuncDutyCycleHighRangeTable =
         attrFuncDutyCycleHighRangeTableEntries,
 };
 
-/*- TKAFG1K_ATTR_PULSE_PERIOD -*/
-static IviRangeTableEntry attrPulsePeriodRangeTableEntries[] =
-    {
-        {(2.0e-8), 1000, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-    };
-static IviRangeTable attrPulsePeriodRangeTable =
-    {
-        IVI_VAL_RANGED,
-        VI_TRUE,
-        VI_TRUE,
-        VI_NULL,
-        attrPulsePeriodRangeTableEntries,
-    };
+
 
 static ViStatus _VI_FUNC tkafg1kAttrPulseDutyCycle_ReadCallback (ViSession vi,
                                                                  ViSession io,

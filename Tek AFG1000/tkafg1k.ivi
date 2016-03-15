@@ -3870,6 +3870,54 @@
       </Discrete>
     </Table>
     <Table>
+      <Name>attrAFG1022ArbFrequencyInBurstRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_ARB_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022ArbFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_ARB</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022ArbWfmSweepFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_ARB</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
       <Name>attrAFG1022BurstCountRangeTable</Name>
       <Custom>True</Custom>
       <HasMin>VI_TRUE</HasMin>
@@ -3892,6 +3940,230 @@
       </Ranged>
     </Table>
     <Table>
+      <Name>attrAFG1022PulseWfmFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_PULSE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022PulseWfmInBurstFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_PULSE_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022RampWfmFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_RAMP</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022RampWfmInBurstFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_RAMP_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022RampWfmSweepFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_RAMP</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022SineWfmFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_SINE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022SineWfmInBurstFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_SINE_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022SineWfmSweepFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_SINE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022SquareWfmFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_SQUARE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022SquareWfmInBurstFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_SQUARE_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1022SquareWfmSweepFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1022_VAL_MAX_FREQ_SQUARE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062ArbFrequencyInBurstRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_ARB_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062ArbFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_ARB</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062ArbWfmSweepFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_ARB</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
       <Name>attrAFG1062BurstCountRangeTable</Name>
       <Custom>True</Custom>
       <HasMin>VI_TRUE</HasMin>
@@ -3909,6 +4181,182 @@
           <Min>1</Min>
           <Max>AFG1062_VAL_MAX_BURST_COUNT</Max>
           <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062PulseWfmFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_PULSE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062PulseWfmInBurstFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_PULSE_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062RampWfmFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_RAMP</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062RampWfmInBurstFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_RAMP_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062RampWfmSweepFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_RAMP</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062SineWfmFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_SINE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062SineWfmInBurstFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_SINE_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062SineWfmSweepFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_SINE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062SquareWfmFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_SQUARE</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062SquareWfmInBurstFuncFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ_IN_BURST</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_SQUARE_IN_BURST</Max>
+          <CommandString />
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrAFG1062SquareWfmSweepFrequencyRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>TKAFG1K_VAL_MIN_FREQ</Min>
+          <Max>AFG1062_VAL_MAX_FREQ_SQUARE</Max>
+          <CommandString />
           <CommandValue>0</CommandValue>
         </value>
       </Ranged>
@@ -4421,22 +4869,6 @@
       </Ranged>
     </Table>
     <Table>
-      <Name>attrFuncRampSymmetryRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViReal64</DataType>
-      <TableType>Ranged</TableType>
-      <Ranged>
-        <value>
-          <Min>0</Min>
-          <Max>100.0</Max>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-        </value>
-      </Ranged>
-    </Table>
-    <Table>
       <Name>attrFuncStartPhaseRangeTable</Name>
       <Custom>True</Custom>
       <HasMin>VI_TRUE</HasMin>
@@ -4445,8 +4877,8 @@
       <TableType>Ranged</TableType>
       <Ranged>
         <value>
-          <Min>-180.00</Min>
-          <Max>180.00</Max>
+          <Min>0</Min>
+          <Max>360</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -4479,22 +4911,13 @@
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_DC</DiscreteValue>
-          <Label>6</Label>
-          <Custom>True</Custom>
-          <CommandString>"DC"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to produce a constant voltage.</Description>
-          <Index>2</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_RAMP</DiscreteValue>
           <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a ramp waveform.</Description>
-          <Index>3</Index>
+          <Index>2</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_PULS</DiscreteValue>
@@ -4503,7 +4926,7 @@
           <CommandString>"PULS"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a pulse waveform.</Description>
-          <Index>4</Index>
+          <Index>3</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_WFM_PRN</DiscreteValue>
@@ -4512,79 +4935,27 @@
           <CommandString>"PRN"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a prnoise waveform.</Description>
+          <Index>4</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_WFM_LORENTZ</DiscreteValue>
+          <Label>1027</Label>
+          <Custom>True</Custom>
+          <CommandString>"Lorentz"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator to produce a lorentz waveform.</Description>
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_SINC</DiscreteValue>
-          <Label>1004</Label>
-          <Custom>True</Custom>
-          <CommandString>"SINC"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to produce a sinc waveform.</Description>
-          <Index>6</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_GAUS</DiscreteValue>
-          <Label>1005</Label>
-          <Custom>True</Custom>
-          <CommandString>"GAUS"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to produce a gaussian waveform.</Description>
-          <Index>7</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_LOR</DiscreteValue>
-          <Label>1006</Label>
-          <Custom>True</Custom>
-          <CommandString>"LOR"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to produce a lorentz waveform.</Description>
-          <Index>8</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_ERIS</DiscreteValue>
-          <Label>1007</Label>
-          <Custom>True</Custom>
-          <CommandString>"ERIS"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to produce a erise waveform.</Description>
-          <Index>9</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_EDEC</DiscreteValue>
-          <Label>1008</Label>
-          <Custom>True</Custom>
-          <CommandString>"EDEC"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to produce a edecay waveform.</Description>
-          <Index>10</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_WFM_HAV</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_WFM_HAVERSINE</DiscreteValue>
           <Label>1009</Label>
           <Custom>True</Custom>
-          <CommandString>"HAV"</CommandString>
+          <CommandString>"HaverSine"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to produce a haversine waveform.</Description>
-          <Index>11</Index>
+          <Index>6</Index>
         </value>
       </Discrete>
-    </Table>
-    <Table>
-      <Name>attrInternalTriggerRateRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_TRUE</HasMin>
-      <HasMax>VI_TRUE</HasMax>
-      <DataType>ViReal64</DataType>
-      <TableType>Ranged</TableType>
-      <Ranged>
-        <value>
-          <Min>0.002</Min>
-          <Max>1000000.0</Max>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-        </value>
-      </Ranged>
     </Table>
     <Table>
       <Name>attrModelRangeTable</Name>
@@ -4595,175 +4966,22 @@
       <TableType>Discrete</TableType>
       <Discrete>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3011</DiscreteValue>
-          <Label>8</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3011.</Description>
-          <Index>0</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3011C</DiscreteValue>
-          <Label>10</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3011C.</Description>
-          <Index>1</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3021</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG1022</DiscreteValue>
           <Label>0</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3021.</Description>
-          <Index>2</Index>
+          <Description />
+          <Index>0</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3022</DiscreteValue>
+          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG1062</DiscreteValue>
           <Label>1</Label>
           <Custom>True</Custom>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3022.</Description>
-          <Index>3</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3021B</DiscreteValue>
-          <Label>6</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3021B.</Description>
-          <Index>4</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3022B</DiscreteValue>
-          <Label>7</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3022B.</Description>
-          <Index>5</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3021C</DiscreteValue>
-          <Label>11</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3021C.</Description>
-          <Index>6</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3022C</DiscreteValue>
-          <Label>12</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3022C.</Description>
-          <Index>7</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3101</DiscreteValue>
-          <Label>2</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3101.</Description>
-          <Index>8</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3102</DiscreteValue>
-          <Label>3</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3102.</Description>
-          <Index>9</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3101C</DiscreteValue>
-          <Label>13</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3101C.</Description>
-          <Index>10</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3102C</DiscreteValue>
-          <Label>14</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3102C.</Description>
-          <Index>11</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3251</DiscreteValue>
-          <Label>4</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3251.</Description>
-          <Index>12</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3252</DiscreteValue>
-          <Label>5</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3252.</Description>
-          <Index>13</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3251C</DiscreteValue>
-          <Label>15</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3251C.</Description>
-          <Index>14</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3252C</DiscreteValue>
-          <Label>16</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3252C.</Description>
-          <Index>15</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG2021</DiscreteValue>
-          <Label>9</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG2021.</Description>
-          <Index>16</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3051C</DiscreteValue>
-          <Label>17</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3051C.</Description>
-          <Index>17</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_MODEL_AFG3052C</DiscreteValue>
-          <Label>18</Label>
-          <Custom>True</Custom>
-          <CommandString>""</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Specifies the function generator AFG3052C.</Description>
-          <Index>18</Index>
+          <Description />
+          <Index>1</Index>
         </value>
       </Discrete>
     </Table>
@@ -4866,6 +5084,24 @@
           <Description>Configures the function generator to PWM modulation type.</Description>
           <Index>4</Index>
         </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_MODULATION_ASK</DiscreteValue>
+          <Label>5</Label>
+          <Custom>True</Custom>
+          <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description />
+          <Index>5</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_MODULATION_PSK</DiscreteValue>
+          <Label>6</Label>
+          <Custom>True</Custom>
+          <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description />
+          <Index>6</Index>
+        </value>
       </Discrete>
     </Table>
     <Table>
@@ -4877,8 +5113,8 @@
       <TableType>Ranged</TableType>
       <Ranged>
         <value>
-          <Min>0</Min>
-          <Max>0</Max>
+          <Min>TKAFG1K_VAL_IMPEDANCE_INFINITY</Min>
+          <Max>TKAFG1K_VAL_IMPEDANCE_INFINITY</Max>
           <CommandString>VI_NULL</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -4977,85 +5213,67 @@
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_TRIANGLE</DiscreteValue>
-          <Label>3</Label>
-          <Custom>True</Custom>
-          <CommandString>"TRI"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's phase with a triangle waveform.</Description>
-          <Index>2</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_RAMP_UP</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's phase with a ramp up waveform.</Description>
-          <Index>3</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_RAMP_DOWN</DiscreteValue>
-          <Label>5</Label>
-          <Custom>True</Custom>
-          <CommandString>"NRAM"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's phase with a ramp down waveform.</Description>
-          <Index>4</Index>
+          <Index>2</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_PRN</DiscreteValue>
-          <Label>100</Label>
+          <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"PRN"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's phase with a noise waveform.</Description>
+          <Index>3</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER0</DiscreteValue>
+          <Label>1003</Label>
+          <Custom>True</Custom>
+          <CommandString>"USER0"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator to modulate the carrier signal's phase with a user1 waveform.</Description>
+          <Index>4</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER20</DiscreteValue>
+          <Label>1023</Label>
+          <Custom>True</Custom>
+          <CommandString>"USER20"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description>Configures the function generator to modulate the carrier signal's phase with a user2 waveform.</Description>
           <Index>5</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER1</DiscreteValue>
-          <Label>200</Label>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER60</DiscreteValue>
+          <Label>1063</Label>
           <Custom>True</Custom>
-          <CommandString>"USER"</CommandString>
+          <CommandString>"USER60"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's phase with a user1 waveform.</Description>
+          <Description>Configures the function generator to modulate the carrier signal's phase with a user3 waveform.</Description>
           <Index>6</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER2</DiscreteValue>
-          <Label>201</Label>
+          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER180</DiscreteValue>
+          <Label>1183</Label>
           <Custom>True</Custom>
-          <CommandString>"USER2"</CommandString>
+          <CommandString>"USER180"</CommandString>
           <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's phase with a user2 waveform.</Description>
+          <Description>Configures the function generator to modulate the carrier signal's phase with a user4 waveform.</Description>
           <Index>7</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER3</DiscreteValue>
-          <Label>202</Label>
-          <Custom>True</Custom>
-          <CommandString>"USER3"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's phase with a user3 waveform.</Description>
-          <Index>8</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_USER4</DiscreteValue>
-          <Label>203</Label>
-          <Custom>True</Custom>
-          <CommandString>"USER4"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's phase with a user4 waveform.</Description>
-          <Index>9</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_PM_INTERNAL_EMEM</DiscreteValue>
-          <Label>204</Label>
+          <Label>1002</Label>
           <Custom>True</Custom>
           <CommandString>"EMEM"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's phase with a edit memory waveform.</Description>
-          <Index>10</Index>
+          <Index>8</Index>
         </value>
       </Discrete>
     </Table>
@@ -5088,7 +5306,7 @@
       </Discrete>
     </Table>
     <Table>
-      <Name>attrPulsePeriodRangeTable</Name>
+      <Name>attrPSKDeviationRangeTable</Name>
       <Custom>True</Custom>
       <HasMin>VI_TRUE</HasMin>
       <HasMax>VI_TRUE</HasMax>
@@ -5096,12 +5314,56 @@
       <TableType>Ranged</TableType>
       <Ranged>
         <value>
-          <Min>(2.0e-8)</Min>
-          <Max>1000</Max>
+          <Min>0</Min>
+          <Max>2</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
       </Ranged>
+    </Table>
+    <Table>
+      <Name>attrPSKInternalRateRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViReal64</DataType>
+      <TableType>Ranged</TableType>
+      <Ranged>
+        <value>
+          <Min>0.002</Min>
+          <Max>100000</Max>
+          <CommandString>""</CommandString>
+          <CommandValue>0</CommandValue>
+        </value>
+      </Ranged>
+    </Table>
+    <Table>
+      <Name>attrPSKSourceRangeTable</Name>
+      <Custom>True</Custom>
+      <HasMin>VI_TRUE</HasMin>
+      <HasMax>VI_TRUE</HasMax>
+      <DataType>ViInt32</DataType>
+      <TableType>Discrete</TableType>
+      <Discrete>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_PSK_INTERNAL</DiscreteValue>
+          <Label>0</Label>
+          <Custom>True</Custom>
+          <CommandString>"INT"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description />
+          <Index>0</Index>
+        </value>
+        <value>
+          <DiscreteValue>TKAFG1K_VAL_PSK_EXTERNAL</DiscreteValue>
+          <Label>1</Label>
+          <Custom>True</Custom>
+          <CommandString>"EXT"</CommandString>
+          <CommandValue>0</CommandValue>
+          <Description />
+          <Index>1</Index>
+        </value>
+      </Discrete>
     </Table>
     <Table>
       <Name>attrPWMInternalFrequencyRangeTable</Name>
@@ -5146,40 +5408,22 @@
           <Index>1</Index>
         </value>
         <value>
-          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_TRIANGLE</DiscreteValue>
-          <Label>3</Label>
-          <Custom>True</Custom>
-          <CommandString>"TRI"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's pulse-width with a triangle waveform.</Description>
-          <Index>2</Index>
-        </value>
-        <value>
           <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_RAMP_UP</DiscreteValue>
           <Label>4</Label>
           <Custom>True</Custom>
           <CommandString>"RAMP"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's pulse-width with a ramp up waveform.</Description>
-          <Index>3</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_RAMP_DOWN</DiscreteValue>
-          <Label>5</Label>
-          <Custom>True</Custom>
-          <CommandString>"NRAM"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>Configures the function generator to modulate the carrier signal's pulse-width with a ramp down waveform.</Description>
-          <Index>4</Index>
+          <Index>2</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_PRN</DiscreteValue>
-          <Label>100</Label>
+          <Label>1001</Label>
           <Custom>True</Custom>
           <CommandString>"PRN"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's pulse-width with a noise waveform.</Description>
-          <Index>5</Index>
+          <Index>3</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_USER1</DiscreteValue>
@@ -5188,7 +5432,7 @@
           <CommandString>"USER"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's pulse-width with a user1 waveform.</Description>
-          <Index>6</Index>
+          <Index>4</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_USER2</DiscreteValue>
@@ -5197,7 +5441,7 @@
           <CommandString>"USER2"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's pulse-width with a user2 waveform.</Description>
-          <Index>7</Index>
+          <Index>5</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_USER3</DiscreteValue>
@@ -5206,7 +5450,7 @@
           <CommandString>"USER3"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's pulse-width with a user3 waveform.</Description>
-          <Index>8</Index>
+          <Index>6</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_USER4</DiscreteValue>
@@ -5215,7 +5459,7 @@
           <CommandString>"USER4"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's pulse-width with a user4 waveform.</Description>
-          <Index>9</Index>
+          <Index>7</Index>
         </value>
         <value>
           <DiscreteValue>TKAFG1K_VAL_PWM_INTERNAL_EMEM</DiscreteValue>
@@ -5224,7 +5468,7 @@
           <CommandString>"EMEM"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>Configures the function generator to modulate the carrier signal's pulse-width with a edit memory waveform.</Description>
-          <Index>10</Index>
+          <Index>8</Index>
         </value>
       </Discrete>
     </Table>
@@ -5252,34 +5496,6 @@
           <CommandString>"EXT"</CommandString>
           <CommandValue>0</CommandValue>
           <Description>The carrier waveform is modulated with the internal source.</Description>
-          <Index>1</Index>
-        </value>
-      </Discrete>
-    </Table>
-    <Table>
-      <Name>attrRefClockSourceRangeTable</Name>
-      <Custom>True</Custom>
-      <HasMin>VI_FALSE</HasMin>
-      <HasMax>VI_FALSE</HasMax>
-      <DataType>ViInt32</DataType>
-      <TableType>Discrete</TableType>
-      <Discrete>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_REF_CLOCK_INTERNAL</DiscreteValue>
-          <Label>0</Label>
-          <Custom>True</Custom>
-          <CommandString>"INT"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>The function generator produces the reference clock internally.</Description>
-          <Index>0</Index>
-        </value>
-        <value>
-          <DiscreteValue>TKAFG1K_VAL_REF_CLOCK_EXTERNAL</DiscreteValue>
-          <Label>1</Label>
-          <Custom>True</Custom>
-          <CommandString>"EXT"</CommandString>
-          <CommandValue>0</CommandValue>
-          <Description>The function generator receives the reference clock signal from an external source.</Description>
           <Index>1</Index>
         </value>
       </Discrete>
