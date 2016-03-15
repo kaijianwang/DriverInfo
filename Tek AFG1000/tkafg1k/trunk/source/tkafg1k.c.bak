@@ -3629,7 +3629,7 @@ ViStatus _VI_FUNC tkafg1k_ConfigureASKSource (  ViSession vi,
  *           Notes:
  *           This function is based on channel.
  *****************************************************************************/
-ViStatus _VI_FUNC tkafg1k_ConfigureASKInternalByChannel (ViSession vi,
+ViStatus _VI_FUNC tkafg1k_ConfigureASKInternalByChan (ViSession vi,
                                                          ViConstString channelName,
                                                          ViReal64 amplitude,
                                                          ViReal64 rate)
@@ -3663,7 +3663,7 @@ Error:
  *           Notes:
  *           This function is based on channel.
  *****************************************************************************/
-ViStatus _VI_FUNC tkafg1k_ConfigureASKExternalByChannel (ViSession vi,
+ViStatus _VI_FUNC tkafg1k_ConfigureASKExternalByChan (ViSession vi,
                                                          ViConstString channelName,
                                                          ViReal64 amplitude)
 {
@@ -3708,7 +3708,7 @@ ViStatus _VI_FUNC tkafg1k_ConfigurePSKSource (  ViSession vi,
  *           Notes:
  *           This function is based on channel.
  *****************************************************************************/
-ViStatus _VI_FUNC tkafg1k_ConfigurePSKInternalByChannel (ViSession vi,
+ViStatus _VI_FUNC tkafg1k_ConfigurePSKInternalByChan (ViSession vi,
                                                          ViConstString channelName,
                                                          ViReal64 deviation,
                                                          ViReal64 rate)
@@ -3742,7 +3742,7 @@ Error:
  *           Notes:
  *           This function is based on channel.
  *****************************************************************************/
-ViStatus _VI_FUNC tkafg1k_ConfigurePSKExternalByChannel (ViSession vi,
+ViStatus _VI_FUNC tkafg1k_ConfigurePSKExternalByChan (ViSession vi,
                                                          ViConstString channelName,
                                                          ViReal64 deviation)
 {
@@ -4700,14 +4700,6 @@ static ViStatus tkafg1k_DefaultInstrSetup (ViSession vi)
                 {
                     continue;
                 }
-				else if(strncmp(name, "EMEM1", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    continue;
-                }
-				else if(strncmp(name, "EMEM2", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    continue;
-                }
                 else
                 {
                     error = TKAFG1K_ERROR_UNKNOWN_ARB_WFM;
@@ -5521,24 +5513,6 @@ static ViStatus _VI_FUNC tkafg1kAttrOutputModeByChannel_WriteCallback (ViSession
 Error:
     return error;
 }
-
-/*- TKAFG1K_ATTR_REF_CLOCK_SOURCE -*/
-
-static IviRangeTableEntry attrRefClockSourceRangeTableEntries[] =
-    {
-        {TKAFG1K_VAL_REF_CLOCK_INTERNAL, 0, 0, "INT", 0},
-        {TKAFG1K_VAL_REF_CLOCK_EXTERNAL, 0, 0, "EXT", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-    };
-static IviRangeTable attrRefClockSourceRangeTable =
-    {
-        IVI_VAL_DISCRETE,
-        VI_FALSE,
-        VI_FALSE,
-        VI_NULL,
-        attrRefClockSourceRangeTableEntries,
-    };
-
 
 
 /*- TKAFG1K_ATTR_OUTPUT_ENABLED -*/

@@ -1,0 +1,381 @@
+    /***** Begin of API Testing *****/
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOperationMode_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOperationMode_operationMode_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOperationMode_operationMode_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOperationMode_operationMode_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOperationMode_operationMode_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOperationMode_operationMode_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputMode_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputMode_outputMode_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputMode_outputMode_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputMode_outputMode_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputModeByChannel_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputModeByChannel_outputMode_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputModeByChannel_outputMode_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputModeByChannel_outputMode_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeRandomValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeMinimumValue_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeBelowMinimumValue_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeMaximumValue_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeAboveMaximumValue_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputImpedance_impedance_RangeRandomValue_Index2);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputEnabled_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputEnabled_enabled_TRUE);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureOutputEnabled_enabled_FALSE); 
+        
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_waveform_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_waveform_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_waveform_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_waveform_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_waveform_Valid_Item_Index5);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_waveform_Valid_Item_Index6);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_waveform_Valid_Item_Index7);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_waveform_Invalid);
+                
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The amplitude's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The DCOffset's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The frequency's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_startPhase_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_startPhase_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_startPhase_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_startPhase_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureStandardWaveform_startPhase_RangeRandomValue_Index1);
+        
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureSampleRate_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The sampleRate_Samps's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+        
+    CPPUNIT_TEST(test_tkafg1k_CreateArbWaveform_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_CreateStandardShapeArbWfm_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_GetArbitraryWaveformBySlot_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_CreateArbWaveformBySlot_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_CreateStandardShapeArbWfmBySlot_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_QueryArbWfmCapabilities_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbWaveform_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbWaveform_waveformHandle_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbWaveform_waveformHandle_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbWaveform_waveformHandle_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbWaveform_waveformHandle_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbWaveform_waveformHandle_Valid_Item_Index5);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbWaveform_waveformHandle_Valid_Item_Index6);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbWaveform_waveformHandle_Invalid);
+                
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The gain_V's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The offset_V's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureArbFrequency_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The frequency's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstEnabled_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstEnabled_burstEnabled_TRUE);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstEnabled_burstEnabled_FALSE); 
+        
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeRandomValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeMinimumValue_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeBelowMinimumValue_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeMaximumValue_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeAboveMaximumValue_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstCount_burstCount_RangeRandomValue_Index2);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstMode_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstMode_burstMode_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstMode_burstMode_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureBurstMode_burstMode_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMEnabled_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMEnabled_enabled_TRUE);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMEnabled_enabled_FALSE); 
+        
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMSource_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMSource_source_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMSource_source_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMSource_source_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationDepth_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationDepth_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationDepth_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationDepth_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationDepth_RangeRandomValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index5);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index6);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index7);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index8);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index9);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Valid_Item_Index10);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationWaveform_Invalid);
+                
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationFrequency_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationFrequency_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationFrequency_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationFrequency_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternal_modulationFrequency_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationDepth_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationDepth_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationDepth_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationDepth_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationDepth_RangeRandomValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index5);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index6);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index7);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index8);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index9);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Valid_Item_Index10);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationWaveform_Invalid);
+                
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationFrequency_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationFrequency_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationFrequency_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationFrequency_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMInternalByChannel_modulationFrequency_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMExternalByChannel_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMExternalByChannel_modulationDepth_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMExternalByChannel_modulationDepth_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMExternalByChannel_modulationDepth_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMExternalByChannel_modulationDepth_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureAMExternalByChannel_modulationDepth_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMEnabled_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMEnabled_enabled_TRUE);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMEnabled_enabled_FALSE); 
+        
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMSource_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMSource_source_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMSource_source_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMSource_source_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The peakDeviation_Hz's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index5);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index6);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index7);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index8);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Valid_Item_Index9);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationWaveform_Invalid);
+                
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationFrequency_Hz_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationFrequency_Hz_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationFrequency_Hz_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationFrequency_Hz_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternal_modulationFrequency_Hz_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The peakDeviation_Hz's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index5);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index6);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index7);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index8);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Valid_Item_Index9);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationWaveform_Invalid);
+                
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationFrequency_Hz_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationFrequency_Hz_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationFrequency_Hz_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationFrequency_Hz_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMInternalByChannel_modulationFrequency_Hz_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFMExternalByChannel_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The peakDeviation_Hz's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMEnabled_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMEnabled_enabled_TRUE);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMEnabled_enabled_FALSE); 
+        
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMSource_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMSource_source_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMSource_source_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMSource_source_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_peakDeviation_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_peakDeviation_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_peakDeviation_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_peakDeviation_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_peakDeviation_RangeRandomValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index5);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index6);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index7);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index8);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Valid_Item_Index9);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationWaveform_Invalid);
+                
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationFrequency_Hz_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationFrequency_Hz_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationFrequency_Hz_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationFrequency_Hz_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMInternalByChannel_modulationFrequency_Hz_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMExternalByChannel_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMExternalByChannel_peakDeviation_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMExternalByChannel_peakDeviation_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMExternalByChannel_peakDeviation_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMExternalByChannel_peakDeviation_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePMExternalByChannel_peakDeviation_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKEnabled_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKEnabled_enabled_TRUE);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKEnabled_enabled_FALSE); 
+        
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKSource_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKSource_source_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKSource_source_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKSource_source_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKInternalByChannel_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The hopFrequency's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKInternalByChannel_internalRate_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKInternalByChannel_internalRate_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKInternalByChannel_internalRate_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKInternalByChannel_internalRate_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKInternalByChannel_internalRate_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigureFSKExternalByChannel_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The hopFrequency's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMEnabled_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMEnabled_enabled_TRUE);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMEnabled_enabled_FALSE); 
+        
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMSource_DefaultParameter);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMSource_source_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMSource_source_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMSource_source_Invalid);
+                
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The peakDeviation_Hz's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index2);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index3);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index4);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index5);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index6);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index7);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index8);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Valid_Item_Index9);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationWaveform_Invalid);
+                
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationFrequency_Hz_RangeMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationFrequency_Hz_RangeBelowMinimumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationFrequency_Hz_RangeMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationFrequency_Hz_RangeAboveMaximumValue_Index1);
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMInternalByChannel_modulationFrequency_Hz_RangeRandomValue_Index1);
+        
+    CPPUNIT_TEST(test_tkafg1k_ConfigurePWMExternalByChannel_DefaultParameter);
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Error: The peakDeviation_Percent's related attribute doesn't have RangeTable, fail to generate auto test code*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+        
+    CPPUNIT_TEST(test_tkafg1k_InitiateGeneration_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_AbortGeneration_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_SetGetWaveformPointValue_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_reset_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_ResetWithDefaults_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_Disable_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_revision_query_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_error_query_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_error_message_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_InvalidateAllAttributes_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_GetChannelName_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_viWrite_DefaultParameter);
+        
+    CPPUNIT_TEST(test_tkafg1k_viRead_DefaultParameter);
+
+    /***** End of API Testing *****/

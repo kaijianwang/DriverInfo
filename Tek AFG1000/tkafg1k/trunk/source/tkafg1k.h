@@ -183,8 +183,6 @@ extern "C" {
 
     /*- Defined values for attribute TKAFG1K_ATTR_ACTIVE_MEMORY --------------*/
 #define TKAFG1K_VAL_OUTPUT_EMEM									(0L)
-#define TKAFG1K_VAL_OUTPUT_EMEM1                                (1L)
-#define TKAFG1K_VAL_OUTPUT_EMEM2                                (2L)
 	
     /*- Defined values for attribute TKAFG1K_ATTR_OUTPUT_MODE --------------*/
 #define TKAFG1K_VAL_OUTPUT_FUNC                                 IVIFGEN_VAL_OUTPUT_FUNC
@@ -1708,8 +1706,6 @@ extern "C" {
                                              ViInt32 bufferSize, ViChar name[]);
 
     /*- Basic Instrument Operation -----------------------------------------*/
-    ViStatus _VI_FUNC tkafg1k_ConfigureActiveMemory(ViSession vi,
-                                                    ViInt32 activeMemory);
 	
 	ViStatus _VI_FUNC tkafg1k_ConfigureOperationMode(ViSession vi,
                                                      ViConstString channelName,
@@ -1723,8 +1719,6 @@ extern "C" {
         ViConstString channelName,
         ViInt32 outputMode );
 
-    ViStatus _VI_FUNC tkafg1k_ConfigureRefClockSource(ViSession vi,
-                                                      ViInt32 refClockSource);
 
     ViStatus _VI_FUNC tkafg1k_ConfigureOutputImpedance(ViSession vi,
                                                        ViConstString channelName,
@@ -1748,15 +1742,10 @@ extern "C" {
         ViReal64 frequency,
         ViReal64 startPhase);
 
-    ViStatus _VI_FUNC tkafg1k_ConfigurePulseWaveform(ViSession vi,
-                                                     ViConstString channelName,
-                                                     ViReal64 dutyCycle,
-                                                     ViReal64 leadingEdgeTime,
-                                                     ViReal64 trailingEdgeTime);
-
-    ViStatus _VI_FUNC tkafg1k_ConfigurePulseDelay(ViSession vi,
+	ViStatus _VI_FUNC tkafg1k_ConfigurePulseDutyCycle (ViSession vi,
                                                   ViConstString channelName,
-                                                  ViReal64 delay);
+                                                  ViReal64 dutyCycle) ;
+
 
     /*- Arbitrary Waveform Output -------------------------------------------*/
     ViStatus _VI_FUNC  tkafg1k_ConfigureSampleRate(ViSession vi,
@@ -1773,12 +1762,6 @@ extern "C" {
                                                  ViReal64 wfmData[],
                                                  ViInt32 *wfmHandle);
 
-    ViStatus _VI_FUNC  tkafg1k_CreateLineInterpolateArbWfm(
-        ViSession vi,
-        ViInt32 wfmSize,
-        ViReal64 startPointData,
-        ViReal64 endPointData,
-        ViInt32* wfmHandle);
 
     ViStatus _VI_FUNC  tkafg1k_CreateStandardShapeArbWfm(ViSession vi,
                                                          ViInt32 wfmSize,
@@ -1796,14 +1779,6 @@ extern "C" {
                                                        ViBoolean overwrite,
                                                        ViInt32 *wfmHandle);
 
-    ViStatus _VI_FUNC  tkafg1k_CreateLineInterpolateArbWfmBySlot(
-        ViSession vi,
-        ViInt32 slot,
-        ViInt32 wfmSize,
-        ViReal64 startPointData,
-        ViReal64 endPointData,
-        ViBoolean overwrite,
-        ViInt32* wfmHandle);
 
     ViStatus _VI_FUNC  tkafg1k_CreateStandardShapeArbWfmBySlot(
         ViSession vi,
@@ -1813,10 +1788,6 @@ extern "C" {
         ViBoolean overwrite,
         ViInt32 *wfmHandle);
 
-    ViStatus _VI_FUNC  tkafg1k_ClearArbWaveform(ViSession vi, ViInt32 wfmHandle);
-
-    ViStatus _VI_FUNC  tkafg1k_ClearArbWaveformBySlot(ViSession vi,
-                                                      ViInt32 slot);
 
     ViStatus _VI_FUNC  tkafg1k_ConfigureArbWaveform(ViSession vi,
                                                     ViConstString channelName,
@@ -1844,20 +1815,6 @@ extern "C" {
                                                  ViInt32 burstMode);
 
    
-    /*- Waveform Appendant --------------------------------------------------*/
-    ViStatus _VI_FUNC tkafg1k_ConfigureNoiseAppendantEnabled(
-        ViSession vi,
-        ViConstString channelName,
-        ViBoolean enabled);
-
-    ViStatus _VI_FUNC tkafg1k_ConfigureNoiseLevel(ViSession vi,
-                                                  ViConstString channelName,
-                                                  ViReal64 level);
-
-    ViStatus _VI_FUNC tkafg1k_ConfigureExternalAppendEnabled(
-        ViSession vi,
-        ViConstString channelName,
-        ViBoolean enabled);
 
     /*- Amplitude Modulation ------------------------------------------------*/
 
@@ -1974,7 +1931,43 @@ extern "C" {
         ViSession vi,
         ViConstString channelName,
         ViReal64 pwmDeviation);
+	/*- ASK Modulation -----------------------------------------------------*/
+	ViStatus _VI_FUNC tkafg1k_ConfigureASKEnabled ( ViSession vi,
+                                                ViConstString channelName,
+                                                ViBoolean enabled);
+	ViStatus _VI_FUNC tkafg1k_ConfigureASKSource (  ViSession vi,
+                                                ViConstString channelName,
+                                                ViInt32 source);
+	ViStatus _VI_FUNC tkafg1k_ConfigureASKInternalByChan (ViSession vi,
+                                                         ViConstString channelName,
+                                                         ViReal64 amplitude,
+                                                         ViReal64 rate);
+	ViStatus _VI_FUNC tkafg1k_ConfigureASKExternalByChan (ViSession vi,
+                                                         ViConstString channelName,
+                                                         ViReal64 amplitude);
+	
+	
+	
+	
+	/*- PSK Modulation -----------------------------------------------------*/
 
+	ViStatus _VI_FUNC tkafg1k_ConfigurePSKEnabled ( ViSession vi,
+                                                ViConstString channelName,
+                                                ViBoolean enabled);
+	ViStatus _VI_FUNC tkafg1k_ConfigurePSKSource (  ViSession vi,
+                                                ViConstString channelName,
+                                                ViInt32 source);
+	ViStatus _VI_FUNC tkafg1k_ConfigurePSKInternalByChan (ViSession vi,
+                                                         ViConstString channelName,
+                                                         ViReal64 deviation,
+                                                         ViReal64 rate);
+	
+	ViStatus _VI_FUNC tkafg1k_ConfigurePSKExternalByChan (ViSession vi,
+                                                         ViConstString channelName,
+                                                         ViReal64 deviation);
+	
+	
+	
     /*- Error Functions ----------------------------------------------------*/
     ViStatus _VI_FUNC  tkafg1k_error_query(ViSession vi, ViInt32 *errorCode,
                                            ViChar errorMessage[]);
@@ -2003,9 +1996,6 @@ extern "C" {
                                                ViChar firmwareRevision[]);
     ViStatus _VI_FUNC   tkafg1k_Disable(ViSession vi);
     
-	ViStatus _VI_FUNC   tkafg1k_SaveLoadInstrumentSettings (ViSession vi, 
-		                                                    ViInt32 operationSelect,
-															ViConstString fileName);
 
 	ViStatus _VI_FUNC   tkafg1k_SetGetWaveformPointValue (ViSession vi, 
 		                                                  ViInt32 pointIndex,
@@ -2013,9 +2003,6 @@ extern "C" {
 														  ViInt32 operationSelect,
 														  ViInt32 editMemory,
 														  ViInt32 *queryValue);
-	ViStatus _VI_FUNC   tkafg1k_CopyWfmDataBetweenEditMemory (ViSession vi, 
-		                                                      ViInt32 sourceMemory,
-															  ViInt32 targetMemory);
 	
     ViStatus _VI_FUNC   tkafg1k_viWrite (ViSession vi, 
 										 ViByte buffer[], 

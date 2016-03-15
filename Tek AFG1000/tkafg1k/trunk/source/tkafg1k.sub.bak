@@ -5263,15 +5263,6 @@ v attrPWMSourceRangeTable DataType="i"
   "The carrier waveform is modulated with the internal source."
 
 
-v attrRefClockSourceRangeTable DataType="i" 
- TKAFG1K_VAL_REF_CLOCK_INTERNAL (0)
-  "The function generator produces the reference clock internally."
-
- TKAFG1K_VAL_REF_CLOCK_EXTERNAL (1)
-  "The function generator receives the reference clock signal from an "
-  "external source."
-
-
 v attrWaveformRangeTable DataType="i" 
  TKAFG1K_VAL_WFM_SINE (1)
   "Configures the function generator with a sinusoid waveform."

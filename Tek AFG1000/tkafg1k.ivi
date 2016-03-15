@@ -510,6 +510,7 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
+          <value>IVI_VAL_NOT_USER_WRITABLE</value>
           <value>IVI_VAL_NEVER_CACHE</value>
           <value>IVI_VAL_USE_CALLBACKS_FOR_SIMULATION</value>
         </Flag>
@@ -2062,39 +2063,6 @@
           <RelatedCommand />
           <FP>Normal Input</FP>
           <Default>0.00</Default>
-          <Description />
-        </Parameter>
-      </Function>
-      <Function>
-        <ID>ConfigurePulseDelay</ID>
-        <Custom>True</Custom>
-        <Description>This@!##!@function@!##!@configures@!##!@pulse@!##!@waveform@!##!@lead@!##!@delay.!@##@!!@##@!Notes:!@##@!Because@!##!@the@!##!@attribute@!##!@set@!##!@in@!##!@this@!##!@function@!##!@could@!##!@only@!##!@be@!##!@operated@!##!@correctly@!##!@in@!##!@PULSE@!##!@waveform,@!##!@the@!##!@driver@!##!@limits@!##!@its@!##!@accessibility@!##!@to@!##!@PULSE@!##!@waveform.@!##!@To@!##!@ensure@!##!@this@!##!@function@!##!@works,@!##!@you@!##!@should@!##!@configure@!##!@waveform@!##!@shape@!##!@to@!##!@PULSE@!##!@before@!##!@using@!##!@this@!##!@functio</Description>
-        <RelatedCommand />
-        <Parameter>
-          <Name>instrumentHandle</Name>
-          <Type>ViSession</Type>
-          <RelatedAttr />
-          <RelatedCommand />
-          <FP />
-          <Default />
-          <Description />
-        </Parameter>
-        <Parameter>
-          <Name>channelName</Name>
-          <Type>ViChar[]</Type>
-          <RelatedAttr />
-          <RelatedCommand />
-          <FP>Normal Input</FP>
-          <Default>"1"</Default>
-          <Description />
-        </Parameter>
-        <Parameter>
-          <Name>delay</Name>
-          <Type>ViReal64</Type>
-          <RelatedAttr />
-          <RelatedCommand />
-          <FP>Normal Input</FP>
-          <Default>0.0</Default>
           <Description />
         </Parameter>
       </Function>
@@ -3926,14 +3894,14 @@
       <TableType>Ranged</TableType>
       <Ranged>
         <value>
-          <Min>TKAFG1K_VAL_BURST_INFINITY</Min>
-          <Max>TKAFG1K_VAL_BURST_INFINITY</Max>
+          <Min>0</Min>
+          <Max>0</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
         <value>
           <Min>1</Min>
-          <Max>AFG1022_VAL_MAX_BURST_COUNT</Max>
+          <Max>500000</Max>
           <CommandString>""</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -5113,8 +5081,8 @@
       <TableType>Ranged</TableType>
       <Ranged>
         <value>
-          <Min>TKAFG1K_VAL_IMPEDANCE_INFINITY</Min>
-          <Max>TKAFG1K_VAL_IMPEDANCE_INFINITY</Max>
+          <Min>0</Min>
+          <Max>0</Max>
           <CommandString>VI_NULL</CommandString>
           <CommandValue>0</CommandValue>
         </value>
@@ -5662,6 +5630,9 @@
     <ModelAttrID />
     <ModelList />
   </Model>
-  <ChannelList />
+  <ChannelList>
+    <value>1</value>
+    <value>2</value>
+  </ChannelList>
   <RepeatedCap />
 </IVICDriver>

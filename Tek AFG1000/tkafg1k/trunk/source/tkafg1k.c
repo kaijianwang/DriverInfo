@@ -3629,7 +3629,7 @@ ViStatus _VI_FUNC tkafg1k_ConfigureASKSource (  ViSession vi,
  *           Notes:
  *           This function is based on channel.
  *****************************************************************************/
-ViStatus _VI_FUNC tkafg1k_ConfigureASKInternalByChannel (ViSession vi,
+ViStatus _VI_FUNC tkafg1k_ConfigureASKInternalByChan (ViSession vi,
                                                          ViConstString channelName,
                                                          ViReal64 amplitude,
                                                          ViReal64 rate)
@@ -3663,7 +3663,7 @@ Error:
  *           Notes:
  *           This function is based on channel.
  *****************************************************************************/
-ViStatus _VI_FUNC tkafg1k_ConfigureASKExternalByChannel (ViSession vi,
+ViStatus _VI_FUNC tkafg1k_ConfigureASKExternalByChan (ViSession vi,
                                                          ViConstString channelName,
                                                          ViReal64 amplitude)
 {
@@ -3708,7 +3708,7 @@ ViStatus _VI_FUNC tkafg1k_ConfigurePSKSource (  ViSession vi,
  *           Notes:
  *           This function is based on channel.
  *****************************************************************************/
-ViStatus _VI_FUNC tkafg1k_ConfigurePSKInternalByChannel (ViSession vi,
+ViStatus _VI_FUNC tkafg1k_ConfigurePSKInternalByChan (ViSession vi,
                                                          ViConstString channelName,
                                                          ViReal64 deviation,
                                                          ViReal64 rate)
@@ -3742,7 +3742,7 @@ Error:
  *           Notes:
  *           This function is based on channel.
  *****************************************************************************/
-ViStatus _VI_FUNC tkafg1k_ConfigurePSKExternalByChannel (ViSession vi,
+ViStatus _VI_FUNC tkafg1k_ConfigurePSKExternalByChan (ViSession vi,
                                                          ViConstString channelName,
                                                          ViReal64 deviation)
 {
@@ -4628,100 +4628,9 @@ Error:
 static ViStatus tkafg1k_DefaultInstrSetup (ViSession vi)
 {
     ViStatus    error = VI_SUCCESS;
-    ViChar    driverSetup[BUFFER_SIZE];
-    ViString  matchPtr = VI_NULL;
-    ViBoolean clearArbData = VI_FALSE;
-	ViInt32           activeMem;
-	IviRangeTablePtr  table;
-	ViString          memoryName;
 	
-	checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_ACTIVE_MEMORY, 0, &activeMem) );
-	checkErr( Ivi_GetAttrRangeTable (vi, VI_NULL, TKAFG1K_ATTR_ACTIVE_MEMORY, &table) );
-	checkErr( tkafg1k_GetCmdFromIntValue(activeMem, table, &memoryName) );
-
     /* Invalidate all attributes */
     checkErr( Ivi_InvalidateAllAttributes (vi));
-
-    /* Check if clear all arbitrary waveforms */
-    checkErr( Ivi_GetAttributeViString (vi, VI_NULL, TKAFG1K_ATTR_DRIVER_SETUP,
-                                        0, BUFFER_SIZE, driverSetup));
-
-    matchPtr = strstr (driverSetup, "ClearArbData");
-    if (matchPtr)
-    {
-        sscanf (matchPtr, "ClearArbData is %hd", &clearArbData);
-    }
-
-    if (!clearArbData)
-    {
-        checkErr( tkafg1k_ClearDriverWfmRecord (vi, TKAFG1K_VAL_ALL_WAVEFORMS));
-
-        if (!Ivi_Simulating(vi))
-        {
-            ViSession   io = Ivi_IOSession(vi);
-            ViChar      catalog[BUFFER_SIZE], name[TKAFG1K_VAL_NAME_LENGTH];
-            ViInt32     index = 0, size, handle, scanCnt;
-            memset( catalog, 0, sizeof(ViChar)*BUFFER_SIZE );
-
-            checkErr( Ivi_SetNeedToCheckStatus (vi, VI_TRUE));
-
-            /* clear instrument */
-            viCheckErr( viPrintf (io, "*CLS;"));
-
-            /* retrieve all existing arbitrary waveforms */
-			
-			Delay(1);
-            viCheckErr( viQueryf (io, "DATA:CAT?","%s",catalog ));
-			//	viCheckErr( viRead (io, (ViPBuf)catalog, BUFFER_SIZE-1, &scanCnt));
-            /* update the driver's waveform record to reflect sizes of existing waveforms */
-            scanCnt = 1;
-            while(scanCnt)
-            {
-                scanCnt = sscanf (catalog, "%*[,\"]%[^\"]%s", name, catalog);
-                if (scanCnt <= 0)
-                    break;
-                if(strncmp(name, "USER1", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    index = 0;
-                }
-                else if(strncmp(name, "USER2", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    index = 1;
-                }
-                else if(strncmp(name, "USER3", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    index = 2;
-                }
-                else if(strncmp(name, "USER4", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    index = 3;
-                }
-				else if(strncmp(name, "EMEM", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    continue;
-                }
-				else if(strncmp(name, "EMEM1", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    continue;
-                }
-				else if(strncmp(name, "EMEM2", TKAFG1K_VAL_NAME_LENGTH) == 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    error = TKAFG1K_ERROR_UNKNOWN_ARB_WFM;
-                    viCheckErr (error);
-                }
-
-                viCheckErr ( viPrintf (io, "DATA:COPY %s,%s", memoryName, name) );
-                viCheckErr ( viQueryf (io, "DATA:POIN? %s", "%d", memoryName, &size) );
-
-                handle = index;
-                checkErr( tkafg1k_UpdateDriverWfmRecord (vi, handle, size));
-            }
-        }
-    }
 
 
     checkErr( tkafg1k_CheckStatus (vi));
@@ -4732,15 +4641,10 @@ static ViStatus tkafg1k_DefaultInstrSetup (ViSession vi)
         checkErr( Ivi_SetNeedToCheckStatus (vi, VI_TRUE));
 
         viCheckErr( viPrintf (io, "*CLS;"));
+		Delay(1);
     }
 
 Error:
-    if(error == TKAFG1K_ERROR_UNKNOWN_ARB_WFM)
-    {
-        checkErr( tkafg1k_ClearDriverWfmRecord (vi, TKAFG1K_VAL_ALL_WAVEFORMS));
-        error = TKAFG1K_ERROR_INIT_FAIL;
-    }
-
     return error;
 }
 
@@ -10518,7 +10422,8 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_ACTIVE_MEMORY,
 	                                   "TKAFG1K_ATTR_ACTIVE_MEMORY",
 	                                   TKAFG1K_VAL_OUTPUT_EMEM, IVI_VAL_ALWAYS_CACHE,
-	                                   VI_NULL, VI_NULL, &attrActiveOneMemoryRangeTable));
+	                                   VI_NULL, VI_NULL,
+	                                   &attrActiveOneMemoryRangeTable));
 
     /*- Output Mode -*/
 	

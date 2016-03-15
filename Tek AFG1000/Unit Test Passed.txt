@@ -1,0 +1,30 @@
+    /***** Begin of Basic Operation Group Testing *****/
+
+	CPPUNIT_TEST(testTKAFG1K_ATTR_OUTPUT_MODE_defaultValue_ReadWrite_NullChannel_Index0);
+	CPPUNIT_TEST(testTKAFG1K_ATTR_OUTPUT_MODE_DiscreteValue_ReadWrite_NullChannel_Index1);
+	CPPUNIT_TEST(testTKAFG1K_ATTR_OUTPUT_MODE_DiscreteValue_ReadWrite_NullChannel_Index2);
+
+    /***** End of Basic Operation Group Testing *****/
+
+    /***** Begin of Standard Function Output Group Testing *****/
+
+    /***** End of Standard Function Output Group Testing *****/
+
+    /***** Begin of Pulse Waveform Generation Group Testing *****/
+
+    /***** End of Pulse Waveform Generation Group Testing *****/
+
+    /***** Begin of Arbitrary Waveform Output Group Testing *****/
+
+
+	CPPUNIT_TEST(testTKAFG1K_ATTR_MAX_NUM_WAVEFORMS_defaultValue_ReadOnly_NullChannel_Index0);
+
+	CPPUNIT_TEST(testTKAFG1K_ATTR_WAVEFORM_QUANTUM_defaultValue_ReadOnly_NullChannel_Index0);
+
+	CPPUNIT_TEST(testTKAFG1K_ATTR_MIN_WAVEFORM_SIZE_defaultValue_ReadOnly_NullChannel_Index0);
+
+	CPPUNIT_TEST(testTKAFG1K_ATTR_MAX_WAVEFORM_SIZE_defaultValue_ReadOnly_NullChannel_Index0);
+
+	CPPUNIT_TEST(testTKAFG1K_ATTR_ACTIVE_MEMORY_defaultValue_ReadWrite_NullChannel_Index0);
+
+    /***** End of Arbitrary Waveform Output Group Testing *****/
