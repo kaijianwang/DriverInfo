@@ -130,8 +130,6 @@
 
 // #define TKAFG1K_IO_SESSION_TYPE                  IVI_VAL_VISA_SESSION_TYPE
 
-    /*- 488.2 Event Status Register (ESR) Bits ------------------------------*/
-#define IEEE_488_2_ERROR_MASK                       0x3C
 
     /*- Inner Error Code ----------------------------------------------------*/
 #define TKAFG1K_ERROR_UNKNOWN_ARB_WFM               (IVI_SPECIFIC_ERROR_BASE + 0x300)
@@ -144,6 +142,9 @@
 #define TKAFG1K_VAL_ADD_SIGNAL_NOISE                "\"NOIS\""
 #define TKAFG1K_VAL_ADD_SIGNAL_EXTERNAL             "\"EXT\""
 #define TKAFG1K_VAL_ADD_SIGNAL_BOTH                 "\"BOTH\""
+
+
+
 
     /*- List of channels passed to the Ivi_BuildChannelTable function -------*/
 #define CHAN1                                       "1"
@@ -739,8 +740,8 @@ static ViBoolean waveformAndModulationCombination[TKAFG1K_VAL_MODULATION_QUANTUM
 #define TKAFG1K_VAL_MAX_WAVEFORMS                   (256L)
 #define TKAFG1K_VAL_LAST_WAVEFORM_HANDLE            (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + TKAFG1K_VAL_MAX_WAVEFORMS + 1L )
 
-
-
+#define TKAFG1K_WFM_HANDLE_FROM_INDEX(x)			(TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + x + 2L)
+#define TKAFG1K_WFM_INDEX_FROM_HANDLE(x)            (x - TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE - 2L)
     /*- Defined value for length of arbitrary waveform and sequence names -*/
 
 #define TKAFG1K_VAL_NAME_LENGTH                     (9L)
@@ -2219,7 +2220,7 @@ ViStatus _VI_FUNC tkafg1k_error_query (ViSession vi, ViInt32 *errCode,
         ViSession   io = Ivi_IOSession(vi); /* call only when locked */
 
         checkErr( Ivi_SetNeedToCheckStatus (vi, VI_TRUE));
-        viCheckErr( viPrintf(io, ":SYST:ERR?"));
+        viCheckErr( viPrintf(io, "SYST:ERR?"));
 
         viCheckErr( viScanf (io, "%ld,\"%256[^\"]", errCode, errMessage));
 
@@ -2878,7 +2879,7 @@ ViStatus _VI_FUNC tkafg1k_GetArbitraryWaveformBySlot (ViSession vi,
                                       0, (ViAddr *)(&wfmStruct)));
 
     if (wfmStruct[slot].wfmSize)
-        *wfmHandle = slot;
+        *wfmHandle = TKAFG1K_WFM_HANDLE_FROM_INDEX(slot);
     else
         *wfmHandle = VI_NULL;
 
@@ -2927,7 +2928,7 @@ ViStatus _VI_FUNC tkafg1k_CreateArbWaveformBySlot (ViSession vi,
         checkErr( tkafg1k_VerifyWfmBySlotCreatable (vi, wfmSize, wfmData));
     }
 
-    newWfmHandle = slot;
+    newWfmHandle = TKAFG1K_WFM_HANDLE_FROM_INDEX(slot);
 
     if (!Ivi_Simulating(vi))                /* call only when locked */
     {
@@ -2993,7 +2994,7 @@ ViStatus _VI_FUNC tkafg1k_CreateStandardShapeArbWfmBySlot (ViSession vi,
         checkErr (tkafg1k_VerifyStandardShapeWfmBySlotCreatable (vi, wfmSize, wfmType) );
     }
 
-    newWfmHandle = slot;
+    newWfmHandle = TKAFG1K_WFM_HANDLE_FROM_INDEX(slot);
 
     if (!Ivi_Simulating(vi))                /* call only when locked */
     {
@@ -4196,12 +4197,13 @@ static ViStatus tkafg1k_CreateNewWaveform (ViSession vi, ViSession io, ViInt32 w
 	checkErr( tkafg1k_GetCmdFromIntValue(activeMem, table, &memoryName) ); 
 	
     checkErr( Ivi_Alloc (vi, ((ViInt32)sizeof(ViInt16))*(wfmSize), (ViAddr *)(&binData)));
-
-    for (i = 0; i < wfmSize; i++)
-         binData[i] = (ViInt16) (0x1FFF*(wfmData[i]+1.0));
-
-    viCheckErr( viPrintf (io, "DATA:DEF %s,%d", memoryName, wfmSize) );         /* Define the point number in edit memory */
-    viCheckErr( viPrintf (io, "DATA:DATA %s,%*hb;", memoryName, wfmSize, binData));       /* Pass data to the edit memory */
+	viCheckErr( viPrintf (io, "DATA:POIN %s,%d;", memoryName, wfmSize));
+    for (i = 0; i < wfmSize; i++){
+         binData[i] = wfmData[i];
+		 viCheckErr( viPrintf (io, "DATA:VAL %s,%d,%f;", memoryName, i,binData[i]));
+		 Delay(0.1);
+	}
+ //   viCheckErr( viPrintf (io, "DATA:DATA %s,%*hb;", memoryName, wfmSize, binData));       /* Pass data to the edit memory */
 
 	/* Copy data from edit memory to specified waveform. In this case, if memoryName = Edit Memory, then it is the same as Edit Memory 1  */ 
 	viCheckErr ( viPrintf (io, "DATA:COPY USER%d,%s",wfmHandle, memoryName) );
@@ -4235,7 +4237,7 @@ static ViStatus tkafg1k_CreateNewStandardShapeWaveform (ViSession vi, ViSession 
 	checkErr( Ivi_GetAttrRangeTable (vi, VI_NULL, TKAFG1K_ATTR_ACTIVE_MEMORY, &table) );
 	checkErr( tkafg1k_GetCmdFromIntValue(activeMem, table, &memoryName) );
 
-    viCheckErr ( viPrintf (io, "DATA:DEF %s,%d", memoryName, wfmSize) );                  /* Define the point number in edit memory */
+  //  viCheckErr ( viPrintf (io, "DATA:DEF %s,%d", memoryName, wfmSize) );                  /* Define the point number in edit memory */
     switch(wfmType)
     {
         case TKAFG1K_VAL_ARB_WFM_SINE:
@@ -4269,7 +4271,7 @@ static ViStatus tkafg1k_CreateNewStandardShapeWaveform (ViSession vi, ViSession 
             viCheckErr (error);
         }
     }
-    viCheckErr ( viPrintf (io, "DATA:DEF %s,%s", memoryName, waveName) );
+ //   viCheckErr ( viPrintf (io, "DATA:DEF %s,%s", memoryName, waveName) );
 
 
     viCheckErr ( viPrintf (io, "DATA:COPY USER%d,%s", waveHandle, memoryName) );
@@ -4501,7 +4503,8 @@ static ViStatus tkafg1k_GetNewWfmInfo (ViSession vi, ViInt32 *wfmHandle)
     ViInt32    tmpHandle = 0, maxWfms, i;
     wfmNodePtr wfmRecord = VI_NULL;
 
-    checkErr( Ivi_GetAttributeViAddr (vi, VI_NULL, TKAFG1K_ATTR_WFM_STRUCTURE, 0, (ViAddr *)&wfmRecord));
+    checkErr( Ivi_GetAttributeViAddr (vi, VI_NULL, TKAFG1K_ATTR_WFM_STRUCTURE,
+									  0, (ViAddr *)&wfmRecord));
 
     checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS, 0, &maxWfms));
 
@@ -4513,7 +4516,7 @@ static ViStatus tkafg1k_GetNewWfmInfo (ViSession vi, ViInt32 *wfmHandle)
             break;
         }
     }
-
+	tmpHandle = TKAFG1K_WFM_HANDLE_FROM_INDEX(tmpHandle);
 Error:
     *wfmHandle = tmpHandle;
     return error;
@@ -4532,7 +4535,7 @@ static ViStatus tkafg1k_UpdateDriverWfmRecord (ViSession vi, ViInt32 wfmHandle, 
 
     checkErr( Ivi_GetAttributeViAddr (vi, VI_NULL, TKAFG1K_ATTR_WFM_STRUCTURE,
                                       0, (ViAddr *)&wfmRecord));
-    index = wfmHandle;
+    index = TKAFG1K_WFM_INDEX_FROM_HANDLE(wfmHandle);
     wfmRecord[index].wfmSize = wfmSize;
 
 Error:
@@ -4566,7 +4569,7 @@ static ViStatus tkafg1k_WfmExists (ViSession vi, ViInt32 wfmHandle, ViBoolean *w
             *wfmExists = VI_TRUE;
         }
 		else{
-        	index =  wfmHandle;
+        	index =  TKAFG1K_WFM_INDEX_FROM_HANDLE(wfmHandle);
         	*wfmExists = wfmRecord[index].wfmSize != 0;
 		}
     }
@@ -4761,7 +4764,7 @@ static ViStatus tkafg1k_ReadCmd ( ViSession vi, ViSession io,  ViConstString cha
     ViStatus error = VI_SUCCESS;
 
     ViChar  rdBuffer[BUFFER_SIZE];
-    memset(rdBuffer, 0, BUFFER_SIZE);
+    memset(rdBuffer, 0, sizeof(ViChar)*BUFFER_SIZE);
 
     viCheckErr ( viQueryf (io, format, "%s", channelName, rdBuffer) );
 
@@ -5049,16 +5052,6 @@ Error:
 static ViStatus _VI_FUNC tkafg1k_CheckStatusCallback (ViSession vi, ViSession io)
 {
     ViStatus    error = VI_SUCCESS;
-
-    ViInt16     esr = 0;
-
-    viCheckErr( viQueryf (io, "*ESR?", "%hd", &esr));
-
-    if (esr & IEEE_488_2_ERROR_MASK)
-    {
-        viCheckErr( IVI_ERROR_INSTR_SPECIFIC);
-    }
-
 Error:
     return error;
 }
