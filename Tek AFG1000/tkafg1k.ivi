@@ -1019,6 +1019,7 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1047,6 +1048,7 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1075,6 +1077,7 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1230,7 +1233,7 @@
         <Type>ViReal64</Type>
         <ImplementationNumber>1</ImplementationNumber>
         <RangeTable />
-        <DefaultValue>100000.0</DefaultValue>
+        <DefaultValue>500.0</DefaultValue>
         <RepeatedCap />
         <Callback>
           <Read />
@@ -1248,6 +1251,7 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1276,6 +1280,7 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1304,6 +1309,7 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1314,7 +1320,7 @@
         <Type>ViReal64</Type>
         <ImplementationNumber>2</ImplementationNumber>
         <RangeTable />
-        <DefaultValue>0</DefaultValue>
+        <DefaultValue>10</DefaultValue>
         <RepeatedCap />
         <Callback>
           <Read>tkafg1kAttrFMDeviationByChannel_ReadCallback</Read>
@@ -1832,6 +1838,240 @@
         </Flag>
       </Attr>
       <Name>Miscellaneous Attributes</Name>
+      <Description />
+    </Group>
+    <Group>
+      <Attr>
+        <ID>ASK_ENABLED</ID>
+        <Custom>True</Custom>
+        <Name>Ask Enabled</Name>
+        <Type>ViBoolean</Type>
+        <ImplementationNumber>1</ImplementationNumber>
+        <RangeTable />
+        <DefaultValue>VI_FALSE</DefaultValue>
+        <RepeatedCap />
+        <Callback>
+          <Read>tkafg1kAttrAskEnabled_ReadCallback</Read>
+          <Write>tkafg1kAttrAskEnabled_WriteCallback</Write>
+          <Check />
+          <Compare />
+          <Coerce />
+          <RangeTable />
+        </Callback>
+        <RelatedCmd />
+        <WriteCmd />
+        <ReadCmd />
+        <Description />
+        <Notes />
+        <InvalidateAttr />
+        <RelatedHiddenAttr />
+        <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
+          <value>IVI_VAL_NEVER_CACHE</value>
+        </Flag>
+      </Attr>
+      <Attr>
+        <ID>ASK_INTERNAL_RATE</ID>
+        <Custom>True</Custom>
+        <Name>Ask Internal Rate</Name>
+        <Type>ViReal64</Type>
+        <ImplementationNumber>1</ImplementationNumber>
+        <RangeTable>attrASKInternalRateRangeTable</RangeTable>
+        <DefaultValue>50</DefaultValue>
+        <RepeatedCap />
+        <Callback>
+          <Read>tkafg1kAttrAskInternalRate_ReadCallback</Read>
+          <Write>tkafg1kAttrAskInternalRate_WriteCallback</Write>
+          <Check />
+          <Compare />
+          <Coerce />
+          <RangeTable />
+        </Callback>
+        <RelatedCmd />
+        <WriteCmd />
+        <ReadCmd />
+        <Description />
+        <Notes />
+        <InvalidateAttr />
+        <RelatedHiddenAttr />
+        <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
+        </Flag>
+      </Attr>
+      <Attr>
+        <ID>ASK_AMPLITUDE</ID>
+        <Custom>True</Custom>
+        <Name>Ask Amplitude</Name>
+        <Type>ViReal64</Type>
+        <ImplementationNumber>2</ImplementationNumber>
+        <RangeTable>attrASKAmplitudeRangeTable</RangeTable>
+        <DefaultValue>0.5</DefaultValue>
+        <RepeatedCap />
+        <Callback>
+          <Read>tkafg1kAttrAskAmplitude_ReadCallback</Read>
+          <Write>tkafg1kAttrAskAmplitude_WriteCallback</Write>
+          <Check />
+          <Compare />
+          <Coerce />
+          <RangeTable />
+        </Callback>
+        <RelatedCmd />
+        <WriteCmd />
+        <ReadCmd />
+        <Description />
+        <Notes />
+        <InvalidateAttr />
+        <RelatedHiddenAttr />
+        <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
+        </Flag>
+      </Attr>
+      <Attr>
+        <ID>ASK_SOURCE</ID>
+        <Custom>True</Custom>
+        <Name>Ask Source</Name>
+        <Type>ViInt32</Type>
+        <ImplementationNumber>1</ImplementationNumber>
+        <RangeTable>attrASKSourceRangeTable</RangeTable>
+        <DefaultValue>TKAFG1K_VAL_ASK_INTERNAL</DefaultValue>
+        <RepeatedCap />
+        <Callback>
+          <Read>tkafg1kAttrAskSource_ReadCallback</Read>
+          <Write>tkafg1kAttrAskSource_WriteCallback</Write>
+          <Check />
+          <Compare />
+          <Coerce />
+          <RangeTable />
+        </Callback>
+        <RelatedCmd />
+        <WriteCmd />
+        <ReadCmd />
+        <Description />
+        <Notes />
+        <InvalidateAttr />
+        <RelatedHiddenAttr />
+        <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
+        </Flag>
+      </Attr>
+      <Name>ASK Modulation</Name>
+      <Description />
+    </Group>
+    <Group>
+      <Attr>
+        <ID>PSK_ENABLED</ID>
+        <Custom>True</Custom>
+        <Name>Psk Enabled</Name>
+        <Type>ViBoolean</Type>
+        <ImplementationNumber>1</ImplementationNumber>
+        <RangeTable />
+        <DefaultValue>VI_FALSE</DefaultValue>
+        <RepeatedCap />
+        <Callback>
+          <Read>tkafg1kAttrPskEnabled_ReadCallback</Read>
+          <Write>tkafg1kAttrPskEnabled_WriteCallback</Write>
+          <Check />
+          <Compare />
+          <Coerce />
+          <RangeTable />
+        </Callback>
+        <RelatedCmd />
+        <WriteCmd />
+        <ReadCmd />
+        <Description />
+        <Notes />
+        <InvalidateAttr />
+        <RelatedHiddenAttr />
+        <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
+          <value>IVI_VAL_NEVER_CACHE</value>
+        </Flag>
+      </Attr>
+      <Attr>
+        <ID>PSK_INTERNAL_RATE</ID>
+        <Custom>True</Custom>
+        <Name>Psk Internal Rate</Name>
+        <Type>ViReal64</Type>
+        <ImplementationNumber>1</ImplementationNumber>
+        <RangeTable>attrPSKInternalRateRangeTable</RangeTable>
+        <DefaultValue>50</DefaultValue>
+        <RepeatedCap />
+        <Callback>
+          <Read>tkafg1kAttrPskInternalRate_ReadCallback</Read>
+          <Write>tkafg1kAttrPskInternalRate_WriteCallback</Write>
+          <Check />
+          <Compare />
+          <Coerce />
+          <RangeTable />
+        </Callback>
+        <RelatedCmd />
+        <WriteCmd />
+        <ReadCmd />
+        <Description />
+        <Notes />
+        <InvalidateAttr />
+        <RelatedHiddenAttr />
+        <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
+        </Flag>
+      </Attr>
+      <Attr>
+        <ID>PSK_DEVIATION</ID>
+        <Custom>True</Custom>
+        <Name>Psk Deviation</Name>
+        <Type>ViReal64</Type>
+        <ImplementationNumber>2</ImplementationNumber>
+        <RangeTable>attrPSKDeviationRangeTable</RangeTable>
+        <DefaultValue>0</DefaultValue>
+        <RepeatedCap />
+        <Callback>
+          <Read>tkafg1kAttrPskDeviation_ReadCallback</Read>
+          <Write>tkafg1kAttrPskDeviation_WriteCallback</Write>
+          <Check />
+          <Compare />
+          <Coerce />
+          <RangeTable />
+        </Callback>
+        <RelatedCmd />
+        <WriteCmd />
+        <ReadCmd />
+        <Description />
+        <Notes />
+        <InvalidateAttr />
+        <RelatedHiddenAttr />
+        <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
+        </Flag>
+      </Attr>
+      <Attr>
+        <ID>PSK_SOURCE</ID>
+        <Custom>True</Custom>
+        <Name>Psk Source</Name>
+        <Type>ViInt32</Type>
+        <ImplementationNumber>1</ImplementationNumber>
+        <RangeTable>attrPSKSourceRangeTable</RangeTable>
+        <DefaultValue>TKAFG1K_VAL_TKAFG1K_VAL_PSK_INTERNAL</DefaultValue>
+        <RepeatedCap />
+        <Callback>
+          <Read>tkafg1kAttrPskSource_ReadCallback</Read>
+          <Write>tkafg1kAttrPskSource_WriteCallback</Write>
+          <Check />
+          <Compare />
+          <Coerce />
+          <RangeTable />
+        </Callback>
+        <RelatedCmd />
+        <WriteCmd />
+        <ReadCmd />
+        <Description />
+        <Notes />
+        <InvalidateAttr />
+        <RelatedHiddenAttr />
+        <Flag>
+          <value>IVI_VAL_MULTI_CHANNEL</value>
+        </Flag>
+      </Attr>
+      <Name>PSK Modulation</Name>
       <Description />
     </Group>
   </Attribute>
@@ -2867,7 +3107,7 @@
           <RelatedAttr>FM_INTERNAL_DEVIATION</RelatedAttr>
           <RelatedCommand />
           <FP>Normal Input</FP>
-          <Default>100000.0</Default>
+          <Default>500.0</Default>
           <Description />
         </Parameter>
         <Parameter>
@@ -2918,7 +3158,7 @@
           <RelatedAttr>FM_DEVIATION_BY_CHANNEL</RelatedAttr>
           <RelatedCommand />
           <FP>Normal Input</FP>
-          <Default>0</Default>
+          <Default>10</Default>
           <Description />
         </Parameter>
         <Parameter>
@@ -2969,7 +3209,7 @@
           <RelatedAttr>FM_DEVIATION_BY_CHANNEL</RelatedAttr>
           <RelatedCommand />
           <FP>Normal Input</FP>
-          <Default>0</Default>
+          <Default>10</Default>
           <Description />
         </Parameter>
       </Function>
@@ -3814,6 +4054,296 @@
         </Parameter>
       </Function>
       <Name>System</Name>
+      <Description />
+    </Group>
+    <Group>
+      <Function>
+        <ID>ConfigureASKEnabled</ID>
+        <Custom>True</Custom>
+        <Description />
+        <RelatedCommand />
+        <Parameter>
+          <Name>vi</Name>
+          <Type>ViSession</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP />
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>channelName</Name>
+          <Type>ViChar[]</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>"1"</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>enabled</Name>
+          <Type>ViBoolean</Type>
+          <RelatedAttr>ASK_ENABLED</RelatedAttr>
+          <RelatedCommand />
+          <FP>Binary</FP>
+          <Default>VI_FALSE</Default>
+          <Description />
+        </Parameter>
+      </Function>
+      <Function>
+        <ID>ConfigureASKSource</ID>
+        <Custom>True</Custom>
+        <Description />
+        <RelatedCommand />
+        <Parameter>
+          <Name>vi</Name>
+          <Type>ViSession</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP />
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>channelName</Name>
+          <Type>ViChar[]</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>"1"</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>source</Name>
+          <Type>ViInt32</Type>
+          <RelatedAttr>ASK_SOURCE</RelatedAttr>
+          <RelatedCommand />
+          <FP>Ring</FP>
+          <Default>TKAFG1K_VAL_ASK_INTERNAL</Default>
+          <Description />
+        </Parameter>
+      </Function>
+      <Function>
+        <ID>ConfigureASKInternalByChan</ID>
+        <Custom>True</Custom>
+        <Description />
+        <RelatedCommand />
+        <Parameter>
+          <Name>vi</Name>
+          <Type>ViSession</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP />
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>channelName</Name>
+          <Type>ViChar[]</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>"1"</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>amplitude</Name>
+          <Type>ViReal64</Type>
+          <RelatedAttr>ASK_AMPLITUDE</RelatedAttr>
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>0.5</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>internalRate</Name>
+          <Type>ViReal64</Type>
+          <RelatedAttr>ASK_INTERNAL_RATE</RelatedAttr>
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>50</Default>
+          <Description />
+        </Parameter>
+      </Function>
+      <Function>
+        <ID>ConfigureASKExternalByChan</ID>
+        <Custom>True</Custom>
+        <Description />
+        <RelatedCommand />
+        <Parameter>
+          <Name>vi</Name>
+          <Type>ViSession</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP />
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>channelName</Name>
+          <Type>ViChar[]</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>"1"</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>NewParameter</Name>
+          <Type>ViReal64</Type>
+          <RelatedAttr>ASK_AMPLITUDE</RelatedAttr>
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>0.5</Default>
+          <Description />
+        </Parameter>
+      </Function>
+      <Name>ASK Modulation</Name>
+      <Description />
+    </Group>
+    <Group>
+      <Function>
+        <ID>ConfigurePSKEnabled</ID>
+        <Custom>True</Custom>
+        <Description />
+        <RelatedCommand />
+        <Parameter>
+          <Name>vi</Name>
+          <Type>ViSession</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP />
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>channel</Name>
+          <Type>ViChar[]</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>enabled</Name>
+          <Type>ViBoolean</Type>
+          <RelatedAttr>PSK_ENABLED</RelatedAttr>
+          <RelatedCommand />
+          <FP>Binary</FP>
+          <Default>VI_FALSE</Default>
+          <Description />
+        </Parameter>
+      </Function>
+      <Function>
+        <ID>ConfigurePSKSource</ID>
+        <Custom>True</Custom>
+        <Description />
+        <RelatedCommand />
+        <Parameter>
+          <Name>vi</Name>
+          <Type>ViSession</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP />
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>channelName</Name>
+          <Type>ViChar[]</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>"1"</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>source</Name>
+          <Type>ViInt32</Type>
+          <RelatedAttr>PSK_SOURCE</RelatedAttr>
+          <RelatedCommand />
+          <FP>Ring</FP>
+          <Default>TKAFG1K_VAL_TKAFG1K_VAL_PSK_INTERNAL</Default>
+          <Description />
+        </Parameter>
+      </Function>
+      <Function>
+        <ID>ConfigurePSKInternalByChan</ID>
+        <Custom>True</Custom>
+        <Description />
+        <RelatedCommand />
+        <Parameter>
+          <Name>vi</Name>
+          <Type>ViSession</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP />
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>channelName</Name>
+          <Type>ViChar[]</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>"1"</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>deviation</Name>
+          <Type>ViReal64</Type>
+          <RelatedAttr>PSK_DEVIATION</RelatedAttr>
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>0</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>internalRate</Name>
+          <Type>ViReal64</Type>
+          <RelatedAttr>PSK_INTERNAL_RATE</RelatedAttr>
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>50</Default>
+          <Description />
+        </Parameter>
+      </Function>
+      <Function>
+        <ID>ConfigurePSKExternalByChan</ID>
+        <Custom>True</Custom>
+        <Description />
+        <RelatedCommand />
+        <Parameter>
+          <Name>vi</Name>
+          <Type>ViSession</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP />
+          <Default />
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>channelName</Name>
+          <Type>ViChar[]</Type>
+          <RelatedAttr />
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>"1"</Default>
+          <Description />
+        </Parameter>
+        <Parameter>
+          <Name>NewParameter</Name>
+          <Type>ViReal64</Type>
+          <RelatedAttr>PSK_DEVIATION</RelatedAttr>
+          <RelatedCommand />
+          <FP>Normal Input</FP>
+          <Default>0</Default>
+          <Description />
+        </Parameter>
+      </Function>
+      <Name>PSK Modulation</Name>
       <Description />
     </Group>
   </API>

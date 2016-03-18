@@ -1712,6 +1712,7 @@ extern "C" {
                                                      ViInt32 outputMode);
 
     ViStatus _VI_FUNC tkafg1k_ConfigureOutputMode(ViSession vi,
+											
                                                   ViInt32 outputMode);
 
     ViStatus _VI_FUNC tkafg1k_ConfigureOutputModeByChannel(

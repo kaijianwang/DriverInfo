@@ -736,8 +736,8 @@ static ViBoolean waveformAndModulationCombination[TKAFG1K_VAL_MODULATION_QUANTUM
 };
 
     /*- Defined values for attribute TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE----*/
-#define TKAFG1K_VAL_MAX_WAVEFORMS                   (4L)
-#define TKAFG1K_VAL_LAST_WAVEFORM_HANDLE            (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + TKAFG1K_VAL_MAX_WAVEFORMS - 1L)
+#define TKAFG1K_VAL_MAX_WAVEFORMS                   (256L)
+#define TKAFG1K_VAL_LAST_WAVEFORM_HANDLE            (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE + TKAFG1K_VAL_MAX_WAVEFORMS + 1L )
 
 
 
@@ -2516,8 +2516,12 @@ ViStatus _VI_FUNC tkafg1k_ConfigureOperationMode (ViSession vi,
                                                   ViConstString channelName,
                                                   ViInt32 operationMode)
 {
-    return Ivi_SetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_OPERATION_MODE,
-                                    IVI_VAL_DIRECT_USER_CALL, operationMode);
+    ViStatus         error = VI_SUCCESS;                                     
+	checkErr( Ivi_SetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_OPERATION_MODE,
+                                    IVI_VAL_DIRECT_USER_CALL, operationMode));
+Error:
+    return error;
+	
 }
 
 /*****************************************************************************
@@ -3195,16 +3199,26 @@ ViStatus _VI_FUNC  tkafg1k_ConfigureAMInternal (ViSession vi, ViReal64 amDepth,
     }
 
     /* Set attributes */
-    viCheckParm( Ivi_SetAttributeViInt32 (vi, VI_NULL,
+    viCheckParm( Ivi_SetAttributeViInt32 (vi, CHAN1,
                                           TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM, 0,
                                           amWaveform), 3, "AM Waveform");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, VI_NULL,
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN1,
                                            TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY, 0,
                                            amFrequency), 4, "AM Frequency");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, VI_NULL,
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN1,
                                           TKAFG1K_ATTR_AM_INTERNAL_DEPTH, 0,
                                           amDepth), 2, "AM Depth");
 
+    viCheckParm( Ivi_SetAttributeViInt32 (vi, CHAN2,
+                                          TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM, 0,
+                                          amWaveform), 3, "AM Waveform");
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN2,
+                                           TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY, 0,
+                                           amFrequency), 4, "AM Frequency");
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN2,
+                                          TKAFG1K_ATTR_AM_INTERNAL_DEPTH, 0,
+                                          amDepth), 2, "AM Depth");
+	
     checkErr( tkafg1k_CheckStatus (vi));
 
 Error:
@@ -3334,13 +3348,22 @@ ViStatus _VI_FUNC  tkafg1k_ConfigureFMInternal (ViSession vi, ViReal64 fmDevianc
     }
 
     /* Set attributes */
-    viCheckParm( Ivi_SetAttributeViInt32 (vi, VI_NULL,
+    viCheckParm( Ivi_SetAttributeViInt32 (vi, CHAN1,
                                           TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM, 0,
                                           fmWaveform), 3, "FM Waveform");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, VI_NULL,
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN1,
                                            TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY, 0,
                                            fmFrequency), 4, "FM Frequency");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, VI_NULL,
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN1,
+                                          TKAFG1K_ATTR_FM_INTERNAL_DEVIATION, 0,
+                                          fmDeviance), 2, "FM Peak Deviance");
+    viCheckParm( Ivi_SetAttributeViInt32 (vi, CHAN2,
+                                          TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM, 0,
+                                          fmWaveform), 3, "FM Waveform");
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN2,
+                                           TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY, 0,
+                                           fmFrequency), 4, "FM Frequency");
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN2,
                                           TKAFG1K_ATTR_FM_INTERNAL_DEVIATION, 0,
                                           fmDeviance), 2, "FM Peak Deviance");
 
@@ -4010,7 +4033,7 @@ static ViStatus tkafg1k_QueryOperationMode (ViSession vi, ViSession io, ViConstS
 
     /*- Check if run mode is sweep -*/
     viCheckErr ( viQueryf (io, "SOUR%s:FREQ:MODE?", "%s", channelName, rdBuffer) );
-    if( !CompareStrings(rdBuffer, 0, "SWE", 0, 0) )
+    if( !CompareStrings(rdBuffer, 0, "SWEep", 0, 0) )			// This instrument returns SWEep not SWE.
     {
         *operationMode = TKAFG1K_VAL_OPERATE_SWEEP;
         return error;
@@ -4079,6 +4102,7 @@ Error:
  *           correct output mode, the function returns the
  *           IVI_ERROR_INVALID_CONFIGURATION error.
  *****************************************************************************/
+/*
 static ViStatus tkafg1k_VerifyOutputMode(ViSession vi, ViInt32 outputMode)
 {
     ViStatus error = VI_SUCCESS;
@@ -4110,6 +4134,8 @@ static ViStatus tkafg1k_VerifyOutputMode(ViSession vi, ViInt32 outputMode)
 Error:
     return error;
 }
+
+*/
 
 /*****************************************************************************
  * Function: tkafg1k_VerifyOutputModeByChannel
@@ -4338,11 +4364,11 @@ static ViStatus tkafg1k_VerifyWfmCreatable (ViSession vi, ViInt32 wfmSize,
                                     "There are no free waveform structure to create new waveform.");
 
     if ((wfmSize < minWfmSize) || (wfmSize > maxWfmSize) || (wfmSize % wfmQuantum))
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Length");
+        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Lfngth");
 
     for (i = 0; i < wfmSize; i++)
     {
-        viCheckErr( Ivi_CompareWithPrecision(4, fabs(wfmData[i]), 1.0, &compare));
+        viCheckErr( Ivi_CompareWithPrecision(4, fabs(wfmData[i]), 10.0, &compare));
         if (compare > 0)
             break;
     }
@@ -4376,11 +4402,11 @@ static ViStatus tkafg1k_VerifyWfmBySlotCreatable (ViSession vi, ViInt32 wfmSize,
     checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_WAVEFORM_SIZE, 0, &maxWfmSize));
 
     if ((wfmSize < minWfmSize) || (wfmSize > maxWfmSize) || (wfmSize % wfmQuantum))
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Length");
+        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Lfngth");
 
     for (i = 0; i < wfmSize; i++)
     {
-        viCheckErr( Ivi_CompareWithPrecision(4, fabs(wfmData[i]), 1.0, &compare));
+        viCheckErr( Ivi_CompareWithPrecision(4, fabs(wfmData[i]), 10.0, &compare));
         if (compare > 0)
             break;
     }
@@ -4422,7 +4448,7 @@ static ViStatus tkafg1k_VerifyStandardShapeWfmCreatable (ViSession vi, ViInt32 w
                                     "There are no free waveform structure to create new waveform.");
 
     if ((wfmSize < minWfmSize) || (wfmSize > maxWfmSize) || (wfmSize % wfmQuantum))
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Length");
+        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Lfngth");
 
     if((wfmType < TKAFG1K_VAL_ARB_WFM_SINE) || (wfmType > TKAFG1K_VAL_ARB_WFM_PRN))
     {
@@ -4451,7 +4477,7 @@ static ViStatus tkafg1k_VerifyStandardShapeWfmBySlotCreatable (ViSession vi, ViI
     checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_WAVEFORM_SIZE, 0, &maxWfmSize));
 
     if ((wfmSize < minWfmSize) || (wfmSize > maxWfmSize) || (wfmSize % wfmQuantum))
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Length");
+        viCheckErrElab( IVI_ERROR_INVALID_VALUE, "Invalid Waveform Lfngth");
 
     if((wfmType < TKAFG1K_VAL_ARB_WFM_SINE) || (wfmType > TKAFG1K_VAL_ARB_WFM_PRN))
     {
@@ -4531,19 +4557,18 @@ static ViStatus tkafg1k_WfmExists (ViSession vi, ViInt32 wfmHandle, ViBoolean *w
     if ((wfmHandle > (TKAFG1K_VAL_LAST_WAVEFORM_HANDLE)) ||
                                 (wfmHandle < (TKAFG1K_VAL_FIRST_WAVEFORM_HANDLE)))
     {
+        *wfmExists = VI_FALSE;
+    }
+    else
+    {
         if(wfmHandle == TKAFG1K_VAL_WFM_EMEM)
         {
             *wfmExists = VI_TRUE;
         }
-        else
-        {
-            *wfmExists = VI_FALSE;
-        }
-    }
-    else
-    {
-        index =  wfmHandle;
-        *wfmExists = wfmRecord[index].wfmSize != 0;
+		else{
+        	index =  wfmHandle;
+        	*wfmExists = wfmRecord[index].wfmSize != 0;
+		}
     }
 
 Error:
@@ -4564,6 +4589,7 @@ Error:
  *           TKAFG1K_VAL_ALL_WAVEFORMS, the function clears the
  *           data in all waveform data structures for the session.
  *****************************************************************************/
+/*
 static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle)
 {
     ViStatus   error = VI_SUCCESS;
@@ -4589,6 +4615,7 @@ static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle)
 Error:
     return error;
 }
+*/
 
 /*****************************************************************************
  * Function: tkafg1k_CheckStatus
@@ -4641,7 +4668,7 @@ static ViStatus tkafg1k_DefaultInstrSetup (ViSession vi)
         checkErr( Ivi_SetNeedToCheckStatus (vi, VI_TRUE));
 
         viCheckErr( viPrintf (io, "*CLS;"));
-		Delay(1);
+		Delay(0.5);
     }
 
 Error:
@@ -4834,7 +4861,7 @@ static ViStatus tkafg1k_WriteReal64( ViSession vi, ViSession io, ViConstString c
 static ViStatus tkafg1k_ReadReal64( ViSession vi, ViSession io,  ViConstString channelName, ViString format,
                                     ViReal64* value )
 {
-    return ( viQueryf(io, format, "%Le", channelName, value) );
+    return ( viQueryf(io, format, "%Lf", channelName, value) );
 
 }
 
@@ -4851,7 +4878,7 @@ static ViStatus tkafg1k_WriteChannelIndependentReal64( ViSession vi, ViSession i
 
 static ViStatus tkafg1k_ReadChannelIndependentReal64( ViSession vi, ViSession io, ViString format, ViReal64* value)
 {
-    return ( viQueryf(io, format, "%Le", value) );
+    return ( viQueryf(io, format, "%Lf", value) );
 }
  */
 /*****************************************************************************
@@ -5283,9 +5310,7 @@ static ViStatus _VI_FUNC tkafg1kAttrOutputMode_WriteCallback (ViSession vi,
     ViStatus error = VI_SUCCESS;
 
     checkErr( tkafg1k_SetAttributeViInt32(vi, CHAN1, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, value) );
-
-    checkErr( tkafg1k_SetAttributeViInt32(vi, CHAN2, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, value) );
-
+	checkErr( tkafg1k_SetAttributeViInt32(vi, CHAN2, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, value) );
 Error:
     return error;
 }
@@ -5297,21 +5322,9 @@ static ViStatus _VI_FUNC tkafg1kAttrOutputMode_ReadCallback (ViSession vi,
                                                               ViInt32 *value)
 {
     ViStatus error = VI_SUCCESS;
-    ViInt32 chan1Value, chan2Value;
 
-    checkErr( tkafg1k_GetAttributeViInt32(vi, CHAN1, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, &chan1Value) );
-
-    checkErr( tkafg1k_GetAttributeViInt32(vi, CHAN2, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, &chan2Value) );
-
-    if(chan1Value == chan2Value)
-    {
-        *value = chan1Value;
-    }
-    else
-    {
-        error = TKAFG1K_ERROR_CHANNELS_DIFFERENT;
-        viCheckErr(error);
-    }
+    checkErr( tkafg1k_GetAttributeViInt32(vi,  CHAN1, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, value) );
+	checkErr( tkafg1k_GetAttributeViInt32(vi,  CHAN2, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL, value) );
 
 Error:
     return error;
@@ -5479,7 +5492,7 @@ static ViStatus _VI_FUNC tkafg1kAttrOutputImpedance_WriteCallback (ViSession vi,
     }
     else
     {
-        checkErr( tkafg1k_WriteReal64(vi, io, channelName, "OUTP%s:IMP %Le", value) );
+        checkErr( tkafg1k_WriteReal64(vi, io, channelName, "OUTP%s:IMP %Lf", value) );
     }
 
 Error:
@@ -5879,18 +5892,18 @@ Error:
 
 /*- TKAFG1K_ATTR_FUNC_START_PHASE -*/
 static IviRangeTableEntry attrFuncStartPhaseRangeTableEntries[] =
-{
-        {-180.00, 180.00, 0, "", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{0.00, 360.00, 0, "", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrFuncStartPhaseRangeTable =
-{
-        IVI_VAL_RANGED,
+	{
+		IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrFuncStartPhaseRangeTableEntries,
-};
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrFuncStartPhase_WriteCallback (ViSession vi,
                                                                    ViSession io,
@@ -5898,7 +5911,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFuncStartPhase_WriteCallback (ViSession vi,
                                                                    ViAttr attributeId,
                                                                    ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PHAS:ADJ %LeDEG", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PHAS:ADJ %LfDEG", value) );
 }
 
 static ViStatus _VI_FUNC tkafg1kAttrFuncStartPhase_ReadCallback (ViSession vi,
@@ -5977,7 +5990,7 @@ static ViStatus _VI_FUNC tkafg1kAttrPulseDutyCycle_WriteCallback (ViSession vi,
                                                                   ViAttr attributeId,
                                                                   ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PULS:DCYC %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PULS:DCYC %Lf", value) );
 }
 
 
@@ -6282,12 +6295,12 @@ static ViStatus _VI_FUNC tkafg1kAttrArbWaveformHandle_CheckCallback (ViSession v
                                                                       ViInt32 value)
 {
     ViStatus error = VI_SUCCESS;
-    ViBoolean wfmExists;
+ // ViBoolean wfmExists;
 
     checkErr( tkafg1k_VerifyOutputModeByChannel (vi, channelName, TKAFG1K_VAL_OUTPUT_ARB));
 
     checkErr( Ivi_DefaultCheckCallbackViInt32 (vi, channelName, attributeId, value) );
-
+	/*
     if(value != TKAFG1K_VAL_WFM_EMEM)
     {
         checkErr( tkafg1k_WfmExists (vi, value, &wfmExists) );
@@ -6321,7 +6334,7 @@ static ViStatus _VI_FUNC tkafg1kAttrArbWaveformHandle_CheckCallback (ViSession v
             viCheckErrElab( IVI_ERROR_INVALID_VALUE, errElab);
         }
     }
-
+	*/
 Error:
     return error;
 }
@@ -6424,7 +6437,7 @@ static ViStatus _VI_FUNC tkafg1kAttrArbSampleRate_ReadCallback (ViSession vi,
 {
     ViStatus error = VI_SUCCESS;
 	ViInt32  model;
-    checkErr( tkafg1k_VerifyOutputMode(vi, TKAFG1K_VAL_OUTPUT_ARB) );     
+  
 	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
 	if (model == TKAFG1K_VAL_MODEL_AFG1022)
 		*value = 125e6;
@@ -6638,7 +6651,7 @@ static ViStatus _VI_FUNC tkafg1kAttrBurstCount_ReadCallback (ViSession vi,
 
     if( (count < 1) || (count > 1000000) )
     {
-        viCheckErr ( viQueryf (io, "SOUR%s:BURS:NCYC?", "%Le", channelName, &largeCount) );
+        viCheckErr ( viQueryf (io, "SOUR%s:BURS:NCYC?", "%Lf", channelName, &largeCount) );
         if( fabs (largeCount/9.9e37 - 1) < 1.0e-5 )
         {
             *value = TKAFG1K_VAL_BURST_INFINITY;
@@ -6720,7 +6733,7 @@ static ViStatus _VI_FUNC tkafg1kAttrModulationEnabled_WriteCallback (ViSession v
                 modulationType =  TKAFG1K_VAL_MODULATION_PWM;
             }
             /*- If waveform is DC or Noise, Modulation is unsupported -*/
-            else if( waveform == TKAFG1K_VAL_WFM_PRN )
+            else if( waveform == TKAFG1K_VAL_WFM_PRN || waveform ==  TKAFG1K_VAL_WFM_DC)
             {
                 error = TKAFG1K_ERROR_COMBINATION_UNSUPPORTED;
                 viCheckErr (error);
@@ -6959,7 +6972,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAMDepthByChannel_WriteCallback (ViSession vi
                                                                     ViAttr attributeId,
                                                                     ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:AM:DEPT %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:AM:DEPT %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM -*/
@@ -7225,7 +7238,7 @@ static IviRangeTableEntry attrAMInternalWaveformRangeTableEntries[] =
 		{TKAFG1K_VAL_AM_INTERNAL_USER253, 0, 0, "USER253", 0},
 		{TKAFG1K_VAL_AM_INTERNAL_USER254, 0, 0, "USER254", 0},
 		{TKAFG1K_VAL_AM_INTERNAL_USER255, 0, 0, "USER255", 0},
-		{TKAFG1K_VAL_AM_INTERNAL_EMEM, 0, 0, "EMEM", 0},
+		{TKAFG1K_VAL_AM_INTERNAL_EMEM, 0, 0, "EMEMory", 0},
 		{IVI_RANGE_TABLE_LAST_ENTRY}
 	};
 static IviRangeTable attrAMInternalWaveformRangeTable =
@@ -7245,10 +7258,9 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveform_ReadCallback (ViSession v
                                                                       ViInt32  *value)
 {
     ViStatus error = VI_SUCCESS;
-    ViInt32 chan1Waveform;
 
-    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, &chan1Waveform ) );
-    *value = chan1Waveform;
+    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+
 Error:
     return error;
 }
@@ -7274,61 +7286,8 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveformByChannel_CheckCallback (V
                                                                                ViInt32 value)
 {
     ViStatus    error = VI_SUCCESS;
-    ViBoolean   wfmExists = VI_TRUE;
 
     checkErr( Ivi_DefaultCheckCallbackViInt32 (vi, channelName, attributeId, value) );
-    switch(value)
-    {
-        case TKAFG1K_VAL_AM_INTERNAL_USER1:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER1, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_AM_INTERNAL_USER2:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER2, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_AM_INTERNAL_USER3:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER3, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_AM_INTERNAL_USER4:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER4, &wfmExists) );
-            break;
-        }
-    }
-
-    if(wfmExists == VI_FALSE)
-    {
-        ViChar errElab[BUFFER_SIZE] = {0};
-        switch( value )
-        {
-            case TKAFG1K_VAL_AM_INTERNAL_USER1:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_AM_INTERNAL_USER1 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_AM_INTERNAL_USER2:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_AM_INTERNAL_USER2 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_AM_INTERNAL_USER3:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_AM_INTERNAL_USER3 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_AM_INTERNAL_USER4:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_AM_INTERNAL_USER4 does not exist.");
-                break;
-            }
-        }
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, errElab);
-    }
 
 Error:
     return error;
@@ -7402,7 +7361,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalFrequencyByChannel_WriteCallback (
                                                                                 ViAttr attributeId,
                                                                                 ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:AM:INT:FREQ %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:AM:INT:FREQ %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_FM_ENABLED -*/
@@ -7502,16 +7461,6 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalDeviation_CheckCallback (ViSession
                                                                         ViReal64 value)
 {
     ViStatus    error = VI_SUCCESS;
-    ViInt32     chan1Source, chan2Source;
-
-    checkErr ( Ivi_GetAttributeViInt32 (vi, CHAN1, TKAFG1K_ATTR_FM_SOURCE, 0, &chan1Source) );
-    checkErr ( Ivi_GetAttributeViInt32 (vi, CHAN2, TKAFG1K_ATTR_FM_SOURCE, 0, &chan2Source) );
-    if( (chan1Source != TKAFG1K_VAL_FM_INTERNAL) || (chan2Source != TKAFG1K_VAL_FM_INTERNAL) )
-    {
-        error = IVI_ERROR_INVALID_CONFIGURATION;
-        viCheckErr (error);
-    }
-
     checkErr ( Ivi_DefaultCheckCallbackViReal64 (vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_DEVIATION, value) );
 
 Error:
@@ -7526,10 +7475,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalDeviation_WriteCallback (ViSession
                                                                          ViReal64 value)
 {
     ViStatus error = VI_SUCCESS;
-
-    checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, value ) );
-
-    checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, value ) );
+    checkErr ( Ivi_SetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, value ) );
 
 Error:
     return error;
@@ -7543,21 +7489,9 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalDeviation_ReadCallback (ViSession 
                                                                          ViReal64 *value)
 {
     ViStatus error = VI_SUCCESS;
-    ViReal64    chan1Deviation, chan2Deviation;
 
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, &chan1Deviation ) );
+    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, value) );
 
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, &chan2Deviation ) );
-
-    if( fabs( chan1Deviation-chan2Deviation) > 1.0e-5 )
-    {
-        error = TKAFG1K_ERROR_CHANNELS_DIFFERENT;
-        viCheckErr (error);
-    }
-    else
-    {
-        *value = chan1Deviation;
-    }
 
 Error:
     return error;
@@ -7671,283 +7605,283 @@ static ViStatus _VI_FUNC tkafg1kAttrFMDeviationByChannel_WriteCallback (ViSessio
                                                                         ViAttr attributeId,
                                                                         ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FM:DEV %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FM:DEV %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM -*/
 static IviRangeTableEntry attrFMInternalWaveformRangeTableEntries[] =
-{
-        {TKAFG1K_VAL_FM_INTERNAL_SINE, 0, 0, "SIN", 0},
-        {TKAFG1K_VAL_FM_INTERNAL_SQUARE, 0, 0, "SQU", 0},
-        {TKAFG1K_VAL_FM_INTERNAL_RAMP_UP, 0, 0, "RAMP", 0},
-        {TKAFG1K_VAL_FM_INTERNAL_PRN, 0, 0, "PRN", 0},
-        {TKAFG1K_VAL_FM_INTERNAL_USER0, 0, 0, "USER0", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER1, 0, 0, "USER1", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER2, 0, 0, "USER2", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER3, 0, 0, "USER3", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER4, 0, 0, "USER4", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER5, 0, 0, "USER5", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER6, 0, 0, "USER6", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER7, 0, 0, "USER7", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER8, 0, 0, "USER8", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER9, 0, 0, "USER9", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER10, 0, 0, "USER10", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER11, 0, 0, "USER11", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER12, 0, 0, "USER12", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER13, 0, 0, "USER13", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER14, 0, 0, "USER14", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER15, 0, 0, "USER15", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER16, 0, 0, "USER16", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER17, 0, 0, "USER17", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER18, 0, 0, "USER18", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER19, 0, 0, "USER19", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER20, 0, 0, "USER20", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER21, 0, 0, "USER21", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER22, 0, 0, "USER22", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER23, 0, 0, "USER23", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER24, 0, 0, "USER24", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER25, 0, 0, "USER25", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER26, 0, 0, "USER26", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER27, 0, 0, "USER27", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER28, 0, 0, "USER28", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER29, 0, 0, "USER29", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER30, 0, 0, "USER30", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER31, 0, 0, "USER31", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER32, 0, 0, "USER32", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER33, 0, 0, "USER33", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER34, 0, 0, "USER34", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER35, 0, 0, "USER35", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER36, 0, 0, "USER36", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER37, 0, 0, "USER37", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER38, 0, 0, "USER38", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER39, 0, 0, "USER39", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER40, 0, 0, "USER40", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER41, 0, 0, "USER41", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER42, 0, 0, "USER42", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER43, 0, 0, "USER43", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER44, 0, 0, "USER44", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER45, 0, 0, "USER45", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER46, 0, 0, "USER46", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER47, 0, 0, "USER47", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER48, 0, 0, "USER48", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER49, 0, 0, "USER49", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER50, 0, 0, "USER50", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER51, 0, 0, "USER51", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER52, 0, 0, "USER52", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER53, 0, 0, "USER53", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER54, 0, 0, "USER54", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER55, 0, 0, "USER55", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER56, 0, 0, "USER56", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER57, 0, 0, "USER57", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER58, 0, 0, "USER58", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER59, 0, 0, "USER59", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER60, 0, 0, "USER60", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER61, 0, 0, "USER61", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER62, 0, 0, "USER62", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER63, 0, 0, "USER63", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER64, 0, 0, "USER64", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER65, 0, 0, "USER65", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER66, 0, 0, "USER66", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER67, 0, 0, "USER67", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER68, 0, 0, "USER68", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER69, 0, 0, "USER69", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER70, 0, 0, "USER70", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER71, 0, 0, "USER71", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER72, 0, 0, "USER72", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER73, 0, 0, "USER73", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER74, 0, 0, "USER74", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER75, 0, 0, "USER75", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER76, 0, 0, "USER76", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER77, 0, 0, "USER77", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER78, 0, 0, "USER78", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER79, 0, 0, "USER79", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER80, 0, 0, "USER80", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER81, 0, 0, "USER81", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER82, 0, 0, "USER82", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER83, 0, 0, "USER83", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER84, 0, 0, "USER84", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER85, 0, 0, "USER85", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER86, 0, 0, "USER86", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER87, 0, 0, "USER87", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER88, 0, 0, "USER88", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER89, 0, 0, "USER89", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER90, 0, 0, "USER90", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER91, 0, 0, "USER91", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER92, 0, 0, "USER92", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER93, 0, 0, "USER93", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER94, 0, 0, "USER94", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER95, 0, 0, "USER95", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER96, 0, 0, "USER96", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER97, 0, 0, "USER97", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER98, 0, 0, "USER98", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER99, 0, 0, "USER99", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER100, 0, 0, "USER100", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER101, 0, 0, "USER101", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER102, 0, 0, "USER102", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER103, 0, 0, "USER103", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER104, 0, 0, "USER104", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER105, 0, 0, "USER105", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER106, 0, 0, "USER106", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER107, 0, 0, "USER107", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER108, 0, 0, "USER108", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER109, 0, 0, "USER109", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER110, 0, 0, "USER110", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER111, 0, 0, "USER111", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER112, 0, 0, "USER112", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER113, 0, 0, "USER113", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER114, 0, 0, "USER114", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER115, 0, 0, "USER115", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER116, 0, 0, "USER116", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER117, 0, 0, "USER117", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER118, 0, 0, "USER118", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER119, 0, 0, "USER119", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER120, 0, 0, "USER120", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER121, 0, 0, "USER121", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER122, 0, 0, "USER122", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER123, 0, 0, "USER123", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER124, 0, 0, "USER124", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER125, 0, 0, "USER125", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER126, 0, 0, "USER126", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER127, 0, 0, "USER127", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER128, 0, 0, "USER128", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER129, 0, 0, "USER129", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER130, 0, 0, "USER130", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER131, 0, 0, "USER131", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER132, 0, 0, "USER132", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER133, 0, 0, "USER133", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER134, 0, 0, "USER134", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER135, 0, 0, "USER135", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER136, 0, 0, "USER136", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER137, 0, 0, "USER137", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER138, 0, 0, "USER138", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER139, 0, 0, "USER139", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER140, 0, 0, "USER140", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER141, 0, 0, "USER141", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER142, 0, 0, "USER142", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER143, 0, 0, "USER143", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER144, 0, 0, "USER144", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER145, 0, 0, "USER145", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER146, 0, 0, "USER146", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER147, 0, 0, "USER147", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER148, 0, 0, "USER148", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER149, 0, 0, "USER149", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER150, 0, 0, "USER150", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER151, 0, 0, "USER151", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER152, 0, 0, "USER152", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER153, 0, 0, "USER153", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER154, 0, 0, "USER154", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER155, 0, 0, "USER155", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER156, 0, 0, "USER156", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER157, 0, 0, "USER157", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER158, 0, 0, "USER158", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER159, 0, 0, "USER159", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER160, 0, 0, "USER160", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER161, 0, 0, "USER161", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER162, 0, 0, "USER162", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER163, 0, 0, "USER163", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER164, 0, 0, "USER164", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER165, 0, 0, "USER165", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER166, 0, 0, "USER166", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER167, 0, 0, "USER167", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER168, 0, 0, "USER168", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER169, 0, 0, "USER169", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER170, 0, 0, "USER170", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER171, 0, 0, "USER171", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER172, 0, 0, "USER172", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER173, 0, 0, "USER173", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER174, 0, 0, "USER174", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER175, 0, 0, "USER175", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER176, 0, 0, "USER176", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER177, 0, 0, "USER177", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER178, 0, 0, "USER178", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER179, 0, 0, "USER179", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER180, 0, 0, "USER180", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER181, 0, 0, "USER181", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER182, 0, 0, "USER182", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER183, 0, 0, "USER183", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER184, 0, 0, "USER184", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER185, 0, 0, "USER185", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER186, 0, 0, "USER186", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER187, 0, 0, "USER187", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER188, 0, 0, "USER188", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER189, 0, 0, "USER189", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER190, 0, 0, "USER190", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER191, 0, 0, "USER191", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER192, 0, 0, "USER192", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER193, 0, 0, "USER193", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER194, 0, 0, "USER194", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER195, 0, 0, "USER195", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER196, 0, 0, "USER196", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER197, 0, 0, "USER197", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER198, 0, 0, "USER198", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER199, 0, 0, "USER199", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER200, 0, 0, "USER200", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER201, 0, 0, "USER201", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER202, 0, 0, "USER202", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER203, 0, 0, "USER203", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER204, 0, 0, "USER204", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER205, 0, 0, "USER205", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER206, 0, 0, "USER206", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER207, 0, 0, "USER207", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER208, 0, 0, "USER208", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER209, 0, 0, "USER209", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER210, 0, 0, "USER210", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER211, 0, 0, "USER211", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER212, 0, 0, "USER212", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER213, 0, 0, "USER213", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER214, 0, 0, "USER214", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER215, 0, 0, "USER215", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER216, 0, 0, "USER216", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER217, 0, 0, "USER217", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER218, 0, 0, "USER218", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER219, 0, 0, "USER219", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER220, 0, 0, "USER220", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER221, 0, 0, "USER221", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER222, 0, 0, "USER222", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER223, 0, 0, "USER223", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER224, 0, 0, "USER224", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER225, 0, 0, "USER225", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER226, 0, 0, "USER226", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER227, 0, 0, "USER227", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER228, 0, 0, "USER228", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER229, 0, 0, "USER229", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER230, 0, 0, "USER230", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER231, 0, 0, "USER231", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER232, 0, 0, "USER232", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER233, 0, 0, "USER233", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER234, 0, 0, "USER234", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER235, 0, 0, "USER235", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER236, 0, 0, "USER236", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER237, 0, 0, "USER237", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER238, 0, 0, "USER238", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER239, 0, 0, "USER239", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER240, 0, 0, "USER240", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER241, 0, 0, "USER241", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER242, 0, 0, "USER242", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER243, 0, 0, "USER243", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER244, 0, 0, "USER244", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER245, 0, 0, "USER245", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER246, 0, 0, "USER246", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER247, 0, 0, "USER247", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER248, 0, 0, "USER248", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER249, 0, 0, "USER249", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER250, 0, 0, "USER250", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER251, 0, 0, "USER251", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER252, 0, 0, "USER252", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER253, 0, 0, "USER253", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER254, 0, 0, "USER254", 0}, 
-        {TKAFG1K_VAL_FM_INTERNAL_USER255, 0, 0, "USER255", 0}, 
-		{TKAFG1K_VAL_FM_INTERNAL_EMEM, 0, 0, "EMEM", 0},
-        {IVI_RANGE_TABLE_LAST_ENTRY}
-};
+	{
+		{TKAFG1K_VAL_FM_INTERNAL_SINE, 0, 0, "SIN", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_SQUARE, 0, 0, "SQU", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_RAMP_UP, 0, 0, "RAMP", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_PRN, 0, 0, "PRN", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER0, 0, 0, "USER0", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER1, 0, 0, "USER1", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER2, 0, 0, "USER2", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER3, 0, 0, "USER3", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER4, 0, 0, "USER4", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER5, 0, 0, "USER5", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER6, 0, 0, "USER6", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER7, 0, 0, "USER7", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER8, 0, 0, "USER8", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER9, 0, 0, "USER9", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER10, 0, 0, "USER10", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER11, 0, 0, "USER11", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER12, 0, 0, "USER12", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER13, 0, 0, "USER13", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER14, 0, 0, "USER14", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER15, 0, 0, "USER15", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER16, 0, 0, "USER16", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER17, 0, 0, "USER17", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER18, 0, 0, "USER18", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER19, 0, 0, "USER19", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER20, 0, 0, "USER20", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER21, 0, 0, "USER21", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER22, 0, 0, "USER22", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER23, 0, 0, "USER23", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER24, 0, 0, "USER24", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER25, 0, 0, "USER25", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER26, 0, 0, "USER26", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER27, 0, 0, "USER27", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER28, 0, 0, "USER28", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER29, 0, 0, "USER29", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER30, 0, 0, "USER30", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER31, 0, 0, "USER31", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER32, 0, 0, "USER32", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER33, 0, 0, "USER33", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER34, 0, 0, "USER34", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER35, 0, 0, "USER35", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER36, 0, 0, "USER36", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER37, 0, 0, "USER37", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER38, 0, 0, "USER38", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER39, 0, 0, "USER39", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER40, 0, 0, "USER40", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER41, 0, 0, "USER41", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER42, 0, 0, "USER42", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER43, 0, 0, "USER43", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER44, 0, 0, "USER44", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER45, 0, 0, "USER45", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER46, 0, 0, "USER46", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER47, 0, 0, "USER47", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER48, 0, 0, "USER48", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER49, 0, 0, "USER49", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER50, 0, 0, "USER50", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER51, 0, 0, "USER51", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER52, 0, 0, "USER52", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER53, 0, 0, "USER53", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER54, 0, 0, "USER54", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER55, 0, 0, "USER55", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER56, 0, 0, "USER56", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER57, 0, 0, "USER57", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER58, 0, 0, "USER58", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER59, 0, 0, "USER59", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER60, 0, 0, "USER60", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER61, 0, 0, "USER61", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER62, 0, 0, "USER62", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER63, 0, 0, "USER63", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER64, 0, 0, "USER64", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER65, 0, 0, "USER65", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER66, 0, 0, "USER66", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER67, 0, 0, "USER67", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER68, 0, 0, "USER68", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER69, 0, 0, "USER69", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER70, 0, 0, "USER70", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER71, 0, 0, "USER71", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER72, 0, 0, "USER72", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER73, 0, 0, "USER73", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER74, 0, 0, "USER74", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER75, 0, 0, "USER75", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER76, 0, 0, "USER76", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER77, 0, 0, "USER77", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER78, 0, 0, "USER78", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER79, 0, 0, "USER79", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER80, 0, 0, "USER80", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER81, 0, 0, "USER81", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER82, 0, 0, "USER82", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER83, 0, 0, "USER83", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER84, 0, 0, "USER84", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER85, 0, 0, "USER85", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER86, 0, 0, "USER86", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER87, 0, 0, "USER87", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER88, 0, 0, "USER88", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER89, 0, 0, "USER89", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER90, 0, 0, "USER90", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER91, 0, 0, "USER91", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER92, 0, 0, "USER92", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER93, 0, 0, "USER93", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER94, 0, 0, "USER94", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER95, 0, 0, "USER95", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER96, 0, 0, "USER96", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER97, 0, 0, "USER97", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER98, 0, 0, "USER98", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER99, 0, 0, "USER99", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER100, 0, 0, "USER100", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER101, 0, 0, "USER101", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER102, 0, 0, "USER102", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER103, 0, 0, "USER103", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER104, 0, 0, "USER104", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER105, 0, 0, "USER105", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER106, 0, 0, "USER106", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER107, 0, 0, "USER107", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER108, 0, 0, "USER108", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER109, 0, 0, "USER109", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER110, 0, 0, "USER110", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER111, 0, 0, "USER111", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER112, 0, 0, "USER112", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER113, 0, 0, "USER113", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER114, 0, 0, "USER114", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER115, 0, 0, "USER115", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER116, 0, 0, "USER116", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER117, 0, 0, "USER117", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER118, 0, 0, "USER118", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER119, 0, 0, "USER119", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER120, 0, 0, "USER120", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER121, 0, 0, "USER121", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER122, 0, 0, "USER122", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER123, 0, 0, "USER123", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER124, 0, 0, "USER124", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER125, 0, 0, "USER125", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER126, 0, 0, "USER126", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER127, 0, 0, "USER127", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER128, 0, 0, "USER128", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER129, 0, 0, "USER129", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER130, 0, 0, "USER130", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER131, 0, 0, "USER131", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER132, 0, 0, "USER132", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER133, 0, 0, "USER133", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER134, 0, 0, "USER134", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER135, 0, 0, "USER135", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER136, 0, 0, "USER136", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER137, 0, 0, "USER137", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER138, 0, 0, "USER138", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER139, 0, 0, "USER139", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER140, 0, 0, "USER140", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER141, 0, 0, "USER141", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER142, 0, 0, "USER142", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER143, 0, 0, "USER143", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER144, 0, 0, "USER144", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER145, 0, 0, "USER145", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER146, 0, 0, "USER146", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER147, 0, 0, "USER147", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER148, 0, 0, "USER148", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER149, 0, 0, "USER149", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER150, 0, 0, "USER150", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER151, 0, 0, "USER151", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER152, 0, 0, "USER152", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER153, 0, 0, "USER153", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER154, 0, 0, "USER154", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER155, 0, 0, "USER155", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER156, 0, 0, "USER156", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER157, 0, 0, "USER157", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER158, 0, 0, "USER158", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER159, 0, 0, "USER159", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER160, 0, 0, "USER160", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER161, 0, 0, "USER161", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER162, 0, 0, "USER162", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER163, 0, 0, "USER163", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER164, 0, 0, "USER164", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER165, 0, 0, "USER165", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER166, 0, 0, "USER166", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER167, 0, 0, "USER167", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER168, 0, 0, "USER168", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER169, 0, 0, "USER169", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER170, 0, 0, "USER170", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER171, 0, 0, "USER171", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER172, 0, 0, "USER172", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER173, 0, 0, "USER173", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER174, 0, 0, "USER174", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER175, 0, 0, "USER175", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER176, 0, 0, "USER176", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER177, 0, 0, "USER177", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER178, 0, 0, "USER178", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER179, 0, 0, "USER179", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER180, 0, 0, "USER180", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER181, 0, 0, "USER181", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER182, 0, 0, "USER182", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER183, 0, 0, "USER183", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER184, 0, 0, "USER184", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER185, 0, 0, "USER185", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER186, 0, 0, "USER186", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER187, 0, 0, "USER187", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER188, 0, 0, "USER188", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER189, 0, 0, "USER189", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER190, 0, 0, "USER190", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER191, 0, 0, "USER191", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER192, 0, 0, "USER192", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER193, 0, 0, "USER193", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER194, 0, 0, "USER194", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER195, 0, 0, "USER195", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER196, 0, 0, "USER196", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER197, 0, 0, "USER197", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER198, 0, 0, "USER198", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER199, 0, 0, "USER199", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER200, 0, 0, "USER200", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER201, 0, 0, "USER201", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER202, 0, 0, "USER202", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER203, 0, 0, "USER203", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER204, 0, 0, "USER204", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER205, 0, 0, "USER205", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER206, 0, 0, "USER206", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER207, 0, 0, "USER207", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER208, 0, 0, "USER208", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER209, 0, 0, "USER209", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER210, 0, 0, "USER210", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER211, 0, 0, "USER211", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER212, 0, 0, "USER212", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER213, 0, 0, "USER213", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER214, 0, 0, "USER214", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER215, 0, 0, "USER215", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER216, 0, 0, "USER216", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER217, 0, 0, "USER217", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER218, 0, 0, "USER218", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER219, 0, 0, "USER219", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER220, 0, 0, "USER220", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER221, 0, 0, "USER221", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER222, 0, 0, "USER222", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER223, 0, 0, "USER223", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER224, 0, 0, "USER224", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER225, 0, 0, "USER225", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER226, 0, 0, "USER226", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER227, 0, 0, "USER227", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER228, 0, 0, "USER228", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER229, 0, 0, "USER229", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER230, 0, 0, "USER230", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER231, 0, 0, "USER231", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER232, 0, 0, "USER232", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER233, 0, 0, "USER233", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER234, 0, 0, "USER234", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER235, 0, 0, "USER235", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER236, 0, 0, "USER236", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER237, 0, 0, "USER237", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER238, 0, 0, "USER238", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER239, 0, 0, "USER239", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER240, 0, 0, "USER240", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER241, 0, 0, "USER241", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER242, 0, 0, "USER242", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER243, 0, 0, "USER243", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER244, 0, 0, "USER244", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER245, 0, 0, "USER245", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER246, 0, 0, "USER246", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER247, 0, 0, "USER247", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER248, 0, 0, "USER248", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER249, 0, 0, "USER249", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER250, 0, 0, "USER250", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER251, 0, 0, "USER251", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER252, 0, 0, "USER252", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER253, 0, 0, "USER253", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER254, 0, 0, "USER254", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_USER255, 0, 0, "USER255", 0},
+		{TKAFG1K_VAL_FM_INTERNAL_EMEM, 0, 0, "EMEMory", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
 static IviRangeTable attrFMInternalWaveformRangeTable =
-{
-        IVI_VAL_DISCRETE,
+	{
+		IVI_VAL_DISCRETE,
         VI_FALSE,
         VI_FALSE,
         VI_NULL,
         attrFMInternalWaveformRangeTableEntries,
-};
+	};
 
 static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveform_WriteCallback (ViSession vi,
                                                                        ViSession io,
@@ -7977,61 +7911,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveformByChannel_CheckCallback (V
                                                                                ViInt32 value)
 {
     ViStatus    error = VI_SUCCESS;
-    ViBoolean   wfmExists = VI_TRUE;
-
     checkErr( Ivi_DefaultCheckCallbackViInt32 (vi, channelName, attributeId, value) );
-    switch(value)
-    {
-        case TKAFG1K_VAL_FM_INTERNAL_USER1:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER1, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_FM_INTERNAL_USER2:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER2, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_FM_INTERNAL_USER3:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER3, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_FM_INTERNAL_USER4:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER4, &wfmExists) );
-            break;
-        }
-    }
-
-    if(wfmExists == VI_FALSE)
-    {
-        ViChar errElab[BUFFER_SIZE] = {0};
-        switch( value )
-        {
-            case TKAFG1K_VAL_FM_INTERNAL_USER1:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_FM_INTERNAL_USER1 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_FM_INTERNAL_USER2:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_FM_INTERNAL_USER2 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_FM_INTERNAL_USER3:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_FM_INTERNAL_USER3 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_FM_INTERNAL_USER4:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_FM_INTERNAL_USER4 does not exist.");
-                break;
-            }
-        }
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, errElab);
-    }
 
 Error:
     return error;
@@ -8105,7 +7985,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequencyByChannel_WriteCallback (
                                                                                 ViAttr attributeId,
                                                                                 ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FM:INT:FREQ %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FM:INT:FREQ %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_FSK_ENABLED -*/
@@ -8178,7 +8058,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFSKHopFrequency_WriteCallback (ViSession vi,
                                                                    ViAttr attributeId,
                                                                    ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FSK:FREQ %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FSK:FREQ %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_FSK_INTERNAL_RATE -*/
@@ -8211,7 +8091,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFSKInternalRate_WriteCallback (ViSession vi,
                                                                    ViAttr attributeId,
                                                                    ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FSK:INT:RATE %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FSK:INT:RATE %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_FSK_SOURCE -*/
@@ -8375,7 +8255,7 @@ static ViStatus _VI_FUNC tkafg1kAttrPMDeviationByChannel_WriteCallback (ViSessio
                                                                         ViAttr attributeId,
                                                                         ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PM:DEV %LeDEG", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PM:DEV %LfDEG", value) );
 }
 
 /*- TKAFG1K_ATTR_PM_INTERNAL_FREQUENCY_BY_CHANNEL -*/
@@ -8409,7 +8289,7 @@ static ViStatus _VI_FUNC tkafg1kAttrPMInternalFrequencyByChannel_WriteCallback (
                                                                                 ViAttr attributeId,
                                                                                 ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PM:INT:FREQ %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PM:INT:FREQ %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_PM_INTERNAL_WAVEFORM_BY_CHANNEL -*/
@@ -8419,263 +8299,263 @@ static IviRangeTableEntry attrPMInternalWaveformRangeTableEntries[] =
 		{TKAFG1K_VAL_PM_INTERNAL_SQUARE, 0, 0, "SQU", 0},
 		{TKAFG1K_VAL_PM_INTERNAL_RAMP_UP, 0, 0, "RAMP", 0},
 		{TKAFG1K_VAL_PM_INTERNAL_PRN, 0, 0, "PRN", 0},
-		{TKAFG1K_VAL_PM_INTERNAL_USER0, 0, 0, "USER0", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER1, 0, 0, "USER1", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER2, 0, 0, "USER2", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER3, 0, 0, "USER3", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER4, 0, 0, "USER4", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER5, 0, 0, "USER5", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER6, 0, 0, "USER6", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER7, 0, 0, "USER7", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER8, 0, 0, "USER8", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER9, 0, 0, "USER9", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER10, 0, 0, "USER10", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER11, 0, 0, "USER11", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER12, 0, 0, "USER12", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER13, 0, 0, "USER13", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER14, 0, 0, "USER14", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER15, 0, 0, "USER15", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER16, 0, 0, "USER16", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER17, 0, 0, "USER17", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER18, 0, 0, "USER18", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER19, 0, 0, "USER19", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER20, 0, 0, "USER20", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER21, 0, 0, "USER21", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER22, 0, 0, "USER22", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER23, 0, 0, "USER23", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER24, 0, 0, "USER24", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER25, 0, 0, "USER25", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER26, 0, 0, "USER26", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER27, 0, 0, "USER27", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER28, 0, 0, "USER28", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER29, 0, 0, "USER29", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER30, 0, 0, "USER30", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER31, 0, 0, "USER31", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER32, 0, 0, "USER32", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER33, 0, 0, "USER33", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER34, 0, 0, "USER34", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER35, 0, 0, "USER35", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER36, 0, 0, "USER36", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER37, 0, 0, "USER37", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER38, 0, 0, "USER38", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER39, 0, 0, "USER39", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER40, 0, 0, "USER40", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER41, 0, 0, "USER41", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER42, 0, 0, "USER42", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER43, 0, 0, "USER43", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER44, 0, 0, "USER44", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER45, 0, 0, "USER45", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER46, 0, 0, "USER46", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER47, 0, 0, "USER47", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER48, 0, 0, "USER48", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER49, 0, 0, "USER49", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER50, 0, 0, "USER50", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER51, 0, 0, "USER51", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER52, 0, 0, "USER52", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER53, 0, 0, "USER53", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER54, 0, 0, "USER54", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER55, 0, 0, "USER55", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER56, 0, 0, "USER56", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER57, 0, 0, "USER57", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER58, 0, 0, "USER58", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER59, 0, 0, "USER59", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER60, 0, 0, "USER60", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER61, 0, 0, "USER61", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER62, 0, 0, "USER62", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER63, 0, 0, "USER63", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER64, 0, 0, "USER64", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER65, 0, 0, "USER65", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER66, 0, 0, "USER66", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER67, 0, 0, "USER67", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER68, 0, 0, "USER68", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER69, 0, 0, "USER69", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER70, 0, 0, "USER70", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER71, 0, 0, "USER71", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER72, 0, 0, "USER72", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER73, 0, 0, "USER73", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER74, 0, 0, "USER74", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER75, 0, 0, "USER75", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER76, 0, 0, "USER76", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER77, 0, 0, "USER77", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER78, 0, 0, "USER78", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER79, 0, 0, "USER79", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER80, 0, 0, "USER80", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER81, 0, 0, "USER81", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER82, 0, 0, "USER82", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER83, 0, 0, "USER83", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER84, 0, 0, "USER84", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER85, 0, 0, "USER85", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER86, 0, 0, "USER86", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER87, 0, 0, "USER87", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER88, 0, 0, "USER88", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER89, 0, 0, "USER89", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER90, 0, 0, "USER90", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER91, 0, 0, "USER91", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER92, 0, 0, "USER92", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER93, 0, 0, "USER93", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER94, 0, 0, "USER94", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER95, 0, 0, "USER95", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER96, 0, 0, "USER96", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER97, 0, 0, "USER97", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER98, 0, 0, "USER98", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER99, 0, 0, "USER99", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER100, 0, 0, "USER100", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER101, 0, 0, "USER101", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER102, 0, 0, "USER102", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER103, 0, 0, "USER103", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER104, 0, 0, "USER104", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER105, 0, 0, "USER105", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER106, 0, 0, "USER106", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER107, 0, 0, "USER107", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER108, 0, 0, "USER108", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER109, 0, 0, "USER109", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER110, 0, 0, "USER110", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER111, 0, 0, "USER111", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER112, 0, 0, "USER112", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER113, 0, 0, "USER113", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER114, 0, 0, "USER114", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER115, 0, 0, "USER115", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER116, 0, 0, "USER116", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER117, 0, 0, "USER117", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER118, 0, 0, "USER118", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER119, 0, 0, "USER119", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER120, 0, 0, "USER120", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER121, 0, 0, "USER121", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER122, 0, 0, "USER122", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER123, 0, 0, "USER123", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER124, 0, 0, "USER124", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER125, 0, 0, "USER125", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER126, 0, 0, "USER126", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER127, 0, 0, "USER127", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER128, 0, 0, "USER128", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER129, 0, 0, "USER129", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER130, 0, 0, "USER130", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER131, 0, 0, "USER131", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER132, 0, 0, "USER132", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER133, 0, 0, "USER133", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER134, 0, 0, "USER134", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER135, 0, 0, "USER135", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER136, 0, 0, "USER136", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER137, 0, 0, "USER137", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER138, 0, 0, "USER138", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER139, 0, 0, "USER139", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER140, 0, 0, "USER140", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER141, 0, 0, "USER141", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER142, 0, 0, "USER142", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER143, 0, 0, "USER143", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER144, 0, 0, "USER144", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER145, 0, 0, "USER145", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER146, 0, 0, "USER146", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER147, 0, 0, "USER147", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER148, 0, 0, "USER148", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER149, 0, 0, "USER149", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER150, 0, 0, "USER150", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER151, 0, 0, "USER151", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER152, 0, 0, "USER152", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER153, 0, 0, "USER153", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER154, 0, 0, "USER154", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER155, 0, 0, "USER155", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER156, 0, 0, "USER156", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER157, 0, 0, "USER157", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER158, 0, 0, "USER158", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER159, 0, 0, "USER159", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER160, 0, 0, "USER160", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER161, 0, 0, "USER161", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER162, 0, 0, "USER162", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER163, 0, 0, "USER163", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER164, 0, 0, "USER164", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER165, 0, 0, "USER165", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER166, 0, 0, "USER166", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER167, 0, 0, "USER167", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER168, 0, 0, "USER168", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER169, 0, 0, "USER169", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER170, 0, 0, "USER170", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER171, 0, 0, "USER171", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER172, 0, 0, "USER172", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER173, 0, 0, "USER173", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER174, 0, 0, "USER174", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER175, 0, 0, "USER175", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER176, 0, 0, "USER176", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER177, 0, 0, "USER177", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER178, 0, 0, "USER178", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER179, 0, 0, "USER179", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER180, 0, 0, "USER180", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER181, 0, 0, "USER181", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER182, 0, 0, "USER182", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER183, 0, 0, "USER183", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER184, 0, 0, "USER184", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER185, 0, 0, "USER185", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER186, 0, 0, "USER186", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER187, 0, 0, "USER187", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER188, 0, 0, "USER188", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER189, 0, 0, "USER189", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER190, 0, 0, "USER190", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER191, 0, 0, "USER191", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER192, 0, 0, "USER192", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER193, 0, 0, "USER193", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER194, 0, 0, "USER194", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER195, 0, 0, "USER195", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER196, 0, 0, "USER196", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER197, 0, 0, "USER197", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER198, 0, 0, "USER198", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER199, 0, 0, "USER199", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER200, 0, 0, "USER200", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER201, 0, 0, "USER201", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER202, 0, 0, "USER202", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER203, 0, 0, "USER203", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER204, 0, 0, "USER204", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER205, 0, 0, "USER205", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER206, 0, 0, "USER206", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER207, 0, 0, "USER207", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER208, 0, 0, "USER208", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER209, 0, 0, "USER209", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER210, 0, 0, "USER210", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER211, 0, 0, "USER211", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER212, 0, 0, "USER212", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER213, 0, 0, "USER213", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER214, 0, 0, "USER214", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER215, 0, 0, "USER215", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER216, 0, 0, "USER216", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER217, 0, 0, "USER217", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER218, 0, 0, "USER218", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER219, 0, 0, "USER219", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER220, 0, 0, "USER220", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER221, 0, 0, "USER221", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER222, 0, 0, "USER222", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER223, 0, 0, "USER223", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER224, 0, 0, "USER224", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER225, 0, 0, "USER225", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER226, 0, 0, "USER226", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER227, 0, 0, "USER227", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER228, 0, 0, "USER228", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER229, 0, 0, "USER229", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER230, 0, 0, "USER230", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER231, 0, 0, "USER231", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER232, 0, 0, "USER232", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER233, 0, 0, "USER233", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER234, 0, 0, "USER234", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER235, 0, 0, "USER235", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER236, 0, 0, "USER236", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER237, 0, 0, "USER237", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER238, 0, 0, "USER238", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER239, 0, 0, "USER239", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER240, 0, 0, "USER240", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER241, 0, 0, "USER241", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER242, 0, 0, "USER242", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER243, 0, 0, "USER243", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER244, 0, 0, "USER244", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER245, 0, 0, "USER245", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER246, 0, 0, "USER246", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER247, 0, 0, "USER247", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER248, 0, 0, "USER248", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER249, 0, 0, "USER249", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER250, 0, 0, "USER250", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER251, 0, 0, "USER251", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER252, 0, 0, "USER252", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER253, 0, 0, "USER253", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER254, 0, 0, "USER254", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_USER255, 0, 0, "USER255", 0}, 
-		{TKAFG1K_VAL_PM_INTERNAL_EMEM, 0, 0, "EMEM", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER0, 0, 0, "USER0", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER1, 0, 0, "USER1", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER2, 0, 0, "USER2", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER3, 0, 0, "USER3", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER4, 0, 0, "USER4", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER5, 0, 0, "USER5", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER6, 0, 0, "USER6", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER7, 0, 0, "USER7", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER8, 0, 0, "USER8", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER9, 0, 0, "USER9", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER10, 0, 0, "USER10", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER11, 0, 0, "USER11", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER12, 0, 0, "USER12", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER13, 0, 0, "USER13", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER14, 0, 0, "USER14", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER15, 0, 0, "USER15", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER16, 0, 0, "USER16", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER17, 0, 0, "USER17", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER18, 0, 0, "USER18", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER19, 0, 0, "USER19", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER20, 0, 0, "USER20", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER21, 0, 0, "USER21", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER22, 0, 0, "USER22", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER23, 0, 0, "USER23", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER24, 0, 0, "USER24", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER25, 0, 0, "USER25", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER26, 0, 0, "USER26", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER27, 0, 0, "USER27", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER28, 0, 0, "USER28", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER29, 0, 0, "USER29", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER30, 0, 0, "USER30", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER31, 0, 0, "USER31", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER32, 0, 0, "USER32", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER33, 0, 0, "USER33", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER34, 0, 0, "USER34", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER35, 0, 0, "USER35", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER36, 0, 0, "USER36", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER37, 0, 0, "USER37", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER38, 0, 0, "USER38", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER39, 0, 0, "USER39", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER40, 0, 0, "USER40", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER41, 0, 0, "USER41", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER42, 0, 0, "USER42", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER43, 0, 0, "USER43", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER44, 0, 0, "USER44", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER45, 0, 0, "USER45", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER46, 0, 0, "USER46", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER47, 0, 0, "USER47", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER48, 0, 0, "USER48", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER49, 0, 0, "USER49", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER50, 0, 0, "USER50", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER51, 0, 0, "USER51", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER52, 0, 0, "USER52", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER53, 0, 0, "USER53", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER54, 0, 0, "USER54", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER55, 0, 0, "USER55", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER56, 0, 0, "USER56", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER57, 0, 0, "USER57", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER58, 0, 0, "USER58", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER59, 0, 0, "USER59", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER60, 0, 0, "USER60", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER61, 0, 0, "USER61", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER62, 0, 0, "USER62", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER63, 0, 0, "USER63", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER64, 0, 0, "USER64", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER65, 0, 0, "USER65", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER66, 0, 0, "USER66", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER67, 0, 0, "USER67", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER68, 0, 0, "USER68", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER69, 0, 0, "USER69", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER70, 0, 0, "USER70", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER71, 0, 0, "USER71", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER72, 0, 0, "USER72", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER73, 0, 0, "USER73", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER74, 0, 0, "USER74", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER75, 0, 0, "USER75", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER76, 0, 0, "USER76", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER77, 0, 0, "USER77", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER78, 0, 0, "USER78", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER79, 0, 0, "USER79", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER80, 0, 0, "USER80", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER81, 0, 0, "USER81", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER82, 0, 0, "USER82", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER83, 0, 0, "USER83", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER84, 0, 0, "USER84", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER85, 0, 0, "USER85", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER86, 0, 0, "USER86", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER87, 0, 0, "USER87", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER88, 0, 0, "USER88", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER89, 0, 0, "USER89", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER90, 0, 0, "USER90", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER91, 0, 0, "USER91", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER92, 0, 0, "USER92", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER93, 0, 0, "USER93", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER94, 0, 0, "USER94", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER95, 0, 0, "USER95", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER96, 0, 0, "USER96", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER97, 0, 0, "USER97", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER98, 0, 0, "USER98", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER99, 0, 0, "USER99", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER100, 0, 0, "USER100", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER101, 0, 0, "USER101", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER102, 0, 0, "USER102", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER103, 0, 0, "USER103", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER104, 0, 0, "USER104", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER105, 0, 0, "USER105", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER106, 0, 0, "USER106", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER107, 0, 0, "USER107", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER108, 0, 0, "USER108", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER109, 0, 0, "USER109", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER110, 0, 0, "USER110", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER111, 0, 0, "USER111", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER112, 0, 0, "USER112", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER113, 0, 0, "USER113", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER114, 0, 0, "USER114", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER115, 0, 0, "USER115", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER116, 0, 0, "USER116", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER117, 0, 0, "USER117", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER118, 0, 0, "USER118", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER119, 0, 0, "USER119", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER120, 0, 0, "USER120", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER121, 0, 0, "USER121", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER122, 0, 0, "USER122", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER123, 0, 0, "USER123", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER124, 0, 0, "USER124", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER125, 0, 0, "USER125", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER126, 0, 0, "USER126", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER127, 0, 0, "USER127", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER128, 0, 0, "USER128", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER129, 0, 0, "USER129", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER130, 0, 0, "USER130", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER131, 0, 0, "USER131", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER132, 0, 0, "USER132", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER133, 0, 0, "USER133", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER134, 0, 0, "USER134", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER135, 0, 0, "USER135", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER136, 0, 0, "USER136", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER137, 0, 0, "USER137", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER138, 0, 0, "USER138", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER139, 0, 0, "USER139", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER140, 0, 0, "USER140", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER141, 0, 0, "USER141", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER142, 0, 0, "USER142", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER143, 0, 0, "USER143", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER144, 0, 0, "USER144", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER145, 0, 0, "USER145", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER146, 0, 0, "USER146", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER147, 0, 0, "USER147", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER148, 0, 0, "USER148", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER149, 0, 0, "USER149", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER150, 0, 0, "USER150", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER151, 0, 0, "USER151", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER152, 0, 0, "USER152", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER153, 0, 0, "USER153", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER154, 0, 0, "USER154", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER155, 0, 0, "USER155", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER156, 0, 0, "USER156", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER157, 0, 0, "USER157", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER158, 0, 0, "USER158", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER159, 0, 0, "USER159", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER160, 0, 0, "USER160", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER161, 0, 0, "USER161", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER162, 0, 0, "USER162", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER163, 0, 0, "USER163", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER164, 0, 0, "USER164", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER165, 0, 0, "USER165", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER166, 0, 0, "USER166", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER167, 0, 0, "USER167", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER168, 0, 0, "USER168", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER169, 0, 0, "USER169", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER170, 0, 0, "USER170", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER171, 0, 0, "USER171", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER172, 0, 0, "USER172", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER173, 0, 0, "USER173", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER174, 0, 0, "USER174", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER175, 0, 0, "USER175", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER176, 0, 0, "USER176", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER177, 0, 0, "USER177", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER178, 0, 0, "USER178", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER179, 0, 0, "USER179", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER180, 0, 0, "USER180", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER181, 0, 0, "USER181", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER182, 0, 0, "USER182", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER183, 0, 0, "USER183", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER184, 0, 0, "USER184", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER185, 0, 0, "USER185", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER186, 0, 0, "USER186", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER187, 0, 0, "USER187", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER188, 0, 0, "USER188", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER189, 0, 0, "USER189", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER190, 0, 0, "USER190", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER191, 0, 0, "USER191", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER192, 0, 0, "USER192", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER193, 0, 0, "USER193", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER194, 0, 0, "USER194", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER195, 0, 0, "USER195", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER196, 0, 0, "USER196", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER197, 0, 0, "USER197", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER198, 0, 0, "USER198", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER199, 0, 0, "USER199", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER200, 0, 0, "USER200", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER201, 0, 0, "USER201", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER202, 0, 0, "USER202", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER203, 0, 0, "USER203", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER204, 0, 0, "USER204", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER205, 0, 0, "USER205", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER206, 0, 0, "USER206", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER207, 0, 0, "USER207", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER208, 0, 0, "USER208", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER209, 0, 0, "USER209", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER210, 0, 0, "USER210", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER211, 0, 0, "USER211", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER212, 0, 0, "USER212", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER213, 0, 0, "USER213", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER214, 0, 0, "USER214", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER215, 0, 0, "USER215", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER216, 0, 0, "USER216", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER217, 0, 0, "USER217", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER218, 0, 0, "USER218", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER219, 0, 0, "USER219", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER220, 0, 0, "USER220", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER221, 0, 0, "USER221", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER222, 0, 0, "USER222", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER223, 0, 0, "USER223", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER224, 0, 0, "USER224", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER225, 0, 0, "USER225", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER226, 0, 0, "USER226", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER227, 0, 0, "USER227", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER228, 0, 0, "USER228", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER229, 0, 0, "USER229", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER230, 0, 0, "USER230", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER231, 0, 0, "USER231", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER232, 0, 0, "USER232", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER233, 0, 0, "USER233", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER234, 0, 0, "USER234", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER235, 0, 0, "USER235", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER236, 0, 0, "USER236", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER237, 0, 0, "USER237", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER238, 0, 0, "USER238", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER239, 0, 0, "USER239", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER240, 0, 0, "USER240", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER241, 0, 0, "USER241", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER242, 0, 0, "USER242", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER243, 0, 0, "USER243", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER244, 0, 0, "USER244", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER245, 0, 0, "USER245", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER246, 0, 0, "USER246", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER247, 0, 0, "USER247", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER248, 0, 0, "USER248", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER249, 0, 0, "USER249", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER250, 0, 0, "USER250", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER251, 0, 0, "USER251", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER252, 0, 0, "USER252", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER253, 0, 0, "USER253", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER254, 0, 0, "USER254", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_USER255, 0, 0, "USER255", 0},
+		{TKAFG1K_VAL_PM_INTERNAL_EMEM, 0, 0, "EMEMory", 0},
 		{IVI_RANGE_TABLE_LAST_ENTRY}
 	};
 static IviRangeTable attrPMInternalWaveformRangeTable =
@@ -8693,62 +8573,8 @@ static ViStatus _VI_FUNC tkafg1kAttrPMInternalWaveformByChannel_CheckCallback (V
                                                                                ViInt32 value)
 {
     ViStatus    error = VI_SUCCESS;
-    ViBoolean   wfmExists = VI_TRUE;
 
     checkErr( Ivi_DefaultCheckCallbackViInt32 (vi, channelName, attributeId, value) );
-    switch(value)
-    {
-        case TKAFG1K_VAL_PM_INTERNAL_USER1:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER1, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_PM_INTERNAL_USER2:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER2, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_PM_INTERNAL_USER3:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER3, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_PM_INTERNAL_USER4:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER4, &wfmExists) );
-            break;
-        }
-    }
-
-    if(wfmExists == VI_FALSE)
-    {
-        ViChar errElab[BUFFER_SIZE] = {0};
-        switch( value )
-        {
-            case TKAFG1K_VAL_PM_INTERNAL_USER1:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_PM_INTERNAL_USER1 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_PM_INTERNAL_USER2:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_PM_INTERNAL_USER2 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_PM_INTERNAL_USER3:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_PM_INTERNAL_USER3 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_PM_INTERNAL_USER4:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_PM_INTERNAL_USER4 does not exist.");
-                break;
-            }
-        }
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, errElab);
-    }
-
 Error:
     return error;
 }
@@ -8904,7 +8730,7 @@ static ViStatus _VI_FUNC tkafg1kAttrPWMInternalFrequency_WriteCallback (ViSessio
                                                                         ViAttr attributeId,
                                                                         ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PWM:INT:FREQ %Le", value) );
+    return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PWM:INT:FREQ %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_PWM_INTERNAL_WAVEFORM -*/
@@ -8914,263 +8740,263 @@ static IviRangeTableEntry attrPWMInternalWaveformRangeTableEntries[] =
 		{TKAFG1K_VAL_PWM_INTERNAL_SQUARE, 0, 0, "SQU", 0},
 		{TKAFG1K_VAL_PWM_INTERNAL_RAMP_UP, 0, 0, "RAMP", 0},
 		{TKAFG1K_VAL_PWM_INTERNAL_PRN, 0, 0, "PRN", 0},
-		{TKAFG1K_VAL_PWM_INTERNAL_USER0, 0, 0, "USER0", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER1, 0, 0, "USER1", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER2, 0, 0, "USER2", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER3, 0, 0, "USER3", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER4, 0, 0, "USER4", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER5, 0, 0, "USER5", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER6, 0, 0, "USER6", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER7, 0, 0, "USER7", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER8, 0, 0, "USER8", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER9, 0, 0, "USER9", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER10, 0, 0, "USER10", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER11, 0, 0, "USER11", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER12, 0, 0, "USER12", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER13, 0, 0, "USER13", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER14, 0, 0, "USER14", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER15, 0, 0, "USER15", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER16, 0, 0, "USER16", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER17, 0, 0, "USER17", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER18, 0, 0, "USER18", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER19, 0, 0, "USER19", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER20, 0, 0, "USER20", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER21, 0, 0, "USER21", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER22, 0, 0, "USER22", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER23, 0, 0, "USER23", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER24, 0, 0, "USER24", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER25, 0, 0, "USER25", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER26, 0, 0, "USER26", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER27, 0, 0, "USER27", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER28, 0, 0, "USER28", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER29, 0, 0, "USER29", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER30, 0, 0, "USER30", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER31, 0, 0, "USER31", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER32, 0, 0, "USER32", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER33, 0, 0, "USER33", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER34, 0, 0, "USER34", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER35, 0, 0, "USER35", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER36, 0, 0, "USER36", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER37, 0, 0, "USER37", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER38, 0, 0, "USER38", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER39, 0, 0, "USER39", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER40, 0, 0, "USER40", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER41, 0, 0, "USER41", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER42, 0, 0, "USER42", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER43, 0, 0, "USER43", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER44, 0, 0, "USER44", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER45, 0, 0, "USER45", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER46, 0, 0, "USER46", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER47, 0, 0, "USER47", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER48, 0, 0, "USER48", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER49, 0, 0, "USER49", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER50, 0, 0, "USER50", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER51, 0, 0, "USER51", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER52, 0, 0, "USER52", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER53, 0, 0, "USER53", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER54, 0, 0, "USER54", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER55, 0, 0, "USER55", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER56, 0, 0, "USER56", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER57, 0, 0, "USER57", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER58, 0, 0, "USER58", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER59, 0, 0, "USER59", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER60, 0, 0, "USER60", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER61, 0, 0, "USER61", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER62, 0, 0, "USER62", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER63, 0, 0, "USER63", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER64, 0, 0, "USER64", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER65, 0, 0, "USER65", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER66, 0, 0, "USER66", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER67, 0, 0, "USER67", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER68, 0, 0, "USER68", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER69, 0, 0, "USER69", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER70, 0, 0, "USER70", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER71, 0, 0, "USER71", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER72, 0, 0, "USER72", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER73, 0, 0, "USER73", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER74, 0, 0, "USER74", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER75, 0, 0, "USER75", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER76, 0, 0, "USER76", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER77, 0, 0, "USER77", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER78, 0, 0, "USER78", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER79, 0, 0, "USER79", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER80, 0, 0, "USER80", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER81, 0, 0, "USER81", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER82, 0, 0, "USER82", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER83, 0, 0, "USER83", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER84, 0, 0, "USER84", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER85, 0, 0, "USER85", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER86, 0, 0, "USER86", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER87, 0, 0, "USER87", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER88, 0, 0, "USER88", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER89, 0, 0, "USER89", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER90, 0, 0, "USER90", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER91, 0, 0, "USER91", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER92, 0, 0, "USER92", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER93, 0, 0, "USER93", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER94, 0, 0, "USER94", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER95, 0, 0, "USER95", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER96, 0, 0, "USER96", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER97, 0, 0, "USER97", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER98, 0, 0, "USER98", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER99, 0, 0, "USER99", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER100, 0, 0, "USER100", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER101, 0, 0, "USER101", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER102, 0, 0, "USER102", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER103, 0, 0, "USER103", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER104, 0, 0, "USER104", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER105, 0, 0, "USER105", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER106, 0, 0, "USER106", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER107, 0, 0, "USER107", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER108, 0, 0, "USER108", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER109, 0, 0, "USER109", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER110, 0, 0, "USER110", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER111, 0, 0, "USER111", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER112, 0, 0, "USER112", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER113, 0, 0, "USER113", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER114, 0, 0, "USER114", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER115, 0, 0, "USER115", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER116, 0, 0, "USER116", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER117, 0, 0, "USER117", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER118, 0, 0, "USER118", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER119, 0, 0, "USER119", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER120, 0, 0, "USER120", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER121, 0, 0, "USER121", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER122, 0, 0, "USER122", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER123, 0, 0, "USER123", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER124, 0, 0, "USER124", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER125, 0, 0, "USER125", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER126, 0, 0, "USER126", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER127, 0, 0, "USER127", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER128, 0, 0, "USER128", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER129, 0, 0, "USER129", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER130, 0, 0, "USER130", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER131, 0, 0, "USER131", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER132, 0, 0, "USER132", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER133, 0, 0, "USER133", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER134, 0, 0, "USER134", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER135, 0, 0, "USER135", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER136, 0, 0, "USER136", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER137, 0, 0, "USER137", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER138, 0, 0, "USER138", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER139, 0, 0, "USER139", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER140, 0, 0, "USER140", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER141, 0, 0, "USER141", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER142, 0, 0, "USER142", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER143, 0, 0, "USER143", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER144, 0, 0, "USER144", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER145, 0, 0, "USER145", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER146, 0, 0, "USER146", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER147, 0, 0, "USER147", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER148, 0, 0, "USER148", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER149, 0, 0, "USER149", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER150, 0, 0, "USER150", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER151, 0, 0, "USER151", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER152, 0, 0, "USER152", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER153, 0, 0, "USER153", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER154, 0, 0, "USER154", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER155, 0, 0, "USER155", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER156, 0, 0, "USER156", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER157, 0, 0, "USER157", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER158, 0, 0, "USER158", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER159, 0, 0, "USER159", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER160, 0, 0, "USER160", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER161, 0, 0, "USER161", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER162, 0, 0, "USER162", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER163, 0, 0, "USER163", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER164, 0, 0, "USER164", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER165, 0, 0, "USER165", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER166, 0, 0, "USER166", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER167, 0, 0, "USER167", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER168, 0, 0, "USER168", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER169, 0, 0, "USER169", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER170, 0, 0, "USER170", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER171, 0, 0, "USER171", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER172, 0, 0, "USER172", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER173, 0, 0, "USER173", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER174, 0, 0, "USER174", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER175, 0, 0, "USER175", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER176, 0, 0, "USER176", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER177, 0, 0, "USER177", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER178, 0, 0, "USER178", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER179, 0, 0, "USER179", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER180, 0, 0, "USER180", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER181, 0, 0, "USER181", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER182, 0, 0, "USER182", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER183, 0, 0, "USER183", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER184, 0, 0, "USER184", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER185, 0, 0, "USER185", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER186, 0, 0, "USER186", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER187, 0, 0, "USER187", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER188, 0, 0, "USER188", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER189, 0, 0, "USER189", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER190, 0, 0, "USER190", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER191, 0, 0, "USER191", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER192, 0, 0, "USER192", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER193, 0, 0, "USER193", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER194, 0, 0, "USER194", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER195, 0, 0, "USER195", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER196, 0, 0, "USER196", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER197, 0, 0, "USER197", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER198, 0, 0, "USER198", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER199, 0, 0, "USER199", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER200, 0, 0, "USER200", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER201, 0, 0, "USER201", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER202, 0, 0, "USER202", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER203, 0, 0, "USER203", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER204, 0, 0, "USER204", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER205, 0, 0, "USER205", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER206, 0, 0, "USER206", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER207, 0, 0, "USER207", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER208, 0, 0, "USER208", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER209, 0, 0, "USER209", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER210, 0, 0, "USER210", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER211, 0, 0, "USER211", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER212, 0, 0, "USER212", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER213, 0, 0, "USER213", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER214, 0, 0, "USER214", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER215, 0, 0, "USER215", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER216, 0, 0, "USER216", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER217, 0, 0, "USER217", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER218, 0, 0, "USER218", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER219, 0, 0, "USER219", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER220, 0, 0, "USER220", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER221, 0, 0, "USER221", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER222, 0, 0, "USER222", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER223, 0, 0, "USER223", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER224, 0, 0, "USER224", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER225, 0, 0, "USER225", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER226, 0, 0, "USER226", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER227, 0, 0, "USER227", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER228, 0, 0, "USER228", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER229, 0, 0, "USER229", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER230, 0, 0, "USER230", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER231, 0, 0, "USER231", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER232, 0, 0, "USER232", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER233, 0, 0, "USER233", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER234, 0, 0, "USER234", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER235, 0, 0, "USER235", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER236, 0, 0, "USER236", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER237, 0, 0, "USER237", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER238, 0, 0, "USER238", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER239, 0, 0, "USER239", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER240, 0, 0, "USER240", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER241, 0, 0, "USER241", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER242, 0, 0, "USER242", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER243, 0, 0, "USER243", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER244, 0, 0, "USER244", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER245, 0, 0, "USER245", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER246, 0, 0, "USER246", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER247, 0, 0, "USER247", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER248, 0, 0, "USER248", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER249, 0, 0, "USER249", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER250, 0, 0, "USER250", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER251, 0, 0, "USER251", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER252, 0, 0, "USER252", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER253, 0, 0, "USER253", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER254, 0, 0, "USER254", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_USER255, 0, 0, "USER255", 0}, 
-		{TKAFG1K_VAL_PWM_INTERNAL_EMEM, 0, 0, "EMEM", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER0, 0, 0, "USER0", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER1, 0, 0, "USER1", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER2, 0, 0, "USER2", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER3, 0, 0, "USER3", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER4, 0, 0, "USER4", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER5, 0, 0, "USER5", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER6, 0, 0, "USER6", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER7, 0, 0, "USER7", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER8, 0, 0, "USER8", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER9, 0, 0, "USER9", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER10, 0, 0, "USER10", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER11, 0, 0, "USER11", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER12, 0, 0, "USER12", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER13, 0, 0, "USER13", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER14, 0, 0, "USER14", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER15, 0, 0, "USER15", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER16, 0, 0, "USER16", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER17, 0, 0, "USER17", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER18, 0, 0, "USER18", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER19, 0, 0, "USER19", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER20, 0, 0, "USER20", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER21, 0, 0, "USER21", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER22, 0, 0, "USER22", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER23, 0, 0, "USER23", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER24, 0, 0, "USER24", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER25, 0, 0, "USER25", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER26, 0, 0, "USER26", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER27, 0, 0, "USER27", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER28, 0, 0, "USER28", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER29, 0, 0, "USER29", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER30, 0, 0, "USER30", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER31, 0, 0, "USER31", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER32, 0, 0, "USER32", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER33, 0, 0, "USER33", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER34, 0, 0, "USER34", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER35, 0, 0, "USER35", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER36, 0, 0, "USER36", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER37, 0, 0, "USER37", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER38, 0, 0, "USER38", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER39, 0, 0, "USER39", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER40, 0, 0, "USER40", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER41, 0, 0, "USER41", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER42, 0, 0, "USER42", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER43, 0, 0, "USER43", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER44, 0, 0, "USER44", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER45, 0, 0, "USER45", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER46, 0, 0, "USER46", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER47, 0, 0, "USER47", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER48, 0, 0, "USER48", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER49, 0, 0, "USER49", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER50, 0, 0, "USER50", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER51, 0, 0, "USER51", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER52, 0, 0, "USER52", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER53, 0, 0, "USER53", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER54, 0, 0, "USER54", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER55, 0, 0, "USER55", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER56, 0, 0, "USER56", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER57, 0, 0, "USER57", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER58, 0, 0, "USER58", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER59, 0, 0, "USER59", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER60, 0, 0, "USER60", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER61, 0, 0, "USER61", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER62, 0, 0, "USER62", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER63, 0, 0, "USER63", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER64, 0, 0, "USER64", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER65, 0, 0, "USER65", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER66, 0, 0, "USER66", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER67, 0, 0, "USER67", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER68, 0, 0, "USER68", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER69, 0, 0, "USER69", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER70, 0, 0, "USER70", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER71, 0, 0, "USER71", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER72, 0, 0, "USER72", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER73, 0, 0, "USER73", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER74, 0, 0, "USER74", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER75, 0, 0, "USER75", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER76, 0, 0, "USER76", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER77, 0, 0, "USER77", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER78, 0, 0, "USER78", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER79, 0, 0, "USER79", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER80, 0, 0, "USER80", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER81, 0, 0, "USER81", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER82, 0, 0, "USER82", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER83, 0, 0, "USER83", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER84, 0, 0, "USER84", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER85, 0, 0, "USER85", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER86, 0, 0, "USER86", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER87, 0, 0, "USER87", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER88, 0, 0, "USER88", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER89, 0, 0, "USER89", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER90, 0, 0, "USER90", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER91, 0, 0, "USER91", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER92, 0, 0, "USER92", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER93, 0, 0, "USER93", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER94, 0, 0, "USER94", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER95, 0, 0, "USER95", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER96, 0, 0, "USER96", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER97, 0, 0, "USER97", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER98, 0, 0, "USER98", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER99, 0, 0, "USER99", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER100, 0, 0, "USER100", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER101, 0, 0, "USER101", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER102, 0, 0, "USER102", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER103, 0, 0, "USER103", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER104, 0, 0, "USER104", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER105, 0, 0, "USER105", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER106, 0, 0, "USER106", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER107, 0, 0, "USER107", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER108, 0, 0, "USER108", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER109, 0, 0, "USER109", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER110, 0, 0, "USER110", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER111, 0, 0, "USER111", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER112, 0, 0, "USER112", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER113, 0, 0, "USER113", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER114, 0, 0, "USER114", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER115, 0, 0, "USER115", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER116, 0, 0, "USER116", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER117, 0, 0, "USER117", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER118, 0, 0, "USER118", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER119, 0, 0, "USER119", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER120, 0, 0, "USER120", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER121, 0, 0, "USER121", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER122, 0, 0, "USER122", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER123, 0, 0, "USER123", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER124, 0, 0, "USER124", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER125, 0, 0, "USER125", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER126, 0, 0, "USER126", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER127, 0, 0, "USER127", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER128, 0, 0, "USER128", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER129, 0, 0, "USER129", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER130, 0, 0, "USER130", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER131, 0, 0, "USER131", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER132, 0, 0, "USER132", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER133, 0, 0, "USER133", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER134, 0, 0, "USER134", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER135, 0, 0, "USER135", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER136, 0, 0, "USER136", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER137, 0, 0, "USER137", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER138, 0, 0, "USER138", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER139, 0, 0, "USER139", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER140, 0, 0, "USER140", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER141, 0, 0, "USER141", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER142, 0, 0, "USER142", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER143, 0, 0, "USER143", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER144, 0, 0, "USER144", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER145, 0, 0, "USER145", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER146, 0, 0, "USER146", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER147, 0, 0, "USER147", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER148, 0, 0, "USER148", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER149, 0, 0, "USER149", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER150, 0, 0, "USER150", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER151, 0, 0, "USER151", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER152, 0, 0, "USER152", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER153, 0, 0, "USER153", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER154, 0, 0, "USER154", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER155, 0, 0, "USER155", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER156, 0, 0, "USER156", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER157, 0, 0, "USER157", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER158, 0, 0, "USER158", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER159, 0, 0, "USER159", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER160, 0, 0, "USER160", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER161, 0, 0, "USER161", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER162, 0, 0, "USER162", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER163, 0, 0, "USER163", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER164, 0, 0, "USER164", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER165, 0, 0, "USER165", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER166, 0, 0, "USER166", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER167, 0, 0, "USER167", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER168, 0, 0, "USER168", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER169, 0, 0, "USER169", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER170, 0, 0, "USER170", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER171, 0, 0, "USER171", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER172, 0, 0, "USER172", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER173, 0, 0, "USER173", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER174, 0, 0, "USER174", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER175, 0, 0, "USER175", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER176, 0, 0, "USER176", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER177, 0, 0, "USER177", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER178, 0, 0, "USER178", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER179, 0, 0, "USER179", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER180, 0, 0, "USER180", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER181, 0, 0, "USER181", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER182, 0, 0, "USER182", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER183, 0, 0, "USER183", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER184, 0, 0, "USER184", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER185, 0, 0, "USER185", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER186, 0, 0, "USER186", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER187, 0, 0, "USER187", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER188, 0, 0, "USER188", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER189, 0, 0, "USER189", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER190, 0, 0, "USER190", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER191, 0, 0, "USER191", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER192, 0, 0, "USER192", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER193, 0, 0, "USER193", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER194, 0, 0, "USER194", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER195, 0, 0, "USER195", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER196, 0, 0, "USER196", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER197, 0, 0, "USER197", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER198, 0, 0, "USER198", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER199, 0, 0, "USER199", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER200, 0, 0, "USER200", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER201, 0, 0, "USER201", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER202, 0, 0, "USER202", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER203, 0, 0, "USER203", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER204, 0, 0, "USER204", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER205, 0, 0, "USER205", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER206, 0, 0, "USER206", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER207, 0, 0, "USER207", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER208, 0, 0, "USER208", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER209, 0, 0, "USER209", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER210, 0, 0, "USER210", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER211, 0, 0, "USER211", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER212, 0, 0, "USER212", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER213, 0, 0, "USER213", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER214, 0, 0, "USER214", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER215, 0, 0, "USER215", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER216, 0, 0, "USER216", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER217, 0, 0, "USER217", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER218, 0, 0, "USER218", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER219, 0, 0, "USER219", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER220, 0, 0, "USER220", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER221, 0, 0, "USER221", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER222, 0, 0, "USER222", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER223, 0, 0, "USER223", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER224, 0, 0, "USER224", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER225, 0, 0, "USER225", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER226, 0, 0, "USER226", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER227, 0, 0, "USER227", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER228, 0, 0, "USER228", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER229, 0, 0, "USER229", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER230, 0, 0, "USER230", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER231, 0, 0, "USER231", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER232, 0, 0, "USER232", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER233, 0, 0, "USER233", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER234, 0, 0, "USER234", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER235, 0, 0, "USER235", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER236, 0, 0, "USER236", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER237, 0, 0, "USER237", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER238, 0, 0, "USER238", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER239, 0, 0, "USER239", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER240, 0, 0, "USER240", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER241, 0, 0, "USER241", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER242, 0, 0, "USER242", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER243, 0, 0, "USER243", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER244, 0, 0, "USER244", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER245, 0, 0, "USER245", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER246, 0, 0, "USER246", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER247, 0, 0, "USER247", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER248, 0, 0, "USER248", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER249, 0, 0, "USER249", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER250, 0, 0, "USER250", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER251, 0, 0, "USER251", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER252, 0, 0, "USER252", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER253, 0, 0, "USER253", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER254, 0, 0, "USER254", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_USER255, 0, 0, "USER255", 0},
+		{TKAFG1K_VAL_PWM_INTERNAL_EMEM, 0, 0, "EMEMory", 0},
 		{IVI_RANGE_TABLE_LAST_ENTRY}
 	};
 static IviRangeTable attrPWMInternalWaveformRangeTable =
@@ -9188,61 +9014,8 @@ static ViStatus _VI_FUNC tkafg1kAttrPWMInternalWaveform_CheckCallback (ViSession
                                                                        ViInt32 value)
 {
     ViStatus    error = VI_SUCCESS;
-    ViBoolean wfmExists = VI_TRUE;
 
     checkErr( Ivi_DefaultCheckCallbackViInt32 (vi, channelName, attributeId, value) );
-    switch(value)
-    {
-        case TKAFG1K_VAL_PWM_INTERNAL_USER1:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER1, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_PWM_INTERNAL_USER2:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER2, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_PWM_INTERNAL_USER3:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER3, &wfmExists) );
-            break;
-        }
-        case TKAFG1K_VAL_PWM_INTERNAL_USER4:
-        {
-            checkErr( tkafg1k_WfmExists (vi, TKAFG1K_VAL_WFM_USER4, &wfmExists) );
-            break;
-        }
-    }
-
-    if(wfmExists == VI_FALSE)
-    {
-        ViChar errElab[BUFFER_SIZE] = {0};
-        switch( value )
-        {
-            case TKAFG1K_VAL_PWM_INTERNAL_USER1:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_PWM_INTERNAL_USER1 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_PWM_INTERNAL_USER2:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_PWM_INTERNAL_USER2 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_PWM_INTERNAL_USER3:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_PWM_INTERNAL_USER3 does not exist.");
-                break;
-            }
-            case TKAFG1K_VAL_PWM_INTERNAL_USER4:
-            {
-                sprintf(errElab, "The specified waveform TKAFG1K_VAL_PWM_INTERNAL_USER4 does not exist.");
-                break;
-            }
-        }
-        viCheckErrElab( IVI_ERROR_INVALID_VALUE, errElab);
-    }
 
 Error:
     return error;
@@ -9389,7 +9162,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAmplitude_WriteCallback (ViSession vi,
 
     viCheckErr (Ivi_InvalidateAttribute (vi, channelName, TKAFG1K_ATTR_OFFSET));
 
-    checkErr (tkafg1k_WriteReal64(vi, io, channelName, "SOUR%s:VOLT:LEV:IMM:AMPL %Le", value));
+    checkErr (tkafg1k_WriteReal64(vi, io, channelName, "SOUR%s:VOLT:LEV:IMM:AMPL %Lf", value));
 
     viCheckErr (Ivi_SetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_OFFSET, 0, offset));
 Error:
@@ -9453,7 +9226,7 @@ static ViStatus _VI_FUNC tkafg1kAttrOffset_WriteCallback (ViSession vi,
                                                           ViAttr attributeId,
                                                           ViReal64 value)
 {
-    return ( tkafg1k_WriteReal64(vi, io, channelName, "SOUR%s:VOLT:OFFS %Le", value) );
+    return ( tkafg1k_WriteReal64(vi, io, channelName, "SOUR%s:VOLT:OFFS %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_FREQUENCY -*/
@@ -9473,7 +9246,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFrequency_WriteCallback (ViSession vi,
                                                              ViReal64 value)
 {
 
-    return ( tkafg1k_WriteReal64(vi, io, channelName, "SOUR%s:FREQ %Le", value) );
+    return ( tkafg1k_WriteReal64(vi, io, channelName, "SOUR%s:FREQ %Lf", value) );
 }
 
 /*- TKAFG1K_ATTR_WAVEFORM -*/
@@ -9817,10 +9590,6 @@ static ViStatus _VI_FUNC tkafg1kAttrWaveform_WriteCallback (ViSession vi,
 	return ( tkafg1k_WriteCmd (vi, io, channelName, &attrWaveformRangeTable, "SOUR%s:FUNC:SHAP %s", value) );
 }
 
-/*- TKAFG1K_ATTR_VOLTAGE_UPPER_LIMIT -*/
-
-/*- TKAFG1K_ATTR_VOLTAGE_LOWER_LIMIT -*/
-
 /*- TKAFG1K_ATTR_MODEL -*/
 static IviRangeTableEntry attrModelRangeTableEntries[] =
 	{
@@ -9912,7 +9681,7 @@ static ViStatus _VI_FUNC tkafg1kAttrSweepStartFrequency_WriteCallback (ViSession
                                                                        ViAttr attributeId,
                                                                        ViReal64 value)
 {
-	return ( tkafg1k_WriteReal64(vi, io, channelName, "SOUR%s:FREQ:STAR %Le", value) );
+	return ( tkafg1k_WriteReal64(vi, io, channelName, "SOUR%s:FREQ:STAR %Lf", value) );
 }
 
 static ViStatus _VI_FUNC tkafg1kAttrSweepStopFrequency_RangeTableCallback (ViSession vi,
@@ -9944,7 +9713,7 @@ static ViStatus _VI_FUNC tkafg1kAttrSweepStopFrequency_WriteCallback (ViSession 
                                                                       ViAttr attributeId,
                                                                       ViReal64 value)
 {
-	return (tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FREQ:STOP %Le", value));
+	return (tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:FREQ:STOP %Lf", value));
 }
 
 
@@ -10211,7 +9980,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAskInternalRate_WriteCallback (ViSession vi,
                                                                    ViAttr attributeId,
                                                                    ViReal64 value)
 {
-	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:ASK:INT:RATE %Le", value) );
+	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:ASK:INT:RATE %Lf", value) );
 }
 
 static ViStatus _VI_FUNC tkafg1kAttrPskInternalRate_ReadCallback (ViSession vi,
@@ -10229,7 +9998,7 @@ static ViStatus _VI_FUNC tkafg1kAttrPskInternalRate_WriteCallback (ViSession vi,
                                                                    ViAttr attributeId,
                                                                    ViReal64 value)
 {
-	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PSK:INT:RATE %Le", value) );
+	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PSK:INT:RATE %Lf", value) );
 }
 
 static ViStatus _VI_FUNC tkafg1kAttrAskAmplitude_ReadCallback (ViSession vi,
@@ -10247,7 +10016,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAskAmplitude_WriteCallback (ViSession vi,
                                                                 ViAttr attributeId,
                                                                 ViReal64 value)
 {
-	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:ASK:AMPL %Le", value) );
+	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:ASK:AMPL %Lf", value) );
 }
 
 static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_ReadCallback (ViSession vi,
@@ -10265,7 +10034,7 @@ static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_WriteCallback (ViSession vi,
                                                                 ViAttr attributeId,
                                                                 ViReal64 value)
 {
-	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PSK:DEV %Le", value) );
+	return ( tkafg1k_WriteReal64 (vi, io, channelName, "SOUR%s:PSK:DEV %Lf", value) );
 }
 
 static ViStatus _VI_FUNC tkafg1kAttrPskDeviation_CheckCallback (ViSession vi,
@@ -10663,24 +10432,27 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                        &attrAMSourceRangeTable));
 
     /*- AM Internal Depth -*/
-    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_AM_INTERNAL_DEPTH,
-                                        "TKAFG1K_ATTR_AM_INTERNAL_DEPTH", 50.00,
-                                        IVI_VAL_NEVER_CACHE, VI_NULL, VI_NULL,
-                                        &attrAMInternalDepthRangeTable, 0));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_AM_INTERNAL_DEPTH,
+	                                    "TKAFG1K_ATTR_AM_INTERNAL_DEPTH", 50.00,
+	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                    VI_NULL, VI_NULL,
+	                                    &attrAMInternalDepthRangeTable, 0));
 
     /*- AM Internal Waveform -*/
-    checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM,
-                                       "TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM",
-                                       TKAFG1K_VAL_AM_INTERNAL_SINE,
-                                       IVI_VAL_NEVER_CACHE, VI_NULL, VI_NULL,
-                                       &attrAMInternalWaveformRangeTable));
+	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM,
+	                                   "TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM",
+	                                   TKAFG1K_VAL_AM_INTERNAL_SINE,
+	                                   IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                   VI_NULL, VI_NULL,
+	                                   &attrAMInternalWaveformRangeTable));
 
     /*- AM Internal Frequency -*/
-    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY,
-                                        "TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY",
-                                        10000.00, IVI_VAL_NEVER_CACHE, VI_NULL,
-                                        VI_NULL, &attrAMInternalFrequencyRangeTable,
-                                        0));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY,
+	                                    "TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY",
+	                                    10000.00,
+	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                    VI_NULL, VI_NULL,
+	                                    &attrAMInternalFrequencyRangeTable, 0));
 
     /*- AM Depth By Channel -*/
     checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL,
@@ -10732,14 +10504,14 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                        &attrFMSourceRangeTable));
 
     /*- FM Deviation -*/
-    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_FM_INTERNAL_DEVIATION,
-                                        "TKAFG1K_ATTR_FM_INTERNAL_DEVIATION",
-                                        100000.0, IVI_VAL_NEVER_CACHE, VI_NULL,
-                                        VI_NULL, VI_NULL, 0));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_FM_INTERNAL_DEVIATION,
+	                                    "TKAFG1K_ATTR_FM_INTERNAL_DEVIATION", 100.0,
+	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                    VI_NULL, VI_NULL, VI_NULL, 0));
 
     /*- FM Deviation By Channel -*/
 	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL,
-	                                    "TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL", 0,
+	                                    "TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL", 100,
 	                                    IVI_VAL_MULTI_CHANNEL,
 	                                    tkafg1kAttrFMDeviationByChannel_ReadCallback,
 	                                    tkafg1kAttrFMDeviationByChannel_WriteCallback,
@@ -10749,11 +10521,12 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 	                                            tkafg1kAttrFmDeviationByChannel_CheckCallback));
 
     /*- FM Internal Waveform -*/
-    checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM,
-                                       "TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM",
-                                       TKAFG1K_VAL_FM_INTERNAL_SINE,
-                                       IVI_VAL_NEVER_CACHE, VI_NULL, VI_NULL,
-                                       &attrFMInternalWaveformRangeTable));
+	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM,
+	                                   "TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM",
+	                                   TKAFG1K_VAL_FM_INTERNAL_SINE,
+	                                   IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                   VI_NULL, VI_NULL,
+	                                   &attrFMInternalWaveformRangeTable));
 
     /*- FM Internal Waveform By Channel -*/
 	checkErr (Ivi_AddAttributeViInt32 (vi,
@@ -10769,11 +10542,12 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                                tkafg1kAttrFMInternalWaveformByChannel_CheckCallback));
 
     /*- FM Internal Frequency -*/
-    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY,
-                                        "TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY",
-                                        10000.00, IVI_VAL_NEVER_CACHE, VI_NULL,
-                                        VI_NULL, &attrFMInternalFrequencyRangeTable,
-                                        0));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY,
+	                                    "TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY",
+	                                    10000.00,
+	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                    VI_NULL, VI_NULL,
+	                                    &attrFMInternalFrequencyRangeTable, 0));
 
     /*- FM Internal Frequency By Channel -*/
     checkErr (Ivi_AddAttributeViReal64 (vi,
@@ -11043,7 +10817,7 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 	                                    &attrASKAmplitudeRangeTable, 0));
 	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_PSK_DEVIATION,
 	                                    "TKAFG1K_ATTR_PSK_DEVIATION", 0,
-	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+	                                    IVI_VAL_MULTI_CHANNEL,
 	                                    tkafg1kAttrPskDeviation_ReadCallback,
 	                                    tkafg1kAttrPskDeviation_WriteCallback,
 	                                    &attrPSKDeviationRangeTable, 0));

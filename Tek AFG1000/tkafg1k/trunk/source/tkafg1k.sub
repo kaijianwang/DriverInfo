@@ -7135,7 +7135,7 @@ v Boolean_values DataType="i"
  "TKAFG1K_ATTR_ASK_SOURCE attribute is set to TKAFG1K_VAL_ASK_INTERNAL."
 
 2 all "ASK Amplitude" TKAFG1K_ATTR_ASK_AMPLITUDE ViReal64 gs 
- "This channel-based attribute specifies the amplitude of FSK modulation."
+ "This channel-based attribute specifies the amplitude of ASK modulation."
 
 2 all "ASK Source" TKAFG1K_ATTR_ASK_SOURCE ViInt32 gs attrASKSourceRangeTable 
  "This channel-based attribute specifies the source of signal that the "
