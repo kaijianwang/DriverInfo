@@ -113,7 +113,7 @@ extern "C" {
 #define TKAFG1K_ATTR_BURST_MODE                                 (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 41L)
 
    
-    /*- Amplitude Modulation Generation -------------------------------------*/
+    /*- Ampitude Modulation Generation -------------------------------------*/
 #define TKAFG1K_ATTR_AM_ENABLED                                 IVIFGEN_ATTR_AM_ENABLED                         /* ViBoolean, multi-channel             */
 #define TKAFG1K_ATTR_AM_SOURCE                                  IVIFGEN_ATTR_AM_SOURCE                          /* ViInt32,   multi-channel             */
 #define TKAFG1K_ATTR_AM_INTERNAL_DEPTH                          IVIFGEN_ATTR_AM_INTERNAL_DEPTH                  /* ViReal64,  percent                   */
@@ -153,25 +153,18 @@ extern "C" {
 #define TKAFG1K_ATTR_PWM_INTERNAL_FREQUENCY                     (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 38L)           /* ViReal64, multi-channel, hertz       */
 #define TKAFG1K_ATTR_PWM_INTERNAL_WAVEFORM                      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 39L)           /* ViInt32,  multi-channel              */
 
-	
-	/*- Amplitude Shift Key Modulation Generation --------------------------*/
-#define TKAFG1K_ATTR_ASK_ENABLED            (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 48L)
-#define TKAFG1K_ATTR_ASK_SOURCE             (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 50L)
-#define TKAFG1K_ATTR_ASK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 52L)
-#define TKAFG1K_ATTR_ASK_AMPLITUDE          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 54L)
-	
-	
-	/*- Phase Shift Key Modulation Generation --------------------------*/
-#define TKAFG1K_ATTR_PSK_ENABLED            (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 49L)
-#define TKAFG1K_ATTR_PSK_SOURCE             (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 51L)
-#define TKAFG1K_ATTR_PSK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 53L)
-#define TKAFG1K_ATTR_PSK_DEVIATION          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 55L)
-
-	
-	/*- Miscellaneous Attributes -------------------------------------------*/
+    /*- Miscellaneous Attributes -------------------------------------------*/
 #define TKAFG1K_ATTR_ID_QUERY_RESPONSE                          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 1L)            /* ViString(Read Only) */
 #define TKAFG1K_ATTR_SWEEP_START_FREQUENCY  (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 46L)
 #define TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY   (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 47L)
+#define TKAFG1K_ATTR_ASK_ENABLED            (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 48L)
+#define TKAFG1K_ATTR_PSK_ENABLED            (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 49L)
+#define TKAFG1K_ATTR_ASK_SOURCE             (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 50L)
+#define TKAFG1K_ATTR_PSK_SOURCE             (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 51L)
+#define TKAFG1K_ATTR_ASK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 52L)
+#define TKAFG1K_ATTR_PSK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 53L)
+#define TKAFG1K_ATTR_ASK_AMPLITUDE          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 54L)
+#define TKAFG1K_ATTR_PSK_DEVIATION          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 55L)
 
 
 /****************************************************************************
