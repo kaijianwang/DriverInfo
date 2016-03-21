@@ -18,7 +18,7 @@ Window Top = 30
 Window Left = 1688
 Window Bottom = 1012
 Window Right = 2660
-Maximized = True
+Maximized = False
 Maximized Children = True
 Max32 Number Of Errors = 20
 Track Include File Dependencies = True
@@ -31,7 +31,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 5
+Number of Opened Files = 6
 Window Confinement Region Enabled = True
 MainColumnWidth = 331
 FileDateColumnWidth = 70
@@ -57,7 +57,7 @@ Window Top = 122
 Window Left = 58
 Window Height = 400
 Window Width = 400
-Window Z-Order = 3
+Window Z-Order = 4
 
 [File 0002]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg3k/trunk/source/tkafg3k.c"
@@ -66,8 +66,8 @@ Disk Date = 3539908484
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 1
-Source Window State = "1,386,386,386,8,31,31,1,0,163,0,0,0,0,0,31,4581,0,4590,55,586,788,1,0,"
+Window Z-Order = 2
+Source Window State = "1,12816,12816,12816,4,13,13,1,0,79,0,0,0,0,0,25,12784,0,12822,40,609,984,1,0,"
 
 [File 0003]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg3k/trunk/source/tkafg3k.h"
@@ -76,7 +76,7 @@ Disk Date = 3539908484
 In Projects = "1,"
 Window Top = 92
 Window Left = 42
-Window Z-Order = 2
+Window Z-Order = 3
 Source Window State = "1,16,16,16,10,15,10,0,0,73,0,0,0,0,0,25,730,0,748,34,609,898,1,0,"
 
 [File 0004]
@@ -86,7 +86,7 @@ Disk Date = 3515018486
 In Projects = ""
 Window Top = 92
 Window Left = 42
-Window Z-Order = 4
+Window Z-Order = 5
 Source Window State = "1,363,363,363,8,53,53,1,0,54,0,0,0,0,0,18,612,0,626,26,448,698,1,0,"
 
 [File 0005]
@@ -96,7 +96,7 @@ Disk Date = 3515018484
 In Projects = ""
 Window Top = 32
 Window Left = 10
-Window Z-Order = 5
+Window Z-Order = 6
 Source Window State = "1,95,95,95,8,22,22,0,0,54,0,0,0,0,0,18,390,0,99,32,448,698,1,0,"
 
 [Default Build Config 0001 Debug]
