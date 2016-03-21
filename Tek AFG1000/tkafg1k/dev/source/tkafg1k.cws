@@ -1,7 +1,6 @@
 [Workspace Header]
 Version = 1201
-Pathname Line0001 = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.cw"
-Pathname Line0002 = "s"
+Pathname = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/dev/source/tkafg1k.cws"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2012"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2012"
@@ -31,7 +30,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 3
+Number of Opened Files = 4
 Window Confinement Region Enabled = True
 MainColumnWidth = 331
 FileDateColumnWidth = 70
@@ -49,39 +48,39 @@ Batch Build Debug = False
 Force Rebuild = False
 
 [File 0001]
-Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.fp"
+Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/dev/source/tkafg1k.fp"
 File Type = "Function Panel"
-Disk Date = 3540791997
+Disk Date = 3541387204
 In Projects = "1,"
 Window Top = 92
 Window Left = 42
 Window Height = 400
 Window Width = 400
-Window Z-Order = 3
+Window Z-Order = 2
 
 [File 0002]
-Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.c"
+Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/dev/source/tkafg1k.c"
 File Type = "CSource"
-Disk Date = 3541139157
+Disk Date = 3541385377
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 1
-Source Window State = "1,3705,3705,3705,55,79,79,1,0,163,0,0,0,0,0,31,5013,0,5044,60,494,698,1,0,"
-Breakpoint 0001 = "2473,0,enabled,"
+Window Z-Order = 4
+Source Window State = "1,5481,5488,5481,0,8160,78,1,0,53,0,0,0,0,0,20,5462,0,5487,36,494,698,1,0,"
+Breakpoint 0001 = "2474,0,enabled,"
 Breakpoint 0002 = "2520,0,enabled,"
-Breakpoint 0003 = "2747,0,enabled,"
-Breakpoint 0004 = "2753,0,enabled,"
-Breakpoint 0005 = "2765,0,enabled,"
-Breakpoint 0006 = "2830,0,enabled,"
-Breakpoint 0007 = "2833,0,enabled,"
+Breakpoint 0003 = "2748,0,enabled,"
+Breakpoint 0004 = "2754,0,enabled,"
+Breakpoint 0005 = "2766,0,enabled,"
+Breakpoint 0006 = "2831,0,enabled,"
+Breakpoint 0007 = "2834,0,enabled,"
 Breakpoint 0008 = "2834,0,enabled,"
-Breakpoint 0009 = "2845,0,enabled,"
-Breakpoint 0010 = "2847,0,enabled,"
-Breakpoint 0011 = "2913,0,enabled,"
-Breakpoint 0012 = "2982,0,enabled,"
-Breakpoint 0013 = "3042,0,enabled,"
-Breakpoint 0014 = "3057,0,enabled,"
+Breakpoint 0009 = "2846,0,enabled,"
+Breakpoint 0010 = "2848,0,enabled,"
+Breakpoint 0011 = "2914,0,enabled,"
+Breakpoint 0012 = "2983,0,enabled,"
+Breakpoint 0013 = "3043,0,enabled,"
+Breakpoint 0014 = "3058,0,enabled,"
 Breakpoint 0015 = "3694,0,enabled,"
 Breakpoint 0016 = "4238,0,enabled,"
 Breakpoint 0017 = "4369,0,enabled,"
@@ -89,18 +88,18 @@ Breakpoint 0018 = "4570,0,enabled,"
 Breakpoint 0019 = "5928,0,enabled,"
 Breakpoint 0020 = "6441,0,enabled,"
 Breakpoint 0021 = "7926,0,enabled,"
-Breakpoint 0022 = "7935,0,enabled,"
-Breakpoint 0023 = "8643,0,enabled,"
+Breakpoint 0022 = "7946,0,enabled,"
+Breakpoint 0023 = "8644,0,enabled,"
 
 [File 0003]
-Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.h"
+Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/dev/source/tkafg1k.h"
 File Type = "Include"
 Disk Date = 3541063103
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 2
-Source Window State = "1,0,0,0,0,0,0,0,0,63,0,0,0,0,0,24,56,0,49,81,586,788,1,0,"
+Window Z-Order = 3
+Source Window State = "1,0,0,0,0,0,0,0,0,63,0,0,0,0,0,24,56,0,2096,81,586,788,1,0,"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
@@ -111,8 +110,8 @@ Debugging Level = "Standard"
 Execution Trace = "Disabled"
 Command Line Args = ""
 Working Directory = ""
-External Process Path Line0001 = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/test/Debug"
-External Process Path Line0002 = "/test.exe"
+External Process Path Line0001 = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/dev/source/test/Debug/t"
+External Process Path Line0002 = "est.exe"
 
 [Default Build Config 0001 Release]
 Generate Browse Info = True

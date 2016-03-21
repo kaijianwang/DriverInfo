@@ -5456,20 +5456,20 @@ static ViStatus _VI_FUNC tkafg1kAttrOutputEnabled_ReadCallback (ViSession vi,
 
 /*- TKAFG1K_ATTR_OUTPUT_IMPEDANCE -*/
 static IviRangeTableEntry attrOutputImpedanceRangeTableEntries[] =
-	{
-		{TKAFG1K_VAL_IMPEDANCE_INFINITY, TKAFG1K_VAL_IMPEDANCE_INFINITY, 0, VI_NULL, 0},
-		{1.0, 12000.0, 50.0, VI_NULL, 0},
-		{IVI_RANGE_TABLE_LAST_ENTRY}
-	};
+{
+        {TKAFG1K_VAL_IMPEDANCE_INFINITY, TKAFG1K_VAL_IMPEDANCE_INFINITY, 0, VI_NULL, 0},
+        {1.0, 10000.0, 50.0, VI_NULL, 0},
+        {IVI_RANGE_TABLE_LAST_ENTRY}
+};
 
 static IviRangeTable attrOutputImpedanceRangeTable =
-	{
-		IVI_VAL_RANGED,
+{
+        IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrOutputImpedanceRangeTableEntries,
-	};
+};
 
 static ViStatus _VI_FUNC tkafg1kAttrOutputImpedance_WriteCallback (ViSession vi,
                                                                    ViSession io,
@@ -10146,13 +10146,13 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 
     /*-- Basic Instrument Operation ------------------------------------------------------*/
     /*- Operation Mode -*/
-	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_OPERATION_MODE,
-	                                   "TKAFG1K_ATTR_OPERATION_MODE",
-	                                   TKAFG1K_VAL_OPERATE_CONTINUOUS,
-	                                   IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
-	                                   tkafg1kAttrOperationMode_ReadCallback,
-	                                   tkafg1kAttrOperationMode_WriteCallback,
-	                                   &attrOperationModeRangeTable));
+    checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_OPERATION_MODE,
+                                       "TKAFG1K_ATTR_OPERATION_MODE",
+                                       TKAFG1K_VAL_OPERATE_CONTINUOUS,
+                                       IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+                                       tkafg1kAttrOperationMode_ReadCallback,
+                                       tkafg1kAttrOperationMode_WriteCallback,
+                                       &attrOperationModeRangeTable));
     checkErr (Ivi_SetAttrCheckCallbackViInt32 (vi, TKAFG1K_ATTR_OPERATION_MODE,
                                                tkafg1kAttrOperationMode_CheckCallback));
 																				  
@@ -10189,20 +10189,20 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 
     /*- Output Mode -*/
 	
-	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_OUTPUT_MODE,
-	                                   "TKAFG1K_ATTR_OUTPUT_MODE",
-	                                   TKAFG1K_VAL_OUTPUT_FUNC,
-	                                   IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
-	                                   VI_NULL, VI_NULL, &attrOutputModeRangeTable));
+    checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_OUTPUT_MODE,
+                                       "TKAFG1K_ATTR_OUTPUT_MODE",
+                                       TKAFG1K_VAL_OUTPUT_FUNC,
+                                       IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
+                                       VI_NULL, VI_NULL, &attrOutputModeRangeTable));
 
     /*- Output Mode by Channel -*/																								 
-	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL,
-	                                   "TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL",
-	                                   TKAFG1K_VAL_OUTPUT_FUNC,
-	                                   IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
-	                                   tkafg1kAttrOutputModeByChannel_ReadCallback,
-	                                   tkafg1kAttrOutputModeByChannel_WriteCallback,
-	                                   &attrOutputModeRangeTable));
+    checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL,
+                                       "TKAFG1K_ATTR_OUTPUT_MODE_BY_CHANNEL",
+                                       TKAFG1K_VAL_OUTPUT_FUNC,
+                                       IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
+                                       tkafg1kAttrOutputModeByChannel_ReadCallback,
+                                       tkafg1kAttrOutputModeByChannel_WriteCallback,
+                                       &attrOutputModeRangeTable));
 
     /*- Reference Clock Source -*/
 
@@ -10271,12 +10271,12 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
     /*-- Pulse Waveform Operation ---------------------------------------------------------*/
 
     /*- Duty Cycle -*/
-	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_PULSE_DUTY_CYCLE,
-	                                    "TKAFG1K_ATTR_PULSE_DUTY_CYCLE", 50,
-	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
-	                                    tkafg1kAttrPulseDutyCycle_ReadCallback,
-	                                    tkafg1kAttrPulseDutyCycle_WriteCallback,
-	                                    VI_NULL, 0));
+    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_PULSE_DUTY_CYCLE,
+                                        "TKAFG1K_ATTR_PULSE_DUTY_CYCLE", 50,
+                                        IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
+                                        tkafg1kAttrPulseDutyCycle_ReadCallback,
+                                        tkafg1kAttrPulseDutyCycle_WriteCallback,
+                                        VI_NULL, 0));
     /*-- Arbitrary Waveform Operation------------------------------------------------------*/
     /*- Arbitrary Waveform Handle -*/
 	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE,
@@ -10290,21 +10290,21 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                                tkafg1kAttrArbWaveformHandle_CheckCallback));
 
     /*- Gain -*/
-	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_ARB_GAIN,
-	                                    "TKAFG1K_ATTR_ARB_GAIN", 0.5,
-	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
-	                                    tkafg1kAttrArbGain_ReadCallback,
-	                                    tkafg1kAttrArbGain_WriteCallback, VI_NULL, 0));
+    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_ARB_GAIN,
+                                        "TKAFG1K_ATTR_ARB_GAIN", 0.5,
+                                        IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
+                                        tkafg1kAttrArbGain_ReadCallback,
+                                        tkafg1kAttrArbGain_WriteCallback, VI_NULL, 0));
     checkErr( Ivi_SetAttrCheckCallbackViReal64 (vi, TKAFG1K_ATTR_ARB_GAIN,
                                                 tkafg1kAttrArbGain_CheckCallback));
 
     /*- Offset -*/
-	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_ARB_OFFSET,
-	                                    "TKAFG1K_ATTR_ARB_OFFSET", 0.00,
-	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
-	                                    tkafg1kAttrArbOffset_ReadCallback,
-	                                    tkafg1kAttrArbOffset_WriteCallback, VI_NULL,
-	                                    0));
+    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_ARB_OFFSET,
+                                        "TKAFG1K_ATTR_ARB_OFFSET", 0.00,
+                                        IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
+                                        tkafg1kAttrArbOffset_ReadCallback,
+                                        tkafg1kAttrArbOffset_WriteCallback, VI_NULL,
+                                        0));
     checkErr( Ivi_SetAttrCheckCallbackViReal64 (vi, TKAFG1K_ATTR_ARB_OFFSET,
                                                 tkafg1kAttrArbOffset_CheckCallback));
 

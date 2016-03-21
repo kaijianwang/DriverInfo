@@ -5456,20 +5456,20 @@ static ViStatus _VI_FUNC tkafg1kAttrOutputEnabled_ReadCallback (ViSession vi,
 
 /*- TKAFG1K_ATTR_OUTPUT_IMPEDANCE -*/
 static IviRangeTableEntry attrOutputImpedanceRangeTableEntries[] =
-	{
-		{TKAFG1K_VAL_IMPEDANCE_INFINITY, TKAFG1K_VAL_IMPEDANCE_INFINITY, 0, VI_NULL, 0},
-		{1.0, 12000.0, 50.0, VI_NULL, 0},
-		{IVI_RANGE_TABLE_LAST_ENTRY}
-	};
+{
+        {TKAFG1K_VAL_IMPEDANCE_INFINITY, TKAFG1K_VAL_IMPEDANCE_INFINITY, 0, VI_NULL, 0},
+        {1.0, 10000.0, 50.0, VI_NULL, 0},
+        {IVI_RANGE_TABLE_LAST_ENTRY}
+};
 
 static IviRangeTable attrOutputImpedanceRangeTable =
-	{
-		IVI_VAL_RANGED,
+{
+        IVI_VAL_RANGED,
         VI_TRUE,
         VI_TRUE,
         VI_NULL,
         attrOutputImpedanceRangeTableEntries,
-	};
+};
 
 static ViStatus _VI_FUNC tkafg1kAttrOutputImpedance_WriteCallback (ViSession vi,
                                                                    ViSession io,

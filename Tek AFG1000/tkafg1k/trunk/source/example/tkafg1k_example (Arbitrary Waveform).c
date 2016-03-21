@@ -38,7 +38,7 @@
  * example. 		                                                          *
  *  - To enable simulation, change the "Simulate=0" to "Simulate=1"           *
  *    specify the model to simulate by setting the "Model : 284" string.      */
-#define TKAFG1K_EXAMPLE_INIT_OPTION  "Simulate=0,RangeCheck=1,QueryInstrStatus=1,Cache=1"
+#define TKAFG1K_EXAMPLE_INIT_OPTION  "Simulate=0,RangeCheck=1,QueryInstrStatus=0,Cache=1"
 #define TKAFG1K_EXAMPLE_ARB_WFM_SIZE 500
 //#define TKAFG1K_EXAMPLE_ARB_WFM_SIZE 5
 /* -------------------------------------------------------------------------- */
@@ -61,7 +61,7 @@ int main ()
     /* Create an arbitrary waveform and upload it to the instrument */
     for (i = 0; i < TKAFG1K_EXAMPLE_ARB_WFM_SIZE; ++i)
     {
-        rData[i] = 1.0;
+        rData[i] = 2.0;
     }
     checkErr( tkafg1k_CreateArbWaveform (tkafg1k,
                                          TKAFG1K_EXAMPLE_ARB_WFM_SIZE,
