@@ -1019,7 +1019,6 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
-          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1048,7 +1047,6 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
-          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1077,7 +1075,6 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
-          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1251,7 +1248,6 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
-          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1280,7 +1276,6 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
-          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>
@@ -1309,7 +1304,6 @@
         <InvalidateAttr />
         <RelatedHiddenAttr />
         <Flag>
-          <value>IVI_VAL_MULTI_CHANNEL</value>
           <value>IVI_VAL_NEVER_CACHE</value>
         </Flag>
       </Attr>

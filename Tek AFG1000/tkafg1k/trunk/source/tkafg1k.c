@@ -782,7 +782,7 @@ static ViStatus tkafg1k_VerifyOutputModeByChannel   (ViSession vi,
 static ViStatus tkafg1k_CreateNewWaveform (ViSession vi, ViSession io,
                                            ViInt32 wfmSize, ViReal64 wfmData[],
                                            ViInt32 wfmHandle );
-
+static ViStatus tkafg1k_ClearSingleArbWaveform (ViSession vi, ViSession io, ViInt32 wfmHandle);
 
 
 static ViStatus tkafg1k_CreateNewStandardShapeWaveform (ViSession vi,
@@ -818,6 +818,7 @@ static ViStatus tkafg1k_UpdateDriverWfmRecord (ViSession vi, ViInt32 wfmHandle,
 
 static ViStatus tkafg1k_WfmExists (ViSession vi, ViInt32 wfmHandle,
                                    ViBoolean *wfmExists);
+static ViStatus tkafg1k_ClearArbWaveform (ViSession vi, ViInt32 wfmHandle);
 
 static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle);
 
@@ -2168,6 +2169,31 @@ ViStatus _VI_FUNC tkafg1k_Disable (ViSession vi)
     return TKAFG1K_ERROR_DISABLE_UNSUPPORTED;
 }
 
+/*****************************************************************************
+ * Function: tkafg1k_self_test
+ * Purpose:  This function executes the instrument self-test and returns the
+ *           result.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_self_test (ViSession vi, ViInt16 *testResult, ViChar testMessage[])
+{
+    ViStatus    error = VI_SUCCESS;
+
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+    if (testResult == VI_NULL)
+        viCheckParm( IVI_ERROR_INVALID_PARAMETER, 2, "Null address for Test Result");
+    if (testMessage == VI_NULL)
+        viCheckParm( IVI_ERROR_INVALID_PARAMETER, 3, "Null address for Test Message");
+
+    *testResult = 0;
+    strcpy (testMessage, "No error.");
+    checkErr( tkafg1k_CheckStatus (vi));
+
+Error:
+    Ivi_UnlockSession(vi, VI_NULL);
+    return error;
+}
+
 
 
 /*****************************************************************************
@@ -3062,8 +3088,154 @@ Error:
     return error;
 }
 
+/*****************************************************************************
+ * Function: tkafg1k_VerifyWfmHandle
+ * Purpose:  This utility function determines if passed waveform handle is
+ *           valid.
+ *****************************************************************************/
+static ViStatus tkafg1k_VerifyWfmHandle (ViSession vi, ViInt32 wfmHandle)
+{
+    ViStatus   error = VI_SUCCESS;
+    if( (wfmHandle < TKAFG1K_VAL_WFM_USER0) || (wfmHandle > TKAFG1K_VAL_WFM_USER255) )
+    {
+            error = IVI_ERROR_INVALID_VALUE;
+            viCheckErr (error);
+    }
+
+Error:
+    return error;
+}
 
 
+/*****************************************************************************
+ * Function: tkafg1k_ClearArbWaveform
+ * Purpose:  This function removes a previously created arbitrary waveform
+ *           from the function generator's memory and invalidates the
+ *           waveform's handle.  If the waveform handle is
+ *           TKAFG1K_VAL_ALL_WAVEFORMS, this function
+ *           removes all waveforms from memory.
+ *****************************************************************************/
+static ViStatus tkafg1k_ClearArbWaveform (ViSession vi, ViInt32 wfmHandle)
+{
+    ViStatus  error = VI_SUCCESS;
+    ViBoolean wfmExists;
+    ViChar wfmName[BUFFER_SIZE];
+    ViInt32 maxWfms, i, currentHandle;
+
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+    memset(wfmName, 0, sizeof(ViChar)*BUFFER_SIZE);
+
+    if (wfmHandle != TKAFG1K_VAL_ALL_WAVEFORMS)
+    {
+        checkErr( tkafg1k_VerifyWfmHandle (vi, wfmHandle) );
+        checkErr( tkafg1k_WfmExists (vi, wfmHandle, &wfmExists));
+        if (!wfmExists)
+           viCheckErrElab( IVI_ERROR_INVALID_VALUE,
+                           "The waveform does not exist.");
+
+        if (!Ivi_Simulating(vi))                /* call only when locked */
+        {
+            ViSession   io = Ivi_IOSession(vi); /* call only when locked */
+
+            checkErr ( tkafg1k_ClearSingleArbWaveform (vi, io, wfmHandle) );
+        }
+    }
+    else
+    {
+        if (!Ivi_Simulating(vi))                /* call only when locked */
+        {
+            ViSession   io = Ivi_IOSession(vi); /* call only when locked */
+
+            checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS, 0, &maxWfms));
+
+            for(i=0; i<maxWfms; i++)
+            {
+                currentHandle = TKAFG1K_WFM_HANDLE_FROM_INDEX(i);
+                checkErr ( tkafg1k_WfmExists (vi, currentHandle, &wfmExists) );
+                if(wfmExists == VI_TRUE)
+                {
+                    checkErr ( tkafg1k_ClearSingleArbWaveform (vi, io, currentHandle) );
+                }
+            }
+        }
+    }
+
+Error:
+    Ivi_UnlockSession (vi, VI_NULL);
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ClearArbWaveformBySlot
+ * Purpose:  This function removes a previously created arbitrary waveform
+ *           from the specified slot of the function generator's memory and
+ *           invalidates the waveform's handle.  If the waveform handle is
+ *           TKAFG1K_VAL_ALL_WAVEFORMS, this function
+ *           removes all waveforms from memory.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ClearArbWaveformBySlot (ViSession vi,
+                                                  ViInt32 slot)
+{
+    ViStatus  error = VI_SUCCESS;
+    ViInt32   wfmHandle;
+
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+    wfmHandle = TKAFG1K_WFM_HANDLE_FROM_INDEX(slot);
+    checkErr( tkafg1k_ClearArbWaveform(vi, wfmHandle));
+
+Error:
+    Ivi_UnlockSession (vi, VI_NULL);
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ClearSingleArbWaveform
+ * Purpose:  This utility function delete an existing waveform's
+ *           record in waveform structure.
+ *****************************************************************************/
+static ViStatus tkafg1k_ClearSingleArbWaveform (ViSession vi, ViSession io, ViInt32 wfmHandle)
+{
+    ViStatus   error = VI_SUCCESS;
+    tkafg1k_ClearDriverWfmRecord(vi, wfmHandle);
+
+Error:
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ClearDriverWfmRecord
+ * Purpose:  This utility function clears the data in an existing waveform
+ *           data structure.  If the waveform's handle parameter is
+ *           TKAFG1K_VAL_ALL_WAVEFORMS, the function clears the
+ *           data in all waveform data structures for the session.
+ *****************************************************************************/
+static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle)
+{
+    ViStatus   error = VI_SUCCESS;
+    ViInt32    index, maxWfms;
+    wfmNodePtr wfmRecord = VI_NULL;
+
+    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS,
+                                       0, &maxWfms));
+    checkErr( Ivi_GetAttributeViAddr (vi, VI_NULL, TKAFG1K_ATTR_WFM_STRUCTURE,
+                                      0, (ViAddr *)&wfmRecord));
+
+    if (wfmHandle == TKAFG1K_VAL_ALL_WAVEFORMS)
+    {
+        memset (wfmRecord, 0, (sizeof(wfmNode)*maxWfms));
+    }
+    else
+    {
+        index = TKAFG1K_WFM_INDEX_FROM_HANDLE(wfmHandle);
+        wfmRecord[index].wfmSize = 0;
+        wfmRecord[index].wfmName[0] = '\0';
+    }
+
+Error:
+    return error;
+}
 
 
 /*****************************************************************************
@@ -4565,42 +4737,6 @@ Error:
 
 
 
-
-/*****************************************************************************
- * Function: tkafg1k_ClearDriverWfmRecord
- * Purpose:  This utility function clears the data in an existing waveform
- *           data structure.  If the waveform's handle parameter is
- *           TKAFG1K_VAL_ALL_WAVEFORMS, the function clears the
- *           data in all waveform data structures for the session.
- *****************************************************************************/
-/*
-static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle)
-{
-    ViStatus   error = VI_SUCCESS;
-    ViInt32    index, maxWfms;
-    wfmNodePtr wfmRecord = VI_NULL;
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS,
-                                       0, &maxWfms));
-    checkErr( Ivi_GetAttributeViAddr (vi, VI_NULL, TKAFG1K_ATTR_WFM_STRUCTURE,
-                                      0, (ViAddr *)&wfmRecord));
-
-    if (wfmHandle == TKAFG1K_VAL_ALL_WAVEFORMS)
-    {
-        memset (wfmRecord, 0, (sizeof(wfmNode)*maxWfms));
-    }
-    else
-    {
-        index = wfmHandle;
-        wfmRecord[index].wfmSize = 0;
-        wfmRecord[index].wfmName[0] = '\0';
-    }
-
-Error:
-    return error;
-}
-*/
-
 /*****************************************************************************
  * Function: tkafg1k_CheckStatus
  * Purpose:  This function checks the status of the instrument to detect
@@ -5032,9 +5168,7 @@ Error:
  *****************************************************************************/
 static ViStatus _VI_FUNC tkafg1k_CheckStatusCallback (ViSession vi, ViSession io)
 {
-    ViStatus    error = VI_SUCCESS;
-Error:
-    return error;
+    return VI_SUCCESS;
 }
 
 /*****************************************************************************
@@ -6911,11 +7045,15 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_WriteCallback (ViSession vi,
                                                                     ViAttr attributeId,
                                                                     ViReal64 value)
 {
-    ViStatus error = VI_SUCCESS;
-
-    checkErr ( tkafg1k_SetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value ) );
-
-
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL,0, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL,0, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
 Error:
     return error;
 }
@@ -6926,7 +7064,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_ReadCallback (ViSession vi,
                                                                    ViAttr attributeId,
                                                                    ViReal64 *value)
 {
-    return ( tkafg1k_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value) );
+    return ( tkafg1k_GetAttributeViReal64 (vi, CHAN1, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value) );
 }
 
 
@@ -7233,7 +7371,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveform_ReadCallback (ViSession v
 {
     ViStatus error = VI_SUCCESS;
 
-    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
 
 Error:
     return error;
@@ -7245,12 +7383,20 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveform_WriteCallback (ViSession 
                                                                        ViAttr attributeId,
                                                                        ViInt32 value)
 {
-    ViStatus error = VI_SUCCESS;
-
-    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
-
+	
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN2, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
 Error:
     return error;
+	
+	
 }
 
 /*- TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL -*/
@@ -7306,7 +7452,20 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalFrequency_WriteCallback (ViSession
                                                                         ViAttr attributeId,
                                                                         ViReal64 value)
 {
-    return ( tkafg1k_SetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
+Error:
+    return error;
+	
+	
+   
 }
 
 
@@ -7453,11 +7612,11 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalDeviation_WriteCallback (ViSession
 	ViInt32		model;
 	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
 	
-    checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, value ) );
+    checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL,0, value ) );
 	if (model == TKAFG1K_VAL_MODEL_AFG1062)
-		checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, value ) );
+		checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL,0, value ) );
 	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
-		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
 Error:
     return error;
 	
@@ -7879,7 +8038,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveform_WriteCallback (ViSession 
 	if (model == TKAFG1K_VAL_MODEL_AFG1062)
 		checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN2, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
 	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
-		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
 Error:
     return error;
 
@@ -7957,7 +8116,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequency_WriteCallback (ViSession
 	if (model == TKAFG1K_VAL_MODEL_AFG1062)
 		checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
 	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
-		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
 Error:
     return error;
 	
