@@ -51,7 +51,7 @@ Force Rebuild = False
 [File 0001]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/trunk/source/tkafg1k.fp"
 File Type = "Function Panel"
-Disk Date = 3541453857
+Disk Date = 3541455017
 In Projects = "1,"
 Window Top = 92
 Window Left = 42
@@ -99,7 +99,7 @@ Disk Date = 3541063103
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Source Window State = "1,0,0,0,0,0,0,0,0,63,0,0,0,0,0,24,509,0,524,8,586,788,1,0,"
+Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,509,0,524,8,586,788,1,0,"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
