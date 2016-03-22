@@ -5263,6 +5263,19 @@ v attrPWMSourceRangeTable DataType="i"
   "The carrier waveform is modulated with the internal source."
 
 
+v attrRefClockSourceRangeTable DataType="i" 
+ TKAFG1K_VAL_REF_CLOCK_INTERNAL (0)
+  "The function generator produces the reference clock internally."
+
+ TKAFG1K_VAL_REF_CLOCK_EXTERNAL (1)
+  "The function generator receives the reference clock signal from an "
+  "external source."
+
+ TKAFG1K_VAL_REF_CLOCK_RTSI_CLOCK (101)
+  "The function generator receives the reference clock signal from the RTSI "
+  "clock source."
+
+
 v attrWaveformRangeTable DataType="i" 
  TKAFG1K_VAL_WFM_SINE (1)
   "Configures the function generator with a sinusoid waveform."
@@ -6549,6 +6562,15 @@ v Boolean_values DataType="i"
  "Notes:\n"
  "(1) It is a hidden attribute, you should not use it directly in user "
  "program.\n"
+
+2 all "Reference Clock Source" TKAFG1K_ATTR_REF_CLOCK_SOURCE ViInt32 gs attrRefClockSourceRangeTable 
+ "Specifies the reference clock source.  The function generator derives "
+ "frequencies and sample rates that it uses to generate waveforms from the "
+ "source you specify.\n"
+ "For example, when you set this attribute to TKAFG1K_VAL_EXTERNAL, the "
+ "function generator uses the signal it receives at its external clock "
+ "terminal as its reference clock.\n"
+ "      "
 
 1 all "Standard Function Output" 
  "Attributes for generating standard function waveform output.  You use this "

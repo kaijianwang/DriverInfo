@@ -4,7 +4,7 @@
 \cf2\ulnone\i\fs24 Class: \cf3\fs20 FGEN\par
 \cf2\fs24 Specific Instrument: \cf4\i0\fs20 tkafg1k\par
 \cf2\i\fs24 Module Path: \cf4\i0\fs20 c:\\Users\\kawang\\Documents\\DriverInfo\\Tek AFG1000\\tkafg1k\\trunk\\source\\tkafg1k_32.dll\par
-\cf2\i\fs24 Test Date: \cf4\i0\fs20 03-21-2016, 17:50:40\par
+\cf2\i\fs24 Test Date: \cf4\i0\fs20 03-22-2016, 16:53:35\par
 \par
 \cf5 The DLL version format is valid.\par
 \par
@@ -81,17 +81,14 @@ All attributes have correct data types.\par
 \cf7 WARNING: \cf8 TKAFG1K_ATTR_AM_INTERNAL_DEPTH\cf4  has the following extraneous flags:\par
 \par
 \cf9\fs16\tab IVI_VAL_NEVER_CACHE\par
-\tab IVI_VAL_MULTI_CHANNEL\par
 \cf4\fs20\par
 \cf7 WARNING: \cf8 TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM\cf4  has the following extraneous flags:\par
 \par
 \cf9\fs16\tab IVI_VAL_NEVER_CACHE\par
-\tab IVI_VAL_MULTI_CHANNEL\par
 \cf4\fs20\par
 \cf7 WARNING: \cf8 TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY\cf4  has the following extraneous flags:\par
 \par
 \cf9\fs16\tab IVI_VAL_NEVER_CACHE\par
-\tab IVI_VAL_MULTI_CHANNEL\par
 \cf4\fs20\par
 \cf7 WARNING: \cf8 TKAFG1K_ATTR_FM_ENABLED\cf4  has the following extraneous flags:\par
 \par
@@ -100,76 +97,51 @@ All attributes have correct data types.\par
 \cf7 WARNING: \cf8 TKAFG1K_ATTR_FM_INTERNAL_DEVIATION\cf4  has the following extraneous flags:\par
 \par
 \cf9\fs16\tab IVI_VAL_NEVER_CACHE\par
-\tab IVI_VAL_MULTI_CHANNEL\par
 \cf4\fs20\par
 \cf7 WARNING: \cf8 TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM\cf4  has the following extraneous flags:\par
 \par
 \cf9\fs16\tab IVI_VAL_NEVER_CACHE\par
-\tab IVI_VAL_MULTI_CHANNEL\par
 \cf4\fs20\par
 \cf7 WARNING: \cf8 TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY\cf4  has the following extraneous flags:\par
 \par
 \cf9\fs16\tab IVI_VAL_NEVER_CACHE\par
-\tab IVI_VAL_MULTI_CHANNEL\par
 \cf4\fs20\par
-\cf6 ERROR: \cf4 The following attributes are not defined as channel-based by the class but are channel-based in the driver:\par
-\par
-\cf8\tab TKAFG1K_ATTR_AM_INTERNAL_DEPTH\par
-\tab TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM\par
-\tab TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY\par
-\tab TKAFG1K_ATTR_FM_INTERNAL_DEVIATION\par
-\tab TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM\par
-\tab TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY\par
-\cf4\par
 \cf1\ul\fs32 Compliance Test\par
 \cf2\ulnone\i\fs24 Class: \cf3\fs20 FGEN\par
 \cf2\fs24 Specific Instrument: \cf4\i0\fs20 tkafg1k\par
 \cf2\i\fs24 Module Path: \cf4\i0\fs20 c:\\Users\\kawang\\Documents\\DriverInfo\\Tek AFG1000\\tkafg1k\\trunk\\source\\tkafg1k_32.dll\par
-\cf2\i\fs24 Test Date: \cf4\i0\fs20 03-21-2016, 17:50:40\par
+\cf2\i\fs24 Test Date: \cf4\i0\fs20 03-22-2016, 16:53:35\par
 \par
-\cf6 ERROR: \cf4 The driver is not compliant with the \cf3\i Inherent\cf4\i0  group because:\par
+\cf5 The driver is compliant with the \cf3\i Inherent\cf5\i0  group.\par
 \par
--The \cf8\i self_test\cf4\i0  function is not implemented.\par
-\par
-\cf5 The driver is compliant with the \cf3\i IviFgenBurst\cf5\i0  group.\par
+The driver is compliant with the \cf3\i IviFgenBurst\cf5\i0  group.\par
 \par
 The driver is compliant with the \cf3\i IviFgenStdFunc\cf5\i0  group.\par
 \par
-\cf6 ERROR: \cf4 The driver is not compliant with the \cf3\i IviFgenArbWfm\cf4\i0  group because:\par
+The driver is compliant with the \cf3\i IviFgenArbWfm\cf5\i0  group.\par
 \par
--The \cf8\i ClearArbWaveform\cf4\i0  function is not implemented.\par
-\par
-\cf5 The driver is compliant with the \cf3\i IviFgenArbFrequency\cf5\i0  group.\par
+The driver is compliant with the \cf3\i IviFgenArbFrequency\cf5\i0  group.\par
 \par
 The driver is compliant with the \cf3\i IviFgenModulateAM\cf5\i0  group.\par
 \par
 The driver is compliant with the \cf3\i IviFgenModulateFM\cf5\i0  group.\par
 \par
-\cf6 ERROR: \cf4 The driver is not compliant with the \cf3\i IviFgenBase\cf4\i0  group because:\par
-\par
--It implements the \cf9\fs16 IVIFGEN_VAL_OUTPUT_ARB\cf4\fs20  defined value but is not compliant with the \cf3\i IviFgenArbWfm\cf4\i0  extension group.\par
-\par
--The \cf8 REF_CLOCK_SOURCE\cf4  attribute is not implemented.\par
-\par
--The \cf8\i ConfigureRefClockSource\cf4\i0  function is not implemented.\par
+The driver is compliant with the \cf3\i IviFgenBase capability\cf5\i0  group.\par
 \par
 \cf2\i\fs24 Compliance Test Summary:\par
  \cf7\i0\fs20 WARNING: \cf4 The driver is compliant with an older IviFgen specification. Consider updating the driver to comply with the latest specification.\par
 \par
-\cf6 ERROR: \cf4 The driver is not compliant with the \cf3\i Inherent \cf4\i0 capability group. \par
+The driver is compliant with the \cf3\i Inherent \cf4\i0 capability group. \par
 \par
 The driver is \cf5 compliant \cf4 with the following \cf3\i IviFgen\cf4\i0  groups:\par
 \par
-\cf3\i\tab IviFgenStdFunc\par
+\cf3\i\tab IviFgenBase\par
+\tab IviFgenStdFunc\par
+\tab IviFgenArbWfm\par
 \tab IviFgenArbFrequency\par
 \tab IviFgenBurst\par
 \tab IviFgenModulateAM\par
 \tab IviFgenModulateFM\par
-\cf4\i0\par
-\cf6 ERROR: \cf4 The driver is \cf6 not compliant \cf4 with the following \cf3\i IviFgen\cf4\i0  groups:\par
-\par
-\cf3\i\tab IviFgenBase\par
-\tab IviFgenArbWfm\par
 \cf4\i0\par
 The driver \cf7 does not implement \cf4 the following \cf3\i IviFgen\cf4\i0  groups:\par
 \par
@@ -182,12 +154,8 @@ The driver \cf7 does not implement \cf4 the following \cf3\i IviFgen\cf4\i0  gro
 \cf1\ul\fs32 Structure Test\cf2\ulnone\i\fs24\par
 Specific Instrument: \cf4\i0\fs20 tkafg1k\cf2\i\fs24\par
 Source Code File Path: \cf4\i0\fs20 c:\\Users\\kawang\\Documents\\DriverInfo\\Tek AFG1000\\tkafg1k\\trunk\\source\\tkafg1k.c\cf2\i\fs24\par
-Test Date: \cf4\i0\fs20 03-21-2016, 17:50:40\par
+Test Date: \cf4\i0\fs20 03-22-2016, 16:53:35\par
 \par
-\cf7 WARNING: \cf4 The following attribute callbacks are declared but are not defined or used in the source file:\par
-\par
-\cf8\i\tab tkafg1kAttrPulseDutyCycle_CheckCallback\par
-\cf4\i0\par
 \cf7 WARNING: \cf4 The following Boolean, hidden, or read-only attributes do not implement range checking by any method:\par
 \par
 \cf8\tab TKAFG1K_ATTR_OUTPUT_ENABLED\par
@@ -200,20 +168,17 @@ Test Date: \cf4\i0\fs20 03-21-2016, 17:50:40\par
 \tab TKAFG1K_ATTR_FREQUENCY\par
 \tab TKAFG1K_ATTR_MODULATION_ENABLED\par
 \cf4\par
-\cf6 ERROR: \cf4 The following attributes do not implement range checking by any method:\par
+\cf7 WARNING: \cf4 The following non-channel based attributes have callbacks that set/get/check a channel-based attribute or call a function that uses a channel name:\par
 \par
-\cf8\tab TKAFG1K_ATTR_PULSE_DUTY_CYCLE\par
-\tab TKAFG1K_ATTR_ARB_SAMPLE_RATE\par
+\cf8\tab TKAFG1K_ATTR_AM_INTERNAL_DEPTH\par
+\tab TKAFG1K_ATTR_FM_INTERNAL_DEVIATION\par
 \cf4\par
 \cf7 WARNING: \cf4 The following constants are defined in the header file but are not used in the source file:\par
 \par
-\cf8\tab TKAFG1K_VAL_REF_CLOCK_INTERNAL\par
-\tab TKAFG1K_VAL_REF_CLOCK_EXTERNAL\par
-\tab TKAFG1K_VAL_WFM_SLOT1\par
+\cf8\tab TKAFG1K_VAL_WFM_SLOT1\par
 \tab TKAFG1K_VAL_WFM_SLOT2\par
 \tab TKAFG1K_VAL_WFM_SLOT3\par
 \tab TKAFG1K_VAL_WFM_SLOT4\par
-\tab TKAFG1K_VAL_ALL_WAVEFORMS\par
 \tab TKAFG1K_VAL_EXTERNAL\par
 \tab TKAFG1K_VAL_INTERNAL_TRIGGER\par
 \tab TKAFG1K_VAL_TRIGGER_TRIGGER\par
@@ -249,6 +214,7 @@ Test Date: \cf4\i0\fs20 03-21-2016, 17:50:40\par
 \par
 \cf8\i\tab tkafg1k_ConfigureOutputMode\par
 \tab tkafg1k_ConfigureOutputModeByChannel\par
+\tab tkafg1k_ConfigureRefClockSource\par
 \tab tkafg1k_ConfigureOutputImpedance\par
 \tab tkafg1k_ConfigureOutputEnabled\par
 \tab tkafg1k_InitiateGeneration\par
@@ -292,36 +258,26 @@ Test Date: \cf4\i0\fs20 03-21-2016, 17:50:40\par
 Specific Instrument: \cf4\i0\fs20 tkafg1k\cf2\i\fs24\par
 Source Code File Path: \cf4\i0\fs20 c:\\Users\\kawang\\Documents\\DriverInfo\\Tek AFG1000\\tkafg1k\\trunk\\source\\tkafg1k.c\cf2\i\fs24\par
 FP File Path: \cf4\i0\fs20 c:\\Users\\kawang\\Documents\\DriverInfo\\Tek AFG1000\\tkafg1k\\trunk\\source\\tkafg1k.fp\cf2\i\fs24\par
-Test Date: \cf4\i0\fs20 03-21-2016, 17:50:41\par
+Test Date: \cf4\i0\fs20 03-22-2016, 16:53:36\par
 \par
 \cf6 ERROR: \cf4 The following nodes do not contain any help:\par
 \par
-\cf10\i\fs24\tab ASK Modulation\par
-\tab PSK Modulation\par
-\tab Obsolete\par
+\cf10\i\fs24\tab Obsolete\par
 \cf4\i0\fs20\par
 \cf6 ERROR: \cf4 In the \cf11\i tkafg1k_ConfigureAMInternal\cf4\i0  function panel:\par
-\par
-\tab Some values in the \cf8\i Modulation Waveform\cf4\i0  ring control are not\par
-\tab listed in the help.\par
 \par
 \tab The following \cf8\i Modulation Waveform\cf4\i0  ring control values are not defined\par
 \tab in the header file:\par
 \par
-\cf8\tab\tab TKAFG1K_VAL_AM_INTERNAL_RAMP_DOWN\par
-\tab\tab TKAFG1K_VAL_AM_INTERNAL_TRIANGLE\par
+\cf8\tab\tab TKAFG1K_VAL_AM_INTERNAL_USER<x>\par
 \cf4\par
 \par
 \cf6 ERROR: \cf4 In the \cf11\i tkafg1k_ConfigureAMInternalByChannel\cf4\i0  function panel:\par
 \par
-\tab Some values in the \cf8\i Modulation Waveform\cf4\i0  ring control are not\par
-\tab listed in the help.\par
-\par
 \tab The following \cf8\i Modulation Waveform\cf4\i0  ring control values are not defined\par
 \tab in the header file:\par
 \par
-\cf8\tab\tab TKAFG1K_VAL_AM_INTERNAL_RAMP_DOWN\par
-\tab\tab TKAFG1K_VAL_AM_INTERNAL_TRIANGLE\par
+\cf8\tab\tab TKAFG1K_VAL_AM_INTERNAL_USER<x>\par
 \cf4\par
 \par
 \cf6 ERROR: \cf4 In the \cf11\i tkafg1k_ConfigureFMInternal\cf4\i0  function panel:\par
@@ -366,53 +322,10 @@ Test Date: \cf4\i0\fs20 03-21-2016, 17:50:41\par
 \tab listed in the help.\par
 \par
 \par
-\cf6 ERROR: \cf4 In the \cf11\i tkafg1k_ConfigureASKEnabled\cf4\i0  function panel:\par
+\cf6 ERROR: \cf4 In the \cf11\i tkafg1k_self_test\cf4\i0  function panel:\par
 \par
-\tab The data type of the \cf8\i Channel Name\cf4\i0  control does not match the data type of the\par
-\tab parameter in the function prototype:\par
-\b0\tab\tab Control Data Type: \cf9\b\fs16 ViChar[]\cf4\b0\fs20\par
-\tab\tab Parameter Data Type: \cf9\b\fs16 ViSession\cf4\fs20\par
-\tab The data type of the \cf8\i Enabled\cf4\i0  control does not match the data type of the\par
-\tab parameter in the function prototype:\par
-\b0\tab\tab Control Data Type: \cf9\b\fs16 ViBoolean\cf4\b0\fs20\par
-\tab\tab Parameter Data Type: \cf9\b\fs16 ViConstString\cf4\fs20\par
-\tab The data type of the \cf8\i Instrument Handle\cf4\i0  control does not match the data type of the\par
-\tab parameter in the function prototype:\par
-\b0\tab\tab Control Data Type: \cf9\b\fs16 ViSession\cf4\b0\fs20\par
-\tab\tab Parameter Data Type: \cf9\b\fs16 ViBoolean\cf4\fs20\par
-\tab The first control label is \cf8\i Channel Name\cf4\i0  instead of Instrument Handle. Check the function panel and verify the lower/upper case for the control label.\par
+\tab The function panel does not have any help.\par
 \par
-\cf6 ERROR: \cf4 In the \cf11\i tkafg1k_ConfigureASKInternalByChan\cf4\i0  function panel:\par
-\par
-\tab The \cf8\i Amplitude\cf4\i0  control does not have a \cf5 Default Value \cf4\par
-\tab section in the help.\par
-\par
-\cf6 ERROR: \cf4 In the \cf11\i tkafg1k_ConfigureASKExternalByChan\cf4\i0  function panel:\par
-\par
-\tab The \cf8\i Amplitude\cf4\i0  control does not have a \cf5 Default Value \cf4\par
-\tab section in the help.\par
-\par
-\cf6 ERROR: \cf4 In the \cf11\i tkafg1k_ConfigurePSKInternalByChan\cf4\i0  function panel:\par
-\par
-\tab The \cf8\i Deviation\cf4\i0  control does not have a \cf5 Default Value \cf4\par
-\tab section in the help.\par
-\par
-\cf6 ERROR: \cf4 In the \cf11\i tkafg1k_ConfigurePSKExternalByChan\cf4\i0  function panel:\par
-\par
-\tab The \cf8\i Deviation\cf4\i0  control does not have a \cf5 Default Value \cf4\par
-\tab section in the help.\par
-\par
-\cf6 ERROR: \cf4 In the \cf11\i tkafg1k_SetGetWaveformPointValue\cf4\i0  function panel:\par
-\par
-\tab Some values in the \cf8\i Edit Memory\cf4\i0  ring control are not\par
-\tab listed in the help.\par
-\par
-\tab The following \cf8\i Edit Memory\cf4\i0  ring control values are not defined\par
-\tab in the header file:\par
-\par
-\cf8\tab\tab TKAFG1K_VAL_OUTPUT_EMEM2\par
-\tab\tab TKAFG1K_VAL_OUTPUT_EMEM1\par
-\cf4\par
 \par
 \cf6 ERROR: \cf4 In the \cf11\i tkafg1k_GetNextInterchangeWarning\cf4\i0  function panel:\par
 \par

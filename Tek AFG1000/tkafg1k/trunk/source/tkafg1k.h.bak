@@ -165,6 +165,7 @@ extern "C" {
 #define TKAFG1K_ATTR_PSK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 53L)
 #define TKAFG1K_ATTR_ASK_AMPLITUDE          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 54L)
 #define TKAFG1K_ATTR_PSK_DEVIATION          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 55L)
+#define TKAFG1K_ATTR_REF_CLOCK_SOURCE       IVIFGEN_ATTR_REF_CLOCK_SOURCE
 
 
 /****************************************************************************
@@ -192,8 +193,8 @@ extern "C" {
 #define TKAFG1K_VAL_IMPEDANCE_INFINITY                          0
 
     /*- Defined values for attribute TKAFG1K_ATTR_REF_CLOCK_SOURCE ------*/
-#define TKAFG1K_VAL_REF_CLOCK_INTERNAL                          IVIFGEN_VAL_REF_CLOCK_INTERNAL
-#define TKAFG1K_VAL_REF_CLOCK_EXTERNAL                          IVIFGEN_VAL_REF_CLOCK_EXTERNAL
+#define TKAFG1K_VAL_REF_CLOCK_INTERNAL                              IVIFGEN_VAL_REF_CLOCK_INTERNAL
+#define TKAFG1K_VAL_REF_CLOCK_EXTERNAL                              IVIFGEN_VAL_REF_CLOCK_EXTERNAL
 
     /*- Defined values for attribute TKAFG1K_ATTR_FUNC_WAVEFORM ---------*/
 #define TKAFG1K_VAL_WFM_SINE                                    IVIFGEN_VAL_WFM_SINE
@@ -1659,6 +1660,8 @@ extern "C" {
 
 #define TKAFG1K_VAL_ASK_INTERNAL                                    0
 #define TKAFG1K_VAL_ASK_EXTERNAL                                    1
+
+#define TKAFG1K_VAL_REF_CLOCK_RTSI_CLOCK                            IVIFGEN_VAL_REF_CLOCK_RTSI_CLOCK
 
 
 /****************************************************************************

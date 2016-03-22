@@ -30,7 +30,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 2
+Number of Opened Files = 4
 Window Confinement Region Enabled = True
 MainColumnWidth = 331
 FileDateColumnWidth = 70
@@ -56,6 +56,7 @@ Window Top = 92
 Window Left = 42
 Window Height = 400
 Window Width = 400
+Window Z-Order = 1
 
 [File 0002]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/dev/source/tkafg1k.c"
@@ -64,7 +65,7 @@ Disk Date = 3541385377
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 2
+Window Z-Order = 4
 Source Window State = "1,5481,5488,5481,0,8160,78,1,0,53,0,0,0,0,0,20,5044,0,5054,0,494,698,1,0,"
 Breakpoint 0001 = "2474,0,enabled,"
 Breakpoint 0002 = "2520,0,enabled,"
@@ -97,8 +98,8 @@ Disk Date = 3541063103
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 1
-Source Window State = "1,0,0,0,0,0,0,0,0,65,0,0,0,0,0,27,56,0,2096,81,586,788,1,0,"
+Window Z-Order = 3
+Source Window State = "1,0,0,0,0,0,0,0,0,63,0,0,0,0,0,24,181,0,194,19,586,788,1,0,"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True

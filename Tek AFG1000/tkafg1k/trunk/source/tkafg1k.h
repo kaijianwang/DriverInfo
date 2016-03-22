@@ -165,6 +165,7 @@ extern "C" {
 #define TKAFG1K_ATTR_PSK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 53L)
 #define TKAFG1K_ATTR_ASK_AMPLITUDE          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 54L)
 #define TKAFG1K_ATTR_PSK_DEVIATION          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 55L)
+#define TKAFG1K_ATTR_REF_CLOCK_SOURCE       IVIFGEN_ATTR_REF_CLOCK_SOURCE
 
 
 /****************************************************************************
@@ -192,8 +193,8 @@ extern "C" {
 #define TKAFG1K_VAL_IMPEDANCE_INFINITY                          0
 
     /*- Defined values for attribute TKAFG1K_ATTR_REF_CLOCK_SOURCE ------*/
-#define TKAFG1K_VAL_REF_CLOCK_INTERNAL                          IVIFGEN_VAL_REF_CLOCK_INTERNAL
-#define TKAFG1K_VAL_REF_CLOCK_EXTERNAL                          IVIFGEN_VAL_REF_CLOCK_EXTERNAL
+#define TKAFG1K_VAL_REF_CLOCK_INTERNAL                              IVIFGEN_VAL_REF_CLOCK_INTERNAL
+#define TKAFG1K_VAL_REF_CLOCK_EXTERNAL                              IVIFGEN_VAL_REF_CLOCK_EXTERNAL
 
     /*- Defined values for attribute TKAFG1K_ATTR_FUNC_WAVEFORM ---------*/
 #define TKAFG1K_VAL_WFM_SINE                                    IVIFGEN_VAL_WFM_SINE
@@ -1660,6 +1661,8 @@ extern "C" {
 #define TKAFG1K_VAL_ASK_INTERNAL                                    0
 #define TKAFG1K_VAL_ASK_EXTERNAL                                    1
 
+#define TKAFG1K_VAL_REF_CLOCK_RTSI_CLOCK                            IVIFGEN_VAL_REF_CLOCK_RTSI_CLOCK
+
 
 /****************************************************************************
  *------------------------ Error And Completion Codes ----------------------*
@@ -1720,6 +1723,8 @@ extern "C" {
         ViConstString channelName,
         ViInt32 outputMode );
 
+    ViStatus _VI_FUNC tkafg1k_ConfigureRefClockSource(ViSession vi,
+                                                      ViInt32 refClockSource);
 
     ViStatus _VI_FUNC tkafg1k_ConfigureOutputImpedance(ViSession vi,
                                                        ViConstString channelName,
@@ -1790,6 +1795,8 @@ extern "C" {
         ViInt32 *wfmHandle);
 
 
+	ViStatus _VI_FUNC  tkafg1k_ClearArbWaveform(ViSession vi, ViInt32 wfmHandle);	 
+	
     ViStatus _VI_FUNC  tkafg1k_ConfigureArbWaveform(ViSession vi,
                                                     ViConstString channelName,
                                                     ViInt32 wfmHandle,
@@ -1991,6 +1998,9 @@ extern "C" {
     /*- Utility Functions --------------------------------------------------*/
     ViStatus _VI_FUNC   tkafg1k_InvalidateAllAttributes(ViSession vi);
     ViStatus _VI_FUNC   tkafg1k_reset(ViSession vi);
+	ViStatus _VI_FUNC   tkafg1k_self_test(ViSession vi, ViInt16 *selfTestResult,
+                                          ViChar selfTestMessage[]);
+
     ViStatus _VI_FUNC   tkafg1k_ResetWithDefaults(ViSession vi);
     ViStatus _VI_FUNC   tkafg1k_revision_query(ViSession vi,
                                                ViChar instrumentDriverRevision[],
