@@ -10,12 +10,9 @@
  *      PH. 86-21-50509800-3512 
  *
 ******************************************************************************/
-
+#include <ansi_c.h>
 #include <utility.h>
-#include <string.h>
-#include <stdio.h>
 #include <formatio.h>
-#include <math.h>
 
 #include "tkafg1k.h"
 
@@ -173,6 +170,23 @@
 #define tkafg1k_GetCmdFromIntValue(value, table, cmd) \
     	Ivi_GetViInt32EntryFromValue (value, table, VI_NULL, VI_NULL,\
     								  VI_NULL, VI_NULL, cmd, VI_NULL)
+
+static IviRangeTableEntry attrRefClockSourceRangeTableEntries[] =
+	{
+		{TKAFG1K_VAL_REF_CLOCK_INTERNAL, 0, 0, "INT", 0},
+		{TKAFG1K_VAL_REF_CLOCK_EXTERNAL, 0, 0, "EXT", 0},
+		{TKAFG1K_VAL_REF_CLOCK_RTSI_CLOCK, 0, 0, "RTSI", 0},
+		{IVI_RANGE_TABLE_LAST_ENTRY}
+	};
+
+static IviRangeTable attrRefClockSourceRangeTable =
+	{
+		IVI_VAL_DISCRETE,
+        VI_FALSE,
+        VI_FALSE,
+        VI_NULL,
+        attrRefClockSourceRangeTableEntries,
+	};
 
 static IviRangeTableEntry attrAFG1062BurstCountRangeTableEntries[] =
 	{
@@ -782,7 +796,7 @@ static ViStatus tkafg1k_VerifyOutputModeByChannel   (ViSession vi,
 static ViStatus tkafg1k_CreateNewWaveform (ViSession vi, ViSession io,
                                            ViInt32 wfmSize, ViReal64 wfmData[],
                                            ViInt32 wfmHandle );
-
+static ViStatus tkafg1k_ClearSingleArbWaveform (ViSession vi, ViSession io, ViInt32 wfmHandle);
 
 
 static ViStatus tkafg1k_CreateNewStandardShapeWaveform (ViSession vi,
@@ -1870,6 +1884,11 @@ static ViStatus _VI_FUNC tkafg1kAttrBurstCount_RangeTableCallback (ViSession vi,
                                                                    ViAttr attributeId,
                                                                    IviRangeTablePtr *rangeTablePtr);
 
+static ViStatus _VI_FUNC tkafg1kAttrArbSampleRate_CheckCallback (ViSession vi,
+                                                                 ViConstString channelName,
+                                                                 ViAttr attributeId,
+                                                                 ViReal64 value);
+
 
 
 
@@ -2166,6 +2185,33 @@ Error:
 ViStatus _VI_FUNC tkafg1k_Disable (ViSession vi)
 {
     return TKAFG1K_ERROR_DISABLE_UNSUPPORTED;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_self_test
+ * Purpose:  This function executes the instrument self-test and returns the
+ *           result.
+ * Note:
+ * This feature is not supported by AFG1000 series. This function will do nothing.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_self_test (ViSession vi, ViInt16 *testResult, ViChar testMessage[])
+{
+    ViStatus    error = VI_SUCCESS;
+
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+    if (testResult == VI_NULL)
+        viCheckParm( IVI_ERROR_INVALID_PARAMETER, 2, "Null address for Test Result");
+    if (testMessage == VI_NULL)
+        viCheckParm( IVI_ERROR_INVALID_PARAMETER, 3, "Null address for Test Message");
+
+    *testResult = 0;
+    strcpy (testMessage, "No error.");
+    checkErr( tkafg1k_CheckStatus (vi));
+
+Error:
+    Ivi_UnlockSession(vi, VI_NULL);
+    return error;
 }
 
 
@@ -2557,6 +2603,20 @@ ViStatus _VI_FUNC tkafg1k_ConfigureOutputModeByChannel (ViSession vi,
                                     IVI_VAL_DIRECT_USER_CALL, outputMode);
 
 }
+
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigureRefClockSource
+ * Purpose:  This function configures the function generator's reference
+ *           clock source.  The function generator uses the reference clock
+ *           to derive frequencies and sample rates for signal generation.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigureRefClockSource (ViSession vi,
+                                                   ViInt32 refClockSource)
+{
+    return VI_SUCCESS;
+}
+
 
 /*****************************************************************************
  * Function: tkafg1k_ConfigureOutputImpedance
@@ -3062,8 +3122,154 @@ Error:
     return error;
 }
 
+/*****************************************************************************
+ * Function: tkafg1k_VerifyWfmHandle
+ * Purpose:  This utility function determines if passed waveform handle is
+ *           valid.
+ *****************************************************************************/
+static ViStatus tkafg1k_VerifyWfmHandle (ViSession vi, ViInt32 wfmHandle)
+{
+    ViStatus   error = VI_SUCCESS;
+    if( (wfmHandle < TKAFG1K_VAL_WFM_USER0) || (wfmHandle > TKAFG1K_VAL_WFM_USER255) )
+    {
+            error = IVI_ERROR_INVALID_VALUE;
+            viCheckErr (error);
+    }
+
+Error:
+    return error;
+}
 
 
+/*****************************************************************************
+ * Function: tkafg1k_ClearArbWaveform
+ * Purpose:  This function removes a previously created arbitrary waveform
+ *           from the function generator's memory and invalidates the
+ *           waveform's handle.  If the waveform handle is
+ *           TKAFG1K_VAL_ALL_WAVEFORMS, this function
+ *           removes all waveforms from memory.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ClearArbWaveform (ViSession vi, ViInt32 wfmHandle)
+{
+    ViStatus  error = VI_SUCCESS;
+    ViBoolean wfmExists;
+    ViChar wfmName[BUFFER_SIZE];
+    ViInt32 maxWfms, i, currentHandle;
+
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+    memset(wfmName, 0, sizeof(ViChar)*BUFFER_SIZE);
+
+    if (wfmHandle != TKAFG1K_VAL_ALL_WAVEFORMS)
+    {
+        checkErr( tkafg1k_VerifyWfmHandle (vi, wfmHandle) );
+        checkErr( tkafg1k_WfmExists (vi, wfmHandle, &wfmExists));
+        if (!wfmExists)
+           viCheckErrElab( IVI_ERROR_INVALID_VALUE,
+                           "The waveform does not exist.");
+
+        if (!Ivi_Simulating(vi))                /* call only when locked */
+        {
+            ViSession   io = Ivi_IOSession(vi); /* call only when locked */
+
+            checkErr ( tkafg1k_ClearSingleArbWaveform (vi, io, wfmHandle) );
+        }
+    }
+    else
+    {
+        if (!Ivi_Simulating(vi))                /* call only when locked */
+        {
+            ViSession   io = Ivi_IOSession(vi); /* call only when locked */
+
+            checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS, 0, &maxWfms));
+
+            for(i=0; i<maxWfms; i++)
+            {
+                currentHandle = TKAFG1K_WFM_HANDLE_FROM_INDEX(i);
+                checkErr ( tkafg1k_WfmExists (vi, currentHandle, &wfmExists) );
+                if(wfmExists == VI_TRUE)
+                {
+                    checkErr ( tkafg1k_ClearSingleArbWaveform (vi, io, currentHandle) );
+                }
+            }
+        }
+    }
+
+Error:
+    Ivi_UnlockSession (vi, VI_NULL);
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ClearArbWaveformBySlot
+ * Purpose:  This function removes a previously created arbitrary waveform
+ *           from the specified slot of the function generator's memory and
+ *           invalidates the waveform's handle.  If the waveform handle is
+ *           TKAFG1K_VAL_ALL_WAVEFORMS, this function
+ *           removes all waveforms from memory.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ClearArbWaveformBySlot (ViSession vi,
+                                                  ViInt32 slot)
+{
+    ViStatus  error = VI_SUCCESS;
+    ViInt32   wfmHandle;
+
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+    wfmHandle = TKAFG1K_WFM_HANDLE_FROM_INDEX(slot);
+    checkErr( tkafg1k_ClearArbWaveform(vi, wfmHandle));
+
+Error:
+    Ivi_UnlockSession (vi, VI_NULL);
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ClearSingleArbWaveform
+ * Purpose:  This utility function delete an existing waveform's
+ *           record in waveform structure.
+ *****************************************************************************/
+static ViStatus tkafg1k_ClearSingleArbWaveform (ViSession vi, ViSession io, ViInt32 wfmHandle)
+{
+    ViStatus   error = VI_SUCCESS;
+    checkErr(tkafg1k_ClearDriverWfmRecord(vi, wfmHandle));
+
+Error:
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ClearDriverWfmRecord
+ * Purpose:  This utility function clears the data in an existing waveform
+ *           data structure.  If the waveform's handle parameter is
+ *           TKAFG1K_VAL_ALL_WAVEFORMS, the function clears the
+ *           data in all waveform data structures for the session.
+ *****************************************************************************/
+static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle)
+{
+    ViStatus   error = VI_SUCCESS;
+    ViInt32    index, maxWfms;
+    wfmNodePtr wfmRecord = VI_NULL;
+
+    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS,
+                                       0, &maxWfms));
+    checkErr( Ivi_GetAttributeViAddr (vi, VI_NULL, TKAFG1K_ATTR_WFM_STRUCTURE,
+                                      0, (ViAddr *)&wfmRecord));
+
+    if (wfmHandle == TKAFG1K_VAL_ALL_WAVEFORMS)
+    {
+        memset (wfmRecord, 0, (sizeof(wfmNode)*maxWfms));
+    }
+    else
+    {
+        index = TKAFG1K_WFM_INDEX_FROM_HANDLE(wfmHandle);
+        wfmRecord[index].wfmSize = 0;
+        wfmRecord[index].wfmName[0] = '\0';
+    }
+
+Error:
+    return error;
+}
 
 
 /*****************************************************************************
@@ -3142,6 +3348,54 @@ ViStatus _VI_FUNC tkafg1k_ConfigureBurstMode (ViSession vi,
                                     IVI_VAL_DIRECT_USER_CALL, burstMode);
 }
 
+/*****************************************************************************
+ * Function: tkafg1k_ConfigureSweepEnabled
+ * Purpose:  This function configures whether to enable sweep mode.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigureSweepEnabled (ViSession vi,
+                                                 ViConstString channelName,
+                                                 ViBoolean enabled)
+{
+    ViStatus  error = VI_SUCCESS;
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+    checkErr( Ivi_SetAttributeViBoolean (vi, channelName, TKAFG1K_ATTR_SWEEP_ENABLED,
+                                         0, enabled) );
+
+Error:
+    Ivi_UnlockSession (vi, VI_NULL);
+    return error;
+}
+
+/*****************************************************************************
+ * Function: tkafg1k_ConfigureSweep
+ * Purpose:  This function configures attributes that affect the sweep mode.
+ *           These attributes are start frequency, stop frequency.
+ *****************************************************************************/
+ViStatus _VI_FUNC tkafg1k_ConfigureSweep ( ViSession vi,
+                                           ViConstString channelName,
+                                           ViReal64 startFrequency,
+                                           ViReal64 stopFrequency)
+{
+    ViStatus    error = VI_SUCCESS;
+    checkErr( Ivi_LockSession (vi, VI_NULL));
+
+    viCheckParm ( Ivi_SetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_SWEEP_START_FREQUENCY,
+                                            IVI_VAL_DIRECT_USER_CALL, startFrequency ),
+                  3,
+                  "Start Frequency" );
+
+    viCheckParm ( Ivi_SetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_SWEEP_STOP_FREQUENCY,
+                                            IVI_VAL_DIRECT_USER_CALL, stopFrequency ),
+                  4,
+                  "Stop Frequency" );
+
+Error:
+    Ivi_UnlockSession (vi, VI_NULL);
+    return error;
+}
+
+
 
 
 /*****************************************************************************
@@ -3200,26 +3454,16 @@ ViStatus _VI_FUNC  tkafg1k_ConfigureAMInternal (ViSession vi, ViReal64 amDepth,
     }
 
     /* Set attributes */
-    viCheckParm( Ivi_SetAttributeViInt32 (vi, CHAN1,
+    viCheckParm( Ivi_SetAttributeViInt32 (vi, VI_NULL,
                                           TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM, 0,
                                           amWaveform), 3, "AM Waveform");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN1,
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, VI_NULL,
                                            TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY, 0,
                                            amFrequency), 4, "AM Frequency");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN1,
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, VI_NULL,
                                           TKAFG1K_ATTR_AM_INTERNAL_DEPTH, 0,
                                           amDepth), 2, "AM Depth");
 
-    viCheckParm( Ivi_SetAttributeViInt32 (vi, CHAN2,
-                                          TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM, 0,
-                                          amWaveform), 3, "AM Waveform");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN2,
-                                           TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY, 0,
-                                           amFrequency), 4, "AM Frequency");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN2,
-                                          TKAFG1K_ATTR_AM_INTERNAL_DEPTH, 0,
-                                          amDepth), 2, "AM Depth");
-	
     checkErr( tkafg1k_CheckStatus (vi));
 
 Error:
@@ -3349,22 +3593,13 @@ ViStatus _VI_FUNC  tkafg1k_ConfigureFMInternal (ViSession vi, ViReal64 fmDevianc
     }
 
     /* Set attributes */
-    viCheckParm( Ivi_SetAttributeViInt32 (vi, CHAN1,
+    viCheckParm( Ivi_SetAttributeViInt32 (vi, VI_NULL,
                                           TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM, 0,
                                           fmWaveform), 3, "FM Waveform");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN1,
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, VI_NULL,
                                            TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY, 0,
                                            fmFrequency), 4, "FM Frequency");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN1,
-                                          TKAFG1K_ATTR_FM_INTERNAL_DEVIATION, 0,
-                                          fmDeviance), 2, "FM Peak Deviance");
-    viCheckParm( Ivi_SetAttributeViInt32 (vi, CHAN2,
-                                          TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM, 0,
-                                          fmWaveform), 3, "FM Waveform");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN2,
-                                           TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY, 0,
-                                           fmFrequency), 4, "FM Frequency");
-    viCheckParm( Ivi_SetAttributeViReal64 (vi, CHAN2,
+    viCheckParm( Ivi_SetAttributeViReal64 (vi, VI_NULL,
                                           TKAFG1K_ATTR_FM_INTERNAL_DEVIATION, 0,
                                           fmDeviance), 2, "FM Peak Deviance");
 
@@ -4199,15 +4434,13 @@ static ViStatus tkafg1k_CreateNewWaveform (ViSession vi, ViSession io, ViInt32 w
     checkErr( Ivi_Alloc (vi, ((ViInt32)sizeof(ViInt16))*(wfmSize), (ViAddr *)(&binData)));
 	viCheckErr( viPrintf (io, "DATA:POIN %s,%d;", memoryName, wfmSize));
     for (i = 0; i < wfmSize; i++){
-         binData[i] = wfmData[i];
-		 viCheckErr( viPrintf (io, "DATA:VAL %s,%d,%f;", memoryName, i,binData[i]));
-		 Delay(0.1);
+		 viCheckErr( viPrintf (io, "DATA:VAL EMEM,%d,%f;", i,wfmData[i]));
 	}
- //   viCheckErr( viPrintf (io, "DATA:DATA %s,%*hb;", memoryName, wfmSize, binData));       /* Pass data to the edit memory */
-
 	/* Copy data from edit memory to specified waveform. In this case, if memoryName = Edit Memory, then it is the same as Edit Memory 1  */ 
+	
+	Delay(1);
 	viCheckErr ( viPrintf (io, "DATA:COPY USER%d,%s",wfmHandle, memoryName) );
-    
+    Delay(1);
 
 Error:
     if (binData)
@@ -4584,42 +4817,6 @@ Error:
 
 
 
-
-/*****************************************************************************
- * Function: tkafg1k_ClearDriverWfmRecord
- * Purpose:  This utility function clears the data in an existing waveform
- *           data structure.  If the waveform's handle parameter is
- *           TKAFG1K_VAL_ALL_WAVEFORMS, the function clears the
- *           data in all waveform data structures for the session.
- *****************************************************************************/
-/*
-static ViStatus tkafg1k_ClearDriverWfmRecord (ViSession vi, ViInt32 wfmHandle)
-{
-    ViStatus   error = VI_SUCCESS;
-    ViInt32    index, maxWfms;
-    wfmNodePtr wfmRecord = VI_NULL;
-
-    checkErr( Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS,
-                                       0, &maxWfms));
-    checkErr( Ivi_GetAttributeViAddr (vi, VI_NULL, TKAFG1K_ATTR_WFM_STRUCTURE,
-                                      0, (ViAddr *)&wfmRecord));
-
-    if (wfmHandle == TKAFG1K_VAL_ALL_WAVEFORMS)
-    {
-        memset (wfmRecord, 0, (sizeof(wfmNode)*maxWfms));
-    }
-    else
-    {
-        index = wfmHandle;
-        wfmRecord[index].wfmSize = 0;
-        wfmRecord[index].wfmName[0] = '\0';
-    }
-
-Error:
-    return error;
-}
-*/
-
 /*****************************************************************************
  * Function: tkafg1k_CheckStatus
  * Purpose:  This function checks the status of the instrument to detect
@@ -4960,8 +5157,6 @@ static ViStatus tkafg1k_RunModeAllowable ( ViSession vi, ViInt32 waveform, ViInt
             wfmType = TKAFG1K_VAL_WAVEFORM_TYPE2;
             break;
         }
-		case TKAFG1K_VAL_WFM_ARB:
-		case TKAFG1K_VAL_WFM_USER:
         case TKAFG1K_VAL_WFM_EMEM:
 		{
 			wfmType = TKAFG1K_VAL_WAVEFORM_TYPE3;
@@ -4969,8 +5164,16 @@ static ViStatus tkafg1k_RunModeAllowable ( ViSession vi, ViInt32 waveform, ViInt
 		}
         default:
         {
-            error = IVI_ERROR_INVALID_PARAMETER;
-            viCheckErr (error);
+			if( (waveform >=TKAFG1K_VAL_WFM_STAIRDOWN) && (waveform <= TKAFG1K_VAL_WFM_USER255))
+			{
+				wfmType = TKAFG1K_VAL_WAVEFORM_TYPE3;
+				break;
+			}
+			else
+            {
+				error = IVI_ERROR_INVALID_PARAMETER;
+            	viCheckErr (error);
+			}
         }
     }
     *allowance = waveformAndRunModeCombination[runModeIndex][wfmType];
@@ -5009,8 +5212,6 @@ static ViStatus tkafg1k_ModulationTypeAllowable ( ViSession vi, ViInt32 waveform
             wfmType = TKAFG1K_VAL_WAVEFORM_TYPE2;
             break;
         }
-		case TKAFG1K_VAL_WFM_ARB:
-		case TKAFG1K_VAL_WFM_USER:
 		case TKAFG1K_VAL_WFM_EMEM:	
         {
             wfmType = TKAFG1K_VAL_WAVEFORM_TYPE3;
@@ -5018,8 +5219,16 @@ static ViStatus tkafg1k_ModulationTypeAllowable ( ViSession vi, ViInt32 waveform
         }
         default:
         {
-            error = IVI_ERROR_INVALID_PARAMETER;
-            viCheckErr (error);
+			if( (waveform >=TKAFG1K_VAL_WFM_STAIRDOWN) && (waveform <= TKAFG1K_VAL_WFM_USER255))
+			{
+				wfmType = TKAFG1K_VAL_WAVEFORM_TYPE3;
+				break;
+			}
+			else
+            {
+				error = IVI_ERROR_INVALID_PARAMETER;
+            	viCheckErr (error);
+			}
         }
     }
 
@@ -5051,9 +5260,7 @@ Error:
  *****************************************************************************/
 static ViStatus _VI_FUNC tkafg1k_CheckStatusCallback (ViSession vi, ViSession io)
 {
-    ViStatus    error = VI_SUCCESS;
-Error:
-    return error;
+    return VI_SUCCESS;
 }
 
 /*****************************************************************************
@@ -6930,11 +7137,15 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_WriteCallback (ViSession vi,
                                                                     ViAttr attributeId,
                                                                     ViReal64 value)
 {
-    ViStatus error = VI_SUCCESS;
-
-    checkErr ( tkafg1k_SetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value ) );
-
-
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL,0, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL,0, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
 Error:
     return error;
 }
@@ -6945,7 +7156,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalDepth_ReadCallback (ViSession vi,
                                                                    ViAttr attributeId,
                                                                    ViReal64 *value)
 {
-    return ( tkafg1k_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value) );
+    return ( tkafg1k_GetAttributeViReal64 (vi, CHAN1, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL, value) );
 }
 
 
@@ -7252,7 +7463,7 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveform_ReadCallback (ViSession v
 {
     ViStatus error = VI_SUCCESS;
 
-    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+    checkErr ( tkafg1k_GetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
 
 Error:
     return error;
@@ -7264,12 +7475,20 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalWaveform_WriteCallback (ViSession 
                                                                        ViAttr attributeId,
                                                                        ViInt32 value)
 {
-    ViStatus error = VI_SUCCESS;
-
-    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
-
+	
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN2, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
 Error:
     return error;
+	
+	
 }
 
 /*- TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM_BY_CHANNEL -*/
@@ -7325,7 +7544,20 @@ static ViStatus _VI_FUNC tkafg1kAttrAMInternalFrequency_WriteCallback (ViSession
                                                                         ViAttr attributeId,
                                                                         ViReal64 value)
 {
-    return ( tkafg1k_SetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
+Error:
+    return error;
+	
+	
+   
 }
 
 
@@ -7467,11 +7699,19 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalDeviation_WriteCallback (ViSession
                                                                          ViAttr attributeId,
                                                                          ViReal64 value)
 {
-    ViStatus error = VI_SUCCESS;
-    checkErr ( Ivi_SetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, value ) );
-
+	
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL,0, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( Ivi_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL,0, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
 Error:
     return error;
+	
 }
 
 
@@ -7483,7 +7723,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalDeviation_ReadCallback (ViSession 
 {
     ViStatus error = VI_SUCCESS;
 
-    checkErr ( Ivi_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, value) );
+    checkErr ( Ivi_GetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL, 0, value) );
 
 
 Error:
@@ -7882,7 +8122,18 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveform_WriteCallback (ViSession 
                                                                        ViAttr attributeId,
                                                                        ViInt32 value)
 {
-    return ( tkafg1k_SetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( tkafg1k_SetAttributeViInt32 ( vi, CHAN2, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
+Error:
+    return error;
+
 }
 
 
@@ -7893,7 +8144,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveform_ReadCallback (ViSession v
                                                                       ViAttr attributeId,
                                                                       ViInt32 *value)
 {
-    return ( tkafg1k_GetAttributeViInt32 ( vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
+    return ( tkafg1k_GetAttributeViInt32 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM_BY_CHANNEL, value ) );
 }
 
 
@@ -7904,7 +8155,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalWaveformByChannel_CheckCallback (V
                                                                                ViInt32 value)
 {
     ViStatus    error = VI_SUCCESS;
-    checkErr( Ivi_DefaultCheckCallbackViInt32 (vi, channelName, attributeId, value) );
+    checkErr( Ivi_DefaultCheckCallbackViInt32 (vi, CHAN1, attributeId, value) );
 
 Error:
     return error;
@@ -7949,7 +8200,18 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequency_WriteCallback (ViSession
                                                                         ViAttr attributeId,
                                                                         ViReal64 value)
 {
-    return ( tkafg1k_SetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	ViStatus error = VI_SUCCESS;
+	ViInt32		model;
+	checkErr (Ivi_GetAttributeViInt32 (vi, VI_NULL, TKAFG1K_ATTR_MODEL, 0, &model));
+	
+    checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	if (model == TKAFG1K_VAL_MODEL_AFG1062)
+		checkErr ( tkafg1k_SetAttributeViReal64 ( vi, CHAN2, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+	else if (model != TKAFG1K_VAL_MODEL_AFG1022)
+		checkErr ( TKAFG1K_ERROR_INVALID_SPECIFIC_MODEL);
+Error:
+    return error;
+	
 }
 
 static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequency_ReadCallback (ViSession vi,
@@ -7958,7 +8220,7 @@ static ViStatus _VI_FUNC tkafg1kAttrFMInternalFrequency_ReadCallback (ViSession 
                                                                        ViAttr attributeId,
                                                                        ViReal64 *value)
 {
-    return ( tkafg1k_GetAttributeViReal64 ( vi, channelName, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
+    return ( tkafg1k_GetAttributeViReal64 ( vi, CHAN1, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY_BY_CHANNEL, value ) );
 }
 
 
@@ -10065,6 +10327,50 @@ Error:
 	return error;
 }
 
+static ViStatus _VI_FUNC tkafg1kAttrPulseDutyCycle_CheckCallback (ViSession vi,
+                                                                  ViConstString channelName,
+                                                                  ViAttr attributeId,
+                                                                  ViReal64 value)
+{
+	ViStatus	error = VI_SUCCESS;
+    ViReal64    frequency;
+    ViInt32     waveform;
+
+    checkErr ( Ivi_GetAttributeViInt32 (vi, channelName, TKAFG1K_ATTR_WAVEFORM, 0, &waveform) );
+    if(waveform != TKAFG1K_VAL_WFM_PULS)
+    {
+        viCheckErrElab( IVI_ERROR_INVALID_CONFIGURATION, "The output waveform must be PULSE");
+    }
+
+    tkafg1k_GetAttributeViReal64 (vi, channelName, TKAFG1K_ATTR_FUNC_FREQUENCY, &frequency);
+
+
+    if( frequency> 1.0e6 )
+    {
+		if (value !=0.5 ) {
+        	error = IVI_ERROR_INVALID_VALUE;
+        	viCheckErr (error); 
+		}
+    }else{
+		if (value <0.001 || value >0.999 ) {
+        	error = IVI_ERROR_INVALID_VALUE;
+        	viCheckErr (error); 
+		}
+	}
+
+
+Error:
+	return error;
+}
+
+static ViStatus _VI_FUNC tkafg1kAttrArbSampleRate_CheckCallback (ViSession vi,
+                                                                 ViConstString channelName,
+                                                                 ViAttr attributeId,
+                                                                 ViReal64 value)
+{
+	return VI_SUCCESS;
+}
+
 /*****************************************************************************
  * Function: tkafg1k_InitAttributes
  * Purpose:  This function adds attributes to the IVI session, initializes
@@ -10277,6 +10583,8 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 	                                    tkafg1kAttrPulseDutyCycle_ReadCallback,
 	                                    tkafg1kAttrPulseDutyCycle_WriteCallback,
 	                                    VI_NULL, 0));
+	checkErr (Ivi_SetAttrCheckCallbackViReal64 (vi, TKAFG1K_ATTR_PULSE_DUTY_CYCLE,
+	                                            tkafg1kAttrPulseDutyCycle_CheckCallback));
     /*-- Arbitrary Waveform Operation------------------------------------------------------*/
     /*- Arbitrary Waveform Handle -*/
 	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_ARB_WAVEFORM_HANDLE,
@@ -10309,10 +10617,12 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
                                                 tkafg1kAttrArbOffset_CheckCallback));
 
     /*- Sample Rate -*/
-    checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_ARB_SAMPLE_RATE,
-                                        "TKAFG1K_ATTR_ARB_SAMPLE_RATE", 1000000000.0,
-                                        IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
-                                        VI_NULL, VI_NULL, VI_NULL, 0));
+	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_ARB_SAMPLE_RATE,
+	                                    "TKAFG1K_ATTR_ARB_SAMPLE_RATE", 1000000000.0,
+	                                    IVI_VAL_NEVER_CACHE | IVI_VAL_USE_CALLBACKS_FOR_SIMULATION,
+	                                    VI_NULL, VI_NULL, VI_NULL, 0));
+	checkErr (Ivi_SetAttrCheckCallbackViReal64 (vi, TKAFG1K_ATTR_ARB_SAMPLE_RATE,
+	                                            tkafg1kAttrArbSampleRate_CheckCallback));
 
     /*- Maximum Number of Waveforms -*/
     checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_MAX_NUM_WAVEFORMS,
@@ -10427,25 +10737,22 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
     /*- AM Internal Depth -*/
 	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_AM_INTERNAL_DEPTH,
 	                                    "TKAFG1K_ATTR_AM_INTERNAL_DEPTH", 50.00,
-	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
-	                                    VI_NULL, VI_NULL,
+	                                    IVI_VAL_NEVER_CACHE, VI_NULL, VI_NULL,
 	                                    &attrAMInternalDepthRangeTable, 0));
 
     /*- AM Internal Waveform -*/
 	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM,
 	                                   "TKAFG1K_ATTR_AM_INTERNAL_WAVEFORM",
 	                                   TKAFG1K_VAL_AM_INTERNAL_SINE,
-	                                   IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
-	                                   VI_NULL, VI_NULL,
+	                                   IVI_VAL_NEVER_CACHE, VI_NULL, VI_NULL,
 	                                   &attrAMInternalWaveformRangeTable));
 
     /*- AM Internal Frequency -*/
 	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY,
 	                                    "TKAFG1K_ATTR_AM_INTERNAL_FREQUENCY",
-	                                    10000.00,
-	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
-	                                    VI_NULL, VI_NULL,
-	                                    &attrAMInternalFrequencyRangeTable, 0));
+	                                    10000.00, IVI_VAL_NEVER_CACHE, VI_NULL,
+	                                    VI_NULL, &attrAMInternalFrequencyRangeTable,
+	                                    0));
 
     /*- AM Depth By Channel -*/
     checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_AM_DEPTH_BY_CHANNEL,
@@ -10499,8 +10806,8 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
     /*- FM Deviation -*/
 	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_FM_INTERNAL_DEVIATION,
 	                                    "TKAFG1K_ATTR_FM_INTERNAL_DEVIATION", 100.0,
-	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
-	                                    VI_NULL, VI_NULL, VI_NULL, 0));
+	                                    IVI_VAL_NEVER_CACHE, VI_NULL, VI_NULL,
+	                                    VI_NULL, 0));
 
     /*- FM Deviation By Channel -*/
 	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_FM_DEVIATION_BY_CHANNEL,
@@ -10517,8 +10824,7 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM,
 	                                   "TKAFG1K_ATTR_FM_INTERNAL_WAVEFORM",
 	                                   TKAFG1K_VAL_FM_INTERNAL_SINE,
-	                                   IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
-	                                   VI_NULL, VI_NULL,
+	                                   IVI_VAL_NEVER_CACHE, VI_NULL, VI_NULL,
 	                                   &attrFMInternalWaveformRangeTable));
 
     /*- FM Internal Waveform By Channel -*/
@@ -10537,10 +10843,9 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
     /*- FM Internal Frequency -*/
 	checkErr (Ivi_AddAttributeViReal64 (vi, TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY,
 	                                    "TKAFG1K_ATTR_FM_INTERNAL_FREQUENCY",
-	                                    10000.00,
-	                                    IVI_VAL_MULTI_CHANNEL | IVI_VAL_NEVER_CACHE,
-	                                    VI_NULL, VI_NULL,
-	                                    &attrFMInternalFrequencyRangeTable, 0));
+	                                    10000.00, IVI_VAL_NEVER_CACHE, VI_NULL,
+	                                    VI_NULL, &attrFMInternalFrequencyRangeTable,
+	                                    0));
 
     /*- FM Internal Frequency By Channel -*/
     checkErr (Ivi_AddAttributeViReal64 (vi,
@@ -10814,6 +11119,10 @@ static ViStatus tkafg1k_InitAttributes (ViSession vi, ViInt32 model)
 	                                    tkafg1kAttrPskDeviation_ReadCallback,
 	                                    tkafg1kAttrPskDeviation_WriteCallback,
 	                                    &attrPSKDeviationRangeTable, 0));
+	checkErr (Ivi_AddAttributeViInt32 (vi, TKAFG1K_ATTR_REF_CLOCK_SOURCE,
+	                                   "TKAFG1K_ATTR_REF_CLOCK_SOURCE",
+	                                   TKAFG1K_VAL_REF_CLOCK_INTERNAL, 0, VI_NULL,
+	                                   VI_NULL, &attrRefClockSourceRangeTable));
 	checkErr (Ivi_SetAttrCheckCallbackViReal64 (vi, TKAFG1K_ATTR_PSK_DEVIATION,
 	                                            tkafg1kAttrPskDeviation_CheckCallback));
 	checkErr (Ivi_SetAttrCheckCallbackViBoolean (vi, TKAFG1K_ATTR_PSK_ENABLED,

@@ -1,18 +1,18 @@
 /***********************************************************************************
- *  Copyright 2005-2015, National Instruments, Corporation.  All Rights Reserved.
+ *  Copyright 2016, National Instruments, Corporation.  All Rights Reserved.
  **********************************************************************************/
 
 /******************************************************************************
- *                       Tektronix AFG3000 Series Arbitrary Function Generator
+ *                       Tektronix AFG1000 Series Arbitrary Function Generator
  *
  * Title:    tkafg1k.h
- * Purpose:  Tektronix AFG3000 & AFG2000 Series Arbitrary Function Generator
+ * Purpose:  Tektronix AFG1000 Series Arbitrary Function Generator
  *           instrument driver declarations.
  *
  *****************************************************************************/
 
-#ifndef __tkafg1k_HEADER
-#define __tkafg1k_HEADER
+#ifndef __TKAFG1K_HEADER
+#define __TKAFG1K_HEADER
 
 #include <ivi.h>
 #include <ivifgen.h>
@@ -24,20 +24,20 @@ extern "C" {
 /****************************************************************************
  *----------------- Instrument Driver Revision Information -----------------*
  ****************************************************************************/
-#define TKAFG1K_MAJOR_VERSION                3      /* Instrument driver major version   */
-#define TKAFG1K_MINOR_VERSION                7      /* Instrument driver minor version   */
+#define TKAFG1K_MAJOR_VERSION                1      /* Instrument driver major version   */
+#define TKAFG1K_MINOR_VERSION                0      /* Instrument driver minor version   */
 
 #define TKAFG1K_CLASS_SPEC_MAJOR_VERSION     3     /* Class specification major version */
 #define TKAFG1K_CLASS_SPEC_MINOR_VERSION     0     /* Class specification minor version */
 
-#define TKAFG1K_SUPPORTED_INSTRUMENT_MODELS  "AFG3011, AFG3011C, AFG3021, AFG3021B, AFG3021C, AFG3022, AFG3022B, AFG3022C, AFG3101, AFG3101C, AFG3102, AFG3102C, AFG3051C, AFG3052C, AFG3251, AFG3251C, AFG3252, AFG3252C, AFG2021"
+#define TKAFG1K_SUPPORTED_INSTRUMENT_MODELS  "AFG1022, AFG1062"
 
 #define TKAFG1K_DRIVER_VENDOR                "National Instruments"
 
 #ifdef _IVI_mswin64_
-#define TKAFG1K_DRIVER_DESCRIPTION           "Tektronix AFG3000 Series Arbitrary Funtion Generator [Compiled for 64-bit]"
+#define TKAFG1K_DRIVER_DESCRIPTION           "Tektronix AFG1000 Series Arbitrary Funtion Generator [Compiled for 64-bit]"
 #else
-#define TKAFG1K_DRIVER_DESCRIPTION           "Tektronix AFG3000 Series Arbitrary Funtion Generator"
+#define TKAFG1K_DRIVER_DESCRIPTION           "Tektronix AFG1000 Series Arbitrary Funtion Generator"
 #endif
 
 /****************************************************************************
@@ -165,6 +165,7 @@ extern "C" {
 #define TKAFG1K_ATTR_PSK_INTERNAL_RATE      (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 53L)
 #define TKAFG1K_ATTR_ASK_AMPLITUDE          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 54L)
 #define TKAFG1K_ATTR_PSK_DEVIATION          (IVI_SPECIFIC_PUBLIC_ATTR_BASE + 55L)
+#define TKAFG1K_ATTR_REF_CLOCK_SOURCE       IVIFGEN_ATTR_REF_CLOCK_SOURCE
 
 
 /****************************************************************************
@@ -192,8 +193,8 @@ extern "C" {
 #define TKAFG1K_VAL_IMPEDANCE_INFINITY                          0
 
     /*- Defined values for attribute TKAFG1K_ATTR_REF_CLOCK_SOURCE ------*/
-#define TKAFG1K_VAL_REF_CLOCK_INTERNAL                          IVIFGEN_VAL_REF_CLOCK_INTERNAL
-#define TKAFG1K_VAL_REF_CLOCK_EXTERNAL                          IVIFGEN_VAL_REF_CLOCK_EXTERNAL
+#define TKAFG1K_VAL_REF_CLOCK_INTERNAL                              IVIFGEN_VAL_REF_CLOCK_INTERNAL
+#define TKAFG1K_VAL_REF_CLOCK_EXTERNAL                              IVIFGEN_VAL_REF_CLOCK_EXTERNAL
 
     /*- Defined values for attribute TKAFG1K_ATTR_FUNC_WAVEFORM ---------*/
 #define TKAFG1K_VAL_WFM_SINE                                    IVIFGEN_VAL_WFM_SINE
@@ -1660,6 +1661,8 @@ extern "C" {
 #define TKAFG1K_VAL_ASK_INTERNAL                                    0
 #define TKAFG1K_VAL_ASK_EXTERNAL                                    1
 
+#define TKAFG1K_VAL_REF_CLOCK_RTSI_CLOCK                            IVIFGEN_VAL_REF_CLOCK_RTSI_CLOCK
+
 
 /****************************************************************************
  *------------------------ Error And Completion Codes ----------------------*
@@ -1720,6 +1723,8 @@ extern "C" {
         ViConstString channelName,
         ViInt32 outputMode );
 
+    ViStatus _VI_FUNC tkafg1k_ConfigureRefClockSource(ViSession vi,
+                                                      ViInt32 refClockSource);
 
     ViStatus _VI_FUNC tkafg1k_ConfigureOutputImpedance(ViSession vi,
                                                        ViConstString channelName,
@@ -1790,6 +1795,8 @@ extern "C" {
         ViInt32 *wfmHandle);
 
 
+	ViStatus _VI_FUNC  tkafg1k_ClearArbWaveform(ViSession vi, ViInt32 wfmHandle);	 
+	
     ViStatus _VI_FUNC  tkafg1k_ConfigureArbWaveform(ViSession vi,
                                                     ViConstString channelName,
                                                     ViInt32 wfmHandle,
@@ -1815,7 +1822,17 @@ extern "C" {
                                                  ViConstString channelName,
                                                  ViInt32 burstMode);
 
-   
+
+    /*- Sweep Configuration------------------------------------------------*/
+    ViStatus _VI_FUNC tkafg1k_ConfigureSweep ( ViSession vi,
+                                           ViConstString channelName,
+                                           ViReal64 startFrequency,
+                                           ViReal64 stopFrequency) ;
+	ViStatus _VI_FUNC tkafg1k_ConfigureSweepEnabled (ViSession vi,
+                                                 ViConstString channelName,
+                                                 ViBoolean enabled);
+
+	
 
     /*- Amplitude Modulation ------------------------------------------------*/
 
@@ -1991,6 +2008,9 @@ extern "C" {
     /*- Utility Functions --------------------------------------------------*/
     ViStatus _VI_FUNC   tkafg1k_InvalidateAllAttributes(ViSession vi);
     ViStatus _VI_FUNC   tkafg1k_reset(ViSession vi);
+	ViStatus _VI_FUNC   tkafg1k_self_test(ViSession vi, ViInt16 *selfTestResult,
+                                          ViChar selfTestMessage[]);
+
     ViStatus _VI_FUNC   tkafg1k_ResetWithDefaults(ViSession vi);
     ViStatus _VI_FUNC   tkafg1k_revision_query(ViSession vi,
                                                ViChar instrumentDriverRevision[],
