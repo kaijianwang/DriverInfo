@@ -1,0 +1,87 @@
+<IviConfigStore xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<Name>IVI Configuration Server</Name>
+	<Description>The IVI Configuration Server allows access to and modification of an IVI configuration store</Description>
+	<Vendor>IVI Foundation, Inc</Vendor>
+	<Revision>1.7.0.12115</Revision>
+	<SpecificationMajorVersion>1</SpecificationMajorVersion>
+	<SpecificationMinorVersion>7</SpecificationMinorVersion>
+	<MasterLocation>C:\ProgramData\IVI Foundation\IVI\IviConfigurationStore.xml</MasterLocation>
+	<ProcessDefaultLocation>F:\Perforce\InstrumentDriver\Drivers\IVI\Certified\FGen\tkafg3k\dev\config\tkafg3k.xml</ProcessDefaultLocation>
+	<ActualLocation>F:\Perforce\InstrumentDriver\Drivers\IVI\Certified\FGen\tkafg3k\dev\config\tkafg3k.xml</ActualLocation>
+	<PublishedAPIs>
+		<IviPublishedAPI id="p1">
+			<Name>IviDriver</Name>
+			<MajorVersion>1</MajorVersion>
+			<MinorVersion>0</MinorVersion>
+			<Type>IVI-C</Type>
+		</IviPublishedAPI>
+		<IviPublishedAPI id="p2">
+			<Name>IviFgen</Name>
+			<MajorVersion>3</MajorVersion>
+			<MinorVersion>0</MinorVersion>
+			<Type>IVI-C</Type>
+		</IviPublishedAPI>
+	</PublishedAPIs>
+	<SoftwareModules>
+		<IviSoftwareModule id="p3">
+			<Name>tkafg3k</Name>
+			<Description>Tektronix AFG3000 Function/Arbitrary Waveform Generator</Description>
+			<DataComponents/>
+			<ModulePath>tkafg3k_32.dll</ModulePath>
+			<Prefix>tkafg3k</Prefix>
+			<ProgID/>
+			<SupportedInstrumentModels>AFG3011,AFG3021,AFG3022,AFG3021B,AFG3022B,AFG3101,AFG3102,AFG3251,AFG3252,AFG2021,AFG3011C,AFG3021C,AFG3022C,AFG3051C,AFG3052C,AFG3101C,AFG3102C,AFG3251C,AFG3252C</SupportedInstrumentModels>
+			<PhysicalNames>
+				<IviPhysicalName id="p4">
+					<Name>1</Name>
+					<RCName>Channel</RCName>
+					<PhysicalNames/>
+					<PhysicalRanges/>
+				</IviPhysicalName>
+				<IviPhysicalName id="p5">
+					<Name>2</Name>
+					<RCName>Channel</RCName>
+					<PhysicalNames/>
+					<PhysicalRanges/>
+				</IviPhysicalName>
+			</PhysicalNames>
+			<PublishedAPIs>
+				<IviPublishedAPI idref="p1"/>
+				<IviPublishedAPI idref="p2"/>
+			</PublishedAPIs>
+			<AssemblyQualifiedClassName/>
+			<ModulePath64>tkafg3k_64.dll</ModulePath64>
+		</IviSoftwareModule>
+	</SoftwareModules>
+	<HardwareAssets/>
+	<DriverSessions>
+		<IviDriverSession id="p6">
+			<Name>tkafg3k</Name>
+			<Description>Tektronix AFG3000 AFG2000 Series</Description>
+			<DataComponents/>
+			<IviSoftwareModuleRef idref="p3"/>
+			<VirtualNames>
+				<IviVirtualName id="p7">
+					<Name>CHANNEL1</Name>
+					<MapTo>1</MapTo>
+					<VirtualRanges/>
+				</IviVirtualName>
+				<IviVirtualName id="p8">
+					<Name>CHANNEL2</Name>
+					<MapTo>2</MapTo>
+					<VirtualRanges/>
+				</IviVirtualName>
+			</VirtualNames>
+			<SoftwareModuleName>tkafg3k</SoftwareModuleName>
+			<Cache>1</Cache>
+			<DriverSetup/>
+			<InterchangeCheck>0</InterchangeCheck>
+			<QueryInstrStatus>0</QueryInstrStatus>
+			<RangeCheck>1</RangeCheck>
+			<RecordCoercions>0</RecordCoercions>
+			<Simulate>1</Simulate>
+		</IviDriverSession>
+	</DriverSessions>
+	<Sessions/>
+	<LogicalNames/>
+</IviConfigStore>
