@@ -103,9 +103,9 @@ OS Bitness:                                    32-bit, 64-bit
 Driver Test Failures:
 --------------------
 Known Issues:                                  According to programmer manual, AFG1022 should have user memory location user0-user255. But it 
-											   just has user0-user31 actually.
+just has user0-user31 actually.
 
-    
+
 Note:
 National Instruments has evaluated and/or tested this driver to verify that it meets all applicable requirements of the IVI specifications 
 at the time this compliance document was submitted to the IVI Foundation and agrees to abide by the dispute arbitration provisions 

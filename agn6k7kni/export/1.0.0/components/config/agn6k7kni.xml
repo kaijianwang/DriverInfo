@@ -1,0 +1,89 @@
+<IviConfigStore xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<Name>IVI Configuration Server</Name>
+	<Description>The IVI Configuration Server allows access to and modification of an IVI configuration store</Description>
+	<Vendor>IVI Foundation, Inc</Vendor>
+	<Revision>1.7.0.12115</Revision>
+	<SpecificationMajorVersion>1</SpecificationMajorVersion>
+	<SpecificationMinorVersion>7</SpecificationMinorVersion>
+	<MasterLocation>C:\ProgramData\IVI Foundation\IVI\IviConfigurationStore.xml</MasterLocation>
+	<ProcessDefaultLocation>D:\Perforce\Perforce\InstrumentDriver\Drivers\IVI\Certified\DCPwr\agn6k7kni\dev\config\agn6k7kni.xml</ProcessDefaultLocation>
+	<ActualLocation>D:\Perforce\Perforce\InstrumentDriver\Drivers\IVI\Certified\DCPwr\agn6k7kni\dev\config\agn6k7kni.xml</ActualLocation>
+	<PublishedAPIs>
+		<IviPublishedAPI id="p1">
+			<Name>IviDCPwr</Name>
+			<MajorVersion>2</MajorVersion>
+			<MinorVersion>0</MinorVersion>
+			<Type>IVI-C</Type>
+		</IviPublishedAPI>
+		<IviPublishedAPI id="p2">
+			<Name>IviDcpwr</Name>
+			<MajorVersion>3</MajorVersion>
+			<MinorVersion>0</MinorVersion>
+			<Type>IVI-C</Type>
+		</IviPublishedAPI>
+		<IviPublishedAPI id="p3">
+			<Name>IviDriver</Name>
+			<MajorVersion>1</MajorVersion>
+			<MinorVersion>0</MinorVersion>
+			<Type>IVI-C</Type>
+		</IviPublishedAPI>
+	</PublishedAPIs>
+	<SoftwareModules>
+		<IviSoftwareModule id="p4">
+			<Name>agn6k7kni</Name>
+			<Description>Agilent Technologies N6900 / N7900 Advanced Power System Instrument Driver</Description>
+			<DataComponents/>
+			<ModulePath>agn6k7kni_32.dll</ModulePath>
+			<Prefix>agn6k7kni</Prefix>
+			<ProgID/>
+			<SupportedInstrumentModels>N6950A,N6951A,N6952A,N6953A,N6954A,N6970A,N6971A,N6972A,N6973A,N6974A,N6976A,N6977A,N7950A,N7951A,N7952A,N7953A,N7954A,N7970A,N7971A,N7972A,N7973A,N7974A,N7976A,N7977A</SupportedInstrumentModels>
+			<PhysicalNames>
+				<IviPhysicalName id="p5">
+					<Name>1</Name>
+					<RCName>Channel</RCName>
+					<PhysicalNames/>
+					<PhysicalRanges/>
+				</IviPhysicalName>
+			</PhysicalNames>
+			<PublishedAPIs>
+				<IviPublishedAPI idref="p2"/>
+				<IviPublishedAPI idref="p3"/>
+			</PublishedAPIs>
+			<AssemblyQualifiedClassName/>
+			<ModulePath64>agn6k7kni_64.dll</ModulePath64>
+		</IviSoftwareModule>
+	</SoftwareModules>
+	<HardwareAssets>
+		<IviHardwareAsset id="p6">
+			<Name>n6952a</Name>
+			<Description/>
+			<DataComponents/>
+			<IOResourceDescriptor>N6952A</IOResourceDescriptor>
+		</IviHardwareAsset>
+		<IviHardwareAsset id="p7">
+			<Name>n7952a</Name>
+			<Description/>
+			<DataComponents/>
+			<IOResourceDescriptor>N7952A</IOResourceDescriptor>
+		</IviHardwareAsset>
+	</HardwareAssets>
+	<DriverSessions>
+		<IviDriverSession id="p8">
+			<Name>agn6k7kni</Name>
+			<Description>Agilent Technologies 6900 / 7900 Advanced Power System</Description>
+			<DataComponents/>
+			<IviSoftwareModuleRef idref="p4"/>
+			<VirtualNames/>
+			<SoftwareModuleName>agn6700</SoftwareModuleName>
+			<Cache>1</Cache>
+			<DriverSetup/>
+			<InterchangeCheck>0</InterchangeCheck>
+			<QueryInstrStatus>0</QueryInstrStatus>
+			<RangeCheck>1</RangeCheck>
+			<RecordCoercions>0</RecordCoercions>
+			<Simulate>1</Simulate>
+		</IviDriverSession>
+	</DriverSessions>
+	<Sessions/>
+	<LogicalNames/>
+</IviConfigStore>

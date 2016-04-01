@@ -1,0 +1,2443 @@
+explicitActiveChannels: TRUE
+library: agn6k7kni_*.*
+
+class: "agn6k7kni"
+flags: 0
+sorted: no
+implements: ivi, IviDCPwr, iviResourceMgr
+
+attribute: "Active Channel" "Active Channel" string writeonly 3 -2
+"Specifics the channel name used to access all subsequent channel-based properties in this property node.  Set the channel before setting channel-based properties.  Pass a name that the instrument driver defines or a virtual channel name configured in MAX."
+
+attribute: "Range Check"
+	"Inherent IVI Properties:User Options:Range Check"
+	bool readwrite 1 100592
+	//const: AGN6K7KNI_ATTR_RANGE_CHECK
+"Specifies whether to validate property values and VI parameters.  If enabled, the instrument driver validates the parameter values that you pass to driver VIs.  Range checking parameters is very useful for debugging.  After you validate your program, you can set this property to FALSE to disable range checking and maximize performance.
+    The default value is TRUE.  Use the agn6k7kni Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Query Instrument Status"
+	"Inherent IVI Properties:User Options:Query Instrument Status"
+	bool readwrite 1 100593
+	//const: AGN6K7KNI_ATTR_QUERY_INSTRUMENT_STATUS
+"Specifies whether the instrument driver queries the instrument status after each operation.  Querying the instrument status is very useful for debugging.  After you validate your program, you can set this property to FALSE to disable status checking and maximize performance
+    The instrument driver can choose to ignore status checking for particular properties regardless of the setting of this property.
+    The default value is FALSE.  Use the agn6k7kni Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Cache"
+	"Inherent IVI Properties:User Options:Cache"
+	bool readwrite 1 100594
+	//const: AGN6K7KNI_ATTR_CACHE
+"Specifies whether to cache the value of properties.  When caching is enabled, the instrument driver keeps track of the current instrument settings and avoids sending redundant commands to the instrument.  Thus, you can significantly increase execution speed.
+    The instrument driver can choose always to cache or never to cache particular properties regardless of the setting of this property.
+    The default value is TRUE.  Use the agn6k7kni Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Simulate"
+	"Inherent IVI Properties:User Options:Simulate"
+	bool readwrite 1 100595
+	//const: AGN6K7KNI_ATTR_SIMULATE
+"Specifies whether or not to simulate instrument driver I/O operations.  If simulation is enabled, instrument driver VIs perform range checking and call Ivi_GetAttribute and Ivi_SetAttribute VIs, but they do not perform instrument I/O.  For output parameters that represent instrument data, the instrument driver VIs return calculated values.
+    The default value is FALSE.  Use the agn6k7kni Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Record Value Coercions"
+	"Inherent IVI Properties:User Options:Record Value Coercions"
+	bool readwrite 1 100596
+	//const: AGN6K7KNI_ATTR_RECORD_COERCIONS
+"Specifies whether the IVI engine keeps a list of the value coercions it makes for integer and real type properties.  You call agn6k7kni Get Next Coercion Record to extract and delete the oldest coercion record from the list.
+    The default value is FALSE.  Use the agn6k7kni Initialize With Options.vi to override this value.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Interchange Check"
+	"Inherent IVI Properties:User Options:Interchange Check"
+	bool readwrite 1 1005A5
+	//const: AGN6K7KNI_ATTR_INTERCHANGE_CHECK
+"Specifies whether to perform interchangeability checking and retrieve interchangeability warnings.
+
+The default value is FALSE.
+
+Interchangeability warnings indicate that using your application with a different instrument might cause different behavior.  You call agn6k7kni Get Next Interchange Warning to extract interchange warnings.  Call the agn6k7kni Clear Interchange Warnings.vi to clear the list of interchangeability warnings without reading them.
+Interchangeability checking logs a warning for each property you have not set that affects the behavior of the instrument.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Description"
+	"Inherent IVI Properties:Driver Identification:Description"
+	string readonly 1 100792
+	//const: AGN6K7KNI_ATTR_SPECIFIC_DRIVER_DESCRIPTION
+"A string that contains a brief description of the specific driver.
+    
+
+"
+attribute: "Driver Prefix"
+	"Inherent IVI Properties:Driver Identification:Driver Prefix"
+	string readonly 1 1006BE
+	//const: AGN6K7KNI_ATTR_SPECIFIC_DRIVER_PREFIX
+"A string that contains the prefix for the instrument driver.  The name of each user-callable VI in this driver starts with this prefix.
+    
+
+"
+attribute: "Driver Vendor"
+	"Inherent IVI Properties:Driver Identification:Driver Vendor"
+	string readonly 1 100791
+	//const: AGN6K7KNI_ATTR_SPECIFIC_DRIVER_VENDOR
+"A string that contains the name of the vendor that supplies this driver.
+    
+
+"
+attribute: "Revision"
+	"Inherent IVI Properties:Driver Identification:Revision"
+	string readonly 1 1007B7
+	//const: AGN6K7KNI_ATTR_SPECIFIC_DRIVER_REVISION
+"A string that contains additional version information about this instrument driver.
+    
+
+"
+attribute: "Class Specification Major Version"
+	"Inherent IVI Properties:Driver Identification:Class Specification Major Version"
+	iL readonly 1 100793
+	//const: AGN6K7KNI_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MAJOR_VERSION
+"The major version number of the class specification with which this driver is compliant.
+    
+
+"
+attribute: "Class Specification Minor Version"
+	"Inherent IVI Properties:Driver Identification:Class Specification Minor Version"
+	iL readonly 1 100794
+	//const: AGN6K7KNI_ATTR_SPECIFIC_DRIVER_CLASS_SPEC_MINOR_VERSION
+"The minor version number of the class specification with which this driver is compliant.
+    
+
+"
+attribute: "Supported Instrument Models"
+	"Inherent IVI Properties:Driver Capabilities:Supported Instrument Models"
+	string readonly 1 1006D7
+	//const: AGN6K7KNI_ATTR_SUPPORTED_INSTRUMENT_MODELS
+"Contains a model code of the instrument. For drivers that support more than one device, this property contains a comma-separated list of supported instrument models.
+    
+
+"
+attribute: "Class Group Capabilities"
+	"Inherent IVI Properties:Driver Capabilities:Class Group Capabilities"
+	string readonly 1 100721
+	//const: AGN6K7KNI_ATTR_GROUP_CAPABILITIES
+"A string that contains a comma-separated list of class-extension groups that this driver implements.
+    
+
+"
+attribute: "Manufacturer"
+	"Inherent IVI Properties:Instrument Identification:Manufacturer"
+	string readonly 1 10078F
+	//const: AGN6K7KNI_ATTR_INSTRUMENT_MANUFACTURER
+"A string that contains the name of the instrument manufacturer you are currently using.
+    
+
+"
+attribute: "Model"
+	"Inherent IVI Properties:Instrument Identification:Model"
+	string readonly 1 100790
+	//const: AGN6K7KNI_ATTR_INSTRUMENT_MODEL
+"A string that contains the model number or name of the instrument that you are currently using.
+    
+
+"
+attribute: "Firmware Revision"
+	"Inherent IVI Properties:Instrument Identification:Firmware Revision"
+	string readonly 1 10078E
+	//const: AGN6K7KNI_ATTR_INSTRUMENT_FIRMWARE_REVISION
+"A string that contains the firmware revision information for the instrument you are currently using.
+    
+
+"
+attribute: "Logical Name"
+	"Inherent IVI Properties:Advanced Session Information:Logical Name"
+	string readonly 1 1006C1
+	//const: AGN6K7KNI_ATTR_LOGICAL_NAME
+"A string containing the logical name you specified when opening the current IVI session.
+     You may pass a logical name to the agn6k7kni Initialize.vi or agn6k7kni Initialize With Options.vi VIs.  The IVI Configuration utility must contain an entry for the logical name.  The logical name entry refers to a virtual instrument section in the IVI Configuration file.  The virtual instrument section specifies a physical device and initial user options.
+    
+
+"
+attribute: "I/O Resource Descriptor"
+	"Inherent IVI Properties:Advanced Session Information:I/O Resource Descriptor"
+	string readonly 1 1006C0
+	//const: AGN6K7KNI_ATTR_IO_RESOURCE_DESCRIPTOR
+"Indicates the resource descriptor the driver uses to identify the physical device.
+    If you initialize the driver with a logical name, this property contains the resource descriptor that corresponds to the entry in the IVI Configuration utility.  
+    If you initialize the instrument driver with the resource descriptor, this property contains that value.
+    
+
+"
+attribute: "Driver Setup"
+	"Inherent IVI Properties:Advanced Session Information:Driver Setup"
+	string readonly 1 100597
+	//const: AGN6K7KNI_ATTR_DRIVER_SETUP
+"Some cases exist where you must specify instrument driver options at initialization time.  An example of this is specifying a particular instrument model from among a family of instruments that the driver supports.  This is useful when using simulation.  You can specify driver-specific options through the DriverSetup keyword in the optionsString parameter to the agn6k7kni Initialize With Options.vi.  If you open an instrument using a logical name, you can also specify the options through the IVI Configuration Utility.
+    The default value is an empty string.
+    
+
+"
+attribute: "Current Level"
+	"Basic Operation:Current Level"
+	fD readwrite 1 11902A
+	//const: AGN6K7KNI_ATTR_CURRENT_LEVEL
+"This channel-based property sets the current level when the output is operating in current priority mode.
+
+Valid Range:
+-10.2% to 102% of rating without power dissipator, If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: -10.2 to 102 A
+N6951A, N6971A, N7951A and N7971A: -5.1 to 51 A
+N6952A, N6972A, N7952A and N7972A: -2.55 to 25.5 A
+N6953A, N6973A, N7953A, N7973A, N6956A and N7956A: -1.7 to 17 A
+N6954A, N6974A, N7954A, N7974A, N6957A and N7957A: -1.275 to 12.75 A
+
+
+up to -102% to 102% of rating with power dissipator, If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: -102 to 102 A
+N6951A, N6971A, N7951A and N7971A: -51 to 51 A
+N6952A, N6972A, N7952A and N7972A: -25.5 to 25.5 A
+N6953A, N6973A, N7953A, N7973A, N6956A and N7956A: -17 to 17 A
+N6954A, N6974A, N7954A, N7974A, N6957A and N7957A: -12.75 to 12.75 A
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 1.02 A
+N6951A, N6971A, N7951A and N7971A: 0.51 A
+N6952A, N6972A, N7952A and N7972A: 0.255 A
+N6953A, N6973A, N7953A, N7973A, N6956A and N7956A: 0.17 A
+N6954A, N6974A, N7954A, N7974A, N6957A and N7957A: 0.1275 A
+
+SCPI Command:
+[SOURce:]CURRent[:LEVel][:IMMediate][:AMPLitude] <value>|MIN|MAX
+
+"
+attribute: "Positive Current Limit"
+	"Basic Operation:Positive Current Limit"
+	fD readwrite 1 1312D5
+	//const: AGN6K7KNI_ATTR_CURRENT_LIMIT
+"This channel-based property positive current limit when in voltage priority mode.  Units are in amperes.  The maximum value depends on the current rating of the unit. 
+
+Valid Range:
+0 to 102% of rating. If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: 0 to 102 A
+N6951A, N6971A, N7951A and N7971A: 0 to 51 A
+N6952A, N6972A, N7952A and N7972A: 0 to 25.5 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: 0 to 17 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: 0 to 12.75 A
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 1.02 A
+N6951A, N6971A, N7951A and N7971A: 0.51A
+N6952A, N6972A, N7952A and N7972A: 0.255 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: 0.17 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: 0.1275 A
+
+SCPI Command:
+[SOURce:]CURRent:LIMit[:POSitive][:IMMediate][:AMPLitude] <value>|MIN|MAX
+
+"
+attribute: "Current Limit Behavior"
+	"Basic Operation:Current Limit Behavior"
+	iL readwrite 1 1312D4
+	//const: AGN6K7KNI_ATTR_CURRENT_LIMIT_BEHAVIOR
+"This channel-based property is not supported.
+
+This channel-based property specifies the behavior of the power supply when the output current is equal to or greater than the value of the Positive Current Limit property.
+    
+
+"
+attribute: "Negative Current Limit"
+	"Basic Operation:Negative Current Limit"
+	fD readwrite 1 11902B
+	//const: AGN6K7KNI_ATTR_CURRENT_LIMIT_NEGATIVE
+"This channel-based property sets the negative current limit when in voltage priority mode.  Units are in amperes.  The minimum value is the most negative value.
+
+Valid Range:
+-10.2% of rating to 0 without power dissipator, If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: -10.2 to 0 A
+N6951A, N6971A, N7951A and N7971A: -5.1 to 0 A
+N6952A, N6972A, N7952A and N7972A: -2.55 to 0 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: -1.7 to 0 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: -1.275 to 0 A
+
+up to -102% of rating to 0 with power dissipator, If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: -102 to 0 A
+N6951A, N6971A, N7951A and N7971A: -51 to 0 A
+N6952A, N6972A, N7952A and N7972A: -25.5 to 0 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: -17 to 0 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: -12.75 to 0 A
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: -10.2 A
+N6951A, N6971A, N7951A and N7971A: -5.1 A
+N6952A, N6972A, N7952A and N7972A: -2.55 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: -1.7 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: -1.275 A
+
+SCPI Command:
+[SOURce:]CURRent:LIMit:NEGative[:IMMediate][:AMPLitude] <value>|MIN|MAX
+
+"
+attribute: "Current Sharing Enabled"
+	"Basic Operation:Current Sharing Enabled"
+	bool readwrite 1 119019
+	//const: AGN6K7KNI_ATTR_CURRENT_SHARING_ENABLED
+"This channel-based property enables or disables current sharing on paralleled units.
+
+Valid Values:
+TRUE - Enable, the load current is shared equally among the paralleled outputs.
+FALSE - Disable
+
+Default Value:
+FALSE
+
+SCPI Command:
+[SOURce:]CURRent:SHARing[:STATe] 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Current Slew Rate"
+	"Basic Operation:Current Slew Rate"
+	fD readwrite 1 119029
+	//const: AGN6K7KNI_ATTR_CURRENT_SLEW_RATE
+"This channel-based property sets the current slew rate. The slew rate is set in amps per second and affects all programmed current changes, including those due to the output state turning on or off. 
+
+Valid Range:
+0 to 9.9E+37
+
+Default Value:
+9.9E+37
+
+SCPI Command:
+[SOURce:]CURRent:SLEW[:IMMediate] <value>|MIN|MAX|INFinity
+
+"
+attribute: "Max Current Slew Rate Enabled"
+	"Basic Operation:Max Current Slew Rate Enabled"
+	bool readwrite 1 11901A
+	//const: AGN6K7KNI_ATTR_CURRENT_SLEW_MAX_ENABLED
+"This channel-based property enables or disables the maximum current slew rate override. 
+
+Default Value:
+TRUE - Enables the maximum current slew rate override. 
+FALSE - Disables the maximum current slew rate override. 
+
+SCPI Command:
+[SOURce:]CURRent:SLEW:MAXimum 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Function"
+	"Basic Operation:Function"
+	iL enum { AGN6K7KNI_VAL_FUNCTION_VOLTAGE=1, AGN6K7KNI_VAL_FUNCTION_CURRENT=2 } readwrite 1 1197F3
+	//const: AGN6K7KNI_ATTR_FUNCTION
+"This channel-based property select either Voltage priority or Current priority. 
+
+Valid Values:
+AGN6K7KNI_VAL_FUNCTION_VOLTAGE (1)  - Voltage priority, the output voltage will remain at its programmed setting as long as the load current remains within the positive or negative current limit setting.
+AGN6K7KNI_VAL_FUNCTION_CURRENT (2)  - Current priority,  the output current will remain at its programmed setting as long as the load voltage remains within the voltage limit setting.
+
+Default Value:
+AGN6K7KNI_VAL_FUNCTION_CURRENT
+
+SCPI Command:
+[SOURce:]FUNCtion CURRent|VOLTage
+
+AGN6K7KNI_VAL_FUNCTION_VOLTAGE (1)
+Voltage priority
+
+AGN6K7KNI_VAL_FUNCTION_CURRENT (2)
+Current priority
+
+"
+attribute: "OCP Delay"
+	"Basic Operation:OCP Delay"
+	fD readwrite 1 119020
+	//const: AGN6K7KNI_ATTR_OCP_DELAY
+"This channel-based property sets the over-current protection delay. The over-current protection VI will not be triggered during the delay time. After the delay time has expired, the over-current protection VI will be active.
+
+Valid Range:
+0 to 0.255 seconds
+
+Default Value:
+0.020 seconds
+
+SCPI Command:
+[SOURce:]CURRent:PROTection:DELay[:TIME] <value>|MIN|MAX
+
+"
+attribute: "OCP Delay Start Time"
+	"Basic Operation:OCP Delay Start Time"
+	iL enum { AGN6K7KNI_VAL_OCP_DELAY_START_SCHANGE=1, AGN6K7KNI_VAL_OCP_DELAY_START_CCTRANS=2 } readwrite 1 11901F
+	//const: AGN6K7KNI_ATTR_OCP_DELAY_START_TIME
+"This channel-based property specifies what starts the over-current protection delay timer.
+
+Valid Values:
+AGN6K7KNI_VAL_OCP_DELAY_START_SCHANGE (1)  - Settings Change, starts the over-current delay whenever a command changes the output settings.
+AGN6K7KNI_VAL_OCP_DELAY_START_CCTRANS (2)  - CC Transition, starts the over-current delay timer by any transition of the output into current limit mode.
+
+Default Value:
+AGN6K7KNI_VAL_OCP_DELAY_START_SCHANGE
+
+SCPI Command:
+[SOURce:]CURRent:PROTection:DELay:STARt SCHange|CCTRans
+
+AGN6K7KNI_VAL_OCP_DELAY_START_SCHANGE (1)
+Settings Change
+
+AGN6K7KNI_VAL_OCP_DELAY_START_CCTRANS (2)
+CC Transition
+
+"
+attribute: "OCP Enabled"
+	"Basic Operation:OCP Enabled"
+	bool readwrite 1 119021
+	//const: AGN6K7KNI_ATTR_OCP_ENABLED
+"This channel-based property enables or disables the over-current protection.
+
+Valid Values:
+TRUE - Enables over-current protection
+FALSE - Disables over-current protection
+
+Default Value:
+FALSE
+
+SCPI Command:
+[SOURce:]CURRent:PROTection:STATe 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Output Couple Enabled"
+	"Basic Operation:Output Couple Enabled"
+	bool readwrite 1 1197EE
+	//const: AGN6K7KNI_ATTR_OUTPUT_COUPLE_ENABLED
+"This property enables or disables output coupling. Output coupling allows the outputs of multiple instruments to turn on and off sequentially according to their specified programming delays.
+
+Valid Values:
+TRUE - Enables output coupling
+FALSE - Disables output coupling
+
+Default Value:
+TRUE
+
+SCPI Command:
+OUTPut[:STATe]:COUPle[:STATe] 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Output Delay Fall"
+	"Basic Operation:Output Delay Fall"
+	fD readwrite 1 1197ED
+	//const: AGN6K7KNI_ATTR_OUTPUT_DELAY_FALL
+"This channel-based property specifies the delay in seconds that the instrument waits before turning the output off (fall). This allows multiple instruments to turn off in sequence. The output will not turn off until its delay time has elapsed.
+
+Valid Range:
+Delay times can be programmed with the following resolution:
+Range in seconds          Resolution
+0 to 1.023E-4             100 nanoseconds
+1.03E-4 to 1.023E-3       1 microsecond
+1.03E-3 to 1.023E-2       10 microseconds
+1.03E-2 to 1.023E-1       100 microseconds
+1.03E-1 to 1.023E+0       1 millisecond
+1.03E+0 to 1.023E+1       10 milliseconds
+1.03E+1 to 1.023E+2       100 milliseconds
+1.03E+2 to 1.023E+3       1 second
+
+Default Value:
+0
+
+SCPI Command:
+OUTPut[:STATe]:DELay:FALL <value>|MIN|MAX
+
+"
+attribute: "Output Delay Offset"
+	"Basic Operation:Output Delay Offset"
+	fD readwrite 1 1197EB
+	//const: AGN6K7KNI_ATTR_OUTPUT_DELAY_OFFSET
+"This property sets a delay offset to synchronize coupled output state changes.
+
+Vaild Range:
+0 to 1.023
+
+Default Value:
+0
+
+SCPI Command:
+OUTPut[:STATe]:COUPle:DOFFset <value>|MIN|MAX
+
+"
+attribute: "Output Delay Rise"
+	"Basic Operation:Output Delay Rise"
+	fD readwrite 1 1197EC
+	//const: AGN6K7KNI_ATTR_OUTPUT_DELAY_RISE
+"This channel-based property specifies the delay in seconds that the instrument waits before turning the output on (rise). This allows multiple instruments to turn on in sequence. The output will not turn on until its delay time has elapsed.
+
+Valid Range:
+Delay times can be programmed with the following resolution:
+Range in seconds          Resolution
+0 to 1.023E-4             100 nanoseconds
+1.03E-4 to 1.023E-3       1 microsecond
+1.03E-3 to 1.023E-2       10 microseconds
+1.03E-2 to 1.023E-1       100 microseconds
+1.03E-1 to 1.023E+0       1 millisecond
+1.03E+0 to 1.023E+1       10 milliseconds
+1.03E+1 to 1.023E+2       100 milliseconds
+1.03E+2 to 1.023E+3       1 second
+
+Default Value:
+0
+
+SCPI Command:
+OUTPut[:STATe]:DELay:RISE <value>|MIN|MAX
+
+"
+attribute: "Output Enabled"
+	"Basic Operation:Output Enabled"
+	bool readwrite 1 1312D6
+	//const: AGN6K7KNI_ATTR_OUTPUT_ENABLED
+"This channel-based property enables or disables the output. The state of a disabled output is a condition of zero output voltage and zero source current. If output and sense relays are installed, the relays will open when the output is disabled and close when the output is enabled.
+
+Valid Values:
+TRUE - Enables the output
+FALSE - Disables the output
+
+Default Value:
+FALSE
+
+Notes:
+(1) Because of internal circuit start-up procedures and any installed relay options, turn output on may take between 12 and 38 milliseconds to complete its VI in voltage priority mode, and between 14 and 46 milliseconds in current priority mode.
+
+SCPI Command:
+OUTPut[:STATe]:COUPle[:STATe] 0|OFF|1|ON
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Output Relay Enabled"
+	"Basic Operation:Output Relay Enabled"
+	bool readwrite 1 119024
+	//const: AGN6K7KNI_ATTR_OUTPUT_RELAY_ENABLED
+"This channel-based property enables or disables the polarity reversal VI.
+
+Valid Values:
+TRUE - Enables output relay polarity
+FALSE - Disables output relay polarity
+
+Default Value:
+TRUE
+
+SCPI Command:
+OUTPut:RELay:POLarity:ENABle 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Output Relay Lock Enabled"
+	"Basic Operation:Output Relay Lock Enabled"
+	bool readwrite 1 119022
+	//const: AGN6K7KNI_ATTR_OUTPUT_RELAY_LOCK_ENABLED
+"This channel-based property enables or disables the polarity reversal VI.
+
+Valid Values:
+TRUE - Enables output relay polarity
+FALSE - Disables output relay polarity
+
+Default Value:
+TRUE
+
+SCPI Command:
+OUTPut:RELay:POLarity:ENABle 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Output Relay Polarity"
+	"Basic Operation:Output Relay Polarity"
+	iL enum { AGN6K7KNI_VAL_RELAY_POLARITY_NORMAL=1, AGN6K7KNI_VAL_RELAY_POLARITY_REVERSE=2 } readwrite 1 119023
+	//const: AGN6K7KNI_ATTR_OUTPUT_RELAY_POLARITY
+"This channel-based properties sets the polarity of the output relays. Polarity reversal affects both the output and the sense terminals. 
+
+Valid Values:
+AGN6K7KNI_VAL_RELAY_POLARITY_NORMAL (1)  - Normal, causes the output polarity to be the same as the output connector labeling.
+AGN6K7KNI_VAL_RELAY_POLARITY_REVERSE (2)  - Reverse, causes the output polarity to be the reverse of the output connector labeling.
+
+Default Value:
+AGN6K7KNI_VAL_RELAY_POLARITY_NORMAL
+
+SCPI Command:
+OUTPut:RELay:POLarity NORMal|REVerse
+
+AGN6K7KNI_VAL_RELAY_POLARITY_NORMAL (1)
+Normal
+
+AGN6K7KNI_VAL_RELAY_POLARITY_REVERSE (2)
+Reverse
+
+"
+attribute: "OVP Enabled"
+	"Basic Operation:OVP Enabled"
+	bool readwrite 1 1312D2
+	//const: AGN6K7KNI_ATTR_OVP_ENABLED
+"This channel-based property specifies whether the power supply provides over-voltage protection.  If this property is set to TRUE, the power supply disables the output when the output voltage is greater than or equal to the value of the OVP Limit property.
+    
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "OVP Limit"
+	"Basic Operation:OVP Limit"
+	fD readwrite 1 1312D3
+	//const: AGN6K7KNI_ATTR_OVP_LIMIT
+"This channel-based property sets the over-voltage protection level.  Units are in volts. If the output voltage exceeds the OVP level, the output is disabled and the Questionable Condition status register OV bit is set.
+
+Valid Range:
+0 to 120% of rating, If current rating is 100%, then the valid range is:
+N6950A, N6970A, N7950A and N7970A: 0 to 10.8 V
+N6951A, N6971A, N7951A and N7971A: 0 to 24 V
+N6952A, N6972A, N7952A and N7972A: 0 to 48 V
+N6953A, N6973A, N7953A and N7973A: 0 to 72 V
+N6954A, N6974A, N7954A and N7974A: 0 to 96 V
+N6976A, N6977A: 0 to 144V
+N7976A, N7977A: 0 to 192V
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 10.8 V
+N6951A, N6971A, N7951A and N7971A: 24 V
+N6952A, N6972A, N7952A and N7972A: 48 V
+N6953A, N6973A, N7953A and N7973A: 72 V
+N6954A, N6974A, N7954A and N7974A: 96 V
+N6976A, N6977A: 144V
+N7976A, N7977A: 192V
+
+SCPI Command:
+[SOURce:]VOLTage:PROTection[:LEVel] <value>|MIN|MAX
+
+"
+attribute: "Resistance Enabled"
+	"Basic Operation:Resistance Enabled"
+	bool readwrite 1 119026
+	//const: AGN6K7KNI_ATTR_RESISTANCE_ENABLED
+"This channel-based property enables or disables output resistance programming.
+
+Valid Values:
+TRUE - Enables output resistance programming.
+FALSE - Disables output resistance programming.
+
+Default Value:
+FALSE
+
+SCPI Command:
+[SOURce:]RESistance:STATe 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Resistance Level"
+	"Basic Operation:Resistance Level"
+	fD readwrite 1 119025
+	//const: AGN6K7KNI_ATTR_RESISTANCE_LEVEL
+"This channel-based property sets the output resistance level. Units are in ohms.
+
+Valid Range:
+N6950A/N7950A: 0 to 0.1 Ohms
+N6951A/N7951A: 0 to 0.4 Ohms
+N6952A/N7952A: 0 to 1.6 Ohms
+N6953A/N7953A: 0 to 3.4 Ohms
+N6954A/N7954A: 0 to 6.4 Ohms
+N6970A/N7970A: 0 to 0.05 Ohms
+N6971A/N7971A: 0 to 0.2 Ohms
+N6972A/N7972A: 0 to 0.8 Ohms
+N6973A/N7973A: 0 to 1.7 Ohms
+N6974A/N7974A: 0 to 3.2 Ohms
+N6976A/N7976A: 0 to 6.8 Ohms
+N6977A/N7977A: 0 to 12.8 Ohms
+
+Default Value:
+0
+
+SCPI Command:
+[SOURce:]RESistance[:LEVel][:IMMediate][:AMPLitude] <value>|MIN|MAX
+
+"
+attribute: "Voltage Bandwidth"
+	"Basic Operation:Voltage Bandwidth"
+	iL enum { AGN6K7KNI_VAL_VOLTAGE_BANDWIDTH_HIGH=1, AGN6K7KNI_VAL_VOLTAGE_BANDWIDTH_LOW=2 } readwrite 1 119027
+	//const: AGN6K7KNI_ATTR_VOLTAGE_BANDWIDTH
+"This channel-based property sets the voltage bandwidth. This lets you optimize output response time with capacitive loads.
+
+Valid Values:
+AGN6K7KNI_VAL_VOLTAGE_BANDWIDTH_HIGH (1)  - High Bandwidth,  provides maximum up-programming speed as well as the fastest transient response time when the output capacitance is restricted to small values. This mode is optimized for use with resistive loads; however capacitive loads up to the limits outlined in the table below can be used when using load leads shorter than 3 meters (10 feet). Exceeding these limits can lead to voltage programming overshoots and transient response instability.
+
+AGN6K7KNI_VAL_VOLTAGE_BANDWIDTH_LOW (2)  - Low Bandwidth, optimized for use with large capacitive loads up to the limits shown in the table below, along with load leads longer than 3 meters (10 feet). In this mode the up- and down-programming speed and voltage control-loop bandwidth are limited to prevent voltage programming overshoots and improve transient response stability. Low mode provides the best stability and overshoot minimization over all load configurations.
+------------------------------------------------------
+1 kW Models      High limit        Low limit
+N6950A/N7950A    0 to 3800 uF      0 to 190,000 uF
+N6951A/N7951A    0 to 1000 uF      0 to 50,000 uF
+N6952A/N7952A    0 to 240 uF       0 to 12,000 uF
+N6953A/N7953A    0 to 100 uF       0 to 5600 uF
+N6954A/N7954A    0 to 60 uF        0 to 3000 uF
+------------------------------------------------------
+2 kW Models      High limit        Low limit
+N6970A/N7970A    0 to 7600 uF      0 to 380,000 uF      
+N6971A/N7971A    0 to 2000 uF      0 to 100,000 uF
+N6972A/N7972A    0 to 480 uF       0 to 24,000 uF
+N6973A/N7973A    0 to 200 uF       0 to 11,200 uF
+N6974A/N7974A    0 to 120 uF       0 to 6000 uF
+N6976A/N7976A    0 to 50 uF        0 to 2,800 uF
+N6977A/N7977A    0 to 30 uF        0 to 1,500 uF
+------------------------------------------------------
+
+Default Value:
+AGN6K7KNI_VAL_VOLTAGE_BANDWIDTH_HIGH
+
+Notes:
+(1) Connecting very low ESR capacitors larger than the High mode limit with load leads shorter than 3 m (10 ft.) is not recommended in either bandwidth range. This load configuration can lead to voltage programming overshoots.
+
+SCPI Command:
+[SOURce:]VOLTage:BWIDth LOW|HIGH1
+
+AGN6K7KNI_VAL_VOLTAGE_BANDWIDTH_HIGH (1)
+Provides maximum up-programming speed as well as the fastest transient response time when the output capacitance is restricted to small values.
+
+AGN6K7KNI_VAL_VOLTAGE_BANDWIDTH_LOW (2)
+Optimized for use with large capacitive loads
+
+"
+attribute: "Voltage Level"
+	"Basic Operation:Voltage Level"
+	fD readwrite 1 1312D1
+	//const: AGN6K7KNI_ATTR_VOLTAGE_LEVEL
+"This channel-based property sets the voltage level when the output is operating in voltage priority mode.
+
+Valid Range:
+N6950A, N6970A, N7950A and N7970A: 0.009 to 9.18 V
+N6951A, N6971A, N7951A and N7971A: 0.02 to 20.4 V
+N6952A, N6972A, N7952A and N7972A: 0.04 to 40.8 V
+N6953A, N6973A, N7953A and N7973A: 0.06 to 61.2 V
+N6954A, N6974A, N7954A and N7974A: 0.08 to 81.6 V
+N6976A, N7976A: 0.12 to 122.4 V
+N6977A, N7977A: 0.16 to 163.2 V
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 0.009 V
+N6951A, N6971A, N7951A and N7971A: 0.02 V
+N6952A, N6972A, N7952A and N7972A: 0.04 V
+N6953A, N6973A, N7953A and N7973A: 0.06 V
+N6954A, N6974A, N7954A and N7974A: 0.08 V
+N6976A, N7976A: 0.12 V
+N6977A, N7977A: 0.16 V
+
+SCPI Command:
+[SOURce:]VOLTage[:LEVel][:IMMediate][:AMPLitude] <value>|MIN|MAX
+
+"
+attribute: "Voltage Limit"
+	"Basic Operation:Voltage Limit"
+	fD readwrite 1 11902C
+	//const: AGN6K7KNI_ATTR_VOLTAGE_LIMIT
+"This channel-based property sets the voltage limit when in current priority mode.
+
+Valid Range:
+N6950A, N6970A, N7950A and N7970A: 0.009 to 9.18 V
+N6951A, N6971A, N7951A and N7971A: 0.02 to 20.4 V
+N6952A, N6972A, N7952A and N7972A: 0.04 to 40.8 V
+N6953A, N6973A, N7953A and N7973A: 0.06 to 61.2 V
+N6954A, N6974A, N7954A and N7974A: 0.08 to 81.6 V
+N6976A, N7976A: 0.12 to 122.4 V
+N6977A, N7977A: 0.16 to 163.2 V
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 9.18 V
+N6951A, N6971A, N7951A and N7971A: 20.4 V
+N6952A, N6972A, N7952A and N7972A: 40.8 V
+N6953A, N6973A, N7953A and N7973A: 61.2 V
+N6954A, N6974A, N7954A and N7974A: 81.6 V
+N6976A, N7976A: 122.4 V
+N6977A, N7977A: 163.2 V
+
+SCPI Command:
+[SOURce:]VOLTage:LIMit[:POSitive][:IMMediate][:AMPLitude] <value>|MIN|MAX
+
+"
+attribute: "Max Voltage Slew Rate Enabled"
+	"Basic Operation:Max Voltage Slew Rate Enabled"
+	bool readwrite 1 11901B
+	//const: AGN6K7KNI_ATTR_VOLTAGE_SLEW_MAX_ENABLED
+"This channel-based property enables or disables the maximum voltage slew rate override. 
+
+Default Value:
+TRUE - Enables the maximum voltage slew rate override. 
+FALSE - Disables the maximum voltage slew rate override. 
+
+SCPI Command:
+[SOURce:]VOLTage:SLEW:MAXimum 0|OFF|1|ON 
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Voltage Slew Rate"
+	"Basic Operation:Voltage Slew Rate"
+	fD readwrite 1 119028
+	//const: AGN6K7KNI_ATTR_VOLTAGE_SLEW_RATE
+"This channel-based property sets the voltage slew rate. The slew rate is set in volts per second and affects all programmed voltage changes, including those due to the output state turning on or off.
+
+Valid Range:
+0 to 9.9E+37
+
+Default Value:
+9.9E+37
+
+SCPI Command:
+[SOURce:]VOLTage:SLEW[:IMMediate] <value>|MIN|MAX|INFinity
+
+"
+attribute: "Watchdog Delay"
+	"Basic Operation:Watchdog Delay"
+	iL readwrite 1 11901D
+	//const: AGN6K7KNI_ATTR_WATCHDOG_DELAY
+"This property sets the watchdog delay time.
+
+Valid Values:
+1 to 3600 seconds
+
+Default Value:
+60 seconds
+
+Notes
+(1) When the watchdog timer is enabled, the output is disabled if there is no SCPI I/O activity on any remote interface (USB, LAN, GPIB) within the delay time. 
+(2) The watchdog timer VI is NOT reset by activity on the front panel - the output will still shut down after the time period has elapsed. 
+
+"
+attribute: "Watchdog Timer Enabled"
+	"Basic Operation:Watchdog Timer Enabled"
+	bool readwrite 1 11901E
+	//const: AGN6K7KNI_ATTR_WATCHDOG_TIMER_ENABLED
+"This property enables or disables the I/O watchdog timer.
+
+Valid Value:
+TRUE - Enables the I/O watchdog timer.
+FALSE - Disables the I/O watchdog timer.
+
+Default Value:
+FALSE
+
+SCPI Command:
+OUTPut:PROTection:WDOG[:STATe] 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Current Transient Mode"
+	"Trigger Subsystem:Current Transient Mode"
+	iL enum { AGN6K7KNI_VAL_TRANSIENT_MODE_FIXED=1, AGN6K7KNI_VAL_TRANSIENT_MODE_STEP=2, AGN6K7KNI_VAL_TRANSIENT_MODE_LIST=3, AGN6K7KNI_VAL_TRANSIENT_MODE_ARB=4 } readwrite 1 119409
+	//const: AGN6K7KNI_ATTR_CURRENT_TRANSIENT_MODE
+"This channel-based property sets the current transient mode. This determines what happens to the output voltage when the transient system is initiated and triggered.
+
+Valid Values:
+AGN6K7KNI_VAL_TRANSIENT_MODE_FIXED (1)  - Fixed, keeps the output voltage at its immediate value.
+AGN6K7KNI_VAL_TRANSIENT_MODE_STEP (2)  - Step, steps the output to the triggered level when a trigger occurs.
+AGN6K7KNI_VAL_TRANSIENT_MODE_LIST (3)  - List, causes the output to follow the list values when a trigger occurs.
+AGN6K7KNI_VAL_TRANSIENT_MODE_ARB (4)  - Arbitrary Waveform, causes the output to follow the arbitrary waveform values when a trigger occurs.
+
+Default Value:
+AGN6K7KNI_VAL_TRANSIENT_MODE_FIXED
+
+SCPI Command:
+[SOURce:]CURRent:MODE FIXed|STEP|LIST|ARB
+
+AGN6K7KNI_VAL_TRANSIENT_MODE_FIXED (1)
+Keeps the output voltage at its immediate value.
+
+AGN6K7KNI_VAL_TRANSIENT_MODE_STEP (2)
+Steps the output to the triggered level when a trigger occurs.
+
+AGN6K7KNI_VAL_TRANSIENT_MODE_LIST (3)
+Causes the output to follow the list values when a trigger occurs.
+
+AGN6K7KNI_VAL_TRANSIENT_MODE_ARB (4)
+Causes the output to follow the arbitrary waveform values when a trigger occurs.
+
+"
+attribute: "Initiate Continuous"
+	"Trigger Subsystem:Initiate Continuous"
+	bool readwrite 1 1197F7
+	//const: AGN6K7KNI_ATTR_INITIATE_CONTINUOUS
+"This channel-based property enables or disables continuously initiates the transient trigger system. This allows multiple triggers to generate multiple output transients.
+
+Valid Values:
+TRUE - Enables continuous transient trigger
+FALSE - Disables continuous transient trigger
+
+Default Value:
+TRUE
+
+SCPI Command:
+INITiate:CONTinuous:TRANsient 0|OFF|1|ON 
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Step Trigger Out Enabled"
+	"Trigger Subsystem:Step Trigger Out Enabled"
+	bool readwrite 1 119401
+	//const: AGN6K7KNI_ATTR_STEP_TRIGGER_OUT_ENABLED
+"This channel-based property specifies whether a trigger out is generated when a transient step occurs.
+
+Valid Values:
+TRUE  - Enables trigger out.
+FALSE - Disables trigger out.
+
+Default Value:
+FALSE
+
+SCPI Command:
+[SOURce:]STEP:TOUTput 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Triggered Current Level"
+	"Trigger Subsystem:Triggered Current Level"
+	fD readwrite 1 11940A
+	//const: AGN6K7KNI_ATTR_TRIGGERED_CURRENT_LEVEL
+"This channel-based property sets the triggered current level when the output is operating in current priority mode.
+
+Valid Range:
+-10.2% to 102% of rating without power dissipator, If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: -10.2 to 102 A
+N6951A, N6971A, N7951A and N7971A: -5.1 to 51 A
+N6952A, N6972A, N7952A and N7972A: -2.55 to 25.5 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: -1.7 to 17 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: -1.275 to 12.75 A
+
+
+up to -102% to 102% of rating with power dissipator, If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: -102 to 102 A
+N6951A, N6971A, N7951A and N7971A: -51 to 51 A
+N6952A, N6972A, N7952A and N7972A: -25.5 to 25.5 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: -17 to 17 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: -12.75 to 12.75 A
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 1.02 A
+N6951A, N6971A, N7951A and N7971A: 0.51 A
+N6952A, N6972A, N7952A and N7972A: 0.255 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: 0.17 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: 0.1275 A
+
+SCPI Command:
+[SOURce:]CURRent[:LEVel]:TRIGgered[:AMPLitude] <value>|MIN|MAX
+
+"
+attribute: "Triggered Current Limit"
+	"Trigger Subsystem:Triggered Current Limit"
+	fD readwrite 1 131336
+	//const: AGN6K7KNI_ATTR_TRIGGERED_CURRENT_LIMIT
+"This channel-based property is not supported.
+
+SCPI Command:
+None
+    
+
+"
+attribute: "Triggered Voltage Level"
+	"Trigger Subsystem:Triggered Voltage Level"
+	fD readwrite 1 131337
+	//const: AGN6K7KNI_ATTR_TRIGGERED_VOLTAGE_LEVEL
+"This channel-based property sets the triggered voltage level when the output is operating in voltage priority mode.
+
+Valid Range:
+N6950A, N6970A, N7950A and N7970A: 0.009 to 9.18 V
+N6951A, N6971A, N7951A and N7971A: 0.02 to 20.4 V
+N6952A, N6972A, N7952A and N7972A: 0.04 to 40.8 V
+N6953A, N6973A, N7953A and N7973A: 0.06 to 61.2 V
+N6954A, N6974A, N7954A and N7974A: 0.08 to 81.6 V
+N6976A, N7976A: 0.12 to 122.4 V
+N6977A, N7977A: 0.16 to 163.2 V
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 0.009 V
+N6951A, N6971A, N7951A and N7971A: 0.02 V
+N6952A, N6972A, N7952A and N7972A: 0.04 V
+N6953A, N6973A, N7953A and N7973A: 0.06 V
+N6954A, N6974A, N7954A and N7974A: 0.08 V
+N6976A, N7976A: 0.12 V
+N6977A, N7977A: 0.16 V
+
+SCPI Command:
+[SOURce:]VOLTage[:LEVel]:TRIGgered[:AMPLitude] <value>|MIN|MAX
+
+"
+attribute: "Voltage Transient Mode"
+	"Trigger Subsystem:Voltage Transient Mode"
+	iL enum { AGN6K7KNI_VAL_TRANSIENT_MODE_FIXED=1, AGN6K7KNI_VAL_TRANSIENT_MODE_STEP=2, AGN6K7KNI_VAL_TRANSIENT_MODE_LIST=3, AGN6K7KNI_VAL_TRANSIENT_MODE_ARB=4 } readwrite 1 119408
+	//const: AGN6K7KNI_ATTR_VOLTAGE_TRANSIENT_MODE
+"This channel-based property sets the voltage transient mode. This determines what happens to the output voltage when the transient system is initiated and triggered.
+
+Valid Values:
+AGN6K7KNI_VAL_TRANSIENT_MODE_FIXED (1)  - Fixed, keeps the output voltage at its immediate value.
+AGN6K7KNI_VAL_TRANSIENT_MODE_STEP (2)  - Step, steps the output to the triggered level when a trigger occurs.
+AGN6K7KNI_VAL_TRANSIENT_MODE_LIST (3)  - List, causes the output to follow the list values when a trigger occurs.
+AGN6K7KNI_VAL_TRANSIENT_MODE_ARB (4)  - Arbitrary Waveform, causes the output to follow the arbitrary waveform values when a trigger occurs.
+
+Default Value:
+AGN6K7KNI_VAL_TRANSIENT_MODE_FIXED
+
+SCPI Command:
+[SOURce:]VOLTage:MODE FIXed|STEP|LIST|ARB
+
+AGN6K7KNI_VAL_TRANSIENT_MODE_FIXED (1)
+Keeps the output voltage at its immediate value.
+
+AGN6K7KNI_VAL_TRANSIENT_MODE_STEP (2)
+Steps the output to the triggered level when a trigger occurs.
+
+AGN6K7KNI_VAL_TRANSIENT_MODE_LIST (3)
+Causes the output to follow the list values when a trigger occurs.
+
+AGN6K7KNI_VAL_TRANSIENT_MODE_ARB (4)
+Causes the output to follow the arbitrary waveform values when a trigger occurs.
+
+"
+attribute: "Trigger Source"
+	"Trigger Subsystem:Trigger Source"
+	iL enum { AGN6K7KNI_VAL_SOFTWARE_TRIG=2, AGN6K7KNI_VAL_TRIG_EXTERNAL=1, AGN6K7KNI_VAL_TRIG_IMMEDIATE=0, AGN6K7KNI_VAL_TRIG_EXPR1=1000, AGN6K7KNI_VAL_TRIG_EXPR2=1001, AGN6K7KNI_VAL_TRIG_EXPR3=1002, AGN6K7KNI_VAL_TRIG_EXPR4=1003, AGN6K7KNI_VAL_TRIG_EXPR5=1004, AGN6K7KNI_VAL_TRIG_EXPR6=1005, AGN6K7KNI_VAL_TRIG_EXPR7=1006, AGN6K7KNI_VAL_TRIG_EXPR8=1007, AGN6K7KNI_VAL_TRIG_PIN1=1008, AGN6K7KNI_VAL_TRIG_PIN2=1009, AGN6K7KNI_VAL_TRIG_PIN3=1010, AGN6K7KNI_VAL_TRIG_PIN4=1011, AGN6K7KNI_VAL_TRIG_PIN5=1012, AGN6K7KNI_VAL_TRIG_PIN6=1013, AGN6K7KNI_VAL_TRIG_PIN7=1014, AGN6K7KNI_VAL_TRIG_CURRENT=1015, AGN6K7KNI_VAL_TRIG_TRANSIENT=1016, AGN6K7KNI_VAL_TRIG_VOLTAGE=1017 } readwrite 1 131335
+	//const: AGN6K7KNI_ATTR_TRIGGER_SOURCE
+"This channel-based property selects the trigger source for the transient system.
+
+Valid Values:
+AGN6K7KNI_VAL_SOFTWARE_TRIG (2)  - Software Trigger, Selects a remote interface trigger command.
+AGN6K7KNI_VAL_TRIG_EXTERNAL (1)  - External, Selects ALL digital port pins that have been configured as trigger sources.
+AGN6K7KNI_VAL_TRIG_IMMEDIATE (0)  - Immediate, Triggers the transient as soon as it is initiated.
+AGN6K7KNI_VAL_TRIG_EXPR<1-8> - Expression1 to Expresstion8, Selects a user-defined expression as the trigger source.
+AGN6K7KNI_VAL_TRIG_PIN<1-7> - PIN1 to PIN7, Selects a digital port pin configured as a trigger input.
+
+Default Value: 
+AGN6K7KNI_VAL_SOFTWARE_TRIG
+
+SCPI Command:
+TRIGger:TRANsient:SOURce <source>
+
+AGN6K7KNI_VAL_SOFTWARE_TRIG (2)
+The power supply waits for you to call the agn6k7kni Send Software Trigger.vi.
+
+AGN6K7KNI_VAL_TRIG_EXTERNAL (1)
+The power supply waits for a trigger on the external trigger input.
+
+AGN6K7KNI_VAL_TRIG_IMMEDIATE (0)
+The power supply does not wait for a trigger before changing the output signal.
+
+AGN6K7KNI_VAL_TRIG_EXPR1 (1000)
+Selects user-defined expression 1 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR2 (1001)
+Selects user-defined expression 2 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR3 (1002)
+Selects user-defined expression 3 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR4 (1003)
+Selects user-defined expression 4 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR5 (1004)
+Selects user-defined expression 5 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR6 (1005)
+Selects user-defined expression 6 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR7 (1006)
+Selects user-defined expression 7 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR8 (1007)
+Selects user-defined expression 8 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_PIN1 (1008)
+Selects digital port pin 1 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN2 (1009)
+Selects digital port pin 2 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN3 (1010)
+Selects digital port pin 3 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN4 (1011)
+Selects digital port pin 4 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN5 (1012)
+Selects digital port pin 5 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN6 (1013)
+Selects digital port pin 6 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN7 (1014)
+Selects digital port pin 7 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_CURRENT (1015)
+Selects an output current level
+
+AGN6K7KNI_VAL_TRIG_TRANSIENT (1016)
+Selects the transient system as the trigger source
+
+AGN6K7KNI_VAL_TRIG_VOLTAGE (1017)
+Selects an output voltage level
+
+"
+attribute: "List Count"
+	"Trigger Subsystem:List:List Count"
+	iL readwrite 1 1197F6
+	//const: AGN6K7KNI_ATTR_LIST_COUNT
+"This channel-based property sets the list repeat count. This sets the number of times that a list is executed before it completes.
+
+Defined Values:
+AGN6K7KNI_VAL_LIST_COUNT_INFINITY (-1) - Infinity,  runs the list continuously.
+
+Valid Values:
+AGN6K7KNI_VAL_LIST_COUNT_INFINITY
+1 to 4096
+
+Default Value:
+1
+
+SCPI Command:
+[SOURce:]LIST:COUNt <value>|MIN|MAX|INFinity
+
+"
+attribute: "List Step"
+	"Trigger Subsystem:List:List Step"
+	iL enum { AGN6K7KNI_VAL_LIST_STEP_AUTO=1, AGN6K7KNI_VAL_LIST_STEP_ONCE=2 } readwrite 1 1197F5
+	//const: AGN6K7KNI_ATTR_LIST_STEP
+"This channel-based property specifies how the list responds to triggers.
+
+Valid Values:
+AGN6K7KNI_VAL_LIST_STEP_AUTO (1)  - Dwell Paced, causes the output to automatically advance to each step, after the receipt of an initial starting trigger. Steps are paced by the dwell list.
+AGN6K7KNI_VAL_LIST_STEP_ONCE (2)  - Trigger Paced, causes the output to remain at the present step until a trigger advances it to the next step. Triggers that arrive during the dwell time are ignored.
+
+Default Value:
+AGN6K7KNI_VAL_LIST_STEP_AUTO
+
+SCPI Command:
+[SOURce:]LIST:STEP ONCE|AUTO
+
+AGN6K7KNI_VAL_LIST_STEP_AUTO (1)
+Dwell Paced
+
+AGN6K7KNI_VAL_LIST_STEP_ONCE (2)
+Trigger Paced
+
+"
+attribute: "Terminate Last Enabled"
+	"Trigger Subsystem:List:Terminate Last Enabled"
+	bool readwrite 1 1197F4
+	//const: AGN6K7KNI_ATTR_LIST_TERMINATE_LAST_ENABLED
+"This channel-based property determines the output value when the list terminates.
+
+Valid Values:
+TRUE - ON, the output voltage or current remains at the last list step. The value of the last voltage or current list step becomes the IMMediate value when the list completes.
+FALSE - OFF, when the list is aborted, the output returns to the settings that were in effect before the list started.
+
+Default Value:
+FALSE
+
+SCPI Command:
+[SOURce:]LIST:TERMinate:LAST 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Constant Dwell Time"
+	"Trigger Subsystem:Arbitrary Waveform:Constant Dwell Time"
+	fD readwrite 1 1197F0
+	//const: AGN6K7KNI_ATTR_CONSTANT_DWELL_TIME
+"This channel-based property specifies the dwell time of each point in the voltage Arb.
+
+Valid Range:
+0.00001024 to 0.30
+
+Default Value:
+0.001
+
+Notes:
+(1) Current and voltage Arbs share settings, so setting this parameter for a current Arb changes the voltage dwell value and vice versa.
+
+SCPI Command:
+[SOURce:]ARB:VOLTage:CDWell:DWELl <value>
+
+"
+attribute: "Arb Terminate Last Enabled"
+	"Trigger Subsystem:Arbitrary Waveform:Arb Terminate Last Enabled"
+	bool readwrite 1 1197EF
+	//const: AGN6K7KNI_ATTR_ARB_TERMINATE_LAST_ENABLED
+"This channel-based property selects the output setting after the Arb ends.
+
+Valid Values:
+TRUE - ON, the output voltage or current remains at the last Arb value. The last Arb voltage or current value becomes the IMMediate value when the ARB completes.
+FALSE - OFF, the output returns to the settings that were in effect before the Arb started.
+
+Default Value:
+FALSE
+
+SCPI Command:
+[SOURce:]ARB:TERMinate:LAST 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Arb Trigger Source"
+	"Trigger Subsystem:Arbitrary Waveform:Arb Trigger Source"
+	iL enum { AGN6K7KNI_VAL_SOFTWARE_TRIG=2, AGN6K7KNI_VAL_TRIG_EXTERNAL=1, AGN6K7KNI_VAL_TRIG_IMMEDIATE=0, AGN6K7KNI_VAL_TRIG_EXPR1=1000, AGN6K7KNI_VAL_TRIG_EXPR2=1001, AGN6K7KNI_VAL_TRIG_EXPR3=1002, AGN6K7KNI_VAL_TRIG_EXPR4=1003, AGN6K7KNI_VAL_TRIG_EXPR5=1004, AGN6K7KNI_VAL_TRIG_EXPR6=1005, AGN6K7KNI_VAL_TRIG_EXPR7=1006, AGN6K7KNI_VAL_TRIG_EXPR8=1007, AGN6K7KNI_VAL_TRIG_PIN1=1008, AGN6K7KNI_VAL_TRIG_PIN2=1009, AGN6K7KNI_VAL_TRIG_PIN3=1010, AGN6K7KNI_VAL_TRIG_PIN4=1011, AGN6K7KNI_VAL_TRIG_PIN5=1012, AGN6K7KNI_VAL_TRIG_PIN6=1013, AGN6K7KNI_VAL_TRIG_PIN7=1014, AGN6K7KNI_VAL_TRIG_CURRENT=1015, AGN6K7KNI_VAL_TRIG_TRANSIENT=1016, AGN6K7KNI_VAL_TRIG_VOLTAGE=1017 } readwrite 1 119406
+	//const: AGN6K7KNI_ATTR_ARB_TRIGGER_SOURCE
+"This channel-based property selects the trigger source for arbitrary waveforms.
+
+Valid Values:
+AGN6K7KNI_VAL_SOFTWARE_TRIG (2)  - Software Trigger, Selects a remote interface trigger command.
+AGN6K7KNI_VAL_TRIG_EXTERNAL (1)  - External, Selects all digital port pins that have been configured as trigger sources.
+AGN6K7KNI_VAL_TRIG_IMMEDIATE (0)  - Immediate, Triggers the transient as soon as it is INITiated.
+AGN6K7KNI_VAL_TRIG_EXPR<1-8> - Expression1 to Expression8, Selects a user-defined expression as the trigger source.
+AGN6K7KNI_VAL_TRIG_PIN<1-7> -  PIN1 to PIN7, Selects a digital port pin configured as a trigger input.
+
+Default Value:
+AGN6K7KNI_VAL_TRIG_SOFTWARE_TRIG
+
+SCPI Command:
+TRIGger:ARB:SOURce <source>
+
+AGN6K7KNI_VAL_SOFTWARE_TRIG (2)
+The power supply waits for you to call the agn6k7kni Send Software Trigger.vi.
+
+AGN6K7KNI_VAL_TRIG_EXTERNAL (1)
+The power supply waits for a trigger on the external trigger input.
+
+AGN6K7KNI_VAL_TRIG_IMMEDIATE (0)
+The power supply does not wait for a trigger before changing the output signal.
+
+AGN6K7KNI_VAL_TRIG_EXPR1 (1000)
+Selects user-defined expression 1 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR2 (1001)
+Selects user-defined expression 2 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR3 (1002)
+Selects user-defined expression 3 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR4 (1003)
+Selects user-defined expression 4 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR5 (1004)
+Selects user-defined expression 5 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR6 (1005)
+Selects user-defined expression 6 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR7 (1006)
+Selects user-defined expression 7 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR8 (1007)
+Selects user-defined expression 8 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_PIN1 (1008)
+Selects digital port pin 1 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN2 (1009)
+Selects digital port pin 2 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN3 (1010)
+Selects digital port pin 3 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN4 (1011)
+Selects digital port pin 4 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN5 (1012)
+Selects digital port pin 5 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN6 (1013)
+Selects digital port pin 6 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN7 (1014)
+Selects digital port pin 7 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_CURRENT (1015)
+Selects an output current level
+
+AGN6K7KNI_VAL_TRIG_TRANSIENT (1016)
+Selects the transient system as the trigger source
+
+AGN6K7KNI_VAL_TRIG_VOLTAGE (1017)
+Selects an output voltage level
+
+"
+attribute: "Arb Waveform Count"
+	"Trigger Subsystem:Arbitrary Waveform:Arb Waveform Count"
+	iL readwrite 1 1197F2
+	//const: AGN6K7KNI_ATTR_ARB_WFM_COUNT
+"This channel-based property specifies the number of times the Arb repeats.
+
+Defined Values:
+AGN6K7KNI_VAL_ARB_COUNT_INFINITY (-1) - Infinity, repeat the Arb continuously.
+
+Valid Values:
+AGN6K7KNI_VAL_ARB_COUNT_INFINITY
+1 to 256
+
+Default Value:
+AGN6K7KNI_VAL_ARB_COUNT_INFINITY
+
+SCPI Command:
+[SOURce:]ARB:COUNt <value>|MIN|MAX|INFinity
+
+"
+attribute: "Measurement Time"
+	"Measurement Properties:Measurement Time"
+	fD readwrite 1 119BD2
+	//const: AGN6K7KNI_ATTR_MEASUREMENT_TIME
+"This channel-based property sets the measurement time in number of power line cycles. Increasing the number of power line cycles reduces the measurement noise on current and voltage measurements. 
+
+The number of points in 1 NPLC depends on the line frequency.
+
+Valid Range:
+0.0003072 to 1258290000000
+
+Default Value:
+1
+
+Notes:
+(1) Changing the NPLC changes the number of points and time interval setting for N79XX A models.
+
+SCPI Command:
+SENSe:SWEep:NPLCycles <value>|MIN|MAX
+
+"
+attribute: "Measurement Window"
+	"Measurement Properties:Measurement Window"
+	iL enum { AGN6K7KNI_VAL_MEAS_WINDOW_HANNING=1, AGN6K7KNI_VAL_MEAS_WINDOW_RECT=2 } readwrite 1 119BD1
+	//const: AGN6K7KNI_ATTR_MEASUREMENT_WINDOW
+"This channel-based property selects the measurement window. This sets a signal conditioning VI used in scalar DC measurement calculations. 
+
+Neither window VI alters the instantaneous voltage or current data returned in the measurement array.
+
+Valid Values:
+AGN6K7KNI_VAL_MEAS_WINDOW_HANNING (1)  - Hanning, Hanning window is a 'raised cosine' VI. It is a signal conditioning VI that reduces errors in DC measurement calculations in the presence of periodic signals such as AC line ripple. This window only works up to 4883 measurement points. The instrument will revert to a rectangular window when the points exceed 4883.
+AGN6K7KNI_VAL_MEAS_WINDOW_RECT (2)  - Rectangular, returns measurement calculations with no signal conditioning.
+
+Default Value:
+AGN6K7KNI_VAL_MEAS_WINDOW_RECT
+
+SCPI Command:
+SENSe:WINDow[:TYPE] HANNing|RECTangular
+
+AGN6K7KNI_VAL_MEAS_WINDOW_HANNING (1)
+Hanning window
+
+AGN6K7KNI_VAL_MEAS_WINDOW_RECT (2)
+Rectangular window
+
+"
+attribute: "Output Range"
+	"Measurement Properties:Output Range"
+	fD readwrite 1 11901C
+	//const: AGN6K7KNI_ATTR_OUTPUT_RANGE
+"This channel-based property selects a DC current measurement range. Units are in amperes. 
+
+Valid Range:
+Without power dissipator: 
+N7950A and N7970A: -10.2 to 102 A
+N7951A and N7971A: -5.1 to 51 A
+N7952A and N7972A: -2.55 to 25.5 A
+N7953A, N7973A and N7956A: -1.7 to 17 A
+N7954A, N7974A and N7957A: -1.275 to 12.75 A
+
+With power dissipator: 
+N7950A and N7970A: -102 to 102 A
+N7951A and N7971A: -51 to 51 A
+N7952A and N7972A: -25.5 to 25.5 A
+N7953A, N7973A and N7956A: -17 to 17 A
+N7954A, N7974A and N7957A: -12.75 to 12.75 A
+
+Default Value:
+N7950A and N7970A: 102 A
+N7951A and N7971A: 51 A
+N7952A and N7972A: 25.5 A
+N7953A, N7973A and N7956A: 17 A
+N7954A, N7974A and N7957A: 12.75 A
+
+Notes:
+(1) The value that you enter must be the highest value that you expect to measure. The instrument selects the range with the best resolution for the value entered.
+
+Notes:
+(1) This property supports N79XX models only.
+
+SCPI Command:
+SENSe:CURRent[:DC]:RANGe[:UPPer] <value>|MIN|MAX
+
+"
+attribute: "Output Range Auto"
+	"Measurement Properties:Output Range Auto"
+	bool readwrite 1 11A78D
+	//const: AGN6K7KNI_ATTR_OUTPUT_RANGE_AUTO
+"This channel-based property enables or disables seamless measurement auto ranging.
+
+Valid Values:
+TRUE - enables seamless measurement auto ranging.
+FALSE - Disables seamless measurement auto ranging.
+
+Default Value: TRUE
+
+SCPI Command:
+SENSe:CURRent[:DC]:RANGe:AUTO 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Sweep Offset Point"
+	"Measurement Properties:Sweep Offset Point"
+	iL readwrite 1 119BD5
+	//const: AGN6K7KNI_ATTR_SWEEP_OFFSET_POINT
+"This channel-based property defines the offset in a data sweep for triggered measurements. Positive values represent the delay after the trigger occurs but before the samples are acquired. Negative values represent data samples taken prior to the trigger.
+
+Valid Values:
+-524287 to 2000000000
+
+Default Value:
+0
+
+SCPI Command:
+SENSe:SWEep:OFFSet:POINts <value>|MIN|MAX
+
+"
+attribute: "Sweep Point"
+	"Measurement Properties:Sweep Point"
+	iL readwrite 1 119BD4
+	//const: AGN6K7KNI_ATTR_SWEEP_POINT
+"This channel-based property defines the number of points in a measurement. 
+
+The number of points depends on the line frequency (50 Hz or 60 Hz).
+
+Valid Values:
+1 to 524288
+
+Default Value:
+3255 (60 Hz)
+3906 (50 Hz)
+
+SCPI Command:
+SENSe:SWEep:POINts <value>|MIN|MAX
+
+"
+attribute: "Sweep Time Interval"
+	"Measurement Properties:Sweep Time Interval"
+	fD readwrite 1 119BD3
+	//const: AGN6K7KNI_ATTR_SWEEP_TIME_INTERVAL
+"This channel-based property defines the time period between measurement samples.  Units are in seconds.
+
+Valid Range:
+0.00000512 to 40,000, Values are rounded to the nearest 20.48 microsecond increment. Below 20.48 microseconds, values are rounded to the nearest 10.24 or 5.12 microsecond increment respectively.
+
+Default Value:
+0.00000512
+
+SCPI Command:
+SENSe:SWEep:TINTerval <value>|MIN|MAX
+
+"
+attribute: "Acquisition Trigger Source"
+	"Measurement Properties:Acquisition Properties:Acquisition Trigger Source"
+	iL enum { AGN6K7KNI_VAL_SOFTWARE_TRIG=2, AGN6K7KNI_VAL_TRIG_EXTERNAL=1, AGN6K7KNI_VAL_TRIG_IMMEDIATE=0, AGN6K7KNI_VAL_TRIG_EXPR1=1000, AGN6K7KNI_VAL_TRIG_EXPR2=1001, AGN6K7KNI_VAL_TRIG_EXPR3=1002, AGN6K7KNI_VAL_TRIG_EXPR4=1003, AGN6K7KNI_VAL_TRIG_EXPR5=1004, AGN6K7KNI_VAL_TRIG_EXPR6=1005, AGN6K7KNI_VAL_TRIG_EXPR7=1006, AGN6K7KNI_VAL_TRIG_EXPR8=1007, AGN6K7KNI_VAL_TRIG_PIN1=1008, AGN6K7KNI_VAL_TRIG_PIN2=1009, AGN6K7KNI_VAL_TRIG_PIN3=1010, AGN6K7KNI_VAL_TRIG_PIN4=1011, AGN6K7KNI_VAL_TRIG_PIN5=1012, AGN6K7KNI_VAL_TRIG_PIN6=1013, AGN6K7KNI_VAL_TRIG_PIN7=1014, AGN6K7KNI_VAL_TRIG_CURRENT=1015, AGN6K7KNI_VAL_TRIG_TRANSIENT=1016, AGN6K7KNI_VAL_TRIG_VOLTAGE=1017 } readwrite 1 119407
+	//const: AGN6K7KNI_ATTR_ACQ_TRIGGER_SOURCE
+"This channel-based property selects the trigger source for the acquisition system.
+
+Valid Values:
+AGN6K7KNI_VAL_SOFTWARE_TRIG (2)  - Software Trigger, Selects a remote interface trigger command.
+AGN6K7KNI_VAL_TRIG_CURRENT (1015)  - Current Level, Selects an output current level.
+AGN6K7KNI_VAL_TRIG_EXTERNAL (1)  - External, Selects all digital port pins that have been configured as trigger sources.
+AGN6K7KNI_VAL_TRIG_EXPR<1-8> - Expression1 to Expression8, Selects a user-defined expression as the trigger source.
+AGN6K7KNI_VAL_TRIG_PIN<1-7> -  PIN1 to PIN7, Selects a digital port pin configured as a trigger input.
+AGN6K7KNI_VAL_TRIG_TRAN - Transient, Selects the transient system as the trigger source.
+AGN6K7KNI_VAL_TRIG_VOLTAGE (1017)  - Voltage Level, Selects an output voltage level.
+
+Default Value:
+AGN6K7KNI_VAL_SOFTWARE_TRIG
+
+SCPI Command:
+TRIGger:ACQuire:SOURce <source>
+
+AGN6K7KNI_VAL_SOFTWARE_TRIG (2)
+The power supply waits for you to call the agn6k7kni Send Software Trigger.vi.
+
+AGN6K7KNI_VAL_TRIG_EXTERNAL (1)
+The power supply waits for a trigger on the external trigger input.
+
+AGN6K7KNI_VAL_TRIG_IMMEDIATE (0)
+The power supply does not wait for a trigger before changing the output signal.
+
+AGN6K7KNI_VAL_TRIG_EXPR1 (1000)
+Selects user-defined expression 1 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR2 (1001)
+Selects user-defined expression 2 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR3 (1002)
+Selects user-defined expression 3 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR4 (1003)
+Selects user-defined expression 4 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR5 (1004)
+Selects user-defined expression 5 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR6 (1005)
+Selects user-defined expression 6 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR7 (1006)
+Selects user-defined expression 7 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_EXPR8 (1007)
+Selects user-defined expression 8 as the trigger source.
+
+AGN6K7KNI_VAL_TRIG_PIN1 (1008)
+Selects digital port pin 1 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN2 (1009)
+Selects digital port pin 2 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN3 (1010)
+Selects digital port pin 3 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN4 (1011)
+Selects digital port pin 4 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN5 (1012)
+Selects digital port pin 5 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN6 (1013)
+Selects digital port pin 6 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_PIN7 (1014)
+Selects digital port pin 7 configured as a trigger input.
+
+AGN6K7KNI_VAL_TRIG_CURRENT (1015)
+Selects an output current level
+
+AGN6K7KNI_VAL_TRIG_TRANSIENT (1016)
+Selects the transient system as the trigger source
+
+AGN6K7KNI_VAL_TRIG_VOLTAGE (1017)
+Selects an output voltage level
+
+"
+attribute: "Acquisition Triggered Current Level"
+	"Measurement Properties:Acquisition Properties:Acquisition Triggered Current Level"
+	fD readwrite 1 119405
+	//const: AGN6K7KNI_ATTR_ACQ_TRIGGERED_CURRENT_LEVEL
+"This channel-based property sets the triggered current level of the output for the acquisition system.
+
+Valid Range:
+-10.2% to 102% of rating without power dissipator, If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: -10.2 to 102 A
+N6951A, N6971A, N7951A and N7971A: -5.1 to 51 A
+N6952A, N6972A, N7952A and N7972A: -2.55 to 25.5 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: -1.7 to 17 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: -1.275 to 12.75 A
+
+up to -102% to 102% of rating with power dissipator, If current rating is 100%, then the valid range is: 
+N6950A, N6970A, N7950A and N7970A: -102 to 102 A
+N6951A, N6971A, N7951A and N7971A: -51 to 51 A
+N6952A, N6972A, N7952A and N7972A: -25.5 to 25.5 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: -17 to 17 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: -12.75 to 12.75 A
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 1.02 A
+N6951A, N6971A, N7951A and N7971A: 0.51 A
+N6952A, N6972A, N7952A and N7972A: 0.255 A
+N6953A, N6973A, N7953A, N7973A, N6976A and N7976A: 0.17 A
+N6954A, N6974A, N7954A, N7974A, N6977A and N7977A: 0.1275 A
+
+SCPI Command:
+TRIGger:ACQuire:CURRent[:LEVel] <value>|MIN|MAX
+
+"
+attribute: "Acquisition Triggered Current Slope"
+	"Measurement Properties:Acquisition Properties:Acquisition Triggered Current Slope"
+	iL enum { AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_POS=1, AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_NEG=2 } readwrite 1 119403
+	//const: AGN6K7KNI_ATTR_ACQ_TRIGGERED_CURRENT_SLOPE
+"This channel-based property sets the slope of the signal.  Applies when the measurement trigger source is set to a level.
+
+Valid Values:
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_POS (1)  - Positive, specifies a rising slope of the output signal.
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_NEG (2)  - Negative, specifies a falling slope of the output signal.
+
+Default Value:
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_POS
+
+SCPI Command:
+TRIGger:ACQuire:CURRent:SLOPe POSitive|NEGative
+
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_POS (1)
+Specifies a rising slope of the output signal.
+
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_NEG (2)
+specifies a falling slope of the output signal.
+
+"
+attribute: "Acquisition Triggered Voltage Level"
+	"Measurement Properties:Acquisition Properties:Acquisition Triggered Voltage Level"
+	fD readwrite 1 119404
+	//const: AGN6K7KNI_ATTR_ACQ_TRIGGERED_VOLTAGE_LEVEL
+"This channel-based property sets the triggered voltage level of the output for the acquisition system.
+
+Valid Range:
+N6950A, N6970A, N7950A and N7970A: 0.009 to 9.18 V
+N6951A, N6971A, N7951A and N7971A: 0.02 to 20.4 V
+N6952A, N6972A, N7952A and N7972A: 0.04 to 40.8 V
+N6953A, N6973A, N7953A and N7973A: 0.06 to 61.2 V
+N6954A, N6974A, N7954A and N7974A: 0.08 to 81.6 V
+N6976A, N7976A: 0.12 to 122.4 V
+N6977A, N7977A: 0.16 to 163.2 V
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 0.009 V
+N6951A, N6971A, N7951A and N7971A: 0.02 V
+N6952A, N6972A, N7952A and N7972A: 0.04 V
+N6953A, N6973A, N7953A and N7973A: 0.06 V
+N6954A, N6974A, N7954A and N7974A: 0.08 V
+N6976A, N7976A: 0.12 V
+N6977A, N7977A: 0.16 V
+
+SCPI Command:
+TRIGger:ACQuire:VOLTage[:LEVel] <value>|MIN|MAX
+
+"
+attribute: "Acquisition Triggered Voltage Slope"
+	"Measurement Properties:Acquisition Properties:Acquisition Triggered Voltage Slope"
+	iL enum { AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_POS=1, AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_NEG=2 } readwrite 1 119402
+	//const: AGN6K7KNI_ATTR_ACQ_TRIGGERED_VOLTAGE_SLOPE
+"This channel-based property sets the slope of the signal.  Applies when the measurement trigger source is set to a level.
+
+Valid Values:
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_POS (1)  - Positive, specifies a rising slope of the output signal.
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_NEG (2)  - Negative, specifies a falling slope of the output signal.
+
+Default Value:
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_POS
+
+SCPI Command:
+TRIGger:ACQuire:VOLTage:SLOPe POSitive|NEGative
+
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_POS (1)
+Specifies a rising slope of the output signal.
+
+AGN6K7KNI_VAL_TRIG_ACQ_SLOPE_NEG (2)
+specifies a falling slope of the output signal.
+
+"
+attribute: "Elog Current Enabled"
+	"Measurement Properties:Datalog Properties:Elog Current Enabled"
+	bool readwrite 1 11A78F
+	//const: AGN6K7KNI_ATTR_ELOG_CURRENT_ENABLED
+"This channel-based property enables or disables the Elog for specified current measurement VI.
+
+Valid Values:
+TRUE - Enables the Elog current measurement VI.
+FALSE - Disables the Elog current measurement VI.
+
+Default Value:
+FALSE
+
+Notes:
+(1) This property supports N79XX models only
+
+SCPI Command:
+SENSe:ELOG:FUNCtion:CURRent 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Elog Current Range"
+	"Measurement Properties:Datalog Properties:Elog Current Range"
+	fD readwrite 1 119FB9
+	//const: AGN6K7KNI_ATTR_ELOG_CURRENT_RANGE
+"This channel-based property selects the Elog current measurement range.  
+
+Units are in amperes.  
+
+Valid Range:
+N6950A, N6970A, N7950A and N7970A: -450 to 450 A
+N6951A, N6971A, N7951A and N7971A: -225 to 225 A
+N6952A, N6972A, N7952A and N7972A: -112.5 to 112.5 A
+N6953A, N6973A, N7953A and N7973A: -74.9 to 74.9 A
+N6954A, N6974A, N7954A and N7974A: -56.2 to 56.2 A
+N6976A and N7976A: -37.6 to 37.6 A
+N6977A and N7977A: -28.1 to 28.1 A
+
+Default Value:
+N6950A, N6970A, N7950A and N7970A: 450 A
+N6951A, N6971A, N7951A and N7971A: 225 A
+N6952A, N6972A, N7952A and N7972A: 112.5 A
+N6953A, N6973A, N7953A and N7973A: 74.9 A
+N6954A, N6974A, N7954A and N7974A: 56.2 A
+N6976A and N7976A: 37.6 A
+N6977A and N7977A: 28.1 A
+
+Notes:
+(1) The value that you enter must be the highest value that you expect to measure. The instrument selects the range with the best resolution for the value entered.
+(2) This property supports N79XX models only.
+
+SCPI Command:
+SENSe:ELOG:CURRent[:DC]:RANGe[:UPPer] <value>|MIN|MAX
+
+"
+attribute: "Elog Current Range Auto"
+	"Measurement Properties:Datalog Properties:Elog Current Range Auto"
+	bool readwrite 1 11A792
+	//const: AGN6K7KNI_ATTR_ELOG_CURRENT_RANGE_AUTO
+"This property enables or disables Elog seamless measurement autoranging.
+
+Valid values:
+TRUE - Enables Elog autoranging
+FALSE - Disables Elog autoranging
+
+Default Value:
+TRUE
+
+Notes:
+(1) This property supports N79XX models only
+
+SCPI Command:
+SENSe:ELOG:CURRent[:DC]:RANGe:AUTO 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Elog Current Min/Max Enabled"
+	"Measurement Properties:Datalog Properties:Elog Current Min/Max Enabled"
+	bool readwrite 1 11A78E
+	//const: AGN6K7KNI_ATTR_ELOG_CURRENT_MINMAX_ENABLED
+"This channel-based property enables or disables logging of the minimum and maximum current values.
+
+Valid Values:
+TRUE - Enables logging.
+FALSE - Disables logging.
+
+Default Value:
+FALSE
+
+Notes:
+(1) This property supports N79XX models only
+
+SCPI Command:
+SENSe:ELOG:FUNCtion:CURRent:MINMax 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Elog Period"
+	"Measurement Properties:Datalog Properties:Elog Period"
+	fD readwrite 1 119FBA
+	//const: AGN6K7KNI_ATTR_ELOG_PERIOD
+"This channel-based property sets the integration time of an Elog measurement.
+
+Valid Range:
+0.0001024 to 60
+
+Default Value:
+60
+
+Notes:
+(1) This property supports N79XX models only
+
+SCPI Command:
+SENSe:ELOG:PERiod <value>|MIN|MAX
+
+"
+attribute: "Elog Voltage Enabled"
+	"Measurement Properties:Datalog Properties:Elog Voltage Enabled"
+	bool readwrite 1 11A791
+	//const: AGN6K7KNI_ATTR_ELOG_VOLTAGE_ENABLED
+"This channel-based property enables or disables the Elog for specified voltage measurement VI.
+
+Valid Values:
+TRUE - Enables the Elog voltage measurement VI.
+FALSE - Disables the Elog voltage measurement VI.
+
+Default Value:
+FALSE
+
+Notes:
+(1) This property supports N79XX models only
+
+SCPI Command:
+SENSe:ELOG:FUNCtion:VOLTage 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Elog Voltage Min/Max Enabled"
+	"Measurement Properties:Datalog Properties:Elog Voltage Min/Max Enabled"
+	bool readwrite 1 11A790
+	//const: AGN6K7KNI_ATTR_ELOG_VOLTAGE_MINMAX_ENABLED
+"This channel-based property enables or disables logging of the minimum and maximum voltage values.
+
+Valid Values:
+TRUE - Enables logging.
+FALSE - Disables logging.
+
+Default Value:
+FALSE
+
+Notes:
+(1) This property supports N79XX models only
+
+SCPI Command:
+SENSe:ELOG:FUNCtion:VOLTage:MINMax 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Calibration Count"
+	"Calibration Properties:Calibration Count"
+	iL readonly 1 11A793
+	//const: AGN6K7KNI_ATTR_CALIBRATION_COUNT
+"This property returns the number of times the unit has been calibrated. The count is incremented whenever the calibration (and date) is saved, the administration password is changed or reset, or the firmware is updated.
+
+SCPI Command:
+CALibrate:COUNt?
+
+"
+attribute: "Calibration Data"
+	"Calibration Properties:Calibration Data"
+	fD writeonly 1 11A789
+	//const: AGN6K7KNI_ATTR_CALIBRATION_DATA
+"This property sets the calibration value read by the external meter. Data values are expressed in base units - either volts or amperes, depending on which VI is being calibrated.
+
+Default Value: 
+None
+
+SCPI Command:
+CALibrate:DATA <value>
+
+"
+attribute: "Calibration Level"
+	"Calibration Properties:Calibration Level"
+	iL enum { AGN6K7KNI_VAL_CAL_LEVEL_P1=1, AGN6K7KNI_VAL_CAL_LEVEL_P2=2, AGN6K7KNI_VAL_CAL_LEVEL_P3=3 } readwrite 1 11A78B
+	//const: AGN6K7KNI_ATTR_CALIBRATION_LEVEL
+"This property advances to the next level in the calibration.
+
+Valid Values:
+AGN6K7KNI_VAL_CAL_LEVEL_P1 (1)  - P1, first level
+AGN6K7KNI_VAL_CAL_LEVEL_P2 (2)  - P2, second level
+AGN6K7KNI_VAL_CAL_LEVEL_P3 (3)  - P3, third level
+
+Default Value:
+AGN6K7KNI_VAL_CAL_LEVEL_P1
+
+SCPI Command:
+CALibrate:LEVel P1|P2|P3
+
+AGN6K7KNI_VAL_CAL_LEVEL_P1 (1)
+Advances to the first level in the calibration.
+
+AGN6K7KNI_VAL_CAL_LEVEL_P2 (2)
+Advances to the second level in the calibration.
+
+AGN6K7KNI_VAL_CAL_LEVEL_P3 (3)
+Advances to the third level in the calibration.
+
+"
+attribute: "Output Off Couple Source"
+	"System:Output Off Couple Source"
+	iL enum { AGN6K7KNI_VAL_EXPRESSION_SOURCE_NONE=0, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR1=1, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR2=2, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR3=3, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR4=4, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR5=5, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR6=6, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR7=7, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR8=8 } readwrite 1 1197E9
+	//const: AGN6K7KNI_ATTR_OUTPUT_OFF_COUPLE_SOURCE
+"This property sets the off-couple signal source to an expression.
+
+Valid Values:
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_NONE - None
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR1 - Expression1
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR2 - Expression2
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR3 - Expression3
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR4 - Expression4
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR5 - Expression5
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR6 - Expression6
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR7 - Expression7
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR8 - Expression8
+
+Default Value:
+AGN6K7KNI_VAL_EXPRESSTION_SOURCE_EXPR1
+
+SCPI Command:
+OUTPut[:STATe]:COUPle:OFF:SOURce EXPRession <1-8>
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_NONE (0)
+No expression source
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR1 (1)
+User-defined expression 1
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR2 (2)
+User-defined expression 2
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR3 (3)
+User-defined expression 3
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR4 (4)
+User-defined expression 4
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR5 (5)
+User-defined expression 5
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR6 (6)
+User-defined expression 6
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR7 (7)
+User-defined expression 7
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR8 (8)
+User-defined expression 8
+
+"
+attribute: "Output On Couple Source"
+	"System:Output On Couple Source"
+	iL enum { AGN6K7KNI_VAL_EXPRESSION_SOURCE_NONE=0, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR1=1, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR2=2, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR3=3, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR4=4, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR5=5, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR6=6, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR7=7, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR8=8 } readwrite 1 1197EA
+	//const: AGN6K7KNI_ATTR_OUTPUT_ON_COUPLE_SOURCE
+"This property sets the on-couple signal source to an expression.
+
+Valid Values:
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_NONE (0)  - None
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR1 (1)  - Expression1
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR2 (2)  - Expression2
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR3 (3)  - Expression3
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR4 (4)  - Expression4
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR5 (5)  - Expression5
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR6 (6)  - Expression6
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR7 (7)  - Expression7
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR8 (8)  - Expression8
+
+Default Value:
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR1
+
+SCPI Command:
+OUTPut[:STATe]:COUPle:ON:SOURce EXPRession <1-8>
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_NONE (0)
+No expression source
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR1 (1)
+User-defined expression 1
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR2 (2)
+User-defined expression 2
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR3 (3)
+User-defined expression 3
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR4 (4)
+User-defined expression 4
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR5 (5)
+User-defined expression 5
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR6 (6)
+User-defined expression 6
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR7 (7)
+User-defined expression 7
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR8 (8)
+User-defined expression 8
+
+"
+attribute: "Sense Fault Detection Enabled"
+	"System:Sense Fault Detection Enabled"
+	bool readwrite 1 11A3A5
+	//const: AGN6K7KNI_ATTR_SENSE_FAULT_DET_ENABLED
+"This property enables or disables remote sense fault detection. This condition is annunciated by the SF status bit.
+
+Valid Values:
+TRUE - Enables remote sense fault detection.
+FALSE - Disables remote sense fault detection.
+
+Default Value:
+TRUE
+
+SCPI Command:
+SENSe:FAULt:STATe 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "User Protection Enabled"
+	"System:User Protection Enabled"
+	bool readwrite 1 11A3A2
+	//const: AGN6K7KNI_ATTR_UESR_PROTECTION_ENABLED
+"This property enables or disables the user-defined protection.
+
+Valid Values:
+TRUE - Enables the user-defined protection.
+FALSE - Disables the user-defined protection.
+
+Default Value:
+FALSE
+
+SCPI Command:
+OUTPut:PROTection:USER[:STATe] 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "User Protection Source"
+	"System:User Protection Source"
+	iL enum { AGN6K7KNI_VAL_EXPRESSION_SOURCE_NONE=0, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR1=1, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR2=2, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR3=3, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR4=4, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR5=5, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR6=6, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR7=7, AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR8=8 } readwrite 1 11A3A1
+	//const: AGN6K7KNI_ATTR_USER_PROTECTION_SOURCE
+"This property sets the user-defined protection source to an expression. When an expression is specified, the output is disabled if the expression is true.
+
+Valid Values:
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_NONE (0)  - None
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR<1-8> - Expression<1-8>
+
+Default Values:
+AGN6K7KNI_VAL_USER_PROTECTION_SOURCE_NONE
+
+SCPI Command:
+OUTPut:PROTection:USER:SOURce EXPRession<1-8>|NONE
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_NONE (0)
+No expression source
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR1 (1)
+User-defined expression 1
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR2 (2)
+User-defined expression 2
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR3 (3)
+User-defined expression 3
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR4 (4)
+User-defined expression 4
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR5 (5)
+User-defined expression 5
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR6 (6)
+User-defined expression 6
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR7 (7)
+User-defined expression 7
+
+AGN6K7KNI_VAL_EXPRESSION_SOURCE_EXPR8 (8)
+User-defined expression 8
+
+"
+attribute: "Digital Inhibit Mode"
+	"System:Digital Port Properties:Digital Inhibit Mode"
+	iL enum { AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_LATCHING=1, AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_LIVE=2, AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_OFF=3 } readwrite 1 11A3A6
+	//const: AGN6K7KNI_ATTR_DIGITAL_INHIBIT_MODE
+"This property sets the operating mode of the remote inhibit digital pin. The inhibit VI shuts down the output in response to an external signal on the Inhibit input pin. 
+
+The Inhibit mode is stored in non-volatile memory. 
+
+Valid Values:
+AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_LATCHING (1)  - Latching, allows a true signal on digital port PIN3 when configured as Inhibit In to disable output.
+AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_LIVE (2)  - Live, allows the output to follow the state of the Inhibit In pin. When Inhibit In is true, the output is disabled. When Inhibit In is false, the output is not affected.
+AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_OFF (3)  - The Inhibit input is ignored.
+
+Default Value:
+AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_OFF
+
+SCPI Command:
+OUTPut:INHibit:MODE LATChing|LIVE|OFF
+
+AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_LATCHING (1)
+A logic-true signal on the Inhibit input causes the output state to latch OFF.
+
+AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_LIVE (2)
+Allows the enabled output to follow the state of the Inhibit input.
+
+AGN6K7KNI_VAL_DIGITAL_INHIBIT_MODE_OFF (3)
+The Inhibit input is ignored.
+
+"
+attribute: "Digital Input Data"
+	"System:Digital Port Properties:Digital Input Data"
+	iL readonly 1 11A3A8
+	//const: AGN6K7KNI_ATTR_DIGITAL_INPUT_DATA
+"This property returns the binary-weighted value of the state of pins 1 through 7 in bits 0 through 6 respectively.
+
+SCPI Command:
+[SOURce:]DIGital:INPut:DATA?
+
+"
+attribute: "Digital Output Bus Trigger Enabled"
+	"System:Digital Port Properties:Digital Output Bus Trigger Enabled"
+	bool readwrite 1 11A3A7
+	//const: AGN6K7KNI_ATTR_DIGITAL_OUTPUT_BUS_TRIGGER_ENABLED
+"This property enables or disables BUS triggers on digital port pins. 
+
+This allows a BUS trigger to be sent to any digital port pin that has been configured as a trigger output. A trigger out pulse is generated when the state is on and a bus trigger is received. 
+
+Valid Values:
+TRUE - Enables BUS triggers on digital port pins.
+FALSE - Disables BUS triggers on digital port pins.
+
+Default Value:
+FALSE
+
+SCPI Command:
+[SOURce:]DIGital:TOUTput:BUS[:ENABle] 0|OFF|1|ON
+
+VI_TRUE (1)
+True
+
+VI_FALSE (0)
+False
+
+"
+attribute: "Digital Output Data"
+	"System:Digital Port Properties:Digital Output Data"
+	iL readwrite 1 11A3A9
+	//const: AGN6K7KNI_ATTR_DIGITAL_OUTPUT_DATA
+"This property sets the state of the digital control port. This only affects the pins whose VI has been set to Digital IO operation.
+
+The port has seven signal pins and a digital ground pin. In the binary-weighted value that is written to the port, the pins are controlled according to the following bit assignments: 
+
+Pin               1     2     3     4     5     6     7
+Bit number        0     1     2     3     4     5     6
+Decimal value     1     2     4     8     16    32    64
+
+Valid Values:
+0 to 127
+
+Default Value:
+0
+
+SCPI Command:
+[SOURce:]DIGital:OUTPut:DATA <value>
+
+"
+attribute: "Digital Pin Function"
+	"System:Digital Port Properties:Digital Pin Function"
+	iL enum { AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_DIO=1, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_DIN=2, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR1=3, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR2=4, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR3=5, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR4=6, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR5=7, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR6=8, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR7=9, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR8=10, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_FAULT=11, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_INHIBIT=12, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_ON_COUPLE=13, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_OFF_COUPLE=14, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_TRIG_INPUT=15, AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_TRIG_OUTPUT=16 } readwrite 1 11A3AD
+	//const: AGN6K7KNI_ATTR_DIGITAL_PIN_FUNCTION
+"This property sets the VI of the pins. The VIs are saved in non-volatile memory.
+
+Valid Values:
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_DIO (1)  - Digital Input/Output, General-purpose ground-referenced digital input/output VI.
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_DIN (2)  - Digital Input, Digital input-only mode.
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR<1-7> - Expression<1-7>, A user-defined expression drives the pin.
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_FAULT (11)  - Fault Output, Pin 1 VIs as an isolated fault output. Pin 2 is common for pin 1
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_INHIBIT (12)  - Inhibit Input, Pin 3 VIs as an inhibit input.
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_ON_COUPLE (13)  - On Couple, Pins 4 -7 synchronize the output On state.
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_OFF_COUPLE (14)  - Off Couple, Pins 4 -7 synchronize the output Off state.
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_TRIG_INPUT (15)  - Trigger Input, A trigger input VI.
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_TRIG_OUTPUT (16)  - Trigger Output, A trigger output VI.
+
+Default Value:
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_DIN
+
+SCPI Command:
+[SOURce:]DIGital:PIN<1-7>:FUNCtion <VI>
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_DIO (1)
+General-purpose ground-referenced digital input/output VI.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_DIN (2)
+Digital input-only mode.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR1 (3)
+User-defined expression 1 drives the pin.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR2 (4)
+User-defined expression 2 drives the pin.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR3 (5)
+User-defined expression 3 drives the pin.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR4 (6)
+User-defined expression 4 drives the pin.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR5 (7)
+User-defined expression 5 drives the pin.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR6 (8)
+User-defined expression 6 drives the pin.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR7 (9)
+User-defined expression 7 drives the pin.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_EXPR8 (10)
+User-defined expression 8 drives the pin.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_FAULT (11)
+Pin 1 VIs as an isolated fault output.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_INHIBIT (12)
+Pin 3 VIs as an inhibit input.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_ON_COUPLE (13)
+Pins 4 -7 synchronize the output On state.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_OFF_COUPLE (14)
+Pins 4 -7 synchronize the output Off state.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_TRIG_INPUT (15)
+A trigger input VI.
+
+AGN6K7KNI_VAL_DIGITAL_PIN_FUNC_TRIG_OUTPUT (16)
+A trigger output VI
+
+"
+attribute: "Digital Pin Polarity"
+	"System:Digital Port Properties:Digital Pin Polarity"
+	iL enum { AGN6K7KNI_VAL_DIGITAL_PIN_POL_POS=1, AGN6K7KNI_VAL_DIGITAL_PIN_POL_NEG=2 } readwrite 1 11A3AC
+	//const: AGN6K7KNI_ATTR_DIGITAL_PIN_POLARITY
+"This property sets the polarity of the pins.
+
+Valid Values:
+AGN6K7KNI_VAL_DIGITAL_PIN_POL_POS (1)  - Positive, a logical true signal is a voltage high at the pin.
+AGN6K7KNI_VAL_DIGITAL_PIN_POL_NEG (2)  - Negative, a logical true signal is a voltage low at the pin.
+
+Default Value:
+AGN6K7KNI_VAL_DIGITAL_PIN_POL_POS
+
+SCPI Command:
+[SOURce:]DIGital:PIN<1-7>:POLarity POSitive|NEGative
+
+AGN6K7KNI_VAL_DIGITAL_PIN_POL_POS (1)
+A logical true signal is a voltage high at the pin
+
+AGN6K7KNI_VAL_DIGITAL_PIN_POL_NEG (2)
+A logical true signal is a voltage low at the pin
+
+"
+attribute: "Threshold Function"
+	"System:Threshold Comparator Properties:Threshold Function"
+	iL enum { AGN6K7KNI_VAL_THRESHOLD_FUNC_AHOUR=1, AGN6K7KNI_VAL_THRESHOLD_FUNC_CURRENT=2, AGN6K7KNI_VAL_THRESHOLD_FUNC_POWER=3, AGN6K7KNI_VAL_THRESHOLD_FUNC_VOLTAGE=4, AGN6K7KNI_VAL_THRESHOLD_FUNC_WHOUR=5 } readwrite 1 11A3B5
+	//const: AGN6K7KNI_ATTR_THRESHOLD_FUNCTION
+"This channel-based property sets the sensing VI for comparators THR1, THR2, THR3 or THR4.
+
+Valid Values:
+AGN6K7KNI_VAL_THRESHOLD_FUNC_AHOUR (1)  - Ampere-hour, selects the amp-hour VI.
+AGN6K7KNI_VAL_THRESHOLD_FUNC_CURRENT (2)  - Current, selects the current VI.
+AGN6K7KNI_VAL_THRESHOLD_FUNC_POWER (3)  - Power, selects the power VI.
+AGN6K7KNI_VAL_THRESHOLD_FUNC_VOLTAGE (4)  - Voltage, selects the voltage VI.
+AGN6K7KNI_VAL_THRESHOLD_FUNC_WHOUR (5)  - Watt-hour, selects the watt-hour VI.
+
+Default Value:
+AGN6K7KNI_VAL_THRESHOLD_FUNC_VOLTAGE
+
+SCPI Command:
+SENSe:THReshold<1|2|3|4>:FUNCtion AHOur|CURRent|POWer|VOLTage|WHOur
+
+AGN6K7KNI_VAL_THRESHOLD_FUNC_AHOUR (1)
+Ampere-hour
+
+AGN6K7KNI_VAL_THRESHOLD_FUNC_CURRENT (2)
+Current
+
+AGN6K7KNI_VAL_THRESHOLD_FUNC_POWER (3)
+Power
+
+AGN6K7KNI_VAL_THRESHOLD_FUNC_VOLTAGE (4)
+Voltage
+
+AGN6K7KNI_VAL_THRESHOLD_FUNC_WHOUR (5)
+Watt-hour
+
+"
+attribute: "Threshold Level"
+	"System:Threshold Comparator Properties:Threshold Level"
+	fD readwrite 1 11A3B3
+	//const: AGN6K7KNI_ATTR_THRESHOLD_LEVEL
+"This channel-based property selects the threshold level for comparators 1,2,3 or 4 for the specified threshold VI.
+
+Valid Range:
+Threshold VI          Range
+Ampere-hour                 0 to +2.251165E+10
+Current                     0 to +6.248237E+01
+Power                       0 to +3.130377E+03
+Voltage                     0 to +5.008797E+01
+Watt-hour                   0 to +1.127837E+12
+
+Default Value:
+0
+
+SCPI Command:
+SENSe:THReshold<1|2|3|4>:AHOur[:LEVel] <value>|MIN|MAX
+SENSe:THReshold<1|2|3|4>:CURRent[:LEVel] <value>|MIN|MAX
+SENSe:THReshold<1|2|3|4>:POWer[:LEVel] <value>|MIN|MAX
+SENSe:THReshold<1|2|3|4>:VOLTage[:LEVel] <value>|MIN|MAX
+SENSe:THReshold<1|2|3|4>:WHOur[:LEVel] <value>|MIN|MAX
+
+"
+attribute: "Threshold Operation"
+	"System:Threshold Comparator Properties:Threshold Operation"
+	iL enum { AGN6K7KNI_VAL_THRESHOLD_OPERATION_GT=1, AGN6K7KNI_VAL_THRESHOLD_OPERATION_LT=2 } readwrite 1 11A3B4
+	//const: AGN6K7KNI_ATTR_THRESHOLD_OPERATION
+"This channel-based property sets the operation type for comparator 1,2,3 or 4.
+
+Valid Values:
+AGN6K7KNI_VAL_THRESHOLD_OPERATION_GT (1)  - Greater Than, specifies that the signal will be true if the measurement is greater than the threshold level.
+AGN6K7KNI_VAL_THRESHOLD_OPERATION_LT (2)  - Less Than, specifies that the signal will be true if the measurements less than the threshold level.
+
+Default Value:
+AGN6K7KNI_VAL_THRESHOLD_OPERATION_GT
+
+SCPI Command:
+SENSe:THReshold<1|2|3|4>:OPERation GT|LT
+
+AGN6K7KNI_VAL_THRESHOLD_OPERATION_GT (1)
+Greater Than
+
+AGN6K7KNI_VAL_THRESHOLD_OPERATION_LT (2)
+Less Than
+
+"
+attribute: "ID Query Response"
+	"Miscellaneous Properties:ID Query Response"
+	string readonly 1 118C31
+	//const: AGN6K7KNI_ATTR_ID_QUERY_RESPONSE
+"Returns the ID Query response string.  The instrument driver gets the value of this property when you pass TRUE for the ID Query parameter to the agn6k7kni Initialize.vi or agn6k7kni Initialize With Options.vi.
+    
+
+SCPI Command:
+*IDN?
+
+"

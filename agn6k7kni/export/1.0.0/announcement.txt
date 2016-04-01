@@ -1,0 +1,41 @@
+IVI DRIVER EXPORT
+=================
+
+Prefix: agn6k7kni
+Version: 1.0.0 
+Perforce location: //InstrumentDriver/Drivers/IVI/Certified/DCPwr/agn6k7kni/export/1.0.0/...
+
+TRUNK
+-----
+
+Perforce location: //InstrumentDriver/Drivers/IVI/Certified/DCPwr/agn6k7kni/trunk/...@1389031249 (2014/01/06 12:00:49)
+
+Build Machine: IVI-IDB-MACHINE.amer.corp.natinst.com
+User Name: Juanita Palomar(jpalomar@amer.corp.natinst.com)
+
+CHANGELISTS
+-----------
+
+The following changes were made to the trunk since the last export:
+
+Change 8973667 on 2014/01/06 12:00:49 by jpalomar@IDB_jpalomar''
+Change Type on 1969/12/31 18:01:03 by @'reneamed branch 9.0 since copyr'
+Change 8973659 on 2014/01/06 11:59:21 by jpalomar@IDB_jpalomar''
+Change Type on 1969/12/31 18:01:03 by @'branching to released
+'
+
+Build Tools
+-----------
+
+The following Tools & ADEs were used to build this export:
+
+IVI Driver Builder 2.2.4.5
+LabWindows/CVI 9.1.0
+LabVIEW 2010 f2
+LabVIEW 2010 (64-bit)
+LabVIEW 2011
+LabVIEW 2011 (64-bit)
+LabVIEW 2012 f3
+LabVIEW 2012 f3 (64-bit)
+LabVIEW 2013
+LabVIEW 2013 (64-bit)

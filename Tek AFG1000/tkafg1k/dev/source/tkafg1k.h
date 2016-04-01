@@ -200,8 +200,8 @@ extern "C" {
 #define TKAFG1K_VAL_WFM_SINE                                    IVIFGEN_VAL_WFM_SINE
 #define TKAFG1K_VAL_WFM_SQUARE                                  IVIFGEN_VAL_WFM_SQUARE
     /*- Extended standard waveform -*/
-#define TKAFG1K_VAL_WFM_PULS                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 1)
-#define TKAFG1K_VAL_WFM_RAMP                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 2)
+#define TKAFG1K_VAL_WFM_RAMP                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 1)
+#define TKAFG1K_VAL_WFM_PULS                                    (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 2)
 #define TKAFG1K_VAL_WFM_PRN                                     (IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 3)
 #define TKAFG1K_VAL_WFM_STAIRDOWN										(IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 4) 
 #define TKAFG1K_VAL_WFM_STAIRUP										(IVIFGEN_VAL_WFM_SPECIFIC_EXT_BASE + 5) 
