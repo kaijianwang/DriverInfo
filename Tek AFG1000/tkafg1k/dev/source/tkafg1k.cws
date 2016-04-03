@@ -61,12 +61,12 @@ Window Z-Order = 4
 [File 0002]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/dev/source/tkafg1k.c"
 File Type = "CSource"
-Disk Date = 3542078796
+Disk Date = 3542349297
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 2
-Source Window State = "1,4438,4439,4438,0,8160,1,1,0,79,0,0,0,0,0,25,4419,0,4438,0,609,984,1,0,"
+Window Z-Order = 1
+Source Window State = "1,4438,4439,4438,0,8160,1,1,0,141,0,0,0,0,0,37,4517,0,4438,0,609,984,1,0,"
 Breakpoint 0001 = "2520,0,enabled,"
 Breakpoint 0002 = "2566,0,enabled,"
 Breakpoint 0003 = "2808,0,enabled,"
@@ -94,12 +94,12 @@ Breakpoint 0023 = "8894,0,enabled,"
 [File 0003]
 Path = "/c/Users/kawang/Documents/DriverInfo/Tek AFG1000/tkafg1k/dev/source/tkafg1k.h"
 File Type = "Include"
-Disk Date = 3542341574
+Disk Date = 3542349310
 In Projects = "1,"
 Window Top = 32
 Window Left = 10
-Window Z-Order = 1
-Source Window State = "1,202,202,202,24,28,28,1,0,142,0,0,0,0,0,37,161,0,192,49,494,984,1,0,"
+Window Z-Order = 2
+Source Window State = "1,202,202,202,24,28,28,1,0,80,0,0,0,0,0,20,147,0,192,49,494,984,1,0,"
 
 [File 0004]
 Path = "/c/Program Files (x86)/National Instruments/Shared/CVI/include/visatype.h"
